@@ -47,7 +47,7 @@ class LoginScreen extends StatelessWidget {
             // TODO: Remake the button for responsiveness
             InkWell(
               onTap: () {
-                context.go('/');
+                context.go('/home');
               },
               child: Container(
                 height: 50,

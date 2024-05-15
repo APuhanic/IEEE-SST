@@ -11,9 +11,9 @@ class MainApp extends StatelessWidget {
     SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
       statusBarColor: AppColors.background,
       statusBarIconBrightness: Brightness.dark,
-      systemNavigationBarColor: AppColors.background,
+      systemNavigationBarColor: AppColors.white,
       systemNavigationBarIconBrightness: Brightness.dark,
-      systemNavigationBarDividerColor: AppColors.background,
+      systemNavigationBarDividerColor: AppColors.white,
     ));
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,

@@ -27,7 +27,7 @@ class Header extends StatelessWidget {
         Expanded(child: Container()),
         GestureDetector(
           onTap: () {
-            context.go('/login');
+            context.go('/');
           },
           child: Image.asset(
             'assets/images/user-profile.png',

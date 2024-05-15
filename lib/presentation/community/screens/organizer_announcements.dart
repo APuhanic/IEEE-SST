@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:ieee_sst/data/constants/text_styles.dart';
-import 'package:ieee_sst/presentation/community/widgets/community_screen_button.dart';
 
-class CommunityScreen extends StatelessWidget {
-  const CommunityScreen({
+class OrganizerAnnouncements extends StatelessWidget {
+  const OrganizerAnnouncements({
     super.key,
   });
 
@@ -28,17 +27,8 @@ class CommunityScreen extends StatelessWidget {
                 ),
               ],
             ),
+            Text('Organizer Announcements', style: AppTextStyle.lightText),
             const SizedBox(height: 24),
-            const CommunityScreenButton(
-              icon: Icons.group,
-              title: 'Organizer announcements',
-              description: 'Announcements from the organizers',
-            ),
-            const CommunityScreenButton(
-              icon: Icons.question_answer,
-              title: 'Ask organizers',
-              description: 'Ask questions to the organizers',
-            ),
           ],
         ),
       ),
