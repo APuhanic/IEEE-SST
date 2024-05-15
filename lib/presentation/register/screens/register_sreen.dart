@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:ieee_sst/data/constants/app_colors.dart';
 import 'package:ieee_sst/data/constants/text_styles.dart';
 import 'package:ieee_sst/presentation/login/widgets/email_input.dart';
 import 'package:ieee_sst/presentation/login/widgets/password_input.dart';
+import 'package:ieee_sst/presentation/register/widgets/user_name.dart';
 
-class LoginScreen extends StatelessWidget {
-  const LoginScreen({
+class RegisterScreen extends StatelessWidget {
+  const RegisterScreen({
     super.key,
   });
 
@@ -17,11 +17,11 @@ class LoginScreen extends StatelessWidget {
         padding: const EdgeInsets.all(32.0),
         child: Column(
           children: [
-            const SizedBox(height: 40),
+            const SizedBox(height: 32),
             Align(
               alignment: Alignment.centerLeft,
               child: Text(
-                'IEEE SST',
+                'Register Account',
                 style: AppTextStyle.header,
               ),
             ),
@@ -30,6 +30,8 @@ class LoginScreen extends StatelessWidget {
               child: Text('Fill your details'),
             ),
             const SizedBox(height: 40),
+            const UserNameInput(),
+            const SizedBox(height: 24),
             const EmailInput(),
             const SizedBox(height: 24),
             const PasswordInput(),
@@ -46,9 +48,7 @@ class LoginScreen extends StatelessWidget {
             const SizedBox(height: 24),
             // TODO: Remake the button for responsiveness
             InkWell(
-              onTap: () {
-                context.go('/');
-              },
+              onTap: () {},
               child: Container(
                 height: 50,
                 width: double.infinity,
@@ -57,7 +57,7 @@ class LoginScreen extends StatelessWidget {
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Center(
-                  child: Text("LOG IN", style: AppTextStyle.button),
+                  child: Text("SIGN UP", style: AppTextStyle.button),
                 ),
               ),
             ),
@@ -107,12 +107,12 @@ class LoginScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  'New user?',
+                  'Already Have an Account?',
                   style: AppTextStyle.lightText,
                 ),
                 TextButton(
                   onPressed: () {},
-                  child: Text('Create account',
+                  child: Text('Log In',
                       style: AppTextStyle.lightText.copyWith(
                         fontWeight: FontWeight.w500,
                       )),

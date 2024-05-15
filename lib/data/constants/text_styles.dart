@@ -26,4 +26,22 @@ class AppTextStyle {
     color: AppColors.white,
     fontWeight: FontWeight.normal,
   );
+
+  static TextStyle titleLarge = const TextStyle(
+    fontSize: 20,
+    color: AppColors.black,
+    fontWeight: FontWeight.bold,
+  );
+
+  static TextStyle titleSmall = const TextStyle(
+    fontSize: 16,
+    color: AppColors.black,
+    fontWeight: FontWeight.bold,
+  );
+
+  static TextStyle blueText = const TextStyle(
+    fontSize: 12,
+    color: AppColors.primary,
+    fontWeight: FontWeight.normal,
+  );
 }
