@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:ieee_sst/presentation/attendees/screens/attendees_screen.dart';
 import 'package:ieee_sst/presentation/bottom_nav_bar/widgets/scaffhold_with_nav_bar.dart';
 import 'package:ieee_sst/presentation/community/screens/community_screen.dart';
 import 'package:ieee_sst/presentation/community/screens/organizer_announcements.dart';
 import 'package:ieee_sst/presentation/home/screens/home_screen.dart';
 import 'package:ieee_sst/presentation/login/screens/login_screen.dart';
 import 'package:ieee_sst/presentation/messages/screens/messages_screen.dart';
+import 'package:ieee_sst/presentation/register/screens/register_sreen.dart';
 
+// TODO: Refactor this with Bloc and Dependency Injection
 final _rootNavigatorKey = GlobalKey<NavigatorState>();
 final _shellNavigatorHomeKey =
     GlobalKey<NavigatorState>(debugLabel: 'ShellNavigatorHomeKey');
@@ -17,6 +20,7 @@ final _shellNavigatorMessagesKey =
 final _shellNavigatorAttendeesKey =
     GlobalKey<NavigatorState>(debugLabel: 'ShellNavigatorAttendeesKey');
 
+// TODO: Refactor this with Bloc and Dependency Injection
 GoRouter router = GoRouter(
   navigatorKey: _rootNavigatorKey,
   initialLocation: '/',
@@ -26,6 +30,13 @@ GoRouter router = GoRouter(
       pageBuilder: (context, state) => const MaterialPage(
         key: ValueKey('LoginScreen'),
         child: LoginScreen(),
+      ),
+    ),
+    GoRoute(
+      path: '/register',
+      pageBuilder: (context, state) => const MaterialPage(
+        key: ValueKey('RegisterScreen'),
+        child: RegisterScreen(),
       ),
     ),
     StatefulShellRoute.indexedStack(
@@ -77,6 +88,18 @@ GoRouter router = GoRouter(
                   ),
                 ),
               ],
+            ),
+          ],
+        ),
+        StatefulShellBranch(
+          navigatorKey: _shellNavigatorAttendeesKey,
+          routes: [
+            GoRoute(
+              path: '/attendees',
+              pageBuilder: (context, state) => const MaterialPage(
+                key: ValueKey('AttendeesScreen'),
+                child: AttendeesScreen(),
+              ),
             ),
           ],
         ),

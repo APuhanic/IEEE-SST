@@ -111,7 +111,9 @@ class LoginScreen extends StatelessWidget {
                   style: AppTextStyle.lightText,
                 ),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    context.go('/register');
+                  },
                   child: Text('Create account',
                       style: AppTextStyle.lightText.copyWith(
                         fontWeight: FontWeight.w500,

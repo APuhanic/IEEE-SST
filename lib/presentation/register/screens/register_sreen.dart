@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:ieee_sst/data/constants/app_colors.dart';
 import 'package:ieee_sst/data/constants/text_styles.dart';
 import 'package:ieee_sst/presentation/login/widgets/email_input.dart';
@@ -111,7 +112,7 @@ class RegisterScreen extends StatelessWidget {
                   style: AppTextStyle.lightText,
                 ),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () => context.go('/'),
                   child: Text('Log In',
                       style: AppTextStyle.lightText.copyWith(
                         fontWeight: FontWeight.w500,

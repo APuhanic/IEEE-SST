@@ -44,4 +44,10 @@ class AppTextStyle {
     color: AppColors.primary,
     fontWeight: FontWeight.normal,
   );
+
+  static TextStyle tagText = const TextStyle(
+    fontSize: 12,
+    color: AppColors.white,
+    fontWeight: FontWeight.normal,
+  );
 }

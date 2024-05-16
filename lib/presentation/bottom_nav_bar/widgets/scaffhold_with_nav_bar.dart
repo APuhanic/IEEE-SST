@@ -8,6 +8,7 @@ class ScaffoldWithNavBar extends StatelessWidget {
     required this.navigationShell,
   });
 
+  // TODO: Refactor this with Bloc and Dependency Injection
   final StatefulNavigationShell navigationShell;
 
   void _goBranch(int index) {
