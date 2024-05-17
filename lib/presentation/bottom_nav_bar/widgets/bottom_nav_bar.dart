@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ieee_sst/data/constants/app_colors.dart';
 import 'package:ieee_sst/presentation/bottom_nav_bar/cubit/screen_index_cubit.dart';
 
+/// Bottom Navigation Bar
 class BottomNavBar extends StatelessWidget {
   const BottomNavBar({super.key, required this.onDestinationSelected});
 

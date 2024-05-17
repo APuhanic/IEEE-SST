@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
+/// UserContactTile is a widget that displays a user's contact information.
 class UserContactTile extends StatelessWidget {
+  /// Creates a UserContactTile.
   const UserContactTile({super.key});
 
   @override
@@ -30,7 +32,7 @@ class UserContactTile extends StatelessWidget {
                 ),
               ),
             ],
-          )
+          ),
         ],
       ),
     );

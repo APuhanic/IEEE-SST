@@ -3,6 +3,8 @@ import 'package:ieee_sst/data/constants/app_colors.dart';
 import 'package:ieee_sst/data/constants/text_styles.dart';
 
 class UserProfileTile extends StatelessWidget {
+  /// Displays the user profile tile with user name, status and role
+  /// and a star icon to indicate the user is a speaker
   const UserProfileTile({super.key});
 
   @override

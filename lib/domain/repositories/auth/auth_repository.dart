@@ -1,7 +1,9 @@
+import 'package:supabase_flutter/supabase_flutter.dart';
+
 abstract class AuthenticationRepository {
-  Future signInWithEmailAndPassword(String email, String password);
-  Future signUpWithEmailAndPassword(String email, String password);
-  Future signOut();
-  Future isSignedIn();
+  Future<void> signInWithEmailAndPassword(String email, String password);
+  Future<void> signUpWithEmailAndPassword(String email, String password);
+  Future<void> signOut();
   Future<String> getUser();
+  Future<User> getCurrentUser();
 }

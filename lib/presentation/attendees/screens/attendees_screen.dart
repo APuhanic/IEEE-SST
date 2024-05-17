@@ -4,9 +4,10 @@ import 'package:ieee_sst/data/constants/text_styles.dart';
 import 'package:ieee_sst/presentation/attendees/widgets/user_profile_tile.dart';
 
 class AttendeesScreen extends StatelessWidget {
-  const AttendeesScreen({
-    super.key,
-  });
+  /// Screen to display the list of attendees
+  /// with search and filter options
+  /// and user profile tiles
+  const AttendeesScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

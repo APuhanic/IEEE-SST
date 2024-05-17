@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:ieee_sst/presentation/attendees/screens/attendees_screen.dart';
-import 'package:ieee_sst/presentation/bottom_nav_bar/widgets/scaffhold_with_nav_bar.dart';
+import 'package:ieee_sst/presentation/bottom_nav_bar/widgets/scaffold_with_nav_bar.dart';
 import 'package:ieee_sst/presentation/community/screens/community_screen.dart';
 import 'package:ieee_sst/presentation/community/screens/organizer_announcements.dart';
 import 'package:ieee_sst/presentation/home/screens/home_screen.dart';

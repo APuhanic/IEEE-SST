@@ -57,7 +57,7 @@ class LoginScreen extends StatelessWidget {
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Center(
-                  child: Text("LOG IN", style: AppTextStyle.button),
+                  child: Text('LOG IN', style: AppTextStyle.button),
                 ),
               ),
             ),
