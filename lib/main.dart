@@ -20,6 +20,7 @@ Future<void> main() async {
 
   runApp(const MainApp());
 
-  FlutterError.onError = (FlutterErrorDetails details) => getIt<Logger>().e(
-      'Unhandled Flutter error: ${details.exception}'); //TODO : Remove this line
+  // Handle uncaught errors
+  FlutterError.onError = (FlutterErrorDetails details) =>
+      getIt<Logger>().e('Unhandled Flutter error: ${details.exception}');
 }

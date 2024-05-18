@@ -2,7 +2,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 import 'package:logger/logger.dart';
 
-/// GlobalBlocObserver for logging Bloc events
+/// GlobalBlocObserver for logging Bloc events and states
 @singleton
 class GlobalBlocObserver extends BlocObserver {
   final Logger logger;

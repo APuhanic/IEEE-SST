@@ -26,6 +26,7 @@ class ScaffoldWithNavBar extends StatelessWidget {
         key: const ValueKey('BottomNavBar'),
         onDestinationSelected: _goBranch,
       ),
+      extendBody: true,
     );
   }
 }

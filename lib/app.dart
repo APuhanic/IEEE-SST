@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:ieee_sst/data/constants/app_colors.dart';
-import 'package:ieee_sst/data/routes/routes.dart';
+import 'package:ieee_sst/data/router/router.dart';
+import 'package:ieee_sst/di/dependency_injection.dart';
 
 class MainApp extends StatelessWidget {
   const MainApp({super.key});
@@ -23,7 +24,7 @@ class MainApp extends StatelessWidget {
         scaffoldBackgroundColor: AppColors.background,
         fontFamily: 'Poppins',
       ),
-      routerConfig: router,
+      routerConfig: getIt<AppRouter>().router,
       builder: (context, child) => SafeArea(child: child!),
     );
   }

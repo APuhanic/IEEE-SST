@@ -25,7 +25,9 @@ class RegistrationBloc extends Bloc<RegistrationEvent, RegistrationState> {
       register: (email, password, userName) async {
         try {
           await _supabaseAuthRepository.signUpWithEmailAndPassword(
-              email, password);
+            email,
+            password,
+          );
           emit(const RegistrationState.success());
         } catch (e) {
           emit(RegistrationState.error(e.toString()));
