@@ -2,6 +2,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:ieee_sst/domain/repositories/auth/auth_repository.dart';
 import 'package:injectable/injectable.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 part 'registration_event.dart';
 part 'registration_state.dart';
@@ -29,8 +30,8 @@ class RegistrationBloc extends Bloc<RegistrationEvent, RegistrationState> {
             password,
           );
           emit(const RegistrationState.success());
-        } catch (e) {
-          emit(RegistrationState.error(e.toString()));
+        } on AuthException catch (e) {
+          emit(RegistrationState.error(e.message));
         }
       },
     );

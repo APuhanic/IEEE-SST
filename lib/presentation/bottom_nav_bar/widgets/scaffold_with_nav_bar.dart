@@ -8,7 +8,6 @@ class ScaffoldWithNavBar extends StatelessWidget {
     required this.navigationShell,
   });
 
-  // TODO: Refactor this with Bloc and Dependency Injection
   final StatefulNavigationShell navigationShell;
 
   void _goBranch(int index) {
@@ -22,6 +21,7 @@ class ScaffoldWithNavBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: navigationShell,
+      resizeToAvoidBottomInset: true,
       bottomNavigationBar: BottomNavBar(
         key: const ValueKey('BottomNavBar'),
         onDestinationSelected: _goBranch,

@@ -4,7 +4,6 @@ import 'package:go_router/go_router.dart';
 import 'package:ieee_sst/data/constants/app_colors.dart';
 import 'package:ieee_sst/data/constants/text_styles.dart';
 import 'package:ieee_sst/di/dependency_injection.dart';
-import 'package:ieee_sst/presentation/login/widgets/email_input.dart';
 import 'package:ieee_sst/presentation/login/widgets/password_input.dart';
 import 'package:ieee_sst/presentation/register/bloc/registration_bloc.dart';
 import 'package:ieee_sst/presentation/register/cubit/confirm_password_cubit/confirm_password_cubit.dart';
@@ -41,7 +40,6 @@ class RegisterScreen extends StatelessWidget {
         )
       ],
       child: Scaffold(
-        resizeToAvoidBottomInset: false,
         body: Padding(
           padding: const EdgeInsets.all(32.0),
           child: BlocConsumer<RegistrationBloc, RegistrationState>(
@@ -77,30 +75,31 @@ class RegisterScreen extends StatelessWidget {
                 const SizedBox(height: 40),
                 const UserNameInput(),
                 const SizedBox(height: 24),
-                const EmailInput(),
-                const SizedBox(height: 24),
                 const PasswordInput(),
                 const SizedBox(height: 24),
                 const ConfirmPasswordInput(),
+                Align(
+                  alignment: Alignment.centerRight,
+                  child: TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      'Forgot Password?',
+                      style: AppTextStyle.lightText,
+                    ),
+                  ),
+                ),
                 const SizedBox(height: 24),
                 const RegisterButton(),
                 const SizedBox(height: 24),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text('- Or Continue With -', style: AppTextStyle.lightText),
+                    Text(
+                      '- Or Continue With -',
+                      style: AppTextStyle.lightText,
+                    ),
                   ],
                 ),
-                const SizedBox(height: 24),
-                const Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    _GoogleSignUp(),
-                    SizedBox(width: 24),
-                    _FacebookSignUp(),
-                  ],
-                ),
-                const SizedBox(height: 24),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -121,46 +120,6 @@ class RegisterScreen extends StatelessWidget {
             ),
           ),
         ),
-      ),
-    );
-  }
-}
-
-class _FacebookSignUp extends StatelessWidget {
-  const _FacebookSignUp();
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 60,
-      width: 60,
-      decoration: BoxDecoration(
-        color: const Color.fromRGBO(68, 96, 160, 1),
-        borderRadius: BorderRadius.circular(20),
-      ),
-      child: IconButton(
-        onPressed: () {},
-        icon: Image.asset('assets/images/facebook-logo.png'),
-      ),
-    );
-  }
-}
-
-class _GoogleSignUp extends StatelessWidget {
-  const _GoogleSignUp();
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 60,
-      width: 60,
-      decoration: BoxDecoration(
-        color: AppColors.white,
-        borderRadius: BorderRadius.circular(20),
-      ),
-      child: IconButton(
-        onPressed: () {},
-        icon: Image.asset('assets/images/google-logo.png'),
       ),
     );
   }

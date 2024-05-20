@@ -3,6 +3,6 @@ import 'package:injectable/injectable.dart';
 
 @injectable
 class PasswordInputCubit extends Cubit<String> {
-  PasswordInputCubit() : super('');
+  PasswordInputCubit() : super('asdfasdf');
   void passwordChanged(String password) => emit(password);
 }

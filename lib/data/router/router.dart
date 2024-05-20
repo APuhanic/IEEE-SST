@@ -18,7 +18,7 @@ class AppRouter {
   AppRouter(this._navigatorKeyManager);
   GoRouter get router => GoRouter(
         navigatorKey: _navigatorKeyManager.rootNavigatorKey,
-        initialLocation: '/',
+        initialLocation: '/home',
         routes: [
           GoRoute(
             path: RoutePaths.login,

@@ -16,6 +16,7 @@ class PasswordInput extends StatelessWidget {
       child: TextFormField(
         onChanged: (value) =>
             context.read<PasswordInputCubit>().passwordChanged(value),
+        obscureText: true,
         decoration: InputDecoration(
           hintText: 'Password',
           hintStyle: AppTextStyle.textForm,

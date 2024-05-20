@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ieee_sst/data/constants/app_colors.dart';
 import 'package:ieee_sst/data/constants/text_styles.dart';
-import 'package:ieee_sst/presentation/register/cubit/email_input_cubit.dart';
+import 'package:ieee_sst/presentation/register/cubit/password_input_cubit.dart';
 
-class EmailInput extends StatelessWidget {
-  const EmailInput({
+class ConfirmPasswordInput extends StatelessWidget {
+  const ConfirmPasswordInput({
     super.key,
   });
 
@@ -14,16 +14,16 @@ class EmailInput extends StatelessWidget {
     return SizedBox(
       height: 60,
       child: TextFormField(
-        keyboardType: TextInputType.emailAddress,
         onChanged: (value) =>
-            context.read<EmailInputCubit>().emailChanged(value),
+            context.read<PasswordInputCubit>().passwordChanged(value),
+        obscureText: true,
         decoration: InputDecoration(
-          hintText: 'Email Address',
+          hintText: 'Confirm Password',
           hintStyle: AppTextStyle.textForm,
           filled: true,
           fillColor: AppColors.white,
           prefixIcon: const Icon(
-            Icons.mail_outline,
+            Icons.lock_outline,
             color: AppColors.grayText,
           ),
           border: OutlineInputBorder(
@@ -31,6 +31,8 @@ class EmailInput extends StatelessWidget {
             borderSide: BorderSide.none,
           ),
         ),
+        enableSuggestions: false,
+        autocorrect: false,
       ),
     );
   }

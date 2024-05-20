@@ -3,6 +3,6 @@ import 'package:injectable/injectable.dart';
 
 @injectable
 class EmailInputCubit extends Cubit<String> {
-  EmailInputCubit() : super('');
+  EmailInputCubit() : super('a@a.comz');
   void emailChanged(String email) => emit(email);
 }

@@ -4,88 +4,104 @@ import 'package:go_router/go_router.dart';
 import 'package:ieee_sst/data/constants/app_colors.dart';
 import 'package:ieee_sst/data/constants/text_styles.dart';
 import 'package:ieee_sst/di/dependency_injection.dart';
+import 'package:ieee_sst/presentation/login/bloc/login_bloc.dart';
 import 'package:ieee_sst/presentation/login/widgets/email_input.dart';
+import 'package:ieee_sst/presentation/login/widgets/login_button.dart';
 import 'package:ieee_sst/presentation/login/widgets/password_input.dart';
+import 'package:ieee_sst/presentation/login/widgets/register_account_link.dart';
 import 'package:ieee_sst/presentation/register/cubit/email_input_cubit.dart';
 import 'package:ieee_sst/presentation/register/cubit/password_input_cubit.dart';
+import 'package:logger/logger.dart';
 
 class LoginScreen extends StatelessWidget {
-  const LoginScreen({
-    super.key,
-  });
+  const LoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      body: Padding(
-        padding: const EdgeInsets.all(32.0),
-        child: MultiBlocProvider(
-          providers: [
-            BlocProvider<EmailInputCubit>(
-              create: (_) => getIt<EmailInputCubit>(),
-            ),
-            BlocProvider<PasswordInputCubit>(
-              create: (_) => getIt<PasswordInputCubit>(),
-            ),
-          ],
-          child: Column(
-            children: [
-              const SizedBox(height: 40),
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  'IEEE SST',
-                  style: AppTextStyle.header,
-                ),
-              ),
-              const Align(
-                alignment: Alignment.centerLeft,
-                child: Text('Fill your details'),
-              ),
-              const SizedBox(height: 40),
-              const EmailInput(),
-              const SizedBox(height: 24),
-              const PasswordInput(),
-              Align(
-                alignment: Alignment.centerRight,
-                child: TextButton(
-                  onPressed: () {},
-                  child: Text(
-                    'Forgot Password?',
-                    style: AppTextStyle.lightText,
-                  ),
-                ),
-              ),
-              const SizedBox(height: 24),
-              SizedBox(
-                height: 50,
-                width: double.infinity,
-                child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      backgroundColor: AppColors.primary,
+      body: MultiBlocProvider(
+        providers: [
+          BlocProvider(
+            create: (_) => getIt<LoginBloc>(),
+          ),
+          BlocProvider<EmailInputCubit>(
+            create: (_) => getIt<EmailInputCubit>(),
+          ),
+          BlocProvider<PasswordInputCubit>(
+            create: (_) => getIt<PasswordInputCubit>(),
+          ),
+        ],
+        child: BlocConsumer<LoginBloc, LoginState>(
+          listener: (context, state) {
+            state.maybeWhen(
+              success: () {
+                Logger().i('Login successful');
+                context.go('/home');
+              },
+              error: (message) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text(message),
+                    backgroundColor: AppColors.primary,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
                     ),
-                    onPressed: () {
-                      context.go('/home');
-                    },
-                    child: Text('LOG IN', style: AppTextStyle.button)),
-              ),
-              const SizedBox(height: 24),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+                  ),
+                );
+              },
+              orElse: () {},
+            );
+          },
+          builder: (context, state) {
+            return Padding(
+              padding: const EdgeInsets.all(32),
+              child: Column(
                 children: [
-                  Text('- Or Continue With -', style: AppTextStyle.lightText),
+                  const SizedBox(height: 40),
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      'IEEE SST',
+                      style: AppTextStyle.header,
+                    ),
+                  ),
+                  const Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text('Fill your details'),
+                  ),
+                  const SizedBox(height: 40),
+                  const EmailInput(),
+                  const SizedBox(height: 24),
+                  const PasswordInput(),
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: TextButton(
+                      onPressed: () {},
+                      child: Text(
+                        'Forgot Password?',
+                        style: AppTextStyle.lightText,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 24),
+                  const LoginButton(),
+                  const SizedBox(height: 24),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text('- Or Continue With -',
+                          style: AppTextStyle.lightText),
+                    ],
+                  ),
+                  const SizedBox(height: 24),
+                  const _LoginProviders(),
+                  const SizedBox(height: 24),
+                  const RegisterAccountLink(),
                 ],
               ),
-              const SizedBox(height: 24),
-              const _LoginProviders(),
-              const SizedBox(height: 24),
-              const _RegisterAccountLink(),
-            ],
-          ),
+            );
+          },
         ),
       ),
     );
@@ -124,30 +140,6 @@ class _LoginProviders extends StatelessWidget {
             onPressed: () {},
             icon: Image.asset('assets/images/facebook-logo.png'),
           ),
-        ),
-      ],
-    );
-  }
-}
-
-class _RegisterAccountLink extends StatelessWidget {
-  const _RegisterAccountLink();
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Text(
-          'New user?',
-          style: AppTextStyle.lightText,
-        ),
-        TextButton(
-          onPressed: () => context.go('/register'),
-          child: Text('Create account',
-              style: AppTextStyle.lightText.copyWith(
-                fontWeight: FontWeight.w500,
-              )),
         ),
       ],
     );

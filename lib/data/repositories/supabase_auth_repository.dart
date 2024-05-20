@@ -1,3 +1,5 @@
+import 'package:ieee_sst/domain/models/supabase_user_model.dart';
+import 'package:ieee_sst/domain/models/user_model.dart';
 import 'package:ieee_sst/domain/repositories/auth/auth_repository.dart';
 import 'package:injectable/injectable.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -11,8 +13,9 @@ class SupabaseAuthenticationRepository implements AuthenticationRepository {
   Future<AuthResponse> signInWithEmailAndPassword(
     String email,
     String password,
-  ) async =>
-      supabase.auth.signInWithPassword(email: email, password: password);
+  ) async {
+    return supabase.auth.signInWithPassword(email: email, password: password);
+  }
 
   @override
   Future<AuthResponse> signUpWithEmailAndPassword(
@@ -28,5 +31,15 @@ class SupabaseAuthenticationRepository implements AuthenticationRepository {
   Future<String> getUser() async => supabase.auth.currentUser?.email ?? '';
 
   @override
-  Future<User> getCurrentUser() async => supabase.auth.currentUser!;
+  Future<BaseUserModel> getCurrentUser() async {
+    final user = supabase.auth.currentUser!;
+    return SupabaseUser(
+      id: user.id,
+      email: user.email,
+      appMetadata: user.appMetadata,
+      userMetadata: user.userMetadata,
+      aud: user.aud,
+      createdAt: user.createdAt,
+    );
+  }
 }
