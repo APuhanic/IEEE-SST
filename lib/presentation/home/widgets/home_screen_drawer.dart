@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:ieee_sst/data/constants/app_colors.dart';
+import 'package:ieee_sst/data/constants/route_paths.dart';
 import 'package:ieee_sst/di/dependency_injection.dart';
 import 'package:ieee_sst/presentation/login/bloc/auth_bloc.dart';
 
@@ -18,8 +19,7 @@ class HomeScreenDrawer extends StatelessWidget {
         listener: (context, state) {
           state.maybeWhen(
             unauthenticated: () {
-              // TODO: Change to routhe path class?
-              context.go('/');
+              context.go(RoutePaths.login);
             },
             error: (message) {
               ScaffoldMessenger.of(context).showSnackBar(
@@ -45,21 +45,15 @@ class HomeScreenDrawer extends StatelessWidget {
                 ),
                 ListTile(
                   title: const Text('Sponsors'),
-                  onTap: () {
-                    Navigator.pop(context);
-                  },
+                  onTap: () {},
                 ),
                 ListTile(
                   title: const Text('Photos'),
-                  onTap: () {
-                    Navigator.pop(context);
-                  },
+                  onTap: () {},
                 ),
                 ListTile(
                   title: const Text('Documents'),
-                  onTap: () {
-                    Navigator.pop(context);
-                  },
+                  onTap: () {},
                 ),
                 ListTile(
                   title: const Text('Log out',

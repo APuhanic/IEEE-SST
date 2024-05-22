@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ieee_sst/data/constants/app_colors.dart';
 import 'package:ieee_sst/data/constants/text_styles.dart';
-import 'package:ieee_sst/presentation/login/bloc/login/login_bloc.dart';
+import 'package:ieee_sst/presentation/register/bloc/registration_bloc.dart';
 
-class EmailInput extends StatelessWidget {
-  const EmailInput({
+class RegistrationEmailInput extends StatelessWidget {
+  const RegistrationEmailInput({
     super.key,
   });
 
@@ -15,8 +15,8 @@ class EmailInput extends StatelessWidget {
       height: 60,
       child: TextFormField(
         keyboardType: TextInputType.emailAddress,
-        onChanged: (value) => context.read<LoginBloc>().add(
-              LoginEvent.emailChanged(value),
+        onChanged: (value) => context.read<RegistrationBloc>().add(
+              RegistrationEvent.emailChanged(value),
             ),
         decoration: InputDecoration(
           hintText: 'Email Address',

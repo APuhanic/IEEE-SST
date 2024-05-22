@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:formz/formz.dart';
 import 'package:ieee_sst/data/constants/app_colors.dart';
 import 'package:ieee_sst/data/constants/text_styles.dart';
 import 'package:ieee_sst/presentation/login/bloc/login/login_bloc.dart';
@@ -29,7 +30,9 @@ class LoginButton extends StatelessWidget {
                   state.password.value,
                 ));
           },
-          child: Text('LOG IN', style: AppTextStyle.button)),
+          child: state.status.isInProgress
+              ? const CircularProgressIndicator()
+              : Text('Log in', style: AppTextStyle.button)),
     );
   }
 }

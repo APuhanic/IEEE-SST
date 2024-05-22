@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
 import 'package:ieee_sst/data/constants/app_colors.dart';
 import 'package:ieee_sst/presentation/login/bloc/auth_bloc.dart';
 
@@ -48,9 +47,7 @@ class Header extends StatelessWidget {
             ),
             Expanded(child: Container()),
             GestureDetector(
-              onTap: () {
-                context.go('/');
-              },
+              onTap: () {},
               child: Image.asset(
                 'assets/images/user-profile.png',
                 height: 50,

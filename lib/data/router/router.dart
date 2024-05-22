@@ -106,8 +106,6 @@ class AppRouter {
         ],
       );
 
-  get logger => null;
-
   // TODO: Remove this and implement the auth bloc redirection
   getInitialRoute() {
     final session = _supabaseClient.auth.currentSession;

@@ -2,26 +2,29 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ieee_sst/data/constants/app_colors.dart';
 import 'package:ieee_sst/data/constants/text_styles.dart';
-import 'package:ieee_sst/presentation/register/bloc/registration_bloc.dart';
+import 'package:ieee_sst/presentation/login/bloc/login/login_bloc.dart';
 
-class UserNameInput extends StatelessWidget {
-  const UserNameInput({super.key});
+class LoginPasswordInput extends StatelessWidget {
+  const LoginPasswordInput({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: 60,
       child: TextFormField(
-        onChanged: (value) => context
-            .read<RegistrationBloc>()
-            .add(RegistrationEvent.userNameChanged(value)),
+        onChanged: (value) => context.read<LoginBloc>().add(
+              LoginEvent.passwordChanged(value),
+            ),
+        obscureText: true,
         decoration: InputDecoration(
-          hintText: 'User Name',
+          hintText: 'Password',
           hintStyle: AppTextStyle.textForm,
           filled: true,
           fillColor: AppColors.white,
           prefixIcon: const Icon(
-            Icons.person_3_outlined,
+            Icons.lock_outline,
             color: AppColors.grayText,
           ),
           border: OutlineInputBorder(
@@ -29,6 +32,8 @@ class UserNameInput extends StatelessWidget {
             borderSide: BorderSide.none,
           ),
         ),
+        enableSuggestions: false,
+        autocorrect: false,
       ),
     );
   }

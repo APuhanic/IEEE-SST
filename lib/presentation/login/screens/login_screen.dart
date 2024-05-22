@@ -6,9 +6,9 @@ import 'package:ieee_sst/data/constants/app_colors.dart';
 import 'package:ieee_sst/data/constants/text_styles.dart';
 import 'package:ieee_sst/di/dependency_injection.dart';
 import 'package:ieee_sst/presentation/login/bloc/login/login_bloc.dart';
-import 'package:ieee_sst/presentation/login/widgets/email_input.dart';
+import 'package:ieee_sst/presentation/login/widgets/login_email_input.dart';
 import 'package:ieee_sst/presentation/login/widgets/login_button.dart';
-import 'package:ieee_sst/presentation/login/widgets/password_input.dart';
+import 'package:ieee_sst/presentation/login/widgets/login_password_input.dart';
 import 'package:ieee_sst/presentation/login/widgets/register_account_link.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -30,15 +30,18 @@ class LoginScreen extends StatelessWidget {
               context.go('/home');
             }
             if (state.status.isFailure) {
-              ScaffoldMessenger.of(context)
-                ..hideCurrentSnackBar()
-                ..showSnackBar(
-                  const SnackBar(
-                    content: Text('Authentication Failure'),
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text(state.errorMessage),
+                  backgroundColor: AppColors.primary,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
                   ),
-                );
+                ),
+              );
             }
           },
+          listenWhen: (previous, current) => previous.status != current.status,
           builder: (context, state) {
             return Padding(
               padding: const EdgeInsets.all(32),
@@ -57,9 +60,9 @@ class LoginScreen extends StatelessWidget {
                     child: Text('Fill your details'),
                   ),
                   const SizedBox(height: 40),
-                  const EmailInput(),
+                  const LoginEmailInput(),
                   const SizedBox(height: 24),
-                  const PasswordInput(),
+                  const LoginPasswordInput(),
                   Align(
                     alignment: Alignment.centerRight,
                     child: TextButton(

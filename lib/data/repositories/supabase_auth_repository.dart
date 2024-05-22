@@ -17,16 +17,14 @@ class SupabaseAuthRepository implements AuthenticationRepository {
   Future<AuthResponse> signInWithEmailAndPassword(
     String email,
     String password,
-  ) async =>
-      _supabase.auth.signInWithPassword(password: password, email: email);
+  ) async => _supabase.auth.signInWithPassword(email: email, password: password);
 
   /// Registration - Sign up with email and password.
   @override
-  Future<void> signUpWithEmailAndPassword(
+  Future<AuthResponse> signUpWithEmailAndPassword(
     String email,
     String password,
-  ) async =>
-      _supabase..auth.signUp(email: email, password: password);
+  ) async => _supabase.auth.signUp(email: email, password: password);
 
   /// Sign out the current user.
   @override

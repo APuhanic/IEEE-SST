@@ -3,9 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ieee_sst/data/constants/app_colors.dart';
 import 'package:ieee_sst/data/constants/text_styles.dart';
 import 'package:ieee_sst/presentation/register/bloc/registration_bloc.dart';
-import 'package:ieee_sst/presentation/register/cubit/email_input_cubit.dart';
-import 'package:ieee_sst/presentation/register/cubit/password_input_cubit.dart';
-import 'package:ieee_sst/presentation/register/cubit/username_input_cubit.dart';
 
 class RegisterButton extends StatelessWidget {
   const RegisterButton({
@@ -14,6 +11,8 @@ class RegisterButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final state = context.watch<RegistrationBloc>().state;
+
     return SizedBox(
       height: 50,
       width: double.infinity,
@@ -25,16 +24,11 @@ class RegisterButton extends StatelessWidget {
             backgroundColor: AppColors.primary,
           ),
           onPressed: () {
-            final userName = context.read<UserNameInputCubit>().state;
-            final email = context.read<EmailInputCubit>().state;
-            final password = context.read<PasswordInputCubit>().state;
-            context.read<RegistrationBloc>().add(
-                  RegistrationEvent.register(
-                    email: email,
-                    password: password,
-                    userName: userName,
-                  ),
-                );
+            context.read<RegistrationBloc>().add(RegistrationEvent.submitted(
+                  email: state.email.value,
+                  password: state.password.value,
+                  userName: state.userName.value,
+                ));
           },
           child: Text('SIGN UP', style: AppTextStyle.button)),
     );

@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:formz/formz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -7,7 +8,7 @@ import 'package:ieee_sst/data/models/text_input_models/email.dart';
 import 'package:ieee_sst/data/models/text_input_models/password.dart';
 import 'package:ieee_sst/domain/repositories/auth/auth_repository.dart';
 import 'package:injectable/injectable.dart';
-import 'package:logger/logger.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 part 'login_event.dart';
 part 'login_state.dart';
@@ -27,18 +28,19 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     _Submitted event,
     Emitter<LoginState> emit,
   ) async {
-    Logger().i('LoginBloc: _onSubmitted');
-    if (state.isValid) {
-      emit(state.copyWith(status: FormzSubmissionStatus.inProgress));
-      try {
-        await _authRepository.signInWithEmailAndPassword(
-          state.email.value,
-          state.password.value,
-        );
-        emit(state.copyWith(status: FormzSubmissionStatus.success));
-      } catch (e) {
-        emit(state.copyWith(status: FormzSubmissionStatus.failure));
-      }
+    // TODO: Implement FormzSubmissionStatus validation
+    emit(state.copyWith(status: FormzSubmissionStatus.inProgress));
+    try {
+      await _authRepository.signInWithEmailAndPassword(
+        state.email.value,
+        state.password.value,
+      );
+      emit(state.copyWith(status: FormzSubmissionStatus.success));
+    } on AuthException catch (e) {
+      emit(state.copyWith(
+        status: FormzSubmissionStatus.failure,
+        errorMessage: e.message,
+      ));
     }
   }
 
@@ -47,6 +49,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     Emitter<LoginState> emit,
   ) {
     final password = Password.dirty(event.password);
+
     emit(
       state.copyWith(
         password: password,

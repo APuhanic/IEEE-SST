@@ -118,7 +118,7 @@ class __$$SubmittedImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SubmittedImpl implements _Submitted {
+class _$SubmittedImpl with DiagnosticableTreeMixin implements _Submitted {
   const _$SubmittedImpl(this.email, this.password);
 
   @override
@@ -127,8 +127,17 @@ class _$SubmittedImpl implements _Submitted {
   final String password;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'LoginEvent.submitted(email: $email, password: $password)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'LoginEvent.submitted'))
+      ..add(DiagnosticsProperty('email', email))
+      ..add(DiagnosticsProperty('password', password));
   }
 
   @override
@@ -263,15 +272,23 @@ class __$$EmailChangedImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$EmailChangedImpl implements _EmailChanged {
+class _$EmailChangedImpl with DiagnosticableTreeMixin implements _EmailChanged {
   const _$EmailChangedImpl(this.email);
 
   @override
   final String email;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'LoginEvent.emailChanged(email: $email)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'LoginEvent.emailChanged'))
+      ..add(DiagnosticsProperty('email', email));
   }
 
   @override
@@ -402,15 +419,25 @@ class __$$PasswordChangedImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$PasswordChangedImpl implements _PasswordChanged {
+class _$PasswordChangedImpl
+    with DiagnosticableTreeMixin
+    implements _PasswordChanged {
   const _$PasswordChangedImpl(this.password);
 
   @override
   final String password;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'LoginEvent.passwordChanged(password: $password)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'LoginEvent.passwordChanged'))
+      ..add(DiagnosticsProperty('password', password));
   }
 
   @override
@@ -515,8 +542,8 @@ mixin _$LoginState {
   FormzSubmissionStatus get status => throw _privateConstructorUsedError;
   Email get email => throw _privateConstructorUsedError;
   Password get password => throw _privateConstructorUsedError;
-  bool get isSubmitting => throw _privateConstructorUsedError;
   bool get isValid => throw _privateConstructorUsedError;
+  String get errorMessage => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $LoginStateCopyWith<LoginState> get copyWith =>
@@ -533,8 +560,8 @@ abstract class $LoginStateCopyWith<$Res> {
       {FormzSubmissionStatus status,
       Email email,
       Password password,
-      bool isSubmitting,
-      bool isValid});
+      bool isValid,
+      String errorMessage});
 }
 
 /// @nodoc
@@ -553,8 +580,8 @@ class _$LoginStateCopyWithImpl<$Res, $Val extends LoginState>
     Object? status = null,
     Object? email = null,
     Object? password = null,
-    Object? isSubmitting = null,
     Object? isValid = null,
+    Object? errorMessage = null,
   }) {
     return _then(_value.copyWith(
       status: null == status
@@ -569,14 +596,14 @@ class _$LoginStateCopyWithImpl<$Res, $Val extends LoginState>
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as Password,
-      isSubmitting: null == isSubmitting
-          ? _value.isSubmitting
-          : isSubmitting // ignore: cast_nullable_to_non_nullable
-              as bool,
       isValid: null == isValid
           ? _value.isValid
           : isValid // ignore: cast_nullable_to_non_nullable
               as bool,
+      errorMessage: null == errorMessage
+          ? _value.errorMessage
+          : errorMessage // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -593,8 +620,8 @@ abstract class _$$LoginStateImplCopyWith<$Res>
       {FormzSubmissionStatus status,
       Email email,
       Password password,
-      bool isSubmitting,
-      bool isValid});
+      bool isValid,
+      String errorMessage});
 }
 
 /// @nodoc
@@ -611,8 +638,8 @@ class __$$LoginStateImplCopyWithImpl<$Res>
     Object? status = null,
     Object? email = null,
     Object? password = null,
-    Object? isSubmitting = null,
     Object? isValid = null,
+    Object? errorMessage = null,
   }) {
     return _then(_$LoginStateImpl(
       status: null == status
@@ -627,27 +654,27 @@ class __$$LoginStateImplCopyWithImpl<$Res>
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as Password,
-      isSubmitting: null == isSubmitting
-          ? _value.isSubmitting
-          : isSubmitting // ignore: cast_nullable_to_non_nullable
-              as bool,
       isValid: null == isValid
           ? _value.isValid
           : isValid // ignore: cast_nullable_to_non_nullable
               as bool,
+      errorMessage: null == errorMessage
+          ? _value.errorMessage
+          : errorMessage // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
 /// @nodoc
 
-class _$LoginStateImpl implements _LoginState {
+class _$LoginStateImpl with DiagnosticableTreeMixin implements _LoginState {
   const _$LoginStateImpl(
       {this.status = FormzSubmissionStatus.initial,
       this.email = const Email.pure(),
       this.password = const Password.pure(),
-      this.isSubmitting = false,
-      this.isValid = false});
+      this.isValid = false,
+      this.errorMessage = ''});
 
   @override
   @JsonKey()
@@ -660,14 +687,26 @@ class _$LoginStateImpl implements _LoginState {
   final Password password;
   @override
   @JsonKey()
-  final bool isSubmitting;
+  final bool isValid;
   @override
   @JsonKey()
-  final bool isValid;
+  final String errorMessage;
 
   @override
-  String toString() {
-    return 'LoginState(status: $status, email: $email, password: $password, isSubmitting: $isSubmitting, isValid: $isValid)';
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'LoginState(status: $status, email: $email, password: $password, isValid: $isValid, errorMessage: $errorMessage)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'LoginState'))
+      ..add(DiagnosticsProperty('status', status))
+      ..add(DiagnosticsProperty('email', email))
+      ..add(DiagnosticsProperty('password', password))
+      ..add(DiagnosticsProperty('isValid', isValid))
+      ..add(DiagnosticsProperty('errorMessage', errorMessage));
   }
 
   @override
@@ -679,14 +718,14 @@ class _$LoginStateImpl implements _LoginState {
             (identical(other.email, email) || other.email == email) &&
             (identical(other.password, password) ||
                 other.password == password) &&
-            (identical(other.isSubmitting, isSubmitting) ||
-                other.isSubmitting == isSubmitting) &&
-            (identical(other.isValid, isValid) || other.isValid == isValid));
+            (identical(other.isValid, isValid) || other.isValid == isValid) &&
+            (identical(other.errorMessage, errorMessage) ||
+                other.errorMessage == errorMessage));
   }
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, status, email, password, isSubmitting, isValid);
+      Object.hash(runtimeType, status, email, password, isValid, errorMessage);
 
   @JsonKey(ignore: true)
   @override
@@ -700,8 +739,8 @@ abstract class _LoginState implements LoginState {
       {final FormzSubmissionStatus status,
       final Email email,
       final Password password,
-      final bool isSubmitting,
-      final bool isValid}) = _$LoginStateImpl;
+      final bool isValid,
+      final String errorMessage}) = _$LoginStateImpl;
 
   @override
   FormzSubmissionStatus get status;
@@ -710,9 +749,9 @@ abstract class _LoginState implements LoginState {
   @override
   Password get password;
   @override
-  bool get isSubmitting;
-  @override
   bool get isValid;
+  @override
+  String get errorMessage;
   @override
   @JsonKey(ignore: true)
   _$$LoginStateImplCopyWith<_$LoginStateImpl> get copyWith =>

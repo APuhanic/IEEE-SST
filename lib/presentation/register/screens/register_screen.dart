@@ -1,18 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:formz/formz.dart';
 import 'package:go_router/go_router.dart';
 import 'package:ieee_sst/data/constants/app_colors.dart';
 import 'package:ieee_sst/data/constants/text_styles.dart';
 import 'package:ieee_sst/di/dependency_injection.dart';
-import 'package:ieee_sst/presentation/login/widgets/email_input.dart';
-import 'package:ieee_sst/presentation/login/widgets/password_input.dart';
 import 'package:ieee_sst/presentation/register/bloc/registration_bloc.dart';
-import 'package:ieee_sst/presentation/register/cubit/confirm_password_cubit/confirm_password_cubit.dart';
-import 'package:ieee_sst/presentation/register/cubit/email_input_cubit.dart';
-import 'package:ieee_sst/presentation/register/cubit/password_input_cubit.dart';
-import 'package:ieee_sst/presentation/register/cubit/username_input_cubit.dart';
 import 'package:ieee_sst/presentation/register/widgets/confirm_password_input.dart';
 import 'package:ieee_sst/presentation/register/widgets/register_button.dart';
+import 'package:ieee_sst/presentation/register/widgets/registration_email_input.dart';
+import 'package:ieee_sst/presentation/register/widgets/registration_password_input.dart';
 import 'package:ieee_sst/presentation/register/widgets/user_name_input.dart';
 
 class RegisterScreen extends StatelessWidget {
@@ -27,18 +24,6 @@ class RegisterScreen extends StatelessWidget {
         BlocProvider<RegistrationBloc>(
           create: (_) => getIt<RegistrationBloc>(),
         ),
-        BlocProvider<UserNameInputCubit>(
-          create: (_) => getIt<UserNameInputCubit>(),
-        ),
-        BlocProvider<EmailInputCubit>(
-          create: (_) => getIt<EmailInputCubit>(),
-        ),
-        BlocProvider<PasswordInputCubit>(
-          create: (_) => getIt<PasswordInputCubit>(),
-        ),
-        BlocProvider(
-          create: (_) => getIt<ConfirmPasswordCubit>(),
-        )
       ],
       child: Scaffold(
         resizeToAvoidBottomInset: false,
@@ -46,21 +31,23 @@ class RegisterScreen extends StatelessWidget {
           padding: const EdgeInsets.all(32.0),
           child: BlocConsumer<RegistrationBloc, RegistrationState>(
             listener: (context, state) {
-              state.maybeWhen(
-                success: () {
-                  context.go('/home');
-                },
-                error: (message) {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
-                      content: Text(message),
-                      backgroundColor: AppColors.primary,
+              if (state.status.isSuccess) {
+                context.go('/home');
+              }
+              if (state.status.isFailure) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text(state.errorMessage),
+                    backgroundColor: AppColors.primary,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
                     ),
-                  );
-                },
-                orElse: () {},
-              );
+                  ),
+                );
+              }
             },
+            listenWhen: (previous, current) =>
+                previous.status != current.status,
             builder: (context, state) => Column(
               children: [
                 Align(
@@ -77,9 +64,9 @@ class RegisterScreen extends StatelessWidget {
                 const SizedBox(height: 40),
                 const UserNameInput(),
                 const SizedBox(height: 24),
-                const EmailInput(),
+                const RegistrationEmailInput(),
                 const SizedBox(height: 24),
-                const PasswordInput(),
+                const RegistrationPasswordInput(),
                 const SizedBox(height: 24),
                 const ConfirmPasswordInput(),
                 const SizedBox(height: 24),
