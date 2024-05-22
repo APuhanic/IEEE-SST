@@ -19,7 +19,7 @@ class MainApp extends StatelessWidget {
       systemNavigationBarDividerColor: AppColors.white,
     ));
     return BlocProvider(
-      create: (context) => getIt<AuthBLoc>(),
+      create: (context) => getIt<AuthBloc>(),
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,
         title: 'IEEE SST',

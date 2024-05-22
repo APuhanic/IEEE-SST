@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:formz/formz.dart';
 import 'package:go_router/go_router.dart';
 import 'package:ieee_sst/data/constants/app_colors.dart';
 import 'package:ieee_sst/data/constants/text_styles.dart';
 import 'package:ieee_sst/di/dependency_injection.dart';
-import 'package:ieee_sst/presentation/login/bloc/auth_bloc.dart';
 import 'package:ieee_sst/presentation/login/bloc/login/login_bloc.dart';
 import 'package:ieee_sst/presentation/login/widgets/email_input.dart';
 import 'package:ieee_sst/presentation/login/widgets/login_button.dart';
 import 'package:ieee_sst/presentation/login/widgets/password_input.dart';
 import 'package:ieee_sst/presentation/login/widgets/register_account_link.dart';
-import 'package:logger/logger.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -25,26 +24,20 @@ class LoginScreen extends StatelessWidget {
             create: (_) => getIt<LoginBloc>(),
           ),
         ],
-        child: BlocConsumer<AuthBLoc, AuthState>(
+        child: BlocConsumer<LoginBloc, LoginState>(
           listener: (context, state) {
-            state.maybeWhen(
-              authenticated: () {
-                Logger().i('Login successful');
-                context.go('/home');
-              },
-              error: (message) {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
-                    content: Text(message),
-                    backgroundColor: AppColors.primary,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
+            if (state.status.isSuccess) {
+              context.go('/home');
+            }
+            if (state.status.isFailure) {
+              ScaffoldMessenger.of(context)
+                ..hideCurrentSnackBar()
+                ..showSnackBar(
+                  const SnackBar(
+                    content: Text('Authentication Failure'),
                   ),
                 );
-              },
-              orElse: () {},
-            );
+            }
           },
           builder: (context, state) {
             return Padding(

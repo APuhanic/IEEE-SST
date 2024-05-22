@@ -7,6 +7,7 @@ import 'package:ieee_sst/data/models/text_input_models/email.dart';
 import 'package:ieee_sst/data/models/text_input_models/password.dart';
 import 'package:ieee_sst/domain/repositories/auth/auth_repository.dart';
 import 'package:injectable/injectable.dart';
+import 'package:logger/logger.dart';
 
 part 'login_event.dart';
 part 'login_state.dart';
@@ -15,11 +16,9 @@ part 'login_bloc.freezed.dart';
 @injectable
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
   LoginBloc(this._authRepository) : super(const LoginState()) {
-    on<LoginEvent>((event, emit) {
-      on<_Submitted>(_onSubmitted);
-      on<_EmailChanged>(_onEmailChanged);
-      on<_PasswordChanged>(_onPasswordChanged);
-    });
+    on<_Submitted>(_onSubmitted);
+    on<_EmailChanged>(_onEmailChanged);
+    on<_PasswordChanged>(_onPasswordChanged);
   }
 
   final AuthenticationRepository _authRepository;
@@ -28,6 +27,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     _Submitted event,
     Emitter<LoginState> emit,
   ) async {
+    Logger().i('LoginBloc: _onSubmitted');
     if (state.isValid) {
       emit(state.copyWith(status: FormzSubmissionStatus.inProgress));
       try {

@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import 'package:ieee_sst/di/dependency_injection.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -11,7 +8,7 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashPageState extends State<SplashScreen> {
-  @override
+  /*@override
   void initState() {
     super.initState();
     _redirect();
@@ -29,7 +26,7 @@ class _SplashPageState extends State<SplashScreen> {
     } else {
       context.go('/home');
     }
-  }
+  }*/
 
   @override
   Widget build(BuildContext context) {

@@ -1,59 +1,70 @@
+import 'dart:async';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:ieee_sst/domain/models/user_model.dart';
 import 'package:ieee_sst/domain/repositories/auth/auth_repository.dart';
 import 'package:injectable/injectable.dart';
-import 'package:logger/logger.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
 
 part 'auth_event.dart';
 part 'auth_state.dart';
 part 'auth_bloc.freezed.dart';
 
 @injectable
-class AuthBLoc extends Bloc<AuthEvent, AuthState> {
-  AuthBLoc(this._supabaseAuthRepository) : super(const _Initial()) {
-    on<AuthEvent>(
-      _onLoginEvent,
+class AuthBloc extends Bloc<AuthEvent, AuthState> {
+  AuthBloc(this._supabaseAuthRepository) : super(const _Initial()) {
+    on<_OnInitialAuthEvent>(
+      _onInitialAuthEvent,
     );
+    on<_SignOut>(
+      _onSignOut,
+    );
+    on<_OnCurrentUserChanged>(
+      _onCurrentUserChanged,
+    );
+    _startUserSubscription();
   }
   final AuthenticationRepository _supabaseAuthRepository;
+  StreamSubscription<BaseUserModel?>? _authSubscription;
 
-  void _onLoginEvent(
+  void _onInitialAuthEvent(
     AuthEvent event,
     Emitter<AuthState> emit,
   ) async {
-    emit(const AuthState.loading());
-    await event.when(
-      login: (email, password) async {
-        try {
-          emit(const AuthState.loading());
-          await _supabaseAuthRepository.signInWithEmailAndPassword(
-            email,
-            password,
-          );
-          emit(const AuthState.authenticated());
-        } on AuthException catch (e) {
-          emit(AuthState.error(e.message));
-        }
-      },
-      getCurrentUser: () async {
-        try {
-          emit(const AuthState.loading());
-          final user = await _supabaseAuthRepository.getCurrentUser();
-          Logger().w(user);
-          emit(const AuthState.authenticated());
-        } on AuthException catch (e) {
-          emit(AuthState.error(e.message));
-        }
-      },
-      signOut: () async {
-        try {
-          await _supabaseAuthRepository.signOut();
-          emit(const AuthState.unauthenticated());
-        } on AuthException catch (e) {
-          emit(AuthState.error(e.message));
-        }
-      },
-    );
+    BaseUserModel? signedInUser = _supabaseAuthRepository.getCurrentUser();
+    if (signedInUser != null) {
+      emit(AuthState.authenticated(signedInUser));
+    } else {
+      emit(const AuthState.unauthenticated());
+    }
+  }
+
+  void _onSignOut(
+    AuthEvent event,
+    Emitter<AuthState> emit,
+  ) async {
+    await _supabaseAuthRepository.signOut();
+  }
+
+  void _startUserSubscription() {
+    _authSubscription =
+        _supabaseAuthRepository.getCurrentUserStream().listen((user) {
+      add(AuthEvent.onCurrentUserChanged(user));
+    });
+  }
+
+  void _onCurrentUserChanged(
+    _OnCurrentUserChanged event,
+    Emitter<AuthState> emit,
+  ) {
+    event.user != null
+        ? emit(AuthState.authenticated(event.user!))
+        : emit(const AuthState.unauthenticated());
+  }
+
+  @override
+  Future<void> close() {
+    _authSubscription?.cancel();
+    return super.close();
   }
 }

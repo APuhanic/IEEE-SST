@@ -13,8 +13,8 @@ class HomeScreenDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (_) => getIt<AuthBLoc>(),
-      child: BlocConsumer<AuthBLoc, AuthState>(
+      create: (_) => getIt<AuthBloc>(),
+      child: BlocConsumer<AuthBloc, AuthState>(
         listener: (context, state) {
           state.maybeWhen(
             unauthenticated: () {
@@ -67,7 +67,7 @@ class HomeScreenDrawer extends StatelessWidget {
                         color: AppColors.primary,
                       )),
                   onTap: () {
-                    context.read<AuthBLoc>().add(const AuthEvent.signOut());
+                    context.read<AuthBloc>().add(const AuthEvent.signOut());
                   },
                 ),
               ],

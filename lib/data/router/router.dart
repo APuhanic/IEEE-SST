@@ -11,7 +11,6 @@ import 'package:ieee_sst/presentation/login/screens/login_screen.dart';
 import 'package:ieee_sst/presentation/messages/screens/messages_screen.dart';
 import 'package:ieee_sst/presentation/register/screens/register_screen.dart';
 import 'package:injectable/injectable.dart';
-import 'package:logger/logger.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 @injectable
@@ -107,9 +106,11 @@ class AppRouter {
         ],
       );
 
+  get logger => null;
+
+  // TODO: Remove this and implement the auth bloc redirection
   getInitialRoute() {
     final session = _supabaseClient.auth.currentSession;
-    Logger().w('Session: $session');
     if (session == null || session.isExpired) {
       return RoutePaths.login;
     } else {

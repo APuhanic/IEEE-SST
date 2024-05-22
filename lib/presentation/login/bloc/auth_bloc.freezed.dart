@@ -18,45 +18,45 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$AuthEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String email, String password) login,
-    required TResult Function() getCurrentUser,
     required TResult Function() signOut,
+    required TResult Function(BaseUserModel? user) onCurrentUserChanged,
+    required TResult Function() onInitialAuthEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String email, String password)? login,
-    TResult? Function()? getCurrentUser,
     TResult? Function()? signOut,
+    TResult? Function(BaseUserModel? user)? onCurrentUserChanged,
+    TResult? Function()? onInitialAuthEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String email, String password)? login,
-    TResult Function()? getCurrentUser,
     TResult Function()? signOut,
+    TResult Function(BaseUserModel? user)? onCurrentUserChanged,
+    TResult Function()? onInitialAuthEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Login value) login,
-    required TResult Function(_GetCurrentUser value) getCurrentUser,
     required TResult Function(_SignOut value) signOut,
+    required TResult Function(_OnCurrentUserChanged value) onCurrentUserChanged,
+    required TResult Function(_OnInitialAuthEvent value) onInitialAuthEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Login value)? login,
-    TResult? Function(_GetCurrentUser value)? getCurrentUser,
     TResult? Function(_SignOut value)? signOut,
+    TResult? Function(_OnCurrentUserChanged value)? onCurrentUserChanged,
+    TResult? Function(_OnInitialAuthEvent value)? onInitialAuthEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Login value)? login,
-    TResult Function(_GetCurrentUser value)? getCurrentUser,
     TResult Function(_SignOut value)? signOut,
+    TResult Function(_OnCurrentUserChanged value)? onCurrentUserChanged,
+    TResult Function(_OnInitialAuthEvent value)? onInitialAuthEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -77,265 +77,6 @@ class _$AuthEventCopyWithImpl<$Res, $Val extends AuthEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-}
-
-/// @nodoc
-abstract class _$$LoginImplCopyWith<$Res> {
-  factory _$$LoginImplCopyWith(
-          _$LoginImpl value, $Res Function(_$LoginImpl) then) =
-      __$$LoginImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({String email, String password});
-}
-
-/// @nodoc
-class __$$LoginImplCopyWithImpl<$Res>
-    extends _$AuthEventCopyWithImpl<$Res, _$LoginImpl>
-    implements _$$LoginImplCopyWith<$Res> {
-  __$$LoginImplCopyWithImpl(
-      _$LoginImpl _value, $Res Function(_$LoginImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? email = null,
-    Object? password = null,
-  }) {
-    return _then(_$LoginImpl(
-      email: null == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String,
-      password: null == password
-          ? _value.password
-          : password // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$LoginImpl implements _Login {
-  const _$LoginImpl({required this.email, required this.password});
-
-  @override
-  final String email;
-  @override
-  final String password;
-
-  @override
-  String toString() {
-    return 'AuthEvent.login(email: $email, password: $password)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$LoginImpl &&
-            (identical(other.email, email) || other.email == email) &&
-            (identical(other.password, password) ||
-                other.password == password));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, email, password);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$LoginImplCopyWith<_$LoginImpl> get copyWith =>
-      __$$LoginImplCopyWithImpl<_$LoginImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String email, String password) login,
-    required TResult Function() getCurrentUser,
-    required TResult Function() signOut,
-  }) {
-    return login(email, password);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String email, String password)? login,
-    TResult? Function()? getCurrentUser,
-    TResult? Function()? signOut,
-  }) {
-    return login?.call(email, password);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String email, String password)? login,
-    TResult Function()? getCurrentUser,
-    TResult Function()? signOut,
-    required TResult orElse(),
-  }) {
-    if (login != null) {
-      return login(email, password);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Login value) login,
-    required TResult Function(_GetCurrentUser value) getCurrentUser,
-    required TResult Function(_SignOut value) signOut,
-  }) {
-    return login(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Login value)? login,
-    TResult? Function(_GetCurrentUser value)? getCurrentUser,
-    TResult? Function(_SignOut value)? signOut,
-  }) {
-    return login?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Login value)? login,
-    TResult Function(_GetCurrentUser value)? getCurrentUser,
-    TResult Function(_SignOut value)? signOut,
-    required TResult orElse(),
-  }) {
-    if (login != null) {
-      return login(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _Login implements AuthEvent {
-  const factory _Login(
-      {required final String email,
-      required final String password}) = _$LoginImpl;
-
-  String get email;
-  String get password;
-  @JsonKey(ignore: true)
-  _$$LoginImplCopyWith<_$LoginImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$GetCurrentUserImplCopyWith<$Res> {
-  factory _$$GetCurrentUserImplCopyWith(_$GetCurrentUserImpl value,
-          $Res Function(_$GetCurrentUserImpl) then) =
-      __$$GetCurrentUserImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$GetCurrentUserImplCopyWithImpl<$Res>
-    extends _$AuthEventCopyWithImpl<$Res, _$GetCurrentUserImpl>
-    implements _$$GetCurrentUserImplCopyWith<$Res> {
-  __$$GetCurrentUserImplCopyWithImpl(
-      _$GetCurrentUserImpl _value, $Res Function(_$GetCurrentUserImpl) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$GetCurrentUserImpl implements _GetCurrentUser {
-  const _$GetCurrentUserImpl();
-
-  @override
-  String toString() {
-    return 'AuthEvent.getCurrentUser()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$GetCurrentUserImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String email, String password) login,
-    required TResult Function() getCurrentUser,
-    required TResult Function() signOut,
-  }) {
-    return getCurrentUser();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String email, String password)? login,
-    TResult? Function()? getCurrentUser,
-    TResult? Function()? signOut,
-  }) {
-    return getCurrentUser?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String email, String password)? login,
-    TResult Function()? getCurrentUser,
-    TResult Function()? signOut,
-    required TResult orElse(),
-  }) {
-    if (getCurrentUser != null) {
-      return getCurrentUser();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Login value) login,
-    required TResult Function(_GetCurrentUser value) getCurrentUser,
-    required TResult Function(_SignOut value) signOut,
-  }) {
-    return getCurrentUser(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Login value)? login,
-    TResult? Function(_GetCurrentUser value)? getCurrentUser,
-    TResult? Function(_SignOut value)? signOut,
-  }) {
-    return getCurrentUser?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Login value)? login,
-    TResult Function(_GetCurrentUser value)? getCurrentUser,
-    TResult Function(_SignOut value)? signOut,
-    required TResult orElse(),
-  }) {
-    if (getCurrentUser != null) {
-      return getCurrentUser(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _GetCurrentUser implements AuthEvent {
-  const factory _GetCurrentUser() = _$GetCurrentUserImpl;
 }
 
 /// @nodoc
@@ -376,9 +117,9 @@ class _$SignOutImpl implements _SignOut {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String email, String password) login,
-    required TResult Function() getCurrentUser,
     required TResult Function() signOut,
+    required TResult Function(BaseUserModel? user) onCurrentUserChanged,
+    required TResult Function() onInitialAuthEvent,
   }) {
     return signOut();
   }
@@ -386,9 +127,9 @@ class _$SignOutImpl implements _SignOut {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String email, String password)? login,
-    TResult? Function()? getCurrentUser,
     TResult? Function()? signOut,
+    TResult? Function(BaseUserModel? user)? onCurrentUserChanged,
+    TResult? Function()? onInitialAuthEvent,
   }) {
     return signOut?.call();
   }
@@ -396,9 +137,9 @@ class _$SignOutImpl implements _SignOut {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String email, String password)? login,
-    TResult Function()? getCurrentUser,
     TResult Function()? signOut,
+    TResult Function(BaseUserModel? user)? onCurrentUserChanged,
+    TResult Function()? onInitialAuthEvent,
     required TResult orElse(),
   }) {
     if (signOut != null) {
@@ -410,9 +151,9 @@ class _$SignOutImpl implements _SignOut {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Login value) login,
-    required TResult Function(_GetCurrentUser value) getCurrentUser,
     required TResult Function(_SignOut value) signOut,
+    required TResult Function(_OnCurrentUserChanged value) onCurrentUserChanged,
+    required TResult Function(_OnInitialAuthEvent value) onInitialAuthEvent,
   }) {
     return signOut(this);
   }
@@ -420,9 +161,9 @@ class _$SignOutImpl implements _SignOut {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Login value)? login,
-    TResult? Function(_GetCurrentUser value)? getCurrentUser,
     TResult? Function(_SignOut value)? signOut,
+    TResult? Function(_OnCurrentUserChanged value)? onCurrentUserChanged,
+    TResult? Function(_OnInitialAuthEvent value)? onInitialAuthEvent,
   }) {
     return signOut?.call(this);
   }
@@ -430,9 +171,9 @@ class _$SignOutImpl implements _SignOut {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Login value)? login,
-    TResult Function(_GetCurrentUser value)? getCurrentUser,
     TResult Function(_SignOut value)? signOut,
+    TResult Function(_OnCurrentUserChanged value)? onCurrentUserChanged,
+    TResult Function(_OnInitialAuthEvent value)? onInitialAuthEvent,
     required TResult orElse(),
   }) {
     if (signOut != null) {
@@ -447,12 +188,262 @@ abstract class _SignOut implements AuthEvent {
 }
 
 /// @nodoc
+abstract class _$$OnCurrentUserChangedImplCopyWith<$Res> {
+  factory _$$OnCurrentUserChangedImplCopyWith(_$OnCurrentUserChangedImpl value,
+          $Res Function(_$OnCurrentUserChangedImpl) then) =
+      __$$OnCurrentUserChangedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({BaseUserModel? user});
+}
+
+/// @nodoc
+class __$$OnCurrentUserChangedImplCopyWithImpl<$Res>
+    extends _$AuthEventCopyWithImpl<$Res, _$OnCurrentUserChangedImpl>
+    implements _$$OnCurrentUserChangedImplCopyWith<$Res> {
+  __$$OnCurrentUserChangedImplCopyWithImpl(_$OnCurrentUserChangedImpl _value,
+      $Res Function(_$OnCurrentUserChangedImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? user = freezed,
+  }) {
+    return _then(_$OnCurrentUserChangedImpl(
+      freezed == user
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as BaseUserModel?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$OnCurrentUserChangedImpl implements _OnCurrentUserChanged {
+  const _$OnCurrentUserChangedImpl(this.user);
+
+  @override
+  final BaseUserModel? user;
+
+  @override
+  String toString() {
+    return 'AuthEvent.onCurrentUserChanged(user: $user)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$OnCurrentUserChangedImpl &&
+            (identical(other.user, user) || other.user == user));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, user);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$OnCurrentUserChangedImplCopyWith<_$OnCurrentUserChangedImpl>
+      get copyWith =>
+          __$$OnCurrentUserChangedImplCopyWithImpl<_$OnCurrentUserChangedImpl>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() signOut,
+    required TResult Function(BaseUserModel? user) onCurrentUserChanged,
+    required TResult Function() onInitialAuthEvent,
+  }) {
+    return onCurrentUserChanged(user);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? signOut,
+    TResult? Function(BaseUserModel? user)? onCurrentUserChanged,
+    TResult? Function()? onInitialAuthEvent,
+  }) {
+    return onCurrentUserChanged?.call(user);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? signOut,
+    TResult Function(BaseUserModel? user)? onCurrentUserChanged,
+    TResult Function()? onInitialAuthEvent,
+    required TResult orElse(),
+  }) {
+    if (onCurrentUserChanged != null) {
+      return onCurrentUserChanged(user);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_SignOut value) signOut,
+    required TResult Function(_OnCurrentUserChanged value) onCurrentUserChanged,
+    required TResult Function(_OnInitialAuthEvent value) onInitialAuthEvent,
+  }) {
+    return onCurrentUserChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_SignOut value)? signOut,
+    TResult? Function(_OnCurrentUserChanged value)? onCurrentUserChanged,
+    TResult? Function(_OnInitialAuthEvent value)? onInitialAuthEvent,
+  }) {
+    return onCurrentUserChanged?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SignOut value)? signOut,
+    TResult Function(_OnCurrentUserChanged value)? onCurrentUserChanged,
+    TResult Function(_OnInitialAuthEvent value)? onInitialAuthEvent,
+    required TResult orElse(),
+  }) {
+    if (onCurrentUserChanged != null) {
+      return onCurrentUserChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _OnCurrentUserChanged implements AuthEvent {
+  const factory _OnCurrentUserChanged(final BaseUserModel? user) =
+      _$OnCurrentUserChangedImpl;
+
+  BaseUserModel? get user;
+  @JsonKey(ignore: true)
+  _$$OnCurrentUserChangedImplCopyWith<_$OnCurrentUserChangedImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$OnInitialAuthEventImplCopyWith<$Res> {
+  factory _$$OnInitialAuthEventImplCopyWith(_$OnInitialAuthEventImpl value,
+          $Res Function(_$OnInitialAuthEventImpl) then) =
+      __$$OnInitialAuthEventImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$OnInitialAuthEventImplCopyWithImpl<$Res>
+    extends _$AuthEventCopyWithImpl<$Res, _$OnInitialAuthEventImpl>
+    implements _$$OnInitialAuthEventImplCopyWith<$Res> {
+  __$$OnInitialAuthEventImplCopyWithImpl(_$OnInitialAuthEventImpl _value,
+      $Res Function(_$OnInitialAuthEventImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$OnInitialAuthEventImpl implements _OnInitialAuthEvent {
+  const _$OnInitialAuthEventImpl();
+
+  @override
+  String toString() {
+    return 'AuthEvent.onInitialAuthEvent()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$OnInitialAuthEventImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() signOut,
+    required TResult Function(BaseUserModel? user) onCurrentUserChanged,
+    required TResult Function() onInitialAuthEvent,
+  }) {
+    return onInitialAuthEvent();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? signOut,
+    TResult? Function(BaseUserModel? user)? onCurrentUserChanged,
+    TResult? Function()? onInitialAuthEvent,
+  }) {
+    return onInitialAuthEvent?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? signOut,
+    TResult Function(BaseUserModel? user)? onCurrentUserChanged,
+    TResult Function()? onInitialAuthEvent,
+    required TResult orElse(),
+  }) {
+    if (onInitialAuthEvent != null) {
+      return onInitialAuthEvent();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_SignOut value) signOut,
+    required TResult Function(_OnCurrentUserChanged value) onCurrentUserChanged,
+    required TResult Function(_OnInitialAuthEvent value) onInitialAuthEvent,
+  }) {
+    return onInitialAuthEvent(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_SignOut value)? signOut,
+    TResult? Function(_OnCurrentUserChanged value)? onCurrentUserChanged,
+    TResult? Function(_OnInitialAuthEvent value)? onInitialAuthEvent,
+  }) {
+    return onInitialAuthEvent?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SignOut value)? signOut,
+    TResult Function(_OnCurrentUserChanged value)? onCurrentUserChanged,
+    TResult Function(_OnInitialAuthEvent value)? onInitialAuthEvent,
+    required TResult orElse(),
+  }) {
+    if (onInitialAuthEvent != null) {
+      return onInitialAuthEvent(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _OnInitialAuthEvent implements AuthEvent {
+  const factory _OnInitialAuthEvent() = _$OnInitialAuthEventImpl;
+}
+
+/// @nodoc
 mixin _$AuthState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function() authenticated,
+    required TResult Function(BaseUserModel user) authenticated,
     required TResult Function() unauthenticated,
     required TResult Function(String message) error,
   }) =>
@@ -461,7 +452,7 @@ mixin _$AuthState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function()? authenticated,
+    TResult? Function(BaseUserModel user)? authenticated,
     TResult? Function()? unauthenticated,
     TResult? Function(String message)? error,
   }) =>
@@ -470,7 +461,7 @@ mixin _$AuthState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function()? authenticated,
+    TResult Function(BaseUserModel user)? authenticated,
     TResult Function()? unauthenticated,
     TResult Function(String message)? error,
     required TResult orElse(),
@@ -563,7 +554,7 @@ class _$InitialImpl implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function() authenticated,
+    required TResult Function(BaseUserModel user) authenticated,
     required TResult Function() unauthenticated,
     required TResult Function(String message) error,
   }) {
@@ -575,7 +566,7 @@ class _$InitialImpl implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function()? authenticated,
+    TResult? Function(BaseUserModel user)? authenticated,
     TResult? Function()? unauthenticated,
     TResult? Function(String message)? error,
   }) {
@@ -587,7 +578,7 @@ class _$InitialImpl implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function()? authenticated,
+    TResult Function(BaseUserModel user)? authenticated,
     TResult Function()? unauthenticated,
     TResult Function(String message)? error,
     required TResult orElse(),
@@ -683,7 +674,7 @@ class _$LoadingImpl implements _Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function() authenticated,
+    required TResult Function(BaseUserModel user) authenticated,
     required TResult Function() unauthenticated,
     required TResult Function(String message) error,
   }) {
@@ -695,7 +686,7 @@ class _$LoadingImpl implements _Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function()? authenticated,
+    TResult? Function(BaseUserModel user)? authenticated,
     TResult? Function()? unauthenticated,
     TResult? Function(String message)? error,
   }) {
@@ -707,7 +698,7 @@ class _$LoadingImpl implements _Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function()? authenticated,
+    TResult Function(BaseUserModel user)? authenticated,
     TResult Function()? unauthenticated,
     TResult Function(String message)? error,
     required TResult orElse(),
@@ -768,6 +759,8 @@ abstract class _$$AuthenticatedImplCopyWith<$Res> {
   factory _$$AuthenticatedImplCopyWith(
           _$AuthenticatedImpl value, $Res Function(_$AuthenticatedImpl) then) =
       __$$AuthenticatedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({BaseUserModel user});
 }
 
 /// @nodoc
@@ -777,37 +770,61 @@ class __$$AuthenticatedImplCopyWithImpl<$Res>
   __$$AuthenticatedImplCopyWithImpl(
       _$AuthenticatedImpl _value, $Res Function(_$AuthenticatedImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? user = null,
+  }) {
+    return _then(_$AuthenticatedImpl(
+      null == user
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as BaseUserModel,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$AuthenticatedImpl implements _Authenticated {
-  const _$AuthenticatedImpl();
+  const _$AuthenticatedImpl(this.user);
+
+  @override
+  final BaseUserModel user;
 
   @override
   String toString() {
-    return 'AuthState.authenticated()';
+    return 'AuthState.authenticated(user: $user)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$AuthenticatedImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$AuthenticatedImpl &&
+            (identical(other.user, user) || other.user == user));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, user);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AuthenticatedImplCopyWith<_$AuthenticatedImpl> get copyWith =>
+      __$$AuthenticatedImplCopyWithImpl<_$AuthenticatedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function() authenticated,
+    required TResult Function(BaseUserModel user) authenticated,
     required TResult Function() unauthenticated,
     required TResult Function(String message) error,
   }) {
-    return authenticated();
+    return authenticated(user);
   }
 
   @override
@@ -815,11 +832,11 @@ class _$AuthenticatedImpl implements _Authenticated {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function()? authenticated,
+    TResult? Function(BaseUserModel user)? authenticated,
     TResult? Function()? unauthenticated,
     TResult? Function(String message)? error,
   }) {
-    return authenticated?.call();
+    return authenticated?.call(user);
   }
 
   @override
@@ -827,13 +844,13 @@ class _$AuthenticatedImpl implements _Authenticated {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function()? authenticated,
+    TResult Function(BaseUserModel user)? authenticated,
     TResult Function()? unauthenticated,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
     if (authenticated != null) {
-      return authenticated();
+      return authenticated(user);
     }
     return orElse();
   }
@@ -880,7 +897,12 @@ class _$AuthenticatedImpl implements _Authenticated {
 }
 
 abstract class _Authenticated implements AuthState {
-  const factory _Authenticated() = _$AuthenticatedImpl;
+  const factory _Authenticated(final BaseUserModel user) = _$AuthenticatedImpl;
+
+  BaseUserModel get user;
+  @JsonKey(ignore: true)
+  _$$AuthenticatedImplCopyWith<_$AuthenticatedImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -923,7 +945,7 @@ class _$UnauthenticatedImpl implements _Unauthenticated {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function() authenticated,
+    required TResult Function(BaseUserModel user) authenticated,
     required TResult Function() unauthenticated,
     required TResult Function(String message) error,
   }) {
@@ -935,7 +957,7 @@ class _$UnauthenticatedImpl implements _Unauthenticated {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function()? authenticated,
+    TResult? Function(BaseUserModel user)? authenticated,
     TResult? Function()? unauthenticated,
     TResult? Function(String message)? error,
   }) {
@@ -947,7 +969,7 @@ class _$UnauthenticatedImpl implements _Unauthenticated {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function()? authenticated,
+    TResult Function(BaseUserModel user)? authenticated,
     TResult Function()? unauthenticated,
     TResult Function(String message)? error,
     required TResult orElse(),
@@ -1069,7 +1091,7 @@ class _$ErrorImpl implements _Error {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function() authenticated,
+    required TResult Function(BaseUserModel user) authenticated,
     required TResult Function() unauthenticated,
     required TResult Function(String message) error,
   }) {
@@ -1081,7 +1103,7 @@ class _$ErrorImpl implements _Error {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function()? authenticated,
+    TResult? Function(BaseUserModel user)? authenticated,
     TResult? Function()? unauthenticated,
     TResult? Function(String message)? error,
   }) {
@@ -1093,7 +1115,7 @@ class _$ErrorImpl implements _Error {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function()? authenticated,
+    TResult Function(BaseUserModel user)? authenticated,
     TResult Function()? unauthenticated,
     TResult Function(String message)? error,
     required TResult orElse(),

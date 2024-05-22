@@ -7,5 +7,14 @@ abstract class AppModule {
   @lazySingleton
   SupabaseClient get supabase => Supabase.instance.client;
   @lazySingleton
-  Logger get logger => Logger();
+  Logger get logger => Logger(
+        printer: PrettyPrinter(
+          methodCount: 0,
+          errorMethodCount: 5,
+          lineLength: 50,
+          colors: true,
+          printEmojis: true,
+          printTime: false,
+        ),
+      );
 }
