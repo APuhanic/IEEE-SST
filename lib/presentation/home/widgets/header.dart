@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:ieee_sst/data/constants/app_colors.dart';
-import 'package:ieee_sst/presentation/login/bloc/login_bloc.dart';
+import 'package:ieee_sst/presentation/login/bloc/auth_bloc.dart';
 
 class Header extends StatelessWidget {
   const Header({
@@ -11,10 +11,9 @@ class Header extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<LoginBloc, LoginState>(
+    return BlocConsumer<AuthBLoc, AuthState>(
       listener: (context, state) {
         state.maybeWhen(
-          success: () {},
           error: (message) {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
@@ -39,9 +38,7 @@ class Header extends StatelessWidget {
               ),
               child: IconButton(
                 onPressed: () {
-                  context.read<LoginBloc>().add(const LoginEvent.getCurrentUser(
-                        id: 'a14b1147-b44a-45cd-a7a3-7e00a87802f8',
-                      ));
+                  Scaffold.of(context).openDrawer();
                 },
                 icon: const Icon(
                   Icons.menu,

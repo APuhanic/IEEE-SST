@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ieee_sst/data/constants/app_colors.dart';
 import 'package:ieee_sst/data/constants/text_styles.dart';
-import 'package:ieee_sst/presentation/register/cubit/password_input_cubit.dart';
+import 'package:ieee_sst/presentation/login/bloc/login/login_bloc.dart';
 
 class PasswordInput extends StatelessWidget {
   const PasswordInput({
@@ -14,8 +14,9 @@ class PasswordInput extends StatelessWidget {
     return SizedBox(
       height: 60,
       child: TextFormField(
-        onChanged: (value) =>
-            context.read<PasswordInputCubit>().passwordChanged(value),
+        onChanged: (value) => context.read<LoginBloc>().add(
+              LoginEvent.passwordChanged(value),
+            ),
         obscureText: true,
         decoration: InputDecoration(
           hintText: 'Password',

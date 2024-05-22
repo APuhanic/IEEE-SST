@@ -11,14 +11,18 @@ import 'package:ieee_sst/presentation/login/screens/login_screen.dart';
 import 'package:ieee_sst/presentation/messages/screens/messages_screen.dart';
 import 'package:ieee_sst/presentation/register/screens/register_screen.dart';
 import 'package:injectable/injectable.dart';
+import 'package:logger/logger.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 @injectable
 class AppRouter {
+  AppRouter(this._navigatorKeyManager, this._supabaseClient);
   final NavigatorKeyManager _navigatorKeyManager;
-  AppRouter(this._navigatorKeyManager);
+  final SupabaseClient _supabaseClient;
+
   GoRouter get router => GoRouter(
         navigatorKey: _navigatorKeyManager.rootNavigatorKey,
-        initialLocation: '/home',
+        initialLocation: getInitialRoute(),
         routes: [
           GoRoute(
             path: RoutePaths.login,
@@ -102,4 +106,14 @@ class AppRouter {
           ),
         ],
       );
+
+  getInitialRoute() {
+    final session = _supabaseClient.auth.currentSession;
+    Logger().w('Session: $session');
+    if (session == null || session.isExpired) {
+      return RoutePaths.login;
+    } else {
+      return RoutePaths.home;
+    }
+  }
 }

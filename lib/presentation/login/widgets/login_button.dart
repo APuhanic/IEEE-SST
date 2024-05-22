@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ieee_sst/data/constants/app_colors.dart';
 import 'package:ieee_sst/data/constants/text_styles.dart';
-import 'package:ieee_sst/presentation/login/bloc/login_bloc.dart';
-import 'package:ieee_sst/presentation/register/cubit/email_input_cubit.dart';
-import 'package:ieee_sst/presentation/register/cubit/password_input_cubit.dart';
+import 'package:ieee_sst/presentation/login/bloc/login/login_bloc.dart';
 
 class LoginButton extends StatelessWidget {
   const LoginButton({
@@ -13,6 +11,8 @@ class LoginButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final state = context.watch<LoginBloc>().state;
+
     return SizedBox(
       height: 50,
       width: double.infinity,
@@ -24,11 +24,9 @@ class LoginButton extends StatelessWidget {
             backgroundColor: AppColors.primary,
           ),
           onPressed: () {
-            final email = context.read<EmailInputCubit>().state;
-            final password = context.read<PasswordInputCubit>().state;
-            context.read<LoginBloc>().add(LoginEvent.login(
-                  email: email,
-                  password: password,
+            context.read<LoginBloc>().add(LoginEvent.submitted(
+                  state.email.value,
+                  state.password.value,
                 ));
           },
           child: Text('LOG IN', style: AppTextStyle.button)),

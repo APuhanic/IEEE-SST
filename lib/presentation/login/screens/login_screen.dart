@@ -4,13 +4,12 @@ import 'package:go_router/go_router.dart';
 import 'package:ieee_sst/data/constants/app_colors.dart';
 import 'package:ieee_sst/data/constants/text_styles.dart';
 import 'package:ieee_sst/di/dependency_injection.dart';
-import 'package:ieee_sst/presentation/login/bloc/login_bloc.dart';
+import 'package:ieee_sst/presentation/login/bloc/auth_bloc.dart';
+import 'package:ieee_sst/presentation/login/bloc/login/login_bloc.dart';
 import 'package:ieee_sst/presentation/login/widgets/email_input.dart';
 import 'package:ieee_sst/presentation/login/widgets/login_button.dart';
 import 'package:ieee_sst/presentation/login/widgets/password_input.dart';
 import 'package:ieee_sst/presentation/login/widgets/register_account_link.dart';
-import 'package:ieee_sst/presentation/register/cubit/email_input_cubit.dart';
-import 'package:ieee_sst/presentation/register/cubit/password_input_cubit.dart';
 import 'package:logger/logger.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -22,20 +21,14 @@ class LoginScreen extends StatelessWidget {
       resizeToAvoidBottomInset: false,
       body: MultiBlocProvider(
         providers: [
-          BlocProvider(
+          BlocProvider<LoginBloc>(
             create: (_) => getIt<LoginBloc>(),
           ),
-          BlocProvider<EmailInputCubit>(
-            create: (_) => getIt<EmailInputCubit>(),
-          ),
-          BlocProvider<PasswordInputCubit>(
-            create: (_) => getIt<PasswordInputCubit>(),
-          ),
         ],
-        child: BlocConsumer<LoginBloc, LoginState>(
+        child: BlocConsumer<AuthBLoc, AuthState>(
           listener: (context, state) {
             state.maybeWhen(
-              success: () {
+              authenticated: () {
                 Logger().i('Login successful');
                 context.go('/home');
               },
