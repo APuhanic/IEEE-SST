@@ -14,10 +14,11 @@ class RegistrationEmailInput extends StatelessWidget {
     return SizedBox(
       height: 60,
       child: TextFormField(
-        keyboardType: TextInputType.emailAddress,
         onChanged: (value) => context.read<RegistrationBloc>().add(
               RegistrationEvent.emailChanged(value),
             ),
+        keyboardType: TextInputType.emailAddress,
+        textInputAction: TextInputAction.next,
         decoration: InputDecoration(
           hintText: 'Email Address',
           hintStyle: AppTextStyle.textForm,

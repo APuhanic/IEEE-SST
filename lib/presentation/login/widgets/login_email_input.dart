@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:formz/formz.dart';
 import 'package:ieee_sst/data/constants/app_colors.dart';
 import 'package:ieee_sst/data/constants/text_styles.dart';
 import 'package:ieee_sst/presentation/login/bloc/login/login_bloc.dart';
@@ -11,18 +12,21 @@ class LoginEmailInput extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final state = context.watch<LoginBloc>().state;
     return SizedBox(
       height: 60,
       child: TextFormField(
         keyboardType: TextInputType.emailAddress,
-        onChanged: (value) => context.read<LoginBloc>().add(
-              LoginEvent.emailChanged(value),
-            ),
+        textInputAction: TextInputAction.next,
+        onChanged: (value) =>
+            context.read<LoginBloc>().add(LoginEvent.emailChanged(value)),
         decoration: InputDecoration(
           hintText: 'Email Address',
           hintStyle: AppTextStyle.textForm,
           filled: true,
-          fillColor: AppColors.white,
+          fillColor: state.status.isFailure
+              ? AppColors.warning.withOpacity(0.1)
+              : AppColors.white,
           prefixIcon: const Icon(
             Icons.mail_outline,
             color: AppColors.grayText,

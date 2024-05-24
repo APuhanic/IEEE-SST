@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
 import 'package:ieee_sst/data/constants/text_styles.dart';
 import 'package:ieee_sst/di/dependency_injection.dart';
 import 'package:ieee_sst/presentation/login/widgets/login_password_input.dart';
@@ -46,16 +45,6 @@ class RegisterScreen extends StatelessWidget {
                 const LoginPasswordInput(),
                 const SizedBox(height: 24),
                 const ConfirmPasswordInput(),
-                Align(
-                  alignment: Alignment.centerRight,
-                  child: TextButton(
-                    onPressed: () {},
-                    child: Text(
-                      'Forgot Password?',
-                      style: AppTextStyle.lightText,
-                    ),
-                  ),
-                ),
                 const SizedBox(height: 24),
                 const RegisterButton(),
                 const SizedBox(height: 24),
@@ -65,22 +54,6 @@ class RegisterScreen extends StatelessWidget {
                     Text(
                       '- Or Continue With -',
                       style: AppTextStyle.lightText,
-                    ),
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      'Already Have an Account?',
-                      style: AppTextStyle.lightText,
-                    ),
-                    TextButton(
-                      onPressed: () => context.go('/'),
-                      child: Text('Log In',
-                          style: AppTextStyle.lightText.copyWith(
-                            fontWeight: FontWeight.w500,
-                          )),
                     ),
                   ],
                 ),

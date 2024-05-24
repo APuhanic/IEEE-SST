@@ -17,14 +17,29 @@ class SupabaseAuthRepository implements AuthenticationRepository {
   Future<AuthResponse> signInWithEmailAndPassword(
     String email,
     String password,
-  ) async => _supabase.auth.signInWithPassword(email: email, password: password);
+  ) async {
+    return await _supabase.auth
+        .signInWithPassword(email: email, password: password);
+  }
 
   /// Registration - Sign up with email and password.
   @override
-  Future<AuthResponse> signUpWithEmailAndPassword(
+  Future<void> signUpWithEmailAndPassword(
     String email,
     String password,
-  ) async => _supabase.auth.signUp(email: email, password: password);
+  ) async {
+    // TODO: Implement error handling for profile creation
+    final response =
+        await _supabase.auth.signUp(email: email, password: password);
+    // Set the user as user in the profile table
+    // TODO: Replace with a profile creation method from supabaseAPI
+    await _supabase.from('profiles').insert({
+      'id': response.user!.id,
+      'role': 'user',
+    });
+    // Set the user as user in the auth table metadata
+    await _supabase.auth.updateUser(UserAttributes(data: {'role': 'user'}));
+  }
 
   /// Sign out the current user.
   @override
@@ -46,6 +61,8 @@ class SupabaseAuthRepository implements AuthenticationRepository {
         : null;
   }
 
+  /// Get the current user atuh stream from local storage or session.
+  /// This stream will emit the current user when the user is signed in or
   @override
   Stream<BaseUserModel?> getCurrentUserStream() {
     return _supabase.auth.onAuthStateChange.map((event) {
@@ -61,5 +78,21 @@ class SupabaseAuthRepository implements AuthenticationRepository {
             )
           : null;
     });
+  }
+
+  Future<void> signUpWithEmailAndPasswordAsAdmin(
+    String email,
+    String password,
+  ) async {
+    // TODO: Implement error handling for profile creation
+    final response =
+        await _supabase.auth.signUp(email: email, password: password);
+    // Set the user as admin in the profile table
+    await _supabase.from('profiles').insert({
+      'id': response.user!.id,
+      'role': 'admin',
+    });
+    // Set the user as admin in the auth table metadata
+    await _supabase.auth.updateUser(UserAttributes(data: {'role': 'admin'}));
   }
 }

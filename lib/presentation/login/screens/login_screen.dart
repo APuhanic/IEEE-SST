@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:formz/formz.dart';
 import 'package:go_router/go_router.dart';
 import 'package:ieee_sst/data/constants/app_colors.dart';
+import 'package:ieee_sst/data/constants/route_paths.dart';
 import 'package:ieee_sst/data/constants/text_styles.dart';
 import 'package:ieee_sst/di/dependency_injection.dart';
 import 'package:ieee_sst/presentation/login/bloc/login/login_bloc.dart';
@@ -19,26 +20,14 @@ class LoginScreen extends StatelessWidget {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: MultiBlocProvider(
-        providers: [
-          BlocProvider<LoginBloc>(
-            create: (_) => getIt<LoginBloc>(),
-          ),
-        ],
+        providers: [BlocProvider<LoginBloc>(create: (_) => getIt<LoginBloc>())],
         child: BlocConsumer<LoginBloc, LoginState>(
           listener: (context, state) {
-            if (state.status.isSuccess) {
-              context.go('/home');
+            if (state.status.isSuccess && state.isAdmin) {
+              context.go(RoutePaths.adminHomeScreen);
             }
-            if (state.status.isFailure) {
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(
-                  content: Text(state.errorMessage),
-                  backgroundColor: AppColors.primary,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                ),
-              );
+            if (state.status.isSuccess && !state.isAdmin) {
+              context.go(RoutePaths.home);
             }
           },
           listenWhen: (previous, current) => previous.status != current.status,
@@ -59,19 +48,29 @@ class LoginScreen extends StatelessWidget {
                     alignment: Alignment.centerLeft,
                     child: Text('Fill your details'),
                   ),
+                  // If the login has failed show the error message
                   const SizedBox(height: 40),
                   const LoginEmailInput(),
                   const SizedBox(height: 24),
                   const LoginPasswordInput(),
-                  Align(
-                    alignment: Alignment.centerRight,
-                    child: TextButton(
-                      onPressed: () {},
-                      child: Text(
-                        'Forgot Password?',
-                        style: AppTextStyle.lightText,
-                      ),
-                    ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      state.status.isFailure
+                          ? Text(
+                              state.errorMessage,
+                              style: AppTextStyle.errorText.copyWith(
+                                color: AppColors.warning.withOpacity(0.7),
+                              ),
+                            )
+                          : const SizedBox.shrink(),
+                      TextButton(
+                          onPressed: () {},
+                          child: Text(
+                            'Forgot Password?',
+                            style: AppTextStyle.lightText,
+                          )),
+                    ],
                   ),
                   const SizedBox(height: 24),
                   const LoginButton(),

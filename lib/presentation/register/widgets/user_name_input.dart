@@ -15,6 +15,7 @@ class UserNameInput extends StatelessWidget {
         onChanged: (value) => context
             .read<RegistrationBloc>()
             .add(RegistrationEvent.userNameChanged(value)),
+        textInputAction: TextInputAction.next,
         decoration: InputDecoration(
           hintText: 'User Name',
           hintStyle: AppTextStyle.textForm,

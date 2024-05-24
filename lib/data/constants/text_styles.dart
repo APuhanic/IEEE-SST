@@ -50,4 +50,10 @@ class AppTextStyle {
     color: AppColors.white,
     fontWeight: FontWeight.normal,
   );
+
+  static TextStyle errorText = const TextStyle(
+    fontSize: 14,
+    color: AppColors.warning,
+    fontWeight: FontWeight.normal,
+  );
 }

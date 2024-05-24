@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:ieee_sst/data/constants/route_paths.dart';
+import 'package:ieee_sst/data/constants/user_roles.dart';
 import 'package:ieee_sst/data/router/navigator_key_manager.dart';
+import 'package:ieee_sst/presentation/admin/admin_home_screen/screens/home_screen.dart';
 import 'package:ieee_sst/presentation/attendees/screens/attendees_screen.dart';
 import 'package:ieee_sst/presentation/bottom_nav_bar/widgets/scaffold_with_nav_bar.dart';
 import 'package:ieee_sst/presentation/community/screens/community_screen.dart';
@@ -15,7 +17,10 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 
 @injectable
 class AppRouter {
-  AppRouter(this._navigatorKeyManager, this._supabaseClient);
+  AppRouter(
+    this._navigatorKeyManager,
+    this._supabaseClient,
+  );
   final NavigatorKeyManager _navigatorKeyManager;
   final SupabaseClient _supabaseClient;
 
@@ -35,6 +40,13 @@ class AppRouter {
             pageBuilder: (context, state) => const MaterialPage(
               key: ValueKey('RegisterScreen'),
               child: RegisterScreen(),
+            ),
+          ),
+          GoRoute(
+            path: RoutePaths.adminHomeScreen,
+            pageBuilder: (context, state) => const MaterialPage(
+              key: ValueKey('HomeScreen'),
+              child: AdminHomeScreen(),
             ),
           ),
           StatefulShellRoute.indexedStack(
@@ -107,12 +119,14 @@ class AppRouter {
       );
 
   // TODO: Remove this and implement the auth bloc redirection
-  getInitialRoute() {
-    final session = _supabaseClient.auth.currentSession;
+  String getInitialRoute() {
+    final Session? session = _supabaseClient.auth.currentSession;
     if (session == null || session.isExpired) {
       return RoutePaths.login;
-    } else {
-      return RoutePaths.home;
     }
+    if (session.user.userMetadata!['role'] == UserRoles.admin) {
+      return RoutePaths.adminHomeScreen;
+    }
+    return RoutePaths.home;
   }
 }

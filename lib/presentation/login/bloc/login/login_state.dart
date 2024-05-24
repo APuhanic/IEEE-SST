@@ -8,5 +8,6 @@ class LoginState with _$LoginState {
     @Default(Password.pure()) Password password,
     @Default(false) bool isValid,
     @Default('') String errorMessage,
+    @Default(false) bool isAdmin,
   }) = _LoginState;
 }

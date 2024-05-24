@@ -17,21 +17,11 @@ part 'registration_bloc.freezed.dart';
 class RegistrationBloc extends Bloc<RegistrationEvent, RegistrationState> {
   RegistrationBloc(this._supabaseAuthRepository)
       : super(const _RegistrationState()) {
-    on<_Submitted>(
-      _onSubmitted,
-    );
-    on<_EmailChanged>(
-      _onEmailChanged,
-    );
-    on<_PasswordChanged>(
-      _onPasswordChanged,
-    );
-    on<_UserNameChanged>(
-      _onUserNameChanged,
-    );
-    on<_ConfirmPasswordChanged>(
-      _onConfirmPasswordChanged,
-    );
+    on<_Submitted>(_onSubmitted);
+    on<_EmailChanged>(_onEmailChanged);
+    on<_PasswordChanged>(_onPasswordChanged);
+    on<_UserNameChanged>(_onUserNameChanged);
+    on<_ConfirmPasswordChanged>(_onConfirmPasswordChanged);
   }
   final AuthenticationRepository _supabaseAuthRepository;
 

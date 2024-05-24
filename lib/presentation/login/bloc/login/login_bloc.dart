@@ -28,14 +28,25 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     _Submitted event,
     Emitter<LoginState> emit,
   ) async {
-    // TODO: Implement FormzSubmissionStatus validation
-    emit(state.copyWith(status: FormzSubmissionStatus.inProgress));
     try {
-      await _authRepository.signInWithEmailAndPassword(
+      emit(state.copyWith(status: FormzSubmissionStatus.inProgress));
+
+      final loginResponse = await _authRepository.signInWithEmailAndPassword(
         state.email.value,
         state.password.value,
       );
-      emit(state.copyWith(status: FormzSubmissionStatus.success));
+
+      if (loginResponse.user!.userMetadata!['role'] == 'admin') {
+        emit(state.copyWith(
+          status: FormzSubmissionStatus.success,
+          isAdmin: true,
+        ));
+      } else {
+        emit(state.copyWith(
+          status: FormzSubmissionStatus.success,
+          isAdmin: false,
+        ));
+      }
     } on AuthException catch (e) {
       emit(state.copyWith(
         status: FormzSubmissionStatus.failure,
@@ -53,6 +64,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     emit(
       state.copyWith(
         password: password,
+        status: FormzSubmissionStatus.initial,
         isValid: Formz.validate([password]),
       ),
     );
@@ -64,6 +76,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     emit(
       state.copyWith(
         email: email,
+        status: FormzSubmissionStatus.initial,
         isValid: Formz.validate([email]),
       ),
     );

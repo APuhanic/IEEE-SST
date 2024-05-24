@@ -14,10 +14,11 @@ class RegistrationPasswordInput extends StatelessWidget {
     return SizedBox(
       height: 60,
       child: TextFormField(
-        onChanged: (value) => context.read<RegistrationBloc>().add(
-              RegistrationEvent.passwordChanged(value),
-            ),
+        onChanged: (value) => context
+            .read<RegistrationBloc>()
+            .add(RegistrationEvent.passwordChanged(value)),
         obscureText: true,
+        textInputAction: TextInputAction.next,
         decoration: InputDecoration(
           hintText: 'Password',
           hintStyle: AppTextStyle.textForm,

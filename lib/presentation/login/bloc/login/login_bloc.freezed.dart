@@ -544,6 +544,7 @@ mixin _$LoginState {
   Password get password => throw _privateConstructorUsedError;
   bool get isValid => throw _privateConstructorUsedError;
   String get errorMessage => throw _privateConstructorUsedError;
+  bool get isAdmin => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $LoginStateCopyWith<LoginState> get copyWith =>
@@ -561,7 +562,8 @@ abstract class $LoginStateCopyWith<$Res> {
       Email email,
       Password password,
       bool isValid,
-      String errorMessage});
+      String errorMessage,
+      bool isAdmin});
 }
 
 /// @nodoc
@@ -582,6 +584,7 @@ class _$LoginStateCopyWithImpl<$Res, $Val extends LoginState>
     Object? password = null,
     Object? isValid = null,
     Object? errorMessage = null,
+    Object? isAdmin = null,
   }) {
     return _then(_value.copyWith(
       status: null == status
@@ -604,6 +607,10 @@ class _$LoginStateCopyWithImpl<$Res, $Val extends LoginState>
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
               as String,
+      isAdmin: null == isAdmin
+          ? _value.isAdmin
+          : isAdmin // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -621,7 +628,8 @@ abstract class _$$LoginStateImplCopyWith<$Res>
       Email email,
       Password password,
       bool isValid,
-      String errorMessage});
+      String errorMessage,
+      bool isAdmin});
 }
 
 /// @nodoc
@@ -640,6 +648,7 @@ class __$$LoginStateImplCopyWithImpl<$Res>
     Object? password = null,
     Object? isValid = null,
     Object? errorMessage = null,
+    Object? isAdmin = null,
   }) {
     return _then(_$LoginStateImpl(
       status: null == status
@@ -662,6 +671,10 @@ class __$$LoginStateImplCopyWithImpl<$Res>
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
               as String,
+      isAdmin: null == isAdmin
+          ? _value.isAdmin
+          : isAdmin // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -674,7 +687,8 @@ class _$LoginStateImpl with DiagnosticableTreeMixin implements _LoginState {
       this.email = const Email.pure(),
       this.password = const Password.pure(),
       this.isValid = false,
-      this.errorMessage = ''});
+      this.errorMessage = '',
+      this.isAdmin = false});
 
   @override
   @JsonKey()
@@ -691,10 +705,13 @@ class _$LoginStateImpl with DiagnosticableTreeMixin implements _LoginState {
   @override
   @JsonKey()
   final String errorMessage;
+  @override
+  @JsonKey()
+  final bool isAdmin;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'LoginState(status: $status, email: $email, password: $password, isValid: $isValid, errorMessage: $errorMessage)';
+    return 'LoginState(status: $status, email: $email, password: $password, isValid: $isValid, errorMessage: $errorMessage, isAdmin: $isAdmin)';
   }
 
   @override
@@ -706,7 +723,8 @@ class _$LoginStateImpl with DiagnosticableTreeMixin implements _LoginState {
       ..add(DiagnosticsProperty('email', email))
       ..add(DiagnosticsProperty('password', password))
       ..add(DiagnosticsProperty('isValid', isValid))
-      ..add(DiagnosticsProperty('errorMessage', errorMessage));
+      ..add(DiagnosticsProperty('errorMessage', errorMessage))
+      ..add(DiagnosticsProperty('isAdmin', isAdmin));
   }
 
   @override
@@ -720,12 +738,13 @@ class _$LoginStateImpl with DiagnosticableTreeMixin implements _LoginState {
                 other.password == password) &&
             (identical(other.isValid, isValid) || other.isValid == isValid) &&
             (identical(other.errorMessage, errorMessage) ||
-                other.errorMessage == errorMessage));
+                other.errorMessage == errorMessage) &&
+            (identical(other.isAdmin, isAdmin) || other.isAdmin == isAdmin));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, status, email, password, isValid, errorMessage);
+  int get hashCode => Object.hash(
+      runtimeType, status, email, password, isValid, errorMessage, isAdmin);
 
   @JsonKey(ignore: true)
   @override
@@ -740,7 +759,8 @@ abstract class _LoginState implements LoginState {
       final Email email,
       final Password password,
       final bool isValid,
-      final String errorMessage}) = _$LoginStateImpl;
+      final String errorMessage,
+      final bool isAdmin}) = _$LoginStateImpl;
 
   @override
   FormzSubmissionStatus get status;
@@ -752,6 +772,8 @@ abstract class _LoginState implements LoginState {
   bool get isValid;
   @override
   String get errorMessage;
+  @override
+  bool get isAdmin;
   @override
   @JsonKey(ignore: true)
   _$$LoginStateImplCopyWith<_$LoginStateImpl> get copyWith =>
