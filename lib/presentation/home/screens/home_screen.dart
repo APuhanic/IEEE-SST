@@ -78,11 +78,29 @@ class SpeakerHub extends StatelessWidget {
           ],
         ),
         const SizedBox(height: 24),
-        const NewScreenButton(),
+        NewScreenButton(
+          title: 'My sessions and audience',
+          description: 'Lorem ipsum',
+          icon: Icons.calendar_month,
+          onPressed: () {},
+          routePath: '',
+        ),
         const SizedBox(height: 16),
-        const NewScreenButton(),
+        NewScreenButton(
+          title: 'My sessions and audience',
+          description: 'Lorem ipsum',
+          icon: Icons.calendar_month,
+          onPressed: () {},
+          routePath: '',
+        ),
         const SizedBox(height: 16),
-        const NewScreenButton()
+        NewScreenButton(
+          title: 'My sessions and audience',
+          description: 'Lorem ipsum',
+          icon: Icons.calendar_month,
+          onPressed: () {},
+          routePath: '',
+        )
       ],
     );
   }

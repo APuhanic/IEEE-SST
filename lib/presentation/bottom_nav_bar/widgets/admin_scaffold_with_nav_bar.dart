@@ -2,11 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:ieee_sst/presentation/bottom_nav_bar/widgets/bottom_nav_bar.dart';
 
-class ScaffoldWithNavBar extends StatelessWidget {
-  const ScaffoldWithNavBar({
-    super.key,
-    required this.navigationShell,
-  });
+class AdminScaffoldWtihNavBar extends StatelessWidget {
+  const AdminScaffoldWtihNavBar({super.key, required this.navigationShell});
 
   final StatefulNavigationShell navigationShell;
 
@@ -24,16 +21,15 @@ class ScaffoldWithNavBar extends StatelessWidget {
       resizeToAvoidBottomInset: true,
       bottomNavigationBar: BottomNavBar(
         key: const ValueKey('BottomNavBar'),
-        tabs: const ['Home', 'Messages', 'Community', 'Attendees'],
+        tabs: const ['Home', 'Event', 'Sponsors', 'Announcements'],
         icons: const [
           Icons.home,
-          Icons.message,
-          Icons.person,
-          Icons.monitor_rounded,
+          Icons.event,
+          Icons.handshake,
+          Icons.announcement,
         ],
         onDestinationSelected: _goBranch,
       ),
-      extendBody: true,
     );
   }
 }

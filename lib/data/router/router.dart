@@ -3,8 +3,11 @@ import 'package:go_router/go_router.dart';
 import 'package:ieee_sst/data/constants/route_paths.dart';
 import 'package:ieee_sst/data/constants/user_roles.dart';
 import 'package:ieee_sst/data/router/navigator_key_manager.dart';
-import 'package:ieee_sst/presentation/admin/admin_home_screen/screens/home_screen.dart';
+import 'package:ieee_sst/presentation/admin/admin_event_managment_screen.dart/screens/create_event_screen.dart';
+import 'package:ieee_sst/presentation/admin/admin_event_managment_screen.dart/screens/event_managment_screen.dart';
+import 'package:ieee_sst/presentation/admin/admin_home_screen/screens/admin_home_screen.dart';
 import 'package:ieee_sst/presentation/attendees/screens/attendees_screen.dart';
+import 'package:ieee_sst/presentation/bottom_nav_bar/widgets/admin_scaffold_with_nav_bar.dart';
 import 'package:ieee_sst/presentation/bottom_nav_bar/widgets/scaffold_with_nav_bar.dart';
 import 'package:ieee_sst/presentation/community/screens/community_screen.dart';
 import 'package:ieee_sst/presentation/community/screens/organizer_announcements.dart';
@@ -42,13 +45,51 @@ class AppRouter {
               child: RegisterScreen(),
             ),
           ),
-          GoRoute(
-            path: RoutePaths.adminHomeScreen,
-            pageBuilder: (context, state) => const MaterialPage(
-              key: ValueKey('HomeScreen'),
-              child: AdminHomeScreen(),
-            ),
+          // Admin routes
+          StatefulShellRoute.indexedStack(
+            pageBuilder: (context, state, child) {
+              return NoTransitionPage(
+                child: AdminScaffoldWtihNavBar(navigationShell: child),
+              );
+            },
+            branches: [
+              StatefulShellBranch(
+                navigatorKey: _navigatorKeyManager.shellNavigatorAdminHomeKey,
+                routes: [
+                  GoRoute(
+                    path: RoutePaths.adminHomeScreen,
+                    pageBuilder: (context, state) => const MaterialPage(
+                      key: ValueKey('AdminHomeScreen'),
+                      child: AdminHomeScreen(),
+                    ),
+                  ),
+                ],
+              ),
+              StatefulShellBranch(
+                  navigatorKey: _navigatorKeyManager
+                      .shellNavigatorAdminEventsManagmentKey,
+                  routes: [
+                    GoRoute(
+                      path: RoutePaths.adminEventsMangment,
+                      pageBuilder: (context, state) => const MaterialPage(
+                        key: ValueKey('AdminEventsManagmentScreen'),
+                        child: EventManagmentScreen(),
+                      ),
+                      routes: [
+                        GoRoute(
+                          path: RoutePaths.subRouteCreateEvent,
+                          pageBuilder: (context, state) => const MaterialPage(
+                            key: ValueKey('CreateEventScreen'),
+                            child: CreateEventScreen(),
+                          ),
+                        ),
+                      ],
+                    )
+                  ])
+            ],
           ),
+
+          // User routes
           StatefulShellRoute.indexedStack(
             pageBuilder: (context, state, child) {
               return NoTransitionPage(

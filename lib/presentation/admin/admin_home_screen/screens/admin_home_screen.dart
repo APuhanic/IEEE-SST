@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+import 'package:ieee_sst/data/constants/route_paths.dart';
 import 'package:ieee_sst/data/constants/text_styles.dart';
 import 'package:ieee_sst/di/dependency_injection.dart';
 import 'package:ieee_sst/presentation/home/widgets/event_card_list.dart';
@@ -26,13 +28,7 @@ class AdminHomeScreen extends StatelessWidget {
                   child: Header(),
                 ),
                 const SizedBox(height: 24),
-                Text(
-                  'Admin Home Screen',
-                  style: AppTextStyle.header,
-                ),
-                const Text(
-                  'Welcome to the IEEE SST Forum 2024',
-                ),
+                Text('Admin Home Screen', style: AppTextStyle.header),
                 const SizedBox(height: 24),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -53,7 +49,7 @@ class AdminHomeScreen extends StatelessWidget {
                 const SizedBox(height: 24),
                 const Padding(
                   padding: EdgeInsets.all(16.0),
-                  child: SpeakerHub(),
+                  child: MenagmentPart(),
                 ),
               ],
             ),
@@ -63,26 +59,37 @@ class AdminHomeScreen extends StatelessWidget {
   }
 }
 
-class SpeakerHub extends StatelessWidget {
-  const SpeakerHub({
-    super.key,
-  });
+class MenagmentPart extends StatelessWidget {
+  const MenagmentPart({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Row(
-          children: [
-            Text('Speaker hub', style: AppTextStyle.titleLarge),
-          ],
-        ),
         const SizedBox(height: 24),
-        const NewScreenButton(),
+        NewScreenButton(
+          title: 'Manage events',
+          description: 'Add, delete, and edit events',
+          icon: Icons.event_note_outlined,
+          onPressed: () => context.go(RoutePaths.adminEventsMangment),
+          routePath: '',
+        ),
         const SizedBox(height: 16),
-        const NewScreenButton(),
+        NewScreenButton(
+          title: 'Manage sponsors',
+          description: 'Add, delete, and edit sponsors',
+          icon: Icons.person_outline,
+          onPressed: () {},
+          routePath: '',
+        ),
         const SizedBox(height: 16),
-        const NewScreenButton()
+        NewScreenButton(
+          title: 'Manage speakers',
+          description: 'Add, delete, and edit speakers',
+          icon: Icons.person_outline,
+          onPressed: () {},
+          routePath: '',
+        ),
       ],
     );
   }

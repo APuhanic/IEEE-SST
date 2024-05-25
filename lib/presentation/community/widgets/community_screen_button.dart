@@ -21,6 +21,7 @@ class CommunityScreenButton extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: GestureDetector(
         onTap: () {
+          // TODO: Add route path class
           context.go('/community/organizer_announcements');
         },
         child: SizedBox(

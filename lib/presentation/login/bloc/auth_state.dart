@@ -1,6 +1,5 @@
 part of 'auth_bloc.dart';
 
-// TODO: Add more states as needed SignedIn, SignedOut
 @freezed
 class AuthState with _$AuthState {
   const factory AuthState.initial() = _Initial;
