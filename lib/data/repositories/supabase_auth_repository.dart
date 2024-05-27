@@ -29,16 +29,18 @@ class SupabaseAuthRepository implements AuthenticationRepository {
     String password,
   ) async {
     // TODO: Implement error handling for profile creation
-    final response =
-        await _supabase.auth.signUp(email: email, password: password);
+    final response = await _supabase.auth.signUp(
+      email: email,
+      password: password,
+      data: {'role': 'user'},
+    );
     // Set the user as user in the profile table
     // TODO: Replace with a profile creation method from supabaseAPI
     await _supabase.from('profiles').insert({
       'id': response.user!.id,
+      // TODO: Add a role enum or class
       'role': 'user',
     });
-    // Set the user as user in the auth table metadata
-    await _supabase.auth.updateUser(UserAttributes(data: {'role': 'user'}));
   }
 
   /// Sign out the current user.

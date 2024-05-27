@@ -3,9 +3,13 @@ import 'package:go_router/go_router.dart';
 import 'package:ieee_sst/data/constants/route_paths.dart';
 import 'package:ieee_sst/data/constants/user_roles.dart';
 import 'package:ieee_sst/data/router/navigator_key_manager.dart';
-import 'package:ieee_sst/presentation/admin/admin_event_managment_screen.dart/screens/create_event_screen.dart';
-import 'package:ieee_sst/presentation/admin/admin_event_managment_screen.dart/screens/event_managment_screen.dart';
+import 'package:ieee_sst/presentation/admin/admin_annoucments_managment_screen.dart/screens/announcements_managment_screen.dart';
+import 'package:ieee_sst/presentation/admin/admin_event_managment_screen/screens/create_event_description_screen.dart';
+import 'package:ieee_sst/presentation/admin/admin_event_managment_screen/screens/create_event_screen.dart';
+import 'package:ieee_sst/presentation/admin/admin_event_managment_screen/screens/event_managment_screen.dart';
 import 'package:ieee_sst/presentation/admin/admin_home_screen/screens/admin_home_screen.dart';
+import 'package:ieee_sst/presentation/admin/event_sponsor_managment/screens/sponsor_managment_screen.dart';
+import 'package:ieee_sst/presentation/agenda/screens/agenda_screen.dart';
 import 'package:ieee_sst/presentation/attendees/screens/attendees_screen.dart';
 import 'package:ieee_sst/presentation/bottom_nav_bar/widgets/admin_scaffold_with_nav_bar.dart';
 import 'package:ieee_sst/presentation/bottom_nav_bar/widgets/scaffold_with_nav_bar.dart';
@@ -66,26 +70,62 @@ class AppRouter {
                 ],
               ),
               StatefulShellBranch(
-                  navigatorKey: _navigatorKeyManager
-                      .shellNavigatorAdminEventsManagmentKey,
-                  routes: [
-                    GoRoute(
-                      path: RoutePaths.adminEventsMangment,
-                      pageBuilder: (context, state) => const MaterialPage(
-                        key: ValueKey('AdminEventsManagmentScreen'),
-                        child: EventManagmentScreen(),
-                      ),
-                      routes: [
-                        GoRoute(
-                          path: RoutePaths.subRouteCreateEvent,
-                          pageBuilder: (context, state) => const MaterialPage(
-                            key: ValueKey('CreateEventScreen'),
-                            child: CreateEventScreen(),
-                          ),
+                navigatorKey:
+                    _navigatorKeyManager.shellNavigatorAdminEventsManagmentKey,
+                routes: [
+                  GoRoute(
+                    path: RoutePaths.adminEventsMangment,
+                    pageBuilder: (context, state) => const MaterialPage(
+                      key: ValueKey('AdminEventsManagmentScreen'),
+                      child: EventManagmentScreen(),
+                    ),
+                    routes: [
+                      GoRoute(
+                        path: RoutePaths.subRouteCreateNameEvent,
+                        pageBuilder: (context, state) => const MaterialPage(
+                          key: ValueKey('CreateEventScreen'),
+                          child: CreateEventNameScreen(),
                         ),
-                      ],
-                    )
-                  ])
+                        routes: [
+                          GoRoute(
+                            path: RoutePaths.subRouteCreateDescriptionEvent,
+                            pageBuilder: (context, state) => const MaterialPage(
+                              key: ValueKey('EditEventScreen'),
+                              child: CreateEventDescriptionScreen(),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  )
+                ],
+              ),
+              StatefulShellBranch(
+                navigatorKey:
+                    _navigatorKeyManager.shellNavigatorSponsorManagmentKey,
+                routes: [
+                  GoRoute(
+                    path: RoutePaths.adminSponsors,
+                    pageBuilder: (context, state) => const MaterialPage(
+                      key: ValueKey('AdminSponsorsScreen'),
+                      child: SponsorManagmentScreen(),
+                    ),
+                  )
+                ],
+              ),
+              StatefulShellBranch(
+                navigatorKey:
+                    _navigatorKeyManager.shellNavigatorAnnouncementsKey,
+                routes: [
+                  GoRoute(
+                    path: RoutePaths.adminAnnouncements,
+                    pageBuilder: (context, state) => const MaterialPage(
+                      key: ValueKey('AdminAnnouncementsScreen'),
+                      child: AnnouncementsManagmentScreen(),
+                    ),
+                  )
+                ],
+              )
             ],
           ),
 
@@ -109,6 +149,17 @@ class AppRouter {
                   ),
                 ],
               ),
+              StatefulShellBranch(
+                  navigatorKey: _navigatorKeyManager.shellNavigatorAgendaKey,
+                  routes: [
+                    GoRoute(
+                      path: RoutePaths.agenda,
+                      pageBuilder: (context, state) => const MaterialPage(
+                        key: ValueKey('AgendaScreen'),
+                        child: AgendaScreen(),
+                      ),
+                    ),
+                  ]),
               StatefulShellBranch(
                 navigatorKey: _navigatorKeyManager.shellNavigatorMessagesKey,
                 routes: [
@@ -159,7 +210,6 @@ class AppRouter {
         ],
       );
 
-  // TODO: Remove this and implement the auth bloc redirection
   String getInitialRoute() {
     final Session? session = _supabaseClient.auth.currentSession;
     if (session == null || session.isExpired) {

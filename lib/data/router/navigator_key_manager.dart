@@ -7,6 +7,9 @@ class NavigatorKeyManager {
   final GlobalKey<NavigatorState> shellNavigatorHomeKey =
       GlobalKey<NavigatorState>(debugLabel: 'ShellNavigatorHomeKey');
 
+  final GlobalKey<NavigatorState> shellNavigatorAgendaKey =
+      GlobalKey<NavigatorState>(debugLabel: 'ShellNavigatorAgendaKey');
+
   final GlobalKey<NavigatorState> shellNavigatorCommunityKey =
       GlobalKey<NavigatorState>(debugLabel: 'ShellNavigatorCommunityKey');
 
@@ -22,4 +25,14 @@ class NavigatorKeyManager {
   final GlobalKey<NavigatorState> shellNavigatorAdminEventsManagmentKey =
       GlobalKey<NavigatorState>(
           debugLabel: 'ShellNavigatorAdminEventsManagmentKey');
+
+  final GlobalKey<NavigatorState> shellNavigatorSponsorManagmentKey =
+      GlobalKey<NavigatorState>(
+    debugLabel: 'ShellNavigatorSponsorManagmentKey',
+  );
+
+  final GlobalKey<NavigatorState> shellNavigatorAnnouncementsKey =
+      GlobalKey<NavigatorState>(
+    debugLabel: 'ShellNavigatorAnnouncementsKey',
+  );
 }

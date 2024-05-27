@@ -4,7 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:ieee_sst/data/constants/route_paths.dart';
 import 'package:ieee_sst/data/constants/text_styles.dart';
 import 'package:ieee_sst/di/dependency_injection.dart';
-import 'package:ieee_sst/presentation/home/widgets/event_card_list.dart';
+import 'package:ieee_sst/presentation/common/widgets/event_card_list.dart';
 import 'package:ieee_sst/presentation/home/widgets/header.dart';
 import 'package:ieee_sst/presentation/home/widgets/home_screen_drawer.dart';
 import 'package:ieee_sst/presentation/home/widgets/new_screen_button.dart';

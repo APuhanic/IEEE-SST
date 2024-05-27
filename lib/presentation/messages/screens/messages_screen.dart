@@ -16,24 +16,11 @@ class MessagesScreen extends StatelessWidget {
           children: [
             const SizedBox(height: 24),
             Row(
-              mainAxisAlignment: MainAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                IconButton(
-                  onPressed: () {},
-                  icon: const Icon(
-                    Icons.arrow_back_ios,
-                  ),
-                ),
-                Expanded(
-                  child: Container(),
-                ),
                 Text(
                   'Messages',
-                  style: AppTextStyle.header,
-                ),
-                Expanded(
-                  flex: 2,
-                  child: Container(),
+                  style: AppTextStyle.titleSmall,
                 ),
               ],
             ),
@@ -49,6 +36,7 @@ class MessagesScreen extends StatelessWidget {
                         color: AppColors.white,
                         borderRadius: BorderRadius.circular(15),
                       ),
+                      // TODO: Make this autocomplete
                       child: const TextField(
                         decoration: InputDecoration(
                           hintText: 'Search messages',

@@ -23,6 +23,7 @@ class BottomNavBar extends StatelessWidget {
       create: (context) => ScreenIndexCubit(),
       child: BlocBuilder<ScreenIndexCubit, int>(
         builder: (context, state) {
+          // TODO: Replace with a prettier BottomNavigationBar
           return BottomNavigationBar(
             type: BottomNavigationBarType.fixed,
             backgroundColor: AppColors.white,

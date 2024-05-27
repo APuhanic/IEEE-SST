@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:ieee_sst/data/constants/app_colors.dart';
 import 'package:ieee_sst/data/constants/text_styles.dart';
-import 'package:ieee_sst/presentation/attendees/widgets/user_profile_tile.dart';
+import 'package:ieee_sst/presentation/common/widgets/event_card_list.dart';
 
-class AttendeesScreen extends StatelessWidget {
-  const AttendeesScreen({super.key});
+class AgendaScreen extends StatelessWidget {
+  const AgendaScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,7 @@ class AttendeesScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  'Attendees',
+                  'Events',
                   style: AppTextStyle.titleSmall,
                 ),
               ],
@@ -35,8 +35,9 @@ class AttendeesScreen extends StatelessWidget {
                         borderRadius: BorderRadius.circular(15),
                       ),
                       child: const TextField(
+                        // TODO: Add autocomplete
                         decoration: InputDecoration(
-                          hintText: 'Search for attendees',
+                          hintText: 'Search for events',
                           border: InputBorder.none,
                           prefixIcon: Icon(Icons.search),
                         ),
@@ -61,14 +62,7 @@ class AttendeesScreen extends StatelessWidget {
                 ],
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16),
-              child: UserProfileTile(),
-            ),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16),
-              child: UserProfileTile(),
-            ),
+            const EventCardList(),
           ],
         ),
       ),

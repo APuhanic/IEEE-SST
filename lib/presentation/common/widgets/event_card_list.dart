@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ieee_sst/presentation/home/widgets/event_card.dart';
+import 'package:ieee_sst/presentation/common/widgets/event_card.dart';
 
 class EventCardList extends StatelessWidget {
   const EventCardList({
@@ -9,11 +9,11 @@ class EventCardList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 160,
+      height: 180,
       child: ListView.separated(
         padding: const EdgeInsets.symmetric(horizontal: 16),
         scrollDirection: Axis.horizontal,
-        itemCount: 3,
+        itemCount: 8,
         separatorBuilder: (context, index) => const SizedBox(width: 16),
         itemBuilder: (context, index) => const EventCard(),
       ),

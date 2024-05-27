@@ -19,6 +19,15 @@ class AdminScaffoldWtihNavBar extends StatelessWidget {
     return Scaffold(
       body: navigationShell,
       resizeToAvoidBottomInset: true,
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        backgroundColor: Colors.blue,
+        elevation: 0,
+        child: const Icon(
+          Icons.add,
+          color: Colors.white,
+        ),
+      ),
       bottomNavigationBar: BottomNavBar(
         key: const ValueKey('BottomNavBar'),
         tabs: const ['Home', 'Event', 'Sponsors', 'Announcements'],

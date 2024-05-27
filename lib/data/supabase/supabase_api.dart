@@ -1,19 +1,45 @@
+import 'package:flutter/foundation.dart';
+import 'package:ieee_sst/data/constants/user_roles.dart';
 import 'package:injectable/injectable.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 /// Supabase API that handles fetching data from the Supabase database.
 @LazySingleton()
 class SupabaseApi {
-  SupabaseApi(this._supabase);
-  final SupabaseClient _supabase;
+  SupabaseApi(this._supabaseClient);
+  final SupabaseClient _supabaseClient;
 
-  /// Get the profile by id
-  Future<List<Map<String, dynamic>>> fetchProfile(String id) async {
-    return await _supabase.from('profiles').select().eq('id', id);
+  Future<List<Map<String, dynamic>>> fetchProfile(String id) async =>
+      await _supabaseClient.from('profiles').select().eq('id', id);
+
+  Future<List<Map<String, dynamic>>> fetchProfileByEmail(String email) async =>
+      await _supabaseClient.from('profiles').select().eq('email', email);
+
+  Future<List<Map<String, dynamic>>> fetchProfiles() async =>
+      await _supabaseClient.from('profiles').select();
+
+  // TODO: Implement enum or class for roles?
+  Future<void> addUserProfile(String id) async =>
+      await _supabaseClient.from('profiles').insert(
+        {'id': id, 'role': UserRoles.user},
+      );
+
+  Future<List<User>> getAllRegisteredUsers() async =>
+      await _supabaseClient.auth.admin.listUsers();
+
+  Future<void> addEvent() async {
+    try {
+      await _supabaseClient.from('events').insert({
+        'name': 'title',
+        'description': 'description',
+        'time': DateTime.now().toIso8601String(),
+        'location': 'location',
+      });
+    } catch (e) {
+      debugPrint(e.toString());
+    }
   }
 
-  /// Get the profile by email
-  Future<List<Map<String, dynamic>>> fetchProfileByEmail(String email) async {
-    return await _supabase.from('profiles').select().eq('email', email);
-  }
+  Future<List<Map<String, dynamic>>> fetchEvents() async =>
+      Supabase.instance.client.from('events').select();
 }

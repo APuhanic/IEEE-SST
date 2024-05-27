@@ -24,9 +24,10 @@ class ScaffoldWithNavBar extends StatelessWidget {
       resizeToAvoidBottomInset: true,
       bottomNavigationBar: BottomNavBar(
         key: const ValueKey('BottomNavBar'),
-        tabs: const ['Home', 'Messages', 'Community', 'Attendees'],
+        tabs: const ['Home', 'Agenda', 'Messages', 'Community', 'Attendees'],
         icons: const [
           Icons.home,
+          Icons.calendar_today,
           Icons.message,
           Icons.person,
           Icons.monitor_rounded,

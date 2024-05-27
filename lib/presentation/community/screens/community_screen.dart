@@ -15,16 +15,11 @@ class CommunityScreen extends StatelessWidget {
           children: [
             const SizedBox(height: 24),
             Row(
-              mainAxisAlignment: MainAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                IconButton(
-                    onPressed: () {},
-                    icon: const Icon(
-                      Icons.arrow_back_ios,
-                    )),
                 Text(
                   'Community',
-                  style: AppTextStyle.header,
+                  style: AppTextStyle.titleSmall,
                 ),
               ],
             ),
