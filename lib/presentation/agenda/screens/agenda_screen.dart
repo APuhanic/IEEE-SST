@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:ieee_sst/data/constants/app_colors.dart';
 import 'package:ieee_sst/data/constants/text_styles.dart';
 import 'package:ieee_sst/presentation/common/widgets/event_card_list.dart';
+import 'package:date_picker_timeline/date_picker_widget.dart';
 
 class AgendaScreen extends StatelessWidget {
   const AgendaScreen({super.key});
@@ -9,63 +11,83 @@ class AgendaScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            const SizedBox(height: 24),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'Events',
-                  style: AppTextStyle.titleSmall,
+      body: CustomScrollView(
+        slivers: <Widget>[
+          SliverAppBar(
+            expandedHeight: 40.0,
+            floating: true,
+            title: Text('Agenda', style: AppTextStyle.titleSmall),
+            backgroundColor: AppColors.background,
+            shadowColor: Colors.transparent,
+            surfaceTintColor: AppColors.background,
+            actions: [
+              IconButton(
+                onPressed: () {
+                  context.go('/agenda/search_events');
+                },
+                icon: const Icon(Icons.search),
+              ),
+            ],
+            snap: true,
+          ),
+          SliverPersistentHeader(
+            pinned: true,
+            delegate: _DatePickerHeaderDelegate(
+              child: Container(
+                color: AppColors.background,
+                child: DatePicker(
+                  DateTime.now(),
+                  height: 100,
+                  dateTextStyle: AppTextStyle.lightText,
+                  dayTextStyle: AppTextStyle.lightText,
+                  initialSelectedDate: DateTime.now(),
+                  selectionColor: AppColors.primary,
+                  selectedTextColor: AppColors.white,
+                  daysCount: 14,
+                  locale: 'en',
+                  onDateChange: (date) {
+                    // New date selected
+                  },
+                ),
+              ),
+            ),
+          ),
+          SliverList(
+            delegate: SliverChildListDelegate(
+              [
+                const Column(
+                  children: [
+                    EventCardList(),
+                  ],
                 ),
               ],
             ),
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Row(
-                children: [
-                  Expanded(
-                    child: Container(
-                      margin: const EdgeInsets.only(right: 16),
-                      height: 50,
-                      decoration: BoxDecoration(
-                        color: AppColors.white,
-                        borderRadius: BorderRadius.circular(15),
-                      ),
-                      child: const TextField(
-                        // TODO: Add autocomplete
-                        decoration: InputDecoration(
-                          hintText: 'Search for events',
-                          border: InputBorder.none,
-                          prefixIcon: Icon(Icons.search),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Container(
-                    height: 50,
-                    width: 50,
-                    decoration: BoxDecoration(
-                      color: AppColors.primary,
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                    child: IconButton(
-                      onPressed: () {},
-                      icon: const Icon(
-                        Icons.filter_list,
-                        color: AppColors.white,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            const EventCardList(),
-          ],
-        ),
+          ),
+        ],
       ),
     );
+  }
+}
+
+class _DatePickerHeaderDelegate extends SliverPersistentHeaderDelegate {
+  final Widget child;
+
+  _DatePickerHeaderDelegate({required this.child});
+
+  @override
+  Widget build(
+      BuildContext context, double shrinkOffset, bool overlapsContent) {
+    return child;
+  }
+
+  @override
+  double get maxExtent => 90.0;
+
+  @override
+  double get minExtent => 90.0;
+
+  @override
+  bool shouldRebuild(covariant SliverPersistentHeaderDelegate oldDelegate) {
+    return false;
   }
 }

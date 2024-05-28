@@ -30,8 +30,14 @@ class BottomNavBar extends StatelessWidget {
             useLegacyColorScheme: false,
             selectedItemColor: AppColors.black,
             unselectedItemColor: AppColors.gray,
-            selectedLabelStyle: const TextStyle(color: AppColors.black),
-            unselectedLabelStyle: const TextStyle(color: AppColors.gray),
+            selectedLabelStyle: const TextStyle(
+              color: AppColors.black,
+              fontSize: 10,
+            ),
+            unselectedLabelStyle: const TextStyle(
+              color: AppColors.gray,
+              fontSize: 10,
+            ),
             currentIndex: state,
             items: List.generate(
               tabs.length,

@@ -28,11 +28,13 @@ class CommunityScreen extends StatelessWidget {
               icon: Icons.group,
               title: 'Organizer announcements',
               description: 'Announcements from the organizers',
+              routePath: '/community/organizer_announcements',
             ),
             const CommunityScreenButton(
               icon: Icons.question_answer,
               title: 'Ask organizers',
               description: 'Ask questions to the organizers',
+              routePath: '/community/ask_organizers',
             ),
           ],
         ),

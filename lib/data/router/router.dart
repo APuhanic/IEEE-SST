@@ -10,11 +10,13 @@ import 'package:ieee_sst/presentation/admin/admin_event_managment_screen/screens
 import 'package:ieee_sst/presentation/admin/admin_home_screen/screens/admin_home_screen.dart';
 import 'package:ieee_sst/presentation/admin/event_sponsor_managment/screens/sponsor_managment_screen.dart';
 import 'package:ieee_sst/presentation/agenda/screens/agenda_screen.dart';
+import 'package:ieee_sst/presentation/agenda/screens/search_events_screen.dart';
 import 'package:ieee_sst/presentation/attendees/screens/attendees_screen.dart';
 import 'package:ieee_sst/presentation/bottom_nav_bar/widgets/admin_scaffold_with_nav_bar.dart';
 import 'package:ieee_sst/presentation/bottom_nav_bar/widgets/scaffold_with_nav_bar.dart';
 import 'package:ieee_sst/presentation/community/screens/community_screen.dart';
 import 'package:ieee_sst/presentation/community/screens/organizer_announcements.dart';
+import 'package:ieee_sst/presentation/community/screens/qa_screen.dart';
 import 'package:ieee_sst/presentation/home/screens/home_screen.dart';
 import 'package:ieee_sst/presentation/login/screens/login_screen.dart';
 import 'package:ieee_sst/presentation/messages/screens/messages_screen.dart';
@@ -153,12 +155,20 @@ class AppRouter {
                   navigatorKey: _navigatorKeyManager.shellNavigatorAgendaKey,
                   routes: [
                     GoRoute(
-                      path: RoutePaths.agenda,
-                      pageBuilder: (context, state) => const MaterialPage(
-                        key: ValueKey('AgendaScreen'),
-                        child: AgendaScreen(),
-                      ),
-                    ),
+                        path: RoutePaths.agenda,
+                        pageBuilder: (context, state) => const MaterialPage(
+                              key: ValueKey('AgendaScreen'),
+                              child: AgendaScreen(),
+                            ),
+                        routes: [
+                          GoRoute(
+                            path: RoutePaths.searchEvents,
+                            pageBuilder: (context, state) => const MaterialPage(
+                              key: ValueKey('SearchEventsScreen'),
+                              child: SearchEventsScreen(),
+                            ),
+                          ),
+                        ]),
                   ]),
               StatefulShellBranch(
                 navigatorKey: _navigatorKeyManager.shellNavigatorMessagesKey,
@@ -189,6 +199,13 @@ class AppRouter {
                           child: OrganizerAnnouncements(),
                         ),
                       ),
+                      GoRoute(
+                        path: RoutePaths.subRouteAskOrganizers,
+                        pageBuilder: (context, state) => const MaterialPage(
+                          key: ValueKey('AskOrganizers'),
+                          child: QaScreen(),
+                        ),
+                      )
                     ],
                   ),
                 ],

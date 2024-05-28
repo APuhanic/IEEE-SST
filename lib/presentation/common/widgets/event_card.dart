@@ -19,9 +19,7 @@ class EventCard extends StatelessWidget {
         onTap: () {
           showModalBottomSheet(
             context: context,
-            builder: (context) {
-              return const _BottomSheetEventInfo();
-            },
+            builder: (context) => const _BottomSheetEventInfo(),
           );
         },
         child: Container(
@@ -100,7 +98,7 @@ class _BottomSheetEventInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 800,
+      height: 1000,
       decoration: BoxDecoration(
         color: AppColors.background,
         borderRadius: BorderRadius.circular(24),

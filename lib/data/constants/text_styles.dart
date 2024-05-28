@@ -56,4 +56,18 @@ class AppTextStyle {
     color: AppColors.warning,
     fontWeight: FontWeight.normal,
   );
+
+  static TextStyle userNameText = const TextStyle(
+    fontSize: 16,
+    color: AppColors.black,
+  );
+  static TextStyle userStatusText = const TextStyle(
+    fontSize: 12,
+    color: AppColors.grayText,
+  );
+
+  static TextStyle userGotMessage = const TextStyle(
+    fontSize: 12,
+    color: AppColors.black,
+  );
 }

@@ -11,64 +11,69 @@ class MessagesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            const SizedBox(height: 24),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'Messages',
-                  style: AppTextStyle.titleSmall,
-                ),
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: CustomScrollView(
+          slivers: <Widget>[
+            const SliverAppBar(
+              expandedHeight: 40.0,
+              floating: true,
+              automaticallyImplyLeading: true,
+              backgroundColor: AppColors.background,
+              shadowColor: Colors.transparent,
+              surfaceTintColor: AppColors.background,
+              actions: [
+                _SearchMessagesBar(),
               ],
+              snap: true,
             ),
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Row(
+            SliverList(
+                delegate: SliverChildListDelegate([
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Expanded(
-                    child: Container(
-                      margin: const EdgeInsets.only(right: 16),
-                      height: 50,
-                      decoration: BoxDecoration(
-                        color: AppColors.white,
-                        borderRadius: BorderRadius.circular(15),
-                      ),
-                      // TODO: Make this autocomplete
-                      child: const TextField(
-                        decoration: InputDecoration(
-                          hintText: 'Search messages',
-                          border: InputBorder.none,
-                          prefixIcon: Icon(Icons.search),
-                        ),
-                      ),
-                    ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 8.0),
+                    child: Text('Messages', style: AppTextStyle.titleSmall),
                   ),
-                  Container(
-                    height: 50,
-                    width: 50,
-                    decoration: BoxDecoration(
-                      color: AppColors.primary,
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                    child: IconButton(
-                      onPressed: () {},
-                      icon: const Icon(
-                        Icons.filter_list,
-                        color: AppColors.white,
-                      ),
-                    ),
-                  ),
+                  ListView.builder(
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    itemCount: 45,
+                    itemBuilder: (context, index) => const UserContactTile(),
+                  )
                 ],
               ),
-            ),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16),
-              child: UserContactTile(),
-            ),
+            ]))
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class _SearchMessagesBar extends StatelessWidget {
+  const _SearchMessagesBar({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: Container(
+        margin: const EdgeInsets.only(right: 16),
+        height: 50,
+        decoration: BoxDecoration(
+          color: AppColors.white,
+          borderRadius: BorderRadius.circular(15),
+        ),
+        // TODO: Make this autocomplete
+        child: const TextField(
+          decoration: InputDecoration(
+            hintText: 'Search messages',
+            border: InputBorder.none,
+            prefixIcon: Icon(Icons.search),
+          ),
         ),
       ),
     );

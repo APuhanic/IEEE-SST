@@ -37,7 +37,8 @@ class HomeScreenDrawer extends StatelessWidget {
         },
         builder: (context, state) {
           return Drawer(
-            backgroundColor: AppColors.white,
+            backgroundColor: AppColors.background,
+            surfaceTintColor: AppColors.background,
             child: ListView(
               children: [
                 const DrawerHeader(

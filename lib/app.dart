@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ieee_sst/data/constants/app_colors.dart';
+import 'package:ieee_sst/data/router/bloc/navigation_bloc.dart';
 import 'package:ieee_sst/data/router/router.dart';
 import 'package:ieee_sst/di/dependency_injection.dart';
 import 'package:ieee_sst/presentation/login/bloc/auth_bloc.dart';
@@ -18,8 +19,12 @@ class MainApp extends StatelessWidget {
       systemNavigationBarIconBrightness: Brightness.dark,
       systemNavigationBarDividerColor: AppColors.white,
     ));
-    return BlocProvider(
-      create: (context) => getIt<AuthBloc>(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (context) => getIt<AuthBloc>()),
+        // TODO: Remove navigation bloc?
+        BlocProvider(create: (context) => getIt<NavigationBloc>()),
+      ],
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,
         title: 'IEEE SST',

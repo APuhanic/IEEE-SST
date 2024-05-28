@@ -13,6 +13,7 @@ class AdminEventCardList extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 16),
         itemCount: 10,
         shrinkWrap: true,
+        physics: const NeverScrollableScrollPhysics(),
         separatorBuilder: (context, index) => const SizedBox(height: 16),
         itemBuilder: (context, index) => const AdminEventCard(),
       ),

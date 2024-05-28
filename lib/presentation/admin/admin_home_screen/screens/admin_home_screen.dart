@@ -4,7 +4,6 @@ import 'package:go_router/go_router.dart';
 import 'package:ieee_sst/data/constants/route_paths.dart';
 import 'package:ieee_sst/data/constants/text_styles.dart';
 import 'package:ieee_sst/di/dependency_injection.dart';
-import 'package:ieee_sst/presentation/common/widgets/event_card_list.dart';
 import 'package:ieee_sst/presentation/home/widgets/header.dart';
 import 'package:ieee_sst/presentation/home/widgets/home_screen_drawer.dart';
 import 'package:ieee_sst/presentation/home/widgets/new_screen_button.dart';
@@ -30,22 +29,6 @@ class AdminHomeScreen extends StatelessWidget {
                 const SizedBox(height: 24),
                 Text('Admin Home Screen', style: AppTextStyle.header),
                 const SizedBox(height: 24),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                  child: Row(
-                    children: [
-                      Text('Ongoing', style: AppTextStyle.titleLarge),
-                      Expanded(child: Container()),
-                      TextButton(
-                        onPressed: () {},
-                        child: const Text(
-                          'View All',
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-                const EventCardList(),
                 const SizedBox(height: 24),
                 const Padding(
                   padding: EdgeInsets.all(16.0),

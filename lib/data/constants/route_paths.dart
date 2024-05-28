@@ -6,9 +6,11 @@ abstract class RoutePaths {
   static const String home = '/home';
   static const String profile = '/profile';
   static const String agenda = '/agenda';
+  static const String searchEvents = 'search_events';
   static const String messages = '/messages';
   static const String community = '/community';
   static const String subRouteOrganizerAnnouncments = 'organizer_announcements';
+  static const String subRouteAskOrganizers = 'ask_organizers';
   static const String attendees = '/attendees';
   // Admin
   static const String adminHomeScreen = '/admin_home_screen';

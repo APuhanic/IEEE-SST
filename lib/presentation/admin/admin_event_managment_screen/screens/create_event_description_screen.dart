@@ -46,6 +46,7 @@ class CreateEventDescriptionScreen extends StatelessWidget {
                                 showClipboardCut: false,
                                 showHeaderStyle: false,
                                 showInlineCode: false,
+                                showColorButton: false,
                               ),
                             ),
                             const Divider(),

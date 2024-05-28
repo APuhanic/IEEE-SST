@@ -7,12 +7,14 @@ class CommunityScreenButton extends StatelessWidget {
   final IconData icon;
   final String title;
   final String description;
+  final String routePath;
 
   const CommunityScreenButton({
     super.key,
     required this.icon,
     required this.title,
     required this.description,
+    required this.routePath,
   });
 
   @override
@@ -22,7 +24,7 @@ class CommunityScreenButton extends StatelessWidget {
       child: GestureDetector(
         onTap: () {
           // TODO: Add route path class
-          context.go('/community/organizer_announcements');
+          context.go(routePath);
         },
         child: SizedBox(
           height: 80,
