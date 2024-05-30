@@ -27,12 +27,20 @@ class SupabaseAuthRepository implements AuthenticationRepository {
   Future<void> signUpWithEmailAndPassword(
     String email,
     String password,
+    String fullName,
+    String? organization,
+    String? position,
   ) async {
     // TODO: Implement error handling for profile creation
     final response = await _supabase.auth.signUp(
       email: email,
       password: password,
-      data: {'role': 'user'},
+      data: {
+        'role': 'user',
+        'full_name': fullName,
+        'organization': organization,
+        'position': position,
+      },
     );
     // Set the user as user in the profile table
     // TODO: Replace with a profile creation method from supabaseAPI
@@ -40,6 +48,10 @@ class SupabaseAuthRepository implements AuthenticationRepository {
       'id': response.user!.id,
       // TODO: Add a role enum or class
       'role': 'user',
+      'full_name': fullName,
+      'email': email,
+      'organization': organization,
+      'position': position,
     });
   }
 

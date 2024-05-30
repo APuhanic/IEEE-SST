@@ -1,65 +1,49 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:ieee_sst/data/constants/text_styles.dart';
-import 'package:ieee_sst/di/dependency_injection.dart';
-import 'package:ieee_sst/presentation/login/widgets/login_password_input.dart';
-import 'package:ieee_sst/presentation/register/bloc/registration_bloc.dart';
-import 'package:ieee_sst/presentation/register/widgets/confirm_password_input.dart';
-import 'package:ieee_sst/presentation/register/widgets/register_button.dart';
-import 'package:ieee_sst/presentation/register/widgets/user_name_input.dart';
+import 'package:flutter/widgets.dart';
+import 'package:ieee_sst/data/constants/app_colors.dart';
+import 'package:ieee_sst/presentation/register/widgets/full_name_input.dart';
+import 'package:ieee_sst/presentation/register/widgets/next_registration_screen_button.dart';
+import 'package:ieee_sst/presentation/register/widgets/organization_input.dart';
+import 'package:ieee_sst/presentation/register/widgets/position_input.dart';
 
-class RegisterScreen extends StatelessWidget {
-  const RegisterScreen({
+class RegisterUserDataScreen extends StatelessWidget {
+  const RegisterUserDataScreen({
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider<RegistrationBloc>(
-          create: (_) => getIt<RegistrationBloc>(),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Create Your Account'),
+        backgroundColor: AppColors.background,
+      ),
+      body: Padding(
+        padding: EdgeInsets.only(
+          bottom: MediaQuery.of(context).viewInsets.bottom,
+          left: 32.0,
+          right: 32.0,
         ),
-      ],
-      child: Scaffold(
-        body: Padding(
-          padding: const EdgeInsets.all(32.0),
-          child: BlocConsumer<RegistrationBloc, RegistrationState>(
-            listener: (context, state) {},
-            builder: (context, state) => Column(
-              children: [
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    'Register Account',
-                    style: AppTextStyle.header,
-                  ),
-                ),
-                const Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text('Fill your details'),
-                ),
-                const SizedBox(height: 40),
-                const UserNameInput(),
-                const SizedBox(height: 24),
-                const LoginPasswordInput(),
-                const SizedBox(height: 24),
-                const ConfirmPasswordInput(),
-                const SizedBox(height: 24),
-                const RegisterButton(),
-                const SizedBox(height: 24),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      '- Or Continue With -',
-                      style: AppTextStyle.lightText,
-                    ),
-                  ],
-                ),
-              ],
+        child: const Column(
+          children: [
+            Expanded(child: SizedBox()),
+            Align(
+              alignment: Alignment.centerLeft,
+              child: Text('Fill your details'),
             ),
-          ),
+            SizedBox(height: 24),
+            FullNameInput(),
+            SizedBox(height: 24),
+            OrganizationInput(),
+            SizedBox(height: 24),
+            PositionInput(),
+            Expanded(child: SizedBox()),
+            Align(
+              alignment: Alignment.centerRight,
+              child: NextRegisterScreenButton(
+                  nextScreenPath: '/register/user_data/email'),
+            ),
+          ],
         ),
       ),
     );

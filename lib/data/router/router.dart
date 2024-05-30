@@ -21,6 +21,8 @@ import 'package:ieee_sst/presentation/home/screens/home_screen.dart';
 import 'package:ieee_sst/presentation/login/screens/login_screen.dart';
 import 'package:ieee_sst/presentation/messages/screens/messages_screen.dart';
 import 'package:ieee_sst/presentation/register/screens/register_screen.dart';
+import 'package:ieee_sst/presentation/register/screens/register_user_data_screen.dart';
+import 'package:ieee_sst/presentation/register/screens/register_user_email_screen.dart';
 import 'package:injectable/injectable.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
@@ -44,20 +46,37 @@ class AppRouter {
               child: LoginScreen(),
             ),
           ),
+          // Register routes -  Nested so the info can be preserved when going back
           GoRoute(
             path: RoutePaths.register,
             pageBuilder: (context, state) => const MaterialPage(
               key: ValueKey('RegisterScreen'),
               child: RegisterScreen(),
             ),
+            routes: [
+              GoRoute(
+                path: RoutePaths.registerUserData,
+                pageBuilder: (context, state) => const MaterialPage(
+                  key: ValueKey('RegisterUserInfoScreen'),
+                  child: RegisterUserDataScreen(),
+                ),
+                routes: [
+                  GoRoute(
+                    path: RoutePaths.registerEmail,
+                    pageBuilder: (context, state) => const MaterialPage(
+                      key: ValueKey('RegisterUserEmailScreen'),
+                      child: RegisterUserEmailScreen(),
+                    ),
+                  ),
+                ],
+              ),
+            ],
           ),
           // Admin routes
           StatefulShellRoute.indexedStack(
-            pageBuilder: (context, state, child) {
-              return NoTransitionPage(
-                child: AdminScaffoldWtihNavBar(navigationShell: child),
-              );
-            },
+            pageBuilder: (context, state, child) => NoTransitionPage(
+              child: AdminScaffoldWtihNavBar(navigationShell: child),
+            ),
             branches: [
               StatefulShellBranch(
                 navigatorKey: _navigatorKeyManager.shellNavigatorAdminHomeKey,

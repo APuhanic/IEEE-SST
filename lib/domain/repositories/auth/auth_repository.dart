@@ -5,7 +5,13 @@ abstract class AuthenticationRepository {
   // TODO: Implement generic auth response
   Future<AuthResponse> signInWithEmailAndPassword(
       String email, String password);
-  Future<void> signUpWithEmailAndPassword(String email, String password);
+  Future<void> signUpWithEmailAndPassword(
+    String email,
+    String password,
+    String fullName,
+    String? organization,
+    String? position,
+  );
   Future<void> signOut();
   BaseUserModel? getCurrentUser();
   Stream<BaseUserModel?> getCurrentUserStream();

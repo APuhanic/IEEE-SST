@@ -2,6 +2,10 @@ abstract class RoutePaths {
   // Auth
   static const String login = '/';
   static const String register = '/register';
+
+  // TODO: Rename to registration steps?
+  static const String registerEmail = 'email';
+  static const String registerUserData = 'user_data';
   // User
   static const String home = '/home';
   static const String profile = '/profile';

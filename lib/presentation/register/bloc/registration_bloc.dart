@@ -1,10 +1,14 @@
+import 'dart:async';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:formz/formz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:ieee_sst/data/models/text_input_models/confirm_password.dart';
 import 'package:ieee_sst/data/models/text_input_models/email.dart';
+import 'package:ieee_sst/data/models/text_input_models/organization.dart';
 import 'package:ieee_sst/data/models/text_input_models/password.dart';
-import 'package:ieee_sst/data/models/text_input_models/user_name.dart';
+import 'package:ieee_sst/data/models/text_input_models/full_name.dart';
+import 'package:ieee_sst/data/models/text_input_models/position.dart';
 import 'package:ieee_sst/domain/repositories/auth/auth_repository.dart';
 import 'package:injectable/injectable.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -22,6 +26,8 @@ class RegistrationBloc extends Bloc<RegistrationEvent, RegistrationState> {
     on<_PasswordChanged>(_onPasswordChanged);
     on<_UserNameChanged>(_onUserNameChanged);
     on<_ConfirmPasswordChanged>(_onConfirmPasswordChanged);
+    on<_OrganizationChanged>(_onOrganizationChanged);
+    on<_PositionChanged>(_onPositionChanged);
   }
   final AuthenticationRepository _supabaseAuthRepository;
 
@@ -32,7 +38,12 @@ class RegistrationBloc extends Bloc<RegistrationEvent, RegistrationState> {
     emit(state.copyWith(status: FormzSubmissionStatus.inProgress));
     try {
       await _supabaseAuthRepository.signUpWithEmailAndPassword(
-          state.email.value, state.password.value);
+        state.email.value,
+        state.password.value,
+        state.fullName.value,
+        state.organization.value,
+        state.position.value,
+      );
       emit(state.copyWith(status: FormzSubmissionStatus.success));
     } on AuthException catch (e) {
       emit(state.copyWith(
@@ -50,7 +61,7 @@ class RegistrationBloc extends Bloc<RegistrationEvent, RegistrationState> {
     emit(
       state.copyWith(
         email: email,
-        isValid: Formz.validate([email, state.password, state.userName]),
+        isValid: Formz.validate([email, state.password, state.fullName]),
       ),
     );
   }
@@ -63,7 +74,7 @@ class RegistrationBloc extends Bloc<RegistrationEvent, RegistrationState> {
     emit(
       state.copyWith(
         password: password,
-        isValid: Formz.validate([state.email, password, state.userName]),
+        isValid: Formz.validate([state.email, password, state.fullName]),
       ),
     );
   }
@@ -72,10 +83,10 @@ class RegistrationBloc extends Bloc<RegistrationEvent, RegistrationState> {
     _UserNameChanged event,
     Emitter<RegistrationState> emit,
   ) {
-    final userName = UserName.dirty(event.userName);
+    final userName = FullName.dirty(event.fullName);
     emit(
       state.copyWith(
-        userName: userName,
+        fullName: userName,
         isValid: Formz.validate([state.email, state.password, userName]),
       ),
     );
@@ -90,7 +101,35 @@ class RegistrationBloc extends Bloc<RegistrationEvent, RegistrationState> {
       state.copyWith(
         confirmPassword: confirmPassword,
         isValid: Formz.validate(
-            [state.email, state.password, state.userName, confirmPassword]),
+            [state.email, state.password, state.fullName, confirmPassword]),
+      ),
+    );
+  }
+
+  FutureOr<void> _onOrganizationChanged(
+    _OrganizationChanged event,
+    Emitter<RegistrationState> emit,
+  ) {
+    final organization = Organization.dirty(event.organization);
+    emit(
+      state.copyWith(
+        organization: organization,
+        isValid: Formz.validate(
+            [state.email, state.password, state.fullName, organization]),
+      ),
+    );
+  }
+
+  FutureOr<void> _onPositionChanged(
+    _PositionChanged event,
+    Emitter<RegistrationState> emit,
+  ) {
+    final position = Position.dirty(event.position);
+    emit(
+      state.copyWith(
+        position: position,
+        isValid: Formz.validate(
+            [state.email, state.password, state.fullName, position]),
       ),
     );
   }

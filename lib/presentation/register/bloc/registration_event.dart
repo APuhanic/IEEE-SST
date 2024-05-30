@@ -2,15 +2,22 @@ part of 'registration_bloc.dart';
 
 @freezed
 class RegistrationEvent with _$RegistrationEvent {
-  const factory RegistrationEvent.submitted(
-      {required String email,
-      required String password,
-      required String userName}) = _Submitted;
+  const factory RegistrationEvent.submitted({
+    required String email,
+    required String password,
+    required String fullName,
+    required String position,
+    required String organization,
+  }) = _Submitted;
   const factory RegistrationEvent.emailChanged(String email) = _EmailChanged;
   const factory RegistrationEvent.passwordChanged(String password) =
       _PasswordChanged;
-  const factory RegistrationEvent.userNameChanged(String userName) =
+  const factory RegistrationEvent.fullNameChanged(String fullName) =
       _UserNameChanged;
+  const factory RegistrationEvent.organizationChanged(String organization) =
+      _OrganizationChanged;
+  const factory RegistrationEvent.positionChanged(String position) =
+      _PositionChanged;
   const factory RegistrationEvent.confirmPasswordChanged(
       String confirmPassword) = _ConfirmPasswordChanged;
 }

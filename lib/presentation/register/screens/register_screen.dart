@@ -4,13 +4,8 @@ import 'package:formz/formz.dart';
 import 'package:go_router/go_router.dart';
 import 'package:ieee_sst/data/constants/app_colors.dart';
 import 'package:ieee_sst/data/constants/text_styles.dart';
-import 'package:ieee_sst/di/dependency_injection.dart';
 import 'package:ieee_sst/presentation/register/bloc/registration_bloc.dart';
-import 'package:ieee_sst/presentation/register/widgets/confirm_password_input.dart';
-import 'package:ieee_sst/presentation/register/widgets/register_button.dart';
-import 'package:ieee_sst/presentation/register/widgets/registration_email_input.dart';
-import 'package:ieee_sst/presentation/register/widgets/registration_password_input.dart';
-import 'package:ieee_sst/presentation/register/widgets/user_name_input.dart';
+import 'package:ieee_sst/presentation/register/widgets/register_with_email_button.dart';
 
 class RegisterScreen extends StatelessWidget {
   const RegisterScreen({
@@ -19,93 +14,77 @@ class RegisterScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider<RegistrationBloc>(
-          create: (_) => getIt<RegistrationBloc>(),
-        ),
-      ],
-      child: Scaffold(
-        resizeToAvoidBottomInset: false,
-        body: Padding(
-          padding: const EdgeInsets.all(32.0),
-          child: BlocConsumer<RegistrationBloc, RegistrationState>(
-            listener: (context, state) {
-              if (state.status.isSuccess) {
-                context.go('/home');
-              }
-              if (state.status.isFailure) {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
-                    content: Text(state.errorMessage),
-                    backgroundColor: AppColors.primary,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                  ),
-                );
-              }
-            },
-            listenWhen: (previous, current) =>
-                previous.status != current.status,
-            builder: (context, state) => Column(
-              children: [
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    'Register Account',
-                    style: AppTextStyle.header,
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Create Your Account'),
+        backgroundColor: AppColors.background,
+      ),
+      resizeToAvoidBottomInset: false,
+      body: Padding(
+        padding: const EdgeInsets.all(32.0),
+
+        //TODO: Move to the last register screen
+        child: BlocConsumer<RegistrationBloc, RegistrationState>(
+          listener: (context, state) {
+            if (state.status.isSuccess) {
+              context.go('/home');
+            }
+            if (state.status.isFailure) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text(state.errorMessage),
+                  backgroundColor: AppColors.primary,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
                   ),
                 ),
-                const Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text('Fill your details'),
-                ),
-                const SizedBox(height: 40),
-                const UserNameInput(),
-                const SizedBox(height: 24),
-                const RegistrationEmailInput(),
-                const SizedBox(height: 24),
-                const RegistrationPasswordInput(),
-                const SizedBox(height: 24),
-                const ConfirmPasswordInput(),
-                const SizedBox(height: 24),
-                const RegisterButton(),
-                const SizedBox(height: 24),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text('- Or Continue With -', style: AppTextStyle.lightText),
-                  ],
-                ),
-                const SizedBox(height: 24),
-                const Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    _GoogleSignUp(),
-                    SizedBox(width: 24),
-                    _FacebookSignUp(),
-                  ],
-                ),
-                const SizedBox(height: 24),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      'Already Have an Account?',
-                      style: AppTextStyle.lightText,
+              );
+            }
+          },
+          listenWhen: (previous, current) => previous.status != current.status,
+          builder: (context, state) => Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Expanded(child: SizedBox()),
+              const SizedBox(height: 24),
+              const RegisterWithEmailButton(),
+              const SizedBox(height: 24),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text('- Or Continue With -', style: AppTextStyle.lightText),
+                ],
+              ),
+              const SizedBox(height: 24),
+              const Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  _GoogleSignUp(),
+                  SizedBox(width: 24),
+                  _FacebookSignUp(),
+                ],
+              ),
+              const SizedBox(height: 24),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'Already Have an Account?',
+                    style: AppTextStyle.lightText,
+                  ),
+                  TextButton(
+                    onPressed: () => context.go('/'),
+                    child: Text(
+                      'Log In',
+                      style: AppTextStyle.lightText.copyWith(
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
-                    TextButton(
-                      onPressed: () => context.go('/'),
-                      child: Text('Log In',
-                          style: AppTextStyle.lightText.copyWith(
-                            fontWeight: FontWeight.w500,
-                          )),
-                    ),
-                  ],
-                ),
-              ],
-            ),
+                  ),
+                ],
+              ),
+              const Expanded(child: SizedBox()),
+            ],
           ),
         ),
       ),

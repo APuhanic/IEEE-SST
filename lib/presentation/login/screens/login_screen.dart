@@ -20,7 +20,9 @@ class LoginScreen extends StatelessWidget {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: MultiBlocProvider(
-        providers: [BlocProvider<LoginBloc>(create: (_) => getIt<LoginBloc>())],
+        providers: [
+          BlocProvider<LoginBloc>(create: (_) => getIt<LoginBloc>()),
+        ],
         child: BlocConsumer<LoginBloc, LoginState>(
           listener: (context, state) {
             if (state.status.isSuccess && state.isAdmin) {
@@ -48,10 +50,10 @@ class LoginScreen extends StatelessWidget {
                     alignment: Alignment.centerLeft,
                     child: Text('Fill your details'),
                   ),
-                  // If the login has failed show the error message
-                  const SizedBox(height: 40),
-                  const LoginEmailInput(),
-                  const SizedBox(height: 24),
+                  const Padding(
+                    padding: EdgeInsets.only(bottom: 24.0, top: 40),
+                    child: LoginEmailInput(),
+                  ),
                   const LoginPasswordInput(),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -65,16 +67,18 @@ class LoginScreen extends StatelessWidget {
                             )
                           : const SizedBox.shrink(),
                       TextButton(
-                          onPressed: () {},
-                          child: Text(
-                            'Forgot Password?',
-                            style: AppTextStyle.lightText,
-                          )),
+                        onPressed: () {},
+                        child: Text(
+                          'Forgot Password?',
+                          style: AppTextStyle.lightText,
+                        ),
+                      ),
                     ],
                   ),
-                  const SizedBox(height: 24),
-                  const LoginButton(),
-                  const SizedBox(height: 24),
+                  const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 24.0),
+                    child: LoginButton(),
+                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -82,9 +86,10 @@ class LoginScreen extends StatelessWidget {
                           style: AppTextStyle.lightText),
                     ],
                   ),
-                  const SizedBox(height: 24),
-                  const _LoginProviders(),
-                  const SizedBox(height: 24),
+                  const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 24.0),
+                    child: _LoginProviders(),
+                  ),
                   const RegisterAccountLink(),
                 ],
               ),

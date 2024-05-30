@@ -6,6 +6,7 @@ import 'package:ieee_sst/data/router/bloc/navigation_bloc.dart';
 import 'package:ieee_sst/data/router/router.dart';
 import 'package:ieee_sst/di/dependency_injection.dart';
 import 'package:ieee_sst/presentation/login/bloc/auth_bloc.dart';
+import 'package:ieee_sst/presentation/register/bloc/registration_bloc.dart';
 
 class MainApp extends StatelessWidget {
   const MainApp({super.key});
@@ -24,6 +25,7 @@ class MainApp extends StatelessWidget {
         BlocProvider(create: (context) => getIt<AuthBloc>()),
         // TODO: Remove navigation bloc?
         BlocProvider(create: (context) => getIt<NavigationBloc>()),
+        BlocProvider(create: (context) => getIt<RegistrationBloc>()),
       ],
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,
