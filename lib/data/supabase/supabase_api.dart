@@ -1,13 +1,13 @@
 import 'package:flutter/foundation.dart';
 import 'package:ieee_sst/data/constants/user_roles.dart';
+import 'package:ieee_sst/di/dependency_injection.dart';
 import 'package:injectable/injectable.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 /// Supabase API that handles fetching data from the Supabase database.
 @LazySingleton()
 class SupabaseApi {
-  SupabaseApi(this._supabaseClient);
-  final SupabaseClient _supabaseClient;
+  final SupabaseClient _supabaseClient = getIt<SupabaseClient>();
 
   Future<List<Map<String, dynamic>>> fetchProfile(String id) async =>
       await _supabaseClient.from('profiles').select().eq('id', id);

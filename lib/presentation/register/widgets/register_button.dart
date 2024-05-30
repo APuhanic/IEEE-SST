@@ -11,28 +11,33 @@ class RegisterButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final state = context.watch<RegistrationBloc>().state;
-
     return SizedBox(
       height: 50,
       width: double.infinity,
-      child: ElevatedButton(
-          style: ElevatedButton.styleFrom(
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10),
-            ),
-            backgroundColor: AppColors.primary,
-          ),
-          onPressed: () {
-            context.read<RegistrationBloc>().add(RegistrationEvent.submitted(
-                  email: state.email.value,
-                  password: state.password.value,
-                  fullName: state.fullName.value,
-                  organization: state.organization.value,
-                  position: state.position.value,
-                ));
-          },
-          child: Text('SIGN UP', style: AppTextStyle.button)),
+      child: BlocBuilder<RegistrationBloc, RegistrationState>(
+        builder: (context, state) {
+          return ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                backgroundColor: AppColors.primary,
+                disabledBackgroundColor: AppColors.gray,
+              ),
+              onPressed: state.isValid
+                  ? () => context.read<RegistrationBloc>().add(
+                        RegistrationEvent.submitted(
+                          email: state.email.value,
+                          password: state.password.value,
+                          fullName: state.fullName.value,
+                          organization: state.organization.value,
+                          position: state.position.value,
+                        ),
+                      )
+                  : null,
+              child: Text('SIGN UP', style: AppTextStyle.button));
+        },
+      ),
     );
   }
 }

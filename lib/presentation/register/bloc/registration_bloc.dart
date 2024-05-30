@@ -74,7 +74,8 @@ class RegistrationBloc extends Bloc<RegistrationEvent, RegistrationState> {
     emit(
       state.copyWith(
         password: password,
-        isValid: Formz.validate([state.email, password, state.fullName]),
+        isValid: Formz.validate(
+            [state.email, password, state.fullName, state.confirmPassword]),
       ),
     );
   }
@@ -83,11 +84,11 @@ class RegistrationBloc extends Bloc<RegistrationEvent, RegistrationState> {
     _UserNameChanged event,
     Emitter<RegistrationState> emit,
   ) {
-    final userName = FullName.dirty(event.fullName);
+    final fullName = FullName.dirty(event.fullName);
     emit(
       state.copyWith(
-        fullName: userName,
-        isValid: Formz.validate([state.email, state.password, userName]),
+        fullName: fullName,
+        isValid: Formz.validate([state.email, state.password, fullName]),
       ),
     );
   }
@@ -96,12 +97,16 @@ class RegistrationBloc extends Bloc<RegistrationEvent, RegistrationState> {
     _ConfirmPasswordChanged event,
     Emitter<RegistrationState> emit,
   ) {
-    final confirmPassword = ConfirmPassowrd.dirty(event.confirmPassword);
+    final confirmPassword = ConfirmPassowrd.dirty(
+      state.password.value,
+      event.confirmPassword,
+    );
     emit(
       state.copyWith(
         confirmPassword: confirmPassword,
         isValid: Formz.validate(
-            [state.email, state.password, state.fullName, confirmPassword]),
+          [state.email, state.password, state.fullName, confirmPassword],
+        ),
       ),
     );
   }

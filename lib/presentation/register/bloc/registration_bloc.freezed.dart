@@ -1562,7 +1562,7 @@ class _$RegistrationStateImpl implements _RegistrationState {
       this.fullName = const FullName.pure(),
       this.organization = const Organization.pure(),
       this.position = const Position.pure(),
-      this.confirmPassword = const ConfirmPassowrd.pure(),
+      this.confirmPassword = const ConfirmPassowrd.pure(''),
       this.isValid = false,
       this.errorMessage = ''});
 

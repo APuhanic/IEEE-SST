@@ -12,9 +12,8 @@ class FullName extends FormzInput<String, FullNameValidationError> {
   );
 
   @override
-  FullNameValidationError? validator(String value) {
-    return _userNameRegExp.hasMatch(value)
-        ? null
-        : FullNameValidationError.invalid;
-  }
+  FullNameValidationError? validator(String value) =>
+      _userNameRegExp.hasMatch(value) && value.isNotEmpty
+          ? null
+          : FullNameValidationError.invalid;
 }

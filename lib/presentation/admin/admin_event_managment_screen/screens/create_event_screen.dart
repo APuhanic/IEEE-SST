@@ -7,7 +7,6 @@ import 'package:ieee_sst/data/supabase/supabase_api.dart';
 import 'package:ieee_sst/di/dependency_injection.dart';
 import 'package:ieee_sst/presentation/home/widgets/home_screen_drawer.dart';
 import 'package:ieee_sst/presentation/login/bloc/auth_bloc.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
 
 class CreateEventNameScreen extends StatelessWidget {
   const CreateEventNameScreen({super.key});
@@ -44,7 +43,7 @@ class CreateEventNameScreen extends StatelessWidget {
                           const SizedBox(height: 24),
                           FilledButton(
                             onPressed: () {
-                              SupabaseApi(getIt<SupabaseClient>()).addEvent();
+                              SupabaseApi().addEvent();
                             },
                             style: ElevatedButton.styleFrom(
                                 backgroundColor: AppColors.primary),
@@ -53,8 +52,7 @@ class CreateEventNameScreen extends StatelessWidget {
                           ),
                           FilledButton(
                             onPressed: () {
-                              SupabaseApi(getIt<SupabaseClient>())
-                                  .fetchEvents();
+                              SupabaseApi().fetchEvents();
                             },
                             style: ElevatedButton.styleFrom(
                                 backgroundColor: AppColors.primary),
