@@ -18,9 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$RegistrationEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String email, String password, String fullName,
-            String position, String organization)
-        submitted,
+    required TResult Function() submitted,
     required TResult Function(String email) emailChanged,
     required TResult Function(String password) passwordChanged,
     required TResult Function(String fullName) fullNameChanged,
@@ -31,9 +29,7 @@ mixin _$RegistrationEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String email, String password, String fullName,
-            String position, String organization)?
-        submitted,
+    TResult? Function()? submitted,
     TResult? Function(String email)? emailChanged,
     TResult? Function(String password)? passwordChanged,
     TResult? Function(String fullName)? fullNameChanged,
@@ -44,9 +40,7 @@ mixin _$RegistrationEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String email, String password, String fullName,
-            String position, String organization)?
-        submitted,
+    TResult Function()? submitted,
     TResult Function(String email)? emailChanged,
     TResult Function(String password)? passwordChanged,
     TResult Function(String fullName)? fullNameChanged,
@@ -116,13 +110,6 @@ abstract class _$$SubmittedImplCopyWith<$Res> {
   factory _$$SubmittedImplCopyWith(
           _$SubmittedImpl value, $Res Function(_$SubmittedImpl) then) =
       __$$SubmittedImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call(
-      {String email,
-      String password,
-      String fullName,
-      String position,
-      String organization});
 }
 
 /// @nodoc
@@ -132,99 +119,31 @@ class __$$SubmittedImplCopyWithImpl<$Res>
   __$$SubmittedImplCopyWithImpl(
       _$SubmittedImpl _value, $Res Function(_$SubmittedImpl) _then)
       : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? email = null,
-    Object? password = null,
-    Object? fullName = null,
-    Object? position = null,
-    Object? organization = null,
-  }) {
-    return _then(_$SubmittedImpl(
-      email: null == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String,
-      password: null == password
-          ? _value.password
-          : password // ignore: cast_nullable_to_non_nullable
-              as String,
-      fullName: null == fullName
-          ? _value.fullName
-          : fullName // ignore: cast_nullable_to_non_nullable
-              as String,
-      position: null == position
-          ? _value.position
-          : position // ignore: cast_nullable_to_non_nullable
-              as String,
-      organization: null == organization
-          ? _value.organization
-          : organization // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
 }
 
 /// @nodoc
 
 class _$SubmittedImpl implements _Submitted {
-  const _$SubmittedImpl(
-      {required this.email,
-      required this.password,
-      required this.fullName,
-      required this.position,
-      required this.organization});
-
-  @override
-  final String email;
-  @override
-  final String password;
-  @override
-  final String fullName;
-  @override
-  final String position;
-  @override
-  final String organization;
+  const _$SubmittedImpl();
 
   @override
   String toString() {
-    return 'RegistrationEvent.submitted(email: $email, password: $password, fullName: $fullName, position: $position, organization: $organization)';
+    return 'RegistrationEvent.submitted()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$SubmittedImpl &&
-            (identical(other.email, email) || other.email == email) &&
-            (identical(other.password, password) ||
-                other.password == password) &&
-            (identical(other.fullName, fullName) ||
-                other.fullName == fullName) &&
-            (identical(other.position, position) ||
-                other.position == position) &&
-            (identical(other.organization, organization) ||
-                other.organization == organization));
+        (other.runtimeType == runtimeType && other is _$SubmittedImpl);
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, email, password, fullName, position, organization);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$SubmittedImplCopyWith<_$SubmittedImpl> get copyWith =>
-      __$$SubmittedImplCopyWithImpl<_$SubmittedImpl>(this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String email, String password, String fullName,
-            String position, String organization)
-        submitted,
+    required TResult Function() submitted,
     required TResult Function(String email) emailChanged,
     required TResult Function(String password) passwordChanged,
     required TResult Function(String fullName) fullNameChanged,
@@ -232,15 +151,13 @@ class _$SubmittedImpl implements _Submitted {
     required TResult Function(String position) positionChanged,
     required TResult Function(String confirmPassword) confirmPasswordChanged,
   }) {
-    return submitted(email, password, fullName, position, organization);
+    return submitted();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String email, String password, String fullName,
-            String position, String organization)?
-        submitted,
+    TResult? Function()? submitted,
     TResult? Function(String email)? emailChanged,
     TResult? Function(String password)? passwordChanged,
     TResult? Function(String fullName)? fullNameChanged,
@@ -248,15 +165,13 @@ class _$SubmittedImpl implements _Submitted {
     TResult? Function(String position)? positionChanged,
     TResult? Function(String confirmPassword)? confirmPasswordChanged,
   }) {
-    return submitted?.call(email, password, fullName, position, organization);
+    return submitted?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String email, String password, String fullName,
-            String position, String organization)?
-        submitted,
+    TResult Function()? submitted,
     TResult Function(String email)? emailChanged,
     TResult Function(String password)? passwordChanged,
     TResult Function(String fullName)? fullNameChanged,
@@ -266,7 +181,7 @@ class _$SubmittedImpl implements _Submitted {
     required TResult orElse(),
   }) {
     if (submitted != null) {
-      return submitted(email, password, fullName, position, organization);
+      return submitted();
     }
     return orElse();
   }
@@ -320,21 +235,7 @@ class _$SubmittedImpl implements _Submitted {
 }
 
 abstract class _Submitted implements RegistrationEvent {
-  const factory _Submitted(
-      {required final String email,
-      required final String password,
-      required final String fullName,
-      required final String position,
-      required final String organization}) = _$SubmittedImpl;
-
-  String get email;
-  String get password;
-  String get fullName;
-  String get position;
-  String get organization;
-  @JsonKey(ignore: true)
-  _$$SubmittedImplCopyWith<_$SubmittedImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  const factory _Submitted() = _$SubmittedImpl;
 }
 
 /// @nodoc
@@ -401,9 +302,7 @@ class _$EmailChangedImpl implements _EmailChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String email, String password, String fullName,
-            String position, String organization)
-        submitted,
+    required TResult Function() submitted,
     required TResult Function(String email) emailChanged,
     required TResult Function(String password) passwordChanged,
     required TResult Function(String fullName) fullNameChanged,
@@ -417,9 +316,7 @@ class _$EmailChangedImpl implements _EmailChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String email, String password, String fullName,
-            String position, String organization)?
-        submitted,
+    TResult? Function()? submitted,
     TResult? Function(String email)? emailChanged,
     TResult? Function(String password)? passwordChanged,
     TResult? Function(String fullName)? fullNameChanged,
@@ -433,9 +330,7 @@ class _$EmailChangedImpl implements _EmailChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String email, String password, String fullName,
-            String position, String organization)?
-        submitted,
+    TResult Function()? submitted,
     TResult Function(String email)? emailChanged,
     TResult Function(String password)? passwordChanged,
     TResult Function(String fullName)? fullNameChanged,
@@ -573,9 +468,7 @@ class _$PasswordChangedImpl implements _PasswordChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String email, String password, String fullName,
-            String position, String organization)
-        submitted,
+    required TResult Function() submitted,
     required TResult Function(String email) emailChanged,
     required TResult Function(String password) passwordChanged,
     required TResult Function(String fullName) fullNameChanged,
@@ -589,9 +482,7 @@ class _$PasswordChangedImpl implements _PasswordChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String email, String password, String fullName,
-            String position, String organization)?
-        submitted,
+    TResult? Function()? submitted,
     TResult? Function(String email)? emailChanged,
     TResult? Function(String password)? passwordChanged,
     TResult? Function(String fullName)? fullNameChanged,
@@ -605,9 +496,7 @@ class _$PasswordChangedImpl implements _PasswordChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String email, String password, String fullName,
-            String position, String organization)?
-        submitted,
+    TResult Function()? submitted,
     TResult Function(String email)? emailChanged,
     TResult Function(String password)? passwordChanged,
     TResult Function(String fullName)? fullNameChanged,
@@ -745,9 +634,7 @@ class _$UserNameChangedImpl implements _UserNameChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String email, String password, String fullName,
-            String position, String organization)
-        submitted,
+    required TResult Function() submitted,
     required TResult Function(String email) emailChanged,
     required TResult Function(String password) passwordChanged,
     required TResult Function(String fullName) fullNameChanged,
@@ -761,9 +648,7 @@ class _$UserNameChangedImpl implements _UserNameChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String email, String password, String fullName,
-            String position, String organization)?
-        submitted,
+    TResult? Function()? submitted,
     TResult? Function(String email)? emailChanged,
     TResult? Function(String password)? passwordChanged,
     TResult? Function(String fullName)? fullNameChanged,
@@ -777,9 +662,7 @@ class _$UserNameChangedImpl implements _UserNameChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String email, String password, String fullName,
-            String position, String organization)?
-        submitted,
+    TResult Function()? submitted,
     TResult Function(String email)? emailChanged,
     TResult Function(String password)? passwordChanged,
     TResult Function(String fullName)? fullNameChanged,
@@ -917,9 +800,7 @@ class _$OrganizationChangedImpl implements _OrganizationChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String email, String password, String fullName,
-            String position, String organization)
-        submitted,
+    required TResult Function() submitted,
     required TResult Function(String email) emailChanged,
     required TResult Function(String password) passwordChanged,
     required TResult Function(String fullName) fullNameChanged,
@@ -933,9 +814,7 @@ class _$OrganizationChangedImpl implements _OrganizationChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String email, String password, String fullName,
-            String position, String organization)?
-        submitted,
+    TResult? Function()? submitted,
     TResult? Function(String email)? emailChanged,
     TResult? Function(String password)? passwordChanged,
     TResult? Function(String fullName)? fullNameChanged,
@@ -949,9 +828,7 @@ class _$OrganizationChangedImpl implements _OrganizationChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String email, String password, String fullName,
-            String position, String organization)?
-        submitted,
+    TResult Function()? submitted,
     TResult Function(String email)? emailChanged,
     TResult Function(String password)? passwordChanged,
     TResult Function(String fullName)? fullNameChanged,
@@ -1090,9 +967,7 @@ class _$PositionChangedImpl implements _PositionChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String email, String password, String fullName,
-            String position, String organization)
-        submitted,
+    required TResult Function() submitted,
     required TResult Function(String email) emailChanged,
     required TResult Function(String password) passwordChanged,
     required TResult Function(String fullName) fullNameChanged,
@@ -1106,9 +981,7 @@ class _$PositionChangedImpl implements _PositionChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String email, String password, String fullName,
-            String position, String organization)?
-        submitted,
+    TResult? Function()? submitted,
     TResult? Function(String email)? emailChanged,
     TResult? Function(String password)? passwordChanged,
     TResult? Function(String fullName)? fullNameChanged,
@@ -1122,9 +995,7 @@ class _$PositionChangedImpl implements _PositionChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String email, String password, String fullName,
-            String position, String organization)?
-        submitted,
+    TResult Function()? submitted,
     TResult Function(String email)? emailChanged,
     TResult Function(String password)? passwordChanged,
     TResult Function(String fullName)? fullNameChanged,
@@ -1264,9 +1135,7 @@ class _$ConfirmPasswordChangedImpl implements _ConfirmPasswordChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String email, String password, String fullName,
-            String position, String organization)
-        submitted,
+    required TResult Function() submitted,
     required TResult Function(String email) emailChanged,
     required TResult Function(String password) passwordChanged,
     required TResult Function(String fullName) fullNameChanged,
@@ -1280,9 +1149,7 @@ class _$ConfirmPasswordChangedImpl implements _ConfirmPasswordChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String email, String password, String fullName,
-            String position, String organization)?
-        submitted,
+    TResult? Function()? submitted,
     TResult? Function(String email)? emailChanged,
     TResult? Function(String password)? passwordChanged,
     TResult? Function(String fullName)? fullNameChanged,
@@ -1296,9 +1163,7 @@ class _$ConfirmPasswordChangedImpl implements _ConfirmPasswordChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String email, String password, String fullName,
-            String position, String organization)?
-        submitted,
+    TResult Function()? submitted,
     TResult Function(String email)? emailChanged,
     TResult Function(String password)? passwordChanged,
     TResult Function(String fullName)? fullNameChanged,

@@ -9,8 +9,8 @@ import 'package:logger/logger.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 Future<void> main() async {
-  await dotenv.load();
   WidgetsFlutterBinding.ensureInitialized();
+  await dotenv.load();
   await Supabase.initialize(
     url: dotenv.env['URL']!,
     anonKey: dotenv.env['API_KEY']!,

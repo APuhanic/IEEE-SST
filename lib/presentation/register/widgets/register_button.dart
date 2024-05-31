@@ -26,13 +26,7 @@ class RegisterButton extends StatelessWidget {
               ),
               onPressed: state.isValid
                   ? () => context.read<RegistrationBloc>().add(
-                        RegistrationEvent.submitted(
-                          email: state.email.value,
-                          password: state.password.value,
-                          fullName: state.fullName.value,
-                          organization: state.organization.value,
-                          position: state.position.value,
-                        ),
+                        const RegistrationEvent.submitted(),
                       )
                   : null,
               child: Text('SIGN UP', style: AppTextStyle.button));

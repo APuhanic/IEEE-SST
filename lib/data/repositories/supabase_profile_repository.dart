@@ -4,7 +4,6 @@ import 'package:injectable/injectable.dart';
 
 @LazySingleton()
 class SupabaseProfileRepository {
-  // TODO: Change the DI to the SupabaseAPI instead of the SupabaseClient?
   final _supabaseApi = getIt<SupabaseApi>();
 
   Future<String> getProfileRole(String id) async =>
