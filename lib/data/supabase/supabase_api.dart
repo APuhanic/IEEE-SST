@@ -27,10 +27,13 @@ class SupabaseApi {
   Future<List<User>> getAllRegisteredUsers() async =>
       await _supabaseClient.auth.admin.listUsers();
 
-  Future<void> addEvent() async {
+  Future<void> addEvent(
+    String eventName,
+    String eventDescription,
+  ) async {
     try {
       await _supabaseClient.from('events').insert({
-        'name': 'title',
+        'name': eventName,
         'description': 'description',
         'time': DateTime.now().toIso8601String(),
         'location': 'location',

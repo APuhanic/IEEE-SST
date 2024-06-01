@@ -4,6 +4,7 @@ import 'package:ieee_sst/data/constants/route_paths.dart';
 import 'package:ieee_sst/data/constants/user_roles.dart';
 import 'package:ieee_sst/data/router/navigator_key_manager.dart';
 import 'package:ieee_sst/presentation/admin/admin_annoucments_managment_screen.dart/screens/announcements_managment_screen.dart';
+import 'package:ieee_sst/presentation/admin/admin_event_managment_screen/screens/create_event_date_time_screen.dart';
 import 'package:ieee_sst/presentation/admin/admin_event_managment_screen/screens/create_event_description_screen.dart';
 import 'package:ieee_sst/presentation/admin/admin_event_managment_screen/screens/create_event_screen.dart';
 import 'package:ieee_sst/presentation/admin/admin_event_managment_screen/screens/event_managment_screen.dart';
@@ -109,12 +110,22 @@ class AppRouter {
                         ),
                         routes: [
                           GoRoute(
-                            path: RoutePaths.subRouteCreateDescriptionEvent,
-                            pageBuilder: (context, state) => const MaterialPage(
-                              key: ValueKey('EditEventScreen'),
-                              child: CreateEventDescriptionScreen(),
-                            ),
-                          ),
+                              path: RoutePaths.subRouteCreateDescriptionEvent,
+                              pageBuilder: (context, state) =>
+                                  const MaterialPage(
+                                    key: ValueKey('EventDescriptionScreen'),
+                                    child: CreateEventDescriptionScreen(),
+                                  ),
+                              routes: [
+                                GoRoute(
+                                  path: RoutePaths.subRouteCreateDateEvent,
+                                  pageBuilder: (context, state) =>
+                                      const MaterialPage(
+                                    key: ValueKey('EventDateTimeScreen'),
+                                    child: CreateEventDateTimeScreen(),
+                                  ),
+                                ),
+                              ]),
                         ],
                       ),
                     ],

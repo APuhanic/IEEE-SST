@@ -18,14 +18,16 @@ import '../data/repositories/supabase_auth_repository.dart' as _i11;
 import '../data/repositories/supabase_event_repository.dart' as _i3;
 import '../data/repositories/supabase_profile_repository.dart' as _i4;
 import '../data/router/navigator_key_manager.dart' as _i8;
-import '../data/router/router.dart' as _i14;
+import '../data/router/router.dart' as _i15;
 import '../data/supabase/supabase_api.dart' as _i5;
-import '../domain/modules/app_module.dart' as _i16;
-import '../domain/modules/navigator_key_manager_module.dart' as _i17;
+import '../domain/modules/app_module.dart' as _i17;
+import '../domain/modules/navigator_key_manager_module.dart' as _i18;
 import '../domain/repositories/auth/auth_repository.dart' as _i10;
-import '../presentation/login/bloc/auth_bloc.dart' as _i12;
-import '../presentation/login/bloc/login/login_bloc.dart' as _i15;
-import '../presentation/register/bloc/registration_bloc.dart' as _i13;
+import '../presentation/admin/admin_event_managment_screen/bloc/create_event_bloc.dart'
+    as _i12;
+import '../presentation/login/bloc/auth_bloc.dart' as _i13;
+import '../presentation/login/bloc/login/login_bloc.dart' as _i16;
+import '../presentation/register/bloc/registration_bloc.dart' as _i14;
 
 extension GetItInjectableX on _i1.GetIt {
 // initializes the registration of main-scope dependencies inside of GetIt
@@ -53,20 +55,22 @@ extension GetItInjectableX on _i1.GetIt {
         () => _i9.GlobalBlocObserver(gh<_i7.Logger>()));
     gh.lazySingleton<_i10.AuthenticationRepository>(
         () => _i11.SupabaseAuthRepository(gh<_i6.SupabaseClient>()));
-    gh.factory<_i12.AuthBloc>(
-        () => _i12.AuthBloc(gh<_i10.AuthenticationRepository>()));
-    gh.factory<_i13.RegistrationBloc>(
-        () => _i13.RegistrationBloc(gh<_i10.AuthenticationRepository>()));
-    gh.factory<_i14.AppRouter>(() => _i14.AppRouter(
+    gh.factory<_i12.CreateEventBloc>(
+        () => _i12.CreateEventBloc(gh<_i3.SupabaseEventRepository>()));
+    gh.factory<_i13.AuthBloc>(
+        () => _i13.AuthBloc(gh<_i10.AuthenticationRepository>()));
+    gh.factory<_i14.RegistrationBloc>(
+        () => _i14.RegistrationBloc(gh<_i10.AuthenticationRepository>()));
+    gh.factory<_i15.AppRouter>(() => _i15.AppRouter(
           gh<_i8.NavigatorKeyManager>(),
           gh<_i6.SupabaseClient>(),
         ));
-    gh.factory<_i15.LoginBloc>(
-        () => _i15.LoginBloc(gh<_i10.AuthenticationRepository>()));
+    gh.factory<_i16.LoginBloc>(
+        () => _i16.LoginBloc(gh<_i10.AuthenticationRepository>()));
     return this;
   }
 }
 
-class _$AppModule extends _i16.AppModule {}
+class _$AppModule extends _i17.AppModule {}
 
-class _$NavigatorKeyManagerModule extends _i17.NavigatorKeyManagerModule {}
+class _$NavigatorKeyManagerModule extends _i18.NavigatorKeyManagerModule {}

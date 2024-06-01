@@ -14,5 +14,7 @@ class SupabaseEventRepository {
     return eventsResponse.map((event) => EventModel.fromMap(event)).toList();
   }
 
-  Future<void> addEvent() async => await _supabaseApi.addEvent();
+  // TODO: Add event model, and toJson?
+  Future<void> addEvent(String title, String description) async =>
+      await _supabaseApi.addEvent(title, description);
 }

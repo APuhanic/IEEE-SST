@@ -70,9 +70,8 @@ class AgendaScreen extends StatelessWidget {
 }
 
 class _DatePickerHeaderDelegate extends SliverPersistentHeaderDelegate {
-  final Widget child;
-
   _DatePickerHeaderDelegate({required this.child});
+  final Widget child;
 
   @override
   Widget build(
