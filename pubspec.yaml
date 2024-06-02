@@ -16,6 +16,7 @@ dependencies:
   flutter_launcher_icons: ^0.13.1
   flutter_native_splash: ^2.4.0
   flutter_quill: ^9.3.11
+  flutter_time_picker_spinner: ^2.0.0
   font_awesome_flutter: ^10.7.0
   formz: ^0.7.0
   freezed: ^2.5.2
@@ -28,6 +29,7 @@ dependencies:
   persistent_bottom_nav_bar: ^5.0.2
   supabase_auth_ui: ^0.4.4
   supabase_flutter: ^2.5.2
+  table_calendar: ^3.1.1
 
 dev_dependencies:
   flutter_test:

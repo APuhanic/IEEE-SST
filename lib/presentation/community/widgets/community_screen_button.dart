@@ -22,10 +22,7 @@ class CommunityScreenButton extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: GestureDetector(
-        onTap: () {
-          // TODO: Add route path class
-          context.go(routePath);
-        },
+        onTap: () => context.go(routePath),
         child: SizedBox(
           height: 80,
           child: Row(

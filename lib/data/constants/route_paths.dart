@@ -24,7 +24,5 @@ abstract class RoutePaths {
   static const String adminAnnouncements = '/admin_announcements';
 
   static const String adminEventsMangment = '/admin_events_managment';
-  static const String subRouteCreateNameEvent = 'event_name';
-  static const String subRouteCreateDescriptionEvent = 'event_description';
-  static const String subRouteCreateDateEvent = 'event_date';
+  static const String subRouteCreateEventName = 'event_name';
 }

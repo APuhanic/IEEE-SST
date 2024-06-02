@@ -28,15 +28,23 @@ class SupabaseApi {
       await _supabaseClient.auth.admin.listUsers();
 
   Future<void> addEvent(
-    String eventName,
-    String eventDescription,
+    String name,
+    String description,
+    String location,
+    String speaker,
+    DateTime date,
+    String time,
   ) async {
     try {
+      debugPrint('Adding event');
       await _supabaseClient.from('events').insert({
-        'name': eventName,
-        'description': 'description',
-        'time': DateTime.now().toIso8601String(),
-        'location': 'location',
+        'name': name,
+        'description': description,
+        'time': time,
+        'location': location,
+        'speaker': speaker,
+        'date': date.toIso8601String(),
+        'info': 'Event info',
       });
     } catch (e) {
       debugPrint(e.toString());

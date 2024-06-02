@@ -7,4 +7,12 @@ class CreateEventEvent with _$CreateEventEvent {
       _EventNameChanged;
   const factory CreateEventEvent.eventDescriptionChanged(
       String eventDescription) = _EventDescriptionChanged;
+  const factory CreateEventEvent.eventDateChanged(DateTime? eventDate) =
+      _EventDateChanged;
+  const factory CreateEventEvent.eventTimeChanged(TimeOfDay? eventTime) =
+      _EventTimeChanged;
+  const factory CreateEventEvent.eventLocationChanged(String eventLocation) =
+      _EventLocationChanged;
+  const factory CreateEventEvent.eventSpeakerChanged(String eventSpeaker) =
+      _EventSpeakerChanged;
 }

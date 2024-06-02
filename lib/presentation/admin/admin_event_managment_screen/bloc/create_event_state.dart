@@ -6,6 +6,11 @@ class CreateEventState with _$CreateEventState {
     @Default(FormzSubmissionStatus.initial) FormzSubmissionStatus status,
     @Default('') String eventName,
     @Default('') String eventDescription,
+    @Default('') String eventLocation,
     @Default('') String errorMessage,
+    @Default('') String eventSpeaker,
+    DateTime? eventDate,
+    TimeOfDay? eventTime,
+    Event? event,
   }) = _CreateEventState;
 }

@@ -1,9 +1,11 @@
 import 'dart:async';
 
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:formz/formz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:ieee_sst/data/repositories/supabase_event_repository.dart';
+import 'package:ieee_sst/domain/models/event.dart';
 import 'package:injectable/injectable.dart';
 
 part 'create_event_event.dart';
@@ -17,45 +19,59 @@ class CreateEventBloc extends Bloc<CreateEventEvent, CreateEventState> {
     on<_EventNameChanged>(_onEventNameChanged);
     on<_EventDescriptionChanged>(_onEventDescriptionChanged);
     on<_Submitted>(_onSubmitted);
+    on<_EventDateChanged>(_onEventDateChanged);
+    on<_EventTimeChanged>(_onEventTimeChanged);
+    on<_EventLocationChanged>(_onEventLocationChanged);
+    on<_EventSpeakerChanged>(_onEventSpeakerChanged);
   }
   final SupabaseEventRepository _supabaseEventRepository;
 
-  void _onEventNameChanged(
-    _EventNameChanged event,
-    Emitter<CreateEventState> emit,
-  ) {
-    final eventName = event.eventName;
-    emit(state.copyWith(eventName: eventName));
+  _onEventNameChanged(
+          _EventNameChanged event, Emitter<CreateEventState> emit) =>
+      emit(state.copyWith(eventName: event.eventName));
+
+  _onEventDescriptionChanged(
+          _EventDescriptionChanged event, Emitter<CreateEventState> emit) =>
+      emit(state.copyWith(eventDescription: event.eventDescription));
+
+  _onEventDateChanged(
+          _EventDateChanged event, Emitter<CreateEventState> emit) =>
+      emit(state.copyWith(eventDate: event.eventDate));
+
+  _onEventTimeChanged(_EventTimeChanged event, Emitter<CreateEventState> emit) {
+    emit(state.copyWith(eventTime: event.eventTime));
   }
 
-  void _onEventDescriptionChanged(
-    _EventDescriptionChanged event,
-    Emitter<CreateEventState> emit,
-  ) {
-    final eventDescription = event.eventDescription;
-    emit(state.copyWith(eventDescription: eventDescription));
-  }
+  _onEventSpeakerChanged(
+          _EventSpeakerChanged event, Emitter<CreateEventState> emit) =>
+      emit(state.copyWith(eventSpeaker: event.eventSpeaker));
 
-  Future<FutureOr<void>> _onSubmitted(
+  _onEventLocationChanged(
+          _EventLocationChanged event, Emitter<CreateEventState> emit) =>
+      emit(state.copyWith(eventLocation: event.eventLocation));
+
+  Future<void> _onSubmitted(
     _Submitted event,
     Emitter<CreateEventState> emit,
   ) async {
-    if (state.eventName.isNotEmpty && state.eventDescription.isNotEmpty) {
-      emit(state.copyWith(status: FormzSubmissionStatus.inProgress));
-      try {
-        await _supabaseEventRepository.addEvent(
-          state.eventName,
-          state.eventDescription,
-        );
-        emit(state.copyWith(status: FormzSubmissionStatus.success));
-      } catch (e) {
-        emit(
-          state.copyWith(
-            status: FormzSubmissionStatus.failure,
-            errorMessage: e.toString(),
-          ),
-        );
-      }
+    emit(state.copyWith(status: FormzSubmissionStatus.inProgress));
+    try {
+      await _supabaseEventRepository.addEvent(
+        state.eventName,
+        state.eventDescription,
+        state.eventLocation,
+        state.eventSpeaker,
+        state.eventDate!,
+        state.eventTime!.toString(),
+      );
+      emit(state.copyWith(status: FormzSubmissionStatus.success));
+    } catch (e) {
+      emit(
+        state.copyWith(
+          status: FormzSubmissionStatus.failure,
+          errorMessage: e.toString(),
+        ),
+      );
     }
   }
 }
