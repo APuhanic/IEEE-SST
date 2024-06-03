@@ -53,4 +53,13 @@ class SupabaseApi {
 
   Future<List<Map<String, dynamic>>> fetchEvents() async =>
       Supabase.instance.client.from('events').select();
+
+  Future<void> deleteEvent(String eventId) async {
+    try {
+      debugPrint('Deleting event');
+      await _supabaseClient.from('events').delete().eq('id', eventId);
+    } catch (e) {
+      debugPrint(e.toString());
+    }
+  }
 }

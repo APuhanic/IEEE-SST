@@ -18,8 +18,15 @@ class CreateEventNameScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: BlocProvider(
-        create: (context) => getIt<CreateEventBloc>(),
+      body: MultiBlocProvider(
+        providers: [
+          BlocProvider(
+            create: (context) => getIt<CreateEventBloc>(),
+          ),
+          BlocProvider(
+            create: (context) => getIt<CreateEventBloc>(),
+          ),
+        ],
         child: BlocConsumer<CreateEventBloc, CreateEventState>(
           listener: (context, state) {
             if (state.status.isSuccess) {
@@ -72,6 +79,7 @@ class CreateEventNameScreen extends StatelessWidget {
                         ),
                         const EventSpeakerInput(),
                         const SizedBox(height: 24),
+                        // TODO: Extract widget and add validation
                         ElevatedButton(
                           onPressed: () {
                             context.read<CreateEventBloc>().add(

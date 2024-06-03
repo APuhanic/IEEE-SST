@@ -23,6 +23,8 @@ class CreateEventBloc extends Bloc<CreateEventEvent, CreateEventState> {
     on<_EventTimeChanged>(_onEventTimeChanged);
     on<_EventLocationChanged>(_onEventLocationChanged);
     on<_EventSpeakerChanged>(_onEventSpeakerChanged);
+
+    // TODO: Add event info
   }
   final SupabaseEventRepository _supabaseEventRepository;
 

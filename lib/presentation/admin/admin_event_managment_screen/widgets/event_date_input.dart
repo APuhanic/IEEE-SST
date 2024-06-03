@@ -30,9 +30,7 @@ class EventDateInput extends StatelessWidget {
               hintStyle: AppTextStyle.textForm,
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(15),
-                borderSide: const BorderSide(
-                  color: AppColors.grayText,
-                ),
+                borderSide: const BorderSide(color: AppColors.grayText),
               ),
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(15),
@@ -54,11 +52,9 @@ class EventDateInput extends StatelessWidget {
       firstDate: DateTime(2020),
       lastDate: DateTime(2030),
     ).then(
-      (value) {
-        context
-            .read<CreateEventBloc>()
-            .add(CreateEventEvent.eventDateChanged(value));
-      },
+      (value) => context
+          .read<CreateEventBloc>()
+          .add(CreateEventEvent.eventDateChanged(value)),
     );
   }
 }

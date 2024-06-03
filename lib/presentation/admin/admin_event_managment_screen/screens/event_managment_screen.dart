@@ -7,8 +7,8 @@ import 'package:ieee_sst/data/constants/app_colors.dart';
 import 'package:ieee_sst/di/dependency_injection.dart';
 import 'package:ieee_sst/presentation/admin/admin_event_managment_screen/widgets/admin_event_card_list.dart';
 import 'package:ieee_sst/presentation/admin/admin_event_managment_screen/widgets/event_filter_chips.dart';
+import 'package:ieee_sst/presentation/common/bloc/events_bloc.dart';
 import 'package:ieee_sst/presentation/home/widgets/home_screen_drawer.dart';
-import 'package:ieee_sst/presentation/login/bloc/auth_bloc.dart';
 
 class EventManagmentScreen extends StatelessWidget {
   const EventManagmentScreen({
@@ -27,42 +27,74 @@ class EventManagmentScreen extends StatelessWidget {
             color: AppColors.white,
           ),
         ),
-        // TODO: Remove the provider?
         body: BlocProvider(
-          create: (context) => getIt<AuthBloc>(),
-          child: SingleChildScrollView(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8.0),
-              child: Column(
-                children: [
-                  const Padding(
-                    padding: EdgeInsets.all(16),
-                    child: Text(
-                      'Event Managment',
-                      style: TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
+          create: (context) =>
+              getIt<EventsManagmentBloc>()..add(const EventsEvent.loadEvents()),
+          child: BlocBuilder<EventsManagmentBloc, EventsState>(
+            builder: (context, state) {
+              return RefreshIndicator(
+                backgroundColor: AppColors.white,
+                color: AppColors.primary,
+                onRefresh: () async {
+                  context
+                      .read<EventsManagmentBloc>()
+                      .add(const EventsEvent.loadEvents());
+                },
+                child: CustomScrollView(
+                    physics: const AlwaysScrollableScrollPhysics(),
+                    slivers: <Widget>[
+                      // TODO: Make a common sliver app bar?
+                      const SliverAppBar(
+                        floating: false,
+                        pinned: true,
+                        backgroundColor: AppColors.background,
+                        shadowColor: Colors.transparent,
+                        surfaceTintColor: AppColors.background,
+                        title: Text('Event Managment'),
                       ),
-                    ),
-                  ),
-                  FilterChips(),
-                  const SizedBox(height: 24),
-                  DatePicker(
-                    height: 100,
-                    DateTime.now(),
-                    initialSelectedDate: DateTime.now(),
-                    selectionColor: AppColors.primary,
-                    selectedTextColor: AppColors.white,
-                    onDateChange: (date) {
-                      // New date selected
-                    },
-                    daysCount: 7,
-                  ),
-                  const AdminEventCardList(),
-                  const SizedBox(height: 24),
-                ],
-              ),
-            ),
+                      SliverList(
+                        delegate: SliverChildListDelegate(
+                          [
+                            Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 8.0),
+                              child: Column(
+                                children: [
+                                  const FilterChips(),
+                                  const SizedBox(height: 24),
+                                  DatePicker(
+                                    height: 100,
+                                    DateTime.now(),
+                                    initialSelectedDate: DateTime.now(),
+                                    selectionColor: AppColors.primary,
+                                    selectedTextColor: AppColors.white,
+                                    onDateChange: (date) {
+                                      // New date selected
+                                    },
+                                    daysCount: 7,
+                                  ),
+                                  BlocBuilder<EventsManagmentBloc, EventsState>(
+                                    builder: (context, state) {
+                                      return state.maybeWhen(
+                                        loading: () => const Center(
+                                          child: CircularProgressIndicator(),
+                                        ),
+                                        loaded: (events) =>
+                                            AdminEventCardList(events: events),
+                                        orElse: () => const SizedBox.shrink(),
+                                      );
+                                    },
+                                  ),
+                                  const SizedBox(height: 24),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      )
+                    ]),
+              );
+            },
           ),
         ),
         drawer: const HomeScreenDrawer());

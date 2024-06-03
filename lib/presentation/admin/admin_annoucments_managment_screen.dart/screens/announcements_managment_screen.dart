@@ -7,8 +7,8 @@ import 'package:ieee_sst/presentation/home/widgets/header.dart';
 import 'package:ieee_sst/presentation/home/widgets/home_screen_drawer.dart';
 import 'package:ieee_sst/presentation/login/bloc/auth_bloc.dart';
 
-class SponsorManagmentScreen extends StatelessWidget {
-  const SponsorManagmentScreen({
+class AnnouncementsManagmentScreen extends StatelessWidget {
+  const AnnouncementsManagmentScreen({
     super.key,
   });
 
@@ -37,7 +37,8 @@ class SponsorManagmentScreen extends StatelessWidget {
                     child: Header(),
                   ),
                   const SizedBox(height: 24),
-                  Text('Sponsor Managment', style: AppTextStyle.header),
+                  Text('Announcement Managment Screen',
+                      style: AppTextStyle.header),
                 ],
               ),
             ),

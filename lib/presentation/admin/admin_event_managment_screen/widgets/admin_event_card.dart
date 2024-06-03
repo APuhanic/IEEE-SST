@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:ieee_sst/data/constants/app_colors.dart';
 import 'package:ieee_sst/data/constants/text_styles.dart';
+import 'package:ieee_sst/domain/models/event.dart';
+import 'package:ieee_sst/presentation/common/bloc/events_bloc.dart';
+import 'package:ieee_sst/presentation/common/widgets/event_data.dart';
 
 class AdminEventCard extends StatelessWidget {
-  const AdminEventCard({super.key});
+  const AdminEventCard({super.key, required this.event});
+
+  final Event event;
 
   @override
   Widget build(BuildContext context) {
@@ -23,28 +30,41 @@ class AdminEventCard extends StatelessWidget {
               children: [
                 Flexible(
                   child: Text(
-                    'Really long event name that goes on and on and on',
+                    event.name,
                     style: AppTextStyle.titleSmall,
                   ),
                 ),
                 const SizedBox(width: 16),
-                IconButton(
-                  onPressed: () {},
-                  icon: const Icon(
-                    Icons.more_vert_sharp,
-                    color: AppColors.gray,
+                PopupMenuButton(
+                  color: AppColors.white,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
                   ),
+                  itemBuilder: (context) => [
+                    const PopupMenuItem(
+                      child: Text('Edit'),
+                    ),
+                    PopupMenuItem(
+                      child: Text('Delete'),
+                      onTap: () {
+                        context
+                            .read<EventsManagmentBloc>()
+                            .add(EventsEvent.deleteEvent(event));
+                      },
+                    )
+                  ],
                 )
               ],
             ),
             const SizedBox(height: 8),
-            const Text('3.10.2024'),
-            const Text('12:00 - 17:35'),
+            EventData(
+                eventInfo: event.date.toIso8601String(),
+                icon: Icons.calendar_today),
+            EventData(eventInfo: event.time, icon: Icons.access_time),
+            EventData(
+                eventInfo: event.location, icon: FontAwesomeIcons.locationDot),
             const SizedBox(height: 8),
-            Text(
-              '3 New Attendances',
-              style: AppTextStyle.blueText,
-            )
+            const EventData(eventInfo: '3.Kat, 3-12', icon: Icons.info)
           ],
         ),
       ),
