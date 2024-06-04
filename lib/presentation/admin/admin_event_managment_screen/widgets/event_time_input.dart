@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ieee_sst/data/constants/app_colors.dart';
 import 'package:ieee_sst/data/constants/text_styles.dart';
-import 'package:ieee_sst/presentation/admin/admin_event_managment_screen/bloc/create_event_bloc.dart';
+import 'package:ieee_sst/presentation/admin/admin_event_managment_screen/bloc/event_form_bloc.dart';
 
 class EventTimeInput extends StatelessWidget {
   const EventTimeInput({
@@ -12,13 +12,12 @@ class EventTimeInput extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: BlocBuilder<CreateEventBloc, CreateEventState>(
+      child: BlocBuilder<EventFormBloc, EventFormState>(
         builder: (context, state) {
           return TextFormField(
             controller: TextEditingController(
-              text: state.eventTime == null
-                  ? ''
-                  : state.eventTime?.format(context),
+              text:
+                  state.time == null ? '' : state.time.toString().split(' ')[1],
             ),
             readOnly: true,
             onTap: () => _selectTime(context),
@@ -60,8 +59,8 @@ class EventTimeInput extends StatelessWidget {
     ).then(
       (value) {
         context
-            .read<CreateEventBloc>()
-            .add(CreateEventEvent.eventTimeChanged(value));
+            .read<EventFormBloc>()
+            .add(EventFormEvent.eventTimeChanged(value));
       },
     );
   }

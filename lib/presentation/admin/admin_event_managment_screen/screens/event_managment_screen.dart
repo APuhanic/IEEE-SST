@@ -27,72 +27,76 @@ class EventManagmentScreen extends StatelessWidget {
             color: AppColors.white,
           ),
         ),
-        body: BlocProvider(
-          create: (context) =>
-              getIt<EventsManagmentBloc>()..add(const EventsEvent.loadEvents()),
+        body: MultiBlocProvider(
+          providers: [
+            BlocProvider(
+              create: (context) => getIt<EventsManagmentBloc>()
+                ..add(const EventsEvent.loadEvents()),
+            ),
+            //TODO: Reasearch the best place to put this bloc
+          ],
           child: BlocBuilder<EventsManagmentBloc, EventsState>(
             builder: (context, state) {
               return RefreshIndicator(
                 backgroundColor: AppColors.white,
                 color: AppColors.primary,
                 onRefresh: () async {
+                  //TODO: Rename load to fetch or get
                   context
                       .read<EventsManagmentBloc>()
                       .add(const EventsEvent.loadEvents());
                 },
                 child: CustomScrollView(
-                    physics: const AlwaysScrollableScrollPhysics(),
-                    slivers: <Widget>[
-                      // TODO: Make a common sliver app bar?
-                      const SliverAppBar(
-                        floating: false,
-                        pinned: true,
-                        backgroundColor: AppColors.background,
-                        shadowColor: Colors.transparent,
-                        surfaceTintColor: AppColors.background,
-                        title: Text('Event Managment'),
-                      ),
-                      SliverList(
-                        delegate: SliverChildListDelegate(
-                          [
-                            Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 8.0),
-                              child: Column(
-                                children: [
-                                  const FilterChips(),
-                                  const SizedBox(height: 24),
-                                  DatePicker(
-                                    height: 100,
-                                    DateTime.now(),
-                                    initialSelectedDate: DateTime.now(),
-                                    selectionColor: AppColors.primary,
-                                    selectedTextColor: AppColors.white,
-                                    onDateChange: (date) {
-                                      // New date selected
-                                    },
-                                    daysCount: 7,
+                  physics: const AlwaysScrollableScrollPhysics(),
+                  slivers: <Widget>[
+                    // TODO: Make a common sliver app bar?
+                    const SliverAppBar(
+                      floating: false,
+                      pinned: true,
+                      backgroundColor: AppColors.background,
+                      shadowColor: Colors.transparent,
+                      surfaceTintColor: AppColors.background,
+                      title: Text('Event Managment'),
+                    ),
+                    SliverList(
+                      delegate: SliverChildListDelegate(
+                        [
+                          Padding(
+                            padding:
+                                const EdgeInsets.symmetric(horizontal: 8.0),
+                            child: Column(
+                              children: [
+                                const FilterChips(),
+                                const SizedBox(height: 24),
+                                DatePicker(
+                                  height: 100,
+                                  DateTime.now(),
+                                  initialSelectedDate: DateTime.now(),
+                                  selectionColor: AppColors.primary,
+                                  selectedTextColor: AppColors.white,
+                                  onDateChange: (date) {
+                                    // New date selected
+                                  },
+                                  daysCount: 7,
+                                ),
+                                state.maybeWhen(
+                                  loading: () => const Center(
+                                    // TODO: Add skeletonizer
+                                    child: CircularProgressIndicator(),
                                   ),
-                                  BlocBuilder<EventsManagmentBloc, EventsState>(
-                                    builder: (context, state) {
-                                      return state.maybeWhen(
-                                        loading: () => const Center(
-                                          child: CircularProgressIndicator(),
-                                        ),
-                                        loaded: (events) =>
-                                            AdminEventCardList(events: events),
-                                        orElse: () => const SizedBox.shrink(),
-                                      );
-                                    },
-                                  ),
-                                  const SizedBox(height: 24),
-                                ],
-                              ),
+                                  loaded: (events) =>
+                                      AdminEventCardList(events: events),
+                                  orElse: () => const SizedBox.shrink(),
+                                ),
+                                const SizedBox(height: 24),
+                              ],
                             ),
-                          ],
-                        ),
-                      )
-                    ]),
+                          ),
+                        ],
+                      ),
+                    )
+                  ],
+                ),
               );
             },
           ),

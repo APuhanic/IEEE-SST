@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ieee_sst/data/constants/app_colors.dart';
 import 'package:ieee_sst/data/constants/text_styles.dart';
-import 'package:ieee_sst/presentation/admin/admin_event_managment_screen/bloc/create_event_bloc.dart';
+import 'package:ieee_sst/presentation/admin/admin_event_managment_screen/bloc/event_form_bloc.dart';
 
 class EventLocationInput extends StatelessWidget {
   const EventLocationInput({
@@ -11,12 +11,13 @@ class EventLocationInput extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<CreateEventBloc, CreateEventState>(
+    return BlocBuilder<EventFormBloc, EventFormState>(
       builder: (context, state) {
         return TextFormField(
+          initialValue: state.location,
           onChanged: (eventLocation) => context
-              .read<CreateEventBloc>()
-              .add(CreateEventEvent.eventLocationChanged(eventLocation)),
+              .read<EventFormBloc>()
+              .add(EventFormEvent.eventLocationChanged(eventLocation)),
           decoration: InputDecoration(
             label: Text('Event location', style: AppTextStyle.textForm),
             hintText: 'Event location',

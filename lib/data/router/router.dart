@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:ieee_sst/data/constants/route_paths.dart';
 import 'package:ieee_sst/data/constants/user_roles.dart';
 import 'package:ieee_sst/data/router/navigator_key_manager.dart';
+import 'package:ieee_sst/presentation/admin/admin_event_managment_screen/screens/update_event_screen.dart';
 import 'package:ieee_sst/presentation/admin/event_sponsor_managment/screens/sponsors_managment_screen.dart';
 import 'package:ieee_sst/presentation/admin/admin_event_managment_screen/screens/create_event_screen.dart';
 import 'package:ieee_sst/presentation/admin/admin_event_managment_screen/screens/event_managment_screen.dart';
@@ -105,6 +106,13 @@ class AppRouter {
                         pageBuilder: (context, state) => const MaterialPage(
                           key: ValueKey('CreateEventScreen'),
                           child: CreateEventNameScreen(),
+                        ),
+                      ),
+                      GoRoute(
+                        path: RoutePaths.subRouteUpdateEvent,
+                        pageBuilder: (context, state) => const MaterialPage(
+                          key: ValueKey('UpdateEventScreen'),
+                          child: UpdateEventScreen(),
                         ),
                       ),
                     ],

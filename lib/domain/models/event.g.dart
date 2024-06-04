@@ -12,7 +12,6 @@ _$EventImpl _$$EventImplFromJson(Map<String, dynamic> json) => _$EventImpl(
       description: json['description'] as String,
       location: json['location'] as String,
       speaker: json['speaker'] as String,
-      date: DateTime.parse(json['date'] as String),
       time: json['time'] as String,
     );
 
@@ -23,6 +22,5 @@ Map<String, dynamic> _$$EventImplToJson(_$EventImpl instance) =>
       'description': instance.description,
       'location': instance.location,
       'speaker': instance.speaker,
-      'date': instance.date.toIso8601String(),
       'time': instance.time,
     };

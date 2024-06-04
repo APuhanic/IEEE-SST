@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:go_router/go_router.dart';
 import 'package:ieee_sst/data/constants/app_colors.dart';
 import 'package:ieee_sst/data/constants/text_styles.dart';
 import 'package:ieee_sst/domain/models/event.dart';
+import 'package:ieee_sst/presentation/admin/admin_event_managment_screen/bloc/event_form_bloc.dart';
 import 'package:ieee_sst/presentation/common/bloc/events_bloc.dart';
 import 'package:ieee_sst/presentation/common/widgets/event_data.dart';
 
@@ -41,11 +43,17 @@ class AdminEventCard extends StatelessWidget {
                     borderRadius: BorderRadius.circular(10),
                   ),
                   itemBuilder: (context) => [
-                    const PopupMenuItem(
-                      child: Text('Edit'),
+                    PopupMenuItem(
+                      child: const Text('Edit'),
+                      onTap: () {
+                        context
+                            .read<EventFormBloc>()
+                            .add(EventFormEvent.setInitialValues(event));
+                        context.go('/admin_events_managment/update_event');
+                      },
                     ),
                     PopupMenuItem(
-                      child: Text('Delete'),
+                      child: const Text('Delete'),
                       onTap: () {
                         context
                             .read<EventsManagmentBloc>()
@@ -58,9 +66,10 @@ class AdminEventCard extends StatelessWidget {
             ),
             const SizedBox(height: 8),
             EventData(
-                eventInfo: event.date.toIso8601String(),
+                eventInfo: event.time.split(' ')[0],
                 icon: Icons.calendar_today),
-            EventData(eventInfo: event.time, icon: Icons.access_time),
+            EventData(
+                eventInfo: event.time.split(' ')[1], icon: Icons.access_time),
             EventData(
                 eventInfo: event.location, icon: FontAwesomeIcons.locationDot),
             const SizedBox(height: 8),

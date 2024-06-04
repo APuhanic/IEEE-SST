@@ -31,10 +31,14 @@ class EventsManagmentBloc extends Bloc<EventsEvent, EventsState> {
   }
 
   _onDeleteEvent(_DeleteEvent event, Emitter<EventsState> emit) {
-    emit(const _Loading());
     try {
       supabaseEventRepository.deleteEvent(event.event.id!);
-      emit(const _Initial());
+      if (state is _Loaded) {
+        final events = (state as _Loaded).events;
+        final updatedEvents =
+            events.where((e) => e.id != event.event.id).toList();
+        emit(_Loaded(updatedEvents));
+      }
     } catch (e) {
       emit(_Error(e.toString()));
     }

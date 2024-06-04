@@ -4,7 +4,7 @@ import 'package:ieee_sst/di/dependency_injection.dart';
 import 'package:injectable/injectable.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
-/// Supabase API that handles fetching data from the Supabase database.
+// TODO: Split this class into multiple classes
 @LazySingleton()
 class SupabaseApi {
   final SupabaseClient _supabaseClient = getIt<SupabaseClient>();
@@ -32,18 +32,15 @@ class SupabaseApi {
     String description,
     String location,
     String speaker,
-    DateTime date,
-    String time,
+    DateTime time,
   ) async {
     try {
-      debugPrint('Adding event');
       await _supabaseClient.from('events').insert({
         'name': name,
         'description': description,
         'time': time,
         'location': location,
         'speaker': speaker,
-        'date': date.toIso8601String(),
         'info': 'Event info',
       });
     } catch (e) {
@@ -56,8 +53,15 @@ class SupabaseApi {
 
   Future<void> deleteEvent(String eventId) async {
     try {
-      debugPrint('Deleting event');
       await _supabaseClient.from('events').delete().eq('id', eventId);
+    } catch (e) {
+      debugPrint(e.toString());
+    }
+  }
+
+  Future<void> updateEvent(Map<String, dynamic> event) async {
+    try {
+      await _supabaseClient.from('events').upsert(event);
     } catch (e) {
       debugPrint(e.toString());
     }

@@ -23,7 +23,7 @@ import '../data/supabase/supabase_api.dart' as _i3;
 import '../domain/modules/app_module.dart' as _i18;
 import '../domain/modules/navigator_key_manager_module.dart' as _i19;
 import '../domain/repositories/auth/auth_repository.dart' as _i8;
-import '../presentation/admin/admin_event_managment_screen/bloc/create_event_bloc.dart'
+import '../presentation/admin/admin_event_managment_screen/bloc/event_form_bloc.dart'
     as _i16;
 import '../presentation/common/bloc/events_bloc.dart' as _i17;
 import '../presentation/login/bloc/auth_bloc.dart' as _i10;
@@ -66,8 +66,8 @@ extension GetItInjectableX on _i1.GetIt {
         () => _i14.SupabaseEventRepository(gh<_i3.SupabaseApi>()));
     gh.lazySingleton<_i15.SupabaseProfileRepository>(
         () => _i15.SupabaseProfileRepository(gh<_i3.SupabaseApi>()));
-    gh.factory<_i16.CreateEventBloc>(
-        () => _i16.CreateEventBloc(gh<_i14.SupabaseEventRepository>()));
+    gh.factory<_i16.EventFormBloc>(
+        () => _i16.EventFormBloc(gh<_i14.SupabaseEventRepository>()));
     gh.factory<_i17.EventsManagmentBloc>(
         () => _i17.EventsManagmentBloc(gh<_i14.SupabaseEventRepository>()));
     return this;

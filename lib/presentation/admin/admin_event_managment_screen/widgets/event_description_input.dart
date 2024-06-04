@@ -2,20 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ieee_sst/data/constants/app_colors.dart';
 import 'package:ieee_sst/data/constants/text_styles.dart';
-import 'package:ieee_sst/presentation/admin/admin_event_managment_screen/bloc/create_event_bloc.dart';
+import 'package:ieee_sst/presentation/admin/admin_event_managment_screen/bloc/event_form_bloc.dart';
 
 class EventDescriptionInput extends StatelessWidget {
   const EventDescriptionInput({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<CreateEventBloc, CreateEventState>(
+    return BlocBuilder<EventFormBloc, EventFormState>(
       builder: (context, state) {
         return TextFormField(
           onChanged: (eventName) {
             context
-                .read<CreateEventBloc>()
-                .add(CreateEventEvent.eventDescriptionChanged(eventName));
+                .read<EventFormBloc>()
+                .add(EventFormEvent.eventDescriptionChanged(eventName));
           },
           decoration: InputDecoration(
             label: Text('Event description', style: AppTextStyle.textForm),

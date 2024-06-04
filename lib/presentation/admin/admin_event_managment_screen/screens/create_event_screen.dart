@@ -3,8 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:formz/formz.dart';
 import 'package:ieee_sst/data/constants/app_colors.dart';
 import 'package:ieee_sst/data/constants/text_styles.dart';
-import 'package:ieee_sst/di/dependency_injection.dart';
-import 'package:ieee_sst/presentation/admin/admin_event_managment_screen/bloc/create_event_bloc.dart';
+import 'package:ieee_sst/presentation/admin/admin_event_managment_screen/bloc/event_form_bloc.dart';
 import 'package:ieee_sst/presentation/admin/admin_event_managment_screen/widgets/event_date_input.dart';
 import 'package:ieee_sst/presentation/admin/admin_event_managment_screen/widgets/event_description_input.dart';
 import 'package:ieee_sst/presentation/admin/admin_event_managment_screen/widgets/event_location_input.dart';
@@ -12,90 +11,81 @@ import 'package:ieee_sst/presentation/admin/admin_event_managment_screen/widgets
 import 'package:ieee_sst/presentation/admin/admin_event_managment_screen/widgets/event_speaker_input.dart';
 import 'package:ieee_sst/presentation/admin/admin_event_managment_screen/widgets/event_time_input.dart';
 
+//TODO: Rename to event input screen..
 class CreateEventNameScreen extends StatelessWidget {
   const CreateEventNameScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: MultiBlocProvider(
-        providers: [
-          BlocProvider(
-            create: (context) => getIt<CreateEventBloc>(),
-          ),
-          BlocProvider(
-            create: (context) => getIt<CreateEventBloc>(),
-          ),
-        ],
-        child: BlocConsumer<CreateEventBloc, CreateEventState>(
-          listener: (context, state) {
-            if (state.status.isSuccess) {
-              debugPrint('Event created successfully');
-              Navigator.pop(context);
-            }
-            if (state.status.isFailure) {
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(
-                  content: Text(state.errorMessage),
-                  backgroundColor: AppColors.primary,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
+      body: BlocConsumer<EventFormBloc, EventFormState>(
+        listener: (context, state) {
+          if (state.status.isSuccess) {
+            debugPrint('Event created successfully');
+            Navigator.pop(context);
+          }
+          if (state.status.isFailure) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text(state.errorMessage),
+                backgroundColor: AppColors.primary,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+              ),
+            );
+          }
+        },
+        builder: (context, state) {
+          return CustomScrollView(slivers: [
+            SliverAppBar(
+              expandedHeight: 40.0,
+              backgroundColor: AppColors.background,
+              shadowColor: Colors.transparent,
+              surfaceTintColor: AppColors.background,
+              title: Text('Create event', style: AppTextStyle.titleSmall),
+            ),
+            SliverList(
+              delegate: SliverChildListDelegate([
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  child: Column(
+                    children: [
+                      const SizedBox(height: 24),
+                      const EventNameInput(),
+                      const Padding(
+                        padding: EdgeInsets.symmetric(vertical: 24.0),
+                        child: EventDescriptionInput(),
+                      ),
+                      const EventLocationInput(),
+                      const Padding(
+                        padding: EdgeInsets.symmetric(vertical: 24.0),
+                        child: Row(
+                          children: [
+                            EventDateInput(),
+                            SizedBox(width: 16),
+                            EventTimeInput(),
+                          ],
+                        ),
+                      ),
+                      const EventSpeakerInput(),
+                      const SizedBox(height: 24),
+                      // TODO: Extract widget and add validation
+                      ElevatedButton(
+                        onPressed: () {
+                          context.read<EventFormBloc>().add(
+                                const EventFormEvent.createEvent(),
+                              );
+                        },
+                        child: const Text('Create event'),
+                      ),
+                    ],
                   ),
                 ),
-              );
-            }
-          },
-          builder: (context, state) {
-            return CustomScrollView(slivers: [
-              SliverAppBar(
-                expandedHeight: 40.0,
-                backgroundColor: AppColors.background,
-                shadowColor: Colors.transparent,
-                surfaceTintColor: AppColors.background,
-                title: Text('Create event', style: AppTextStyle.titleSmall),
-              ),
-              SliverList(
-                delegate: SliverChildListDelegate([
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                    child: Column(
-                      children: [
-                        const SizedBox(height: 24),
-                        const EventNameInput(),
-                        const Padding(
-                          padding: EdgeInsets.symmetric(vertical: 24.0),
-                          child: EventDescriptionInput(),
-                        ),
-                        const EventLocationInput(),
-                        const Padding(
-                          padding: EdgeInsets.symmetric(vertical: 24.0),
-                          child: Row(
-                            children: [
-                              EventDateInput(),
-                              SizedBox(width: 16),
-                              EventTimeInput(),
-                            ],
-                          ),
-                        ),
-                        const EventSpeakerInput(),
-                        const SizedBox(height: 24),
-                        // TODO: Extract widget and add validation
-                        ElevatedButton(
-                          onPressed: () {
-                            context.read<CreateEventBloc>().add(
-                                  const CreateEventEvent.submitted(),
-                                );
-                          },
-                          child: const Text('Create event'),
-                        ),
-                      ],
-                    ),
-                  ),
-                ]),
-              )
-            ]);
-          },
-        ),
+              ]),
+            )
+          ]);
+        },
       ),
     );
   }

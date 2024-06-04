@@ -11,7 +11,6 @@ class Event with _$Event {
     required String description,
     required String location,
     required String speaker,
-    required DateTime date,
     required String time,
   }) = _Event;
 

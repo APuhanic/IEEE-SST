@@ -25,7 +25,6 @@ mixin _$Event {
   String get description => throw _privateConstructorUsedError;
   String get location => throw _privateConstructorUsedError;
   String get speaker => throw _privateConstructorUsedError;
-  DateTime get date => throw _privateConstructorUsedError;
   String get time => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -44,7 +43,6 @@ abstract class $EventCopyWith<$Res> {
       String description,
       String location,
       String speaker,
-      DateTime date,
       String time});
 }
 
@@ -66,7 +64,6 @@ class _$EventCopyWithImpl<$Res, $Val extends Event>
     Object? description = null,
     Object? location = null,
     Object? speaker = null,
-    Object? date = null,
     Object? time = null,
   }) {
     return _then(_value.copyWith(
@@ -90,10 +87,6 @@ class _$EventCopyWithImpl<$Res, $Val extends Event>
           ? _value.speaker
           : speaker // ignore: cast_nullable_to_non_nullable
               as String,
-      date: null == date
-          ? _value.date
-          : date // ignore: cast_nullable_to_non_nullable
-              as DateTime,
       time: null == time
           ? _value.time
           : time // ignore: cast_nullable_to_non_nullable
@@ -115,7 +108,6 @@ abstract class _$$EventImplCopyWith<$Res> implements $EventCopyWith<$Res> {
       String description,
       String location,
       String speaker,
-      DateTime date,
       String time});
 }
 
@@ -135,7 +127,6 @@ class __$$EventImplCopyWithImpl<$Res>
     Object? description = null,
     Object? location = null,
     Object? speaker = null,
-    Object? date = null,
     Object? time = null,
   }) {
     return _then(_$EventImpl(
@@ -159,10 +150,6 @@ class __$$EventImplCopyWithImpl<$Res>
           ? _value.speaker
           : speaker // ignore: cast_nullable_to_non_nullable
               as String,
-      date: null == date
-          ? _value.date
-          : date // ignore: cast_nullable_to_non_nullable
-              as DateTime,
       time: null == time
           ? _value.time
           : time // ignore: cast_nullable_to_non_nullable
@@ -180,7 +167,6 @@ class _$EventImpl implements _Event {
       required this.description,
       required this.location,
       required this.speaker,
-      required this.date,
       required this.time});
 
   factory _$EventImpl.fromJson(Map<String, dynamic> json) =>
@@ -197,13 +183,11 @@ class _$EventImpl implements _Event {
   @override
   final String speaker;
   @override
-  final DateTime date;
-  @override
   final String time;
 
   @override
   String toString() {
-    return 'Event(id: $id, name: $name, description: $description, location: $location, speaker: $speaker, date: $date, time: $time)';
+    return 'Event(id: $id, name: $name, description: $description, location: $location, speaker: $speaker, time: $time)';
   }
 
   @override
@@ -218,14 +202,13 @@ class _$EventImpl implements _Event {
             (identical(other.location, location) ||
                 other.location == location) &&
             (identical(other.speaker, speaker) || other.speaker == speaker) &&
-            (identical(other.date, date) || other.date == date) &&
             (identical(other.time, time) || other.time == time));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, id, name, description, location, speaker, date, time);
+  int get hashCode =>
+      Object.hash(runtimeType, id, name, description, location, speaker, time);
 
   @JsonKey(ignore: true)
   @override
@@ -248,7 +231,6 @@ abstract class _Event implements Event {
       required final String description,
       required final String location,
       required final String speaker,
-      required final DateTime date,
       required final String time}) = _$EventImpl;
 
   factory _Event.fromJson(Map<String, dynamic> json) = _$EventImpl.fromJson;
@@ -263,8 +245,6 @@ abstract class _Event implements Event {
   String get location;
   @override
   String get speaker;
-  @override
-  DateTime get date;
   @override
   String get time;
   @override

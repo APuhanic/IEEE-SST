@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ieee_sst/data/constants/app_colors.dart';
 import 'package:ieee_sst/data/constants/text_styles.dart';
-import 'package:ieee_sst/presentation/admin/admin_event_managment_screen/bloc/create_event_bloc.dart';
+import 'package:ieee_sst/presentation/admin/admin_event_managment_screen/bloc/event_form_bloc.dart';
 
 class EventDateInput extends StatelessWidget {
   const EventDateInput({
@@ -12,13 +12,12 @@ class EventDateInput extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: BlocBuilder<CreateEventBloc, CreateEventState>(
+      child: BlocBuilder<EventFormBloc, EventFormState>(
         builder: (context, state) {
           return TextFormField(
             controller: TextEditingController(
-              text: state.eventDate == null
-                  ? ''
-                  : state.eventDate.toString().split(' ')[0],
+              text:
+                  state.time == null ? '' : state.time.toString().split(' ')[0],
             ),
             onTap: () => _selectDate(context),
             readOnly: true,
@@ -53,8 +52,8 @@ class EventDateInput extends StatelessWidget {
       lastDate: DateTime(2030),
     ).then(
       (value) => context
-          .read<CreateEventBloc>()
-          .add(CreateEventEvent.eventDateChanged(value)),
+          .read<EventFormBloc>()
+          .add(EventFormEvent.eventDateChanged(value)),
     );
   }
 }

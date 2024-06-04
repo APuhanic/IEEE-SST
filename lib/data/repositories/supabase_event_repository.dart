@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:ieee_sst/data/supabase/supabase_api.dart';
 import 'package:ieee_sst/domain/models/event.dart';
 import 'package:injectable/injectable.dart';
@@ -15,12 +16,16 @@ class SupabaseEventRepository {
 
   // TODO: Add event model, and toJson?
   Future<void> addEvent(String name, String description, String location,
-      String speaker, DateTime date, String time) async {
-    await _supabaseApi.addEvent(
-        name, description, location, speaker, date, time);
+      String speaker, DateTime time) async {
+    await _supabaseApi.addEvent(name, description, location, speaker, time);
   }
 
   Future<void> deleteEvent(String eventId) async {
     await _supabaseApi.deleteEvent(eventId);
+  }
+
+  Future<void> updateEvent(Event event) async {
+    debugPrint('Updating event: ${event.toJson()}');
+    await _supabaseApi.updateEvent(event.toJson());
   }
 }
