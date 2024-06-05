@@ -25,7 +25,8 @@ mixin _$Event {
   String get description => throw _privateConstructorUsedError;
   String get location => throw _privateConstructorUsedError;
   String get speaker => throw _privateConstructorUsedError;
-  String get time => throw _privateConstructorUsedError;
+  DateTime? get time => throw _privateConstructorUsedError;
+  String? get info => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -43,7 +44,8 @@ abstract class $EventCopyWith<$Res> {
       String description,
       String location,
       String speaker,
-      String time});
+      DateTime? time,
+      String? info});
 }
 
 /// @nodoc
@@ -64,7 +66,8 @@ class _$EventCopyWithImpl<$Res, $Val extends Event>
     Object? description = null,
     Object? location = null,
     Object? speaker = null,
-    Object? time = null,
+    Object? time = freezed,
+    Object? info = freezed,
   }) {
     return _then(_value.copyWith(
       id: freezed == id
@@ -87,10 +90,14 @@ class _$EventCopyWithImpl<$Res, $Val extends Event>
           ? _value.speaker
           : speaker // ignore: cast_nullable_to_non_nullable
               as String,
-      time: null == time
+      time: freezed == time
           ? _value.time
           : time // ignore: cast_nullable_to_non_nullable
-              as String,
+              as DateTime?,
+      info: freezed == info
+          ? _value.info
+          : info // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -108,7 +115,8 @@ abstract class _$$EventImplCopyWith<$Res> implements $EventCopyWith<$Res> {
       String description,
       String location,
       String speaker,
-      String time});
+      DateTime? time,
+      String? info});
 }
 
 /// @nodoc
@@ -127,7 +135,8 @@ class __$$EventImplCopyWithImpl<$Res>
     Object? description = null,
     Object? location = null,
     Object? speaker = null,
-    Object? time = null,
+    Object? time = freezed,
+    Object? info = freezed,
   }) {
     return _then(_$EventImpl(
       id: freezed == id
@@ -150,10 +159,14 @@ class __$$EventImplCopyWithImpl<$Res>
           ? _value.speaker
           : speaker // ignore: cast_nullable_to_non_nullable
               as String,
-      time: null == time
+      time: freezed == time
           ? _value.time
           : time // ignore: cast_nullable_to_non_nullable
-              as String,
+              as DateTime?,
+      info: freezed == info
+          ? _value.info
+          : info // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -163,11 +176,12 @@ class __$$EventImplCopyWithImpl<$Res>
 class _$EventImpl implements _Event {
   const _$EventImpl(
       {this.id,
-      required this.name,
-      required this.description,
-      required this.location,
-      required this.speaker,
-      required this.time});
+      this.name = '',
+      this.description = '',
+      this.location = '',
+      this.speaker = '',
+      this.time,
+      this.info});
 
   factory _$EventImpl.fromJson(Map<String, dynamic> json) =>
       _$$EventImplFromJson(json);
@@ -175,19 +189,25 @@ class _$EventImpl implements _Event {
   @override
   final String? id;
   @override
+  @JsonKey()
   final String name;
   @override
+  @JsonKey()
   final String description;
   @override
+  @JsonKey()
   final String location;
   @override
+  @JsonKey()
   final String speaker;
   @override
-  final String time;
+  final DateTime? time;
+  @override
+  final String? info;
 
   @override
   String toString() {
-    return 'Event(id: $id, name: $name, description: $description, location: $location, speaker: $speaker, time: $time)';
+    return 'Event(id: $id, name: $name, description: $description, location: $location, speaker: $speaker, time: $time, info: $info)';
   }
 
   @override
@@ -202,13 +222,14 @@ class _$EventImpl implements _Event {
             (identical(other.location, location) ||
                 other.location == location) &&
             (identical(other.speaker, speaker) || other.speaker == speaker) &&
-            (identical(other.time, time) || other.time == time));
+            (identical(other.time, time) || other.time == time) &&
+            (identical(other.info, info) || other.info == info));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, name, description, location, speaker, time);
+  int get hashCode => Object.hash(
+      runtimeType, id, name, description, location, speaker, time, info);
 
   @JsonKey(ignore: true)
   @override
@@ -227,11 +248,12 @@ class _$EventImpl implements _Event {
 abstract class _Event implements Event {
   const factory _Event(
       {final String? id,
-      required final String name,
-      required final String description,
-      required final String location,
-      required final String speaker,
-      required final String time}) = _$EventImpl;
+      final String name,
+      final String description,
+      final String location,
+      final String speaker,
+      final DateTime? time,
+      final String? info}) = _$EventImpl;
 
   factory _Event.fromJson(Map<String, dynamic> json) = _$EventImpl.fromJson;
 
@@ -246,7 +268,9 @@ abstract class _Event implements Event {
   @override
   String get speaker;
   @override
-  String get time;
+  DateTime? get time;
+  @override
+  String? get info;
   @override
   @JsonKey(ignore: true)
   _$$EventImplCopyWith<_$EventImpl> get copyWith =>

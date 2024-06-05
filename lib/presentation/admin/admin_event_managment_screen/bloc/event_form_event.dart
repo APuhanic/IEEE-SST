@@ -18,4 +18,6 @@ class EventFormEvent with _$EventFormEvent {
       _EventLocationChanged;
   const factory EventFormEvent.eventSpeakerChanged(String speaker) =
       _EventSpeakerChanged;
+  const factory EventFormEvent.eventInfoChanged(String info) =
+      _EventInfoChanged;
 }

@@ -7,11 +7,12 @@ part 'event.g.dart';
 class Event with _$Event {
   const factory Event({
     String? id,
-    required String name,
-    required String description,
-    required String location,
-    required String speaker,
-    required String time,
+    @Default('') String name,
+    @Default('') String description,
+    @Default('') String location,
+    @Default('') String speaker,
+    DateTime? time,
+    String? info,
   }) = _Event;
 
   factory Event.fromJson(Map<String, dynamic> json) => _$EventFromJson(json);

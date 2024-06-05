@@ -66,10 +66,11 @@ class AdminEventCard extends StatelessWidget {
             ),
             const SizedBox(height: 8),
             EventData(
-                eventInfo: event.time.split(' ')[0],
+                eventInfo: event.time!.toIso8601String().split('T')[0],
                 icon: Icons.calendar_today),
             EventData(
-                eventInfo: event.time.split(' ')[1], icon: Icons.access_time),
+                eventInfo: event.time!.toIso8601String().split('T')[1],
+                icon: Icons.access_time),
             EventData(
                 eventInfo: event.location, icon: FontAwesomeIcons.locationDot),
             const SizedBox(height: 8),

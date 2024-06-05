@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_single_quotes
+
 import 'dart:async';
 
 import 'package:flutter/material.dart';
@@ -26,6 +28,7 @@ class EventFormBloc extends Bloc<EventFormEvent, EventFormState> {
     on<_EventLocationChanged>(_onEventLocationChanged);
     on<_EventSpeakerChanged>(_onEventSpeakerChanged);
     on<_SetInitialValues>(_onSetInitialValues);
+    on<_EventInfoChanged>(_onEventInfoChanged);
 
     // TODO: Add event info
   }
@@ -42,18 +45,27 @@ class EventFormBloc extends Bloc<EventFormEvent, EventFormState> {
   /// This is a workaround to convert TimeOfDay to DateTime because it
   /// is not possible to use TimeOfDay in the form with the copywith method
   _onEventTimeChanged(_EventTimeChanged event, Emitter<EventFormState> emit) {
-    final newTime = DateTime(
-      state.time!.year,
-      state.time!.month,
-      state.time!.day,
-      event.time!.hour,
-      event.time!.minute,
-    );
-
-    emit(state.copyWith(time: newTime));
+    try {
+      // TODO: Ask user to set a date first?
+      if (state.time == null) {
+        emit(state.copyWith(time: DateTime.now()));
+      }
+      final newTime = DateTime(
+        state.time!.year,
+        state.time!.month,
+        state.time!.day,
+        event.time!.hour,
+        event.time!.minute,
+      );
+      emit(state.copyWith(time: newTime));
+    } catch (e) {
+      debugPrint(e.toString());
+    }
   }
 
-  _onEventDateChanged(_EventDateChanged event, Emitter<EventFormState> emit) {}
+  _onEventDateChanged(_EventDateChanged event, Emitter<EventFormState> emit) {
+    emit(state.copyWith(time: event.time));
+  }
 
   _onEventSpeakerChanged(
           _EventSpeakerChanged event, Emitter<EventFormState> emit) =>
@@ -63,18 +75,22 @@ class EventFormBloc extends Bloc<EventFormEvent, EventFormState> {
           _EventLocationChanged event, Emitter<EventFormState> emit) =>
       emit(state.copyWith(location: event.location));
 
+  _onEventInfoChanged(_EventInfoChanged event, Emitter<EventFormState> emit) {
+    emit(state.copyWith(info: event.info));
+  }
+
   Future<void> _onEventCreate(
-    _CreateEvent event,
-    Emitter<EventFormState> emit,
-  ) async {
+      _CreateEvent event, Emitter<EventFormState> emit) async {
     emit(state.copyWith(status: FormzSubmissionStatus.inProgress));
     try {
+      //TODO: Refactor this
+
       await _supabaseEventRepository.addEvent(
         state.name,
         state.despcription,
+        state.time!,
         state.location,
         state.speaker,
-        state.time!,
       );
       emit(state.copyWith(status: FormzSubmissionStatus.success));
     } catch (e) {
@@ -90,14 +106,13 @@ class EventFormBloc extends Bloc<EventFormEvent, EventFormState> {
   _onUpdateEvent(_UpdateEvent event, Emitter<EventFormState> emit) {
     emit(state.copyWith(status: FormzSubmissionStatus.inProgress));
     try {
-      // TODO: Make the event have the Event class as state and not everything individually
       final event = Event(
         id: state.id,
         name: state.name,
         description: state.despcription,
         location: state.location,
         speaker: state.speaker,
-        time: state.time.toString(),
+        time: state.time,
       );
       _supabaseEventRepository.updateEvent(event);
       emit(state.copyWith(status: FormzSubmissionStatus.success));
@@ -114,7 +129,6 @@ class EventFormBloc extends Bloc<EventFormEvent, EventFormState> {
   //TODO: Find a synonim for Event...
   _onSetInitialValues(_SetInitialValues event, Emitter<EventFormState> emit) {
     //TODO: Refactor this
-    final time = DateTime.parse(event.event.time);
     emit(
       state.copyWith(
         id: event.event.id,
@@ -122,7 +136,8 @@ class EventFormBloc extends Bloc<EventFormEvent, EventFormState> {
         despcription: event.event.description,
         location: event.event.location,
         speaker: event.event.speaker,
-        time: time,
+        time: event.event.time,
+        info: event.event.info,
       ),
     );
   }

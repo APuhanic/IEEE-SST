@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:ieee_sst/data/constants/app_colors.dart';
 import 'package:ieee_sst/data/constants/text_styles.dart';
+import 'package:ieee_sst/domain/models/event.dart';
 import 'package:ieee_sst/presentation/common/cubit/is_going_cubit.dart';
 import 'package:ieee_sst/presentation/common/widgets/bottom_sheet_event_info.dart';
 import 'package:ieee_sst/presentation/common/widgets/event_data.dart';
@@ -10,7 +11,10 @@ import 'package:ieee_sst/presentation/common/widgets/event_data.dart';
 class EventCard extends StatelessWidget {
   const EventCard({
     super.key,
+    required this.event,
   });
+
+  final Event event;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +24,7 @@ class EventCard extends StatelessWidget {
         onTap: () {
           showModalBottomSheet(
             context: context,
-            builder: (context) => const BottomSheetEventInfo(),
+            builder: (context) => BottomSheetEventInfo(event: event),
           );
         },
         child: Container(
@@ -39,7 +43,7 @@ class EventCard extends StatelessWidget {
                   children: [
                     Flexible(
                       child: Text(
-                        'Really long event name that goes on and on and on',
+                        event.name,
                         style: AppTextStyle.titleSmall,
                       ),
                     ),
@@ -48,16 +52,16 @@ class EventCard extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(height: 8),
-                const EventData(
-                  eventInfo: '3.10.2024',
+                EventData(
+                  eventInfo: event.time!.toIso8601String().split('T')[0],
                   icon: FontAwesomeIcons.calendar,
                 ),
-                const EventData(
-                  eventInfo: '12:00 - 17:35',
+                EventData(
+                  eventInfo: event.time!.toIso8601String().split('T')[1],
                   icon: FontAwesomeIcons.clock,
                 ),
-                const EventData(
-                  eventInfo: 'Location Name',
+                EventData(
+                  eventInfo: event.location,
                   icon: FontAwesomeIcons.locationDot,
                 ),
                 const SizedBox(height: 8),

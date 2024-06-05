@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ieee_sst/data/constants/app_colors.dart';
 import 'package:ieee_sst/data/constants/text_styles.dart';
 import 'package:ieee_sst/di/dependency_injection.dart';
+import 'package:ieee_sst/presentation/common/bloc/events_bloc.dart';
 import 'package:ieee_sst/presentation/home/widgets/home_screen_drawer.dart';
 import 'package:ieee_sst/presentation/home/widgets/ongoing_events.dart';
 import 'package:ieee_sst/presentation/home/widgets/speaker_hub.dart';
@@ -15,6 +16,8 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    context.read<EventsManagmentBloc>().add(const EventsEvent.loadEvents());
+
     return Scaffold(
       body: BlocProvider(
         create: (context) => getIt<AuthBloc>(),
@@ -77,7 +80,17 @@ class HomeScreen extends StatelessWidget {
                         ],
                       ),
                     ),
-                    const OngoingEvents(),
+                    BlocBuilder<EventsManagmentBloc, EventsState>(
+                      builder: (context, state) {
+                        return state.maybeWhen(
+                          loading: () => const Center(
+                            child: CircularProgressIndicator(),
+                          ),
+                          loaded: (events) => OngoingEvents(events: events),
+                          orElse: () => const SizedBox.shrink(),
+                        );
+                      },
+                    ),
                     const SizedBox(height: 24),
                     const Padding(
                       padding: EdgeInsets.all(16.0),

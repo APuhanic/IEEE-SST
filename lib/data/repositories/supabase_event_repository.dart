@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:ieee_sst/data/supabase/supabase_api.dart';
+import 'package:ieee_sst/data/supabase/supabase_event_api.dart';
 import 'package:ieee_sst/domain/models/event.dart';
 import 'package:injectable/injectable.dart';
 
 @LazySingleton()
 class SupabaseEventRepository {
-  final SupabaseApi _supabaseApi;
+  final SupabaseEventApi _supabaseApi;
 
   SupabaseEventRepository(this._supabaseApi);
 
@@ -15,9 +15,20 @@ class SupabaseEventRepository {
   }
 
   // TODO: Add event model, and toJson?
-  Future<void> addEvent(String name, String description, String location,
-      String speaker, DateTime time) async {
-    await _supabaseApi.addEvent(name, description, location, speaker, time);
+  Future<void> addEvent(
+    String name,
+    String description,
+    DateTime time,
+    String location,
+    String speaker,
+  ) async {
+    await _supabaseApi.addEvent(
+      name,
+      description,
+      time,
+      location,
+      speaker,
+    );
   }
 
   Future<void> deleteEvent(String eventId) async {

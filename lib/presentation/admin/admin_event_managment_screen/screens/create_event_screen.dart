@@ -6,6 +6,7 @@ import 'package:ieee_sst/data/constants/text_styles.dart';
 import 'package:ieee_sst/presentation/admin/admin_event_managment_screen/bloc/event_form_bloc.dart';
 import 'package:ieee_sst/presentation/admin/admin_event_managment_screen/widgets/event_date_input.dart';
 import 'package:ieee_sst/presentation/admin/admin_event_managment_screen/widgets/event_description_input.dart';
+import 'package:ieee_sst/presentation/admin/admin_event_managment_screen/widgets/event_info_input.dart';
 import 'package:ieee_sst/presentation/admin/admin_event_managment_screen/widgets/event_location_input.dart';
 import 'package:ieee_sst/presentation/admin/admin_event_managment_screen/widgets/event_name_input.dart';
 import 'package:ieee_sst/presentation/admin/admin_event_managment_screen/widgets/event_speaker_input.dart';
@@ -69,7 +70,10 @@ class CreateEventNameScreen extends StatelessWidget {
                         ),
                       ),
                       const EventSpeakerInput(),
-                      const SizedBox(height: 24),
+                      const Padding(
+                        padding: EdgeInsets.symmetric(vertical: 24.0),
+                        child: EventInfoInput(),
+                      ),
                       // TODO: Extract widget and add validation
                       ElevatedButton(
                         onPressed: () {
