@@ -33,7 +33,6 @@ class AnnouncementsManagmentScreen extends StatelessWidget {
                 children: [
                   const Padding(
                     padding: EdgeInsets.all(16),
-                    // TODO: Make it a common widget?
                     child: Header(),
                   ),
                   const SizedBox(height: 24),

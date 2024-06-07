@@ -6,4 +6,5 @@ class LoginEvent with _$LoginEvent {
       _Submitted;
   const factory LoginEvent.emailChanged(String email) = _EmailChanged;
   const factory LoginEvent.passwordChanged(String password) = _PasswordChanged;
+  const factory LoginEvent.loginWithGoogle() = _LoginWithGoogle;
 }

@@ -90,8 +90,6 @@ class BottomSheetEventInfo extends StatelessWidget {
                   ),
                 ],
               ),
-              // TODO: Figure out a way to make the event info show without a sized box
-              const SizedBox(height: 60),
             ],
           ),
         ),

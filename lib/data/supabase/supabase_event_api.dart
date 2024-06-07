@@ -2,7 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
-@LazySingleton()
+@injectable
 class SupabaseEventApi {
   final SupabaseClient _supabaseClient;
 

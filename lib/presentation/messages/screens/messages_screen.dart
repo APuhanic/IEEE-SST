@@ -53,9 +53,7 @@ class MessagesScreen extends StatelessWidget {
 }
 
 class _SearchMessagesBar extends StatelessWidget {
-  const _SearchMessagesBar({
-    super.key,
-  });
+  const _SearchMessagesBar();
 
   @override
   Widget build(BuildContext context) {
@@ -67,7 +65,6 @@ class _SearchMessagesBar extends StatelessWidget {
           color: AppColors.white,
           borderRadius: BorderRadius.circular(15),
         ),
-        // TODO: Make this autocomplete
         child: const TextField(
           decoration: InputDecoration(
             hintText: 'Search messages',

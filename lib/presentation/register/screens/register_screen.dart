@@ -22,8 +22,6 @@ class RegisterScreen extends StatelessWidget {
       resizeToAvoidBottomInset: false,
       body: Padding(
         padding: const EdgeInsets.all(32.0),
-
-        //TODO: Move to the last register screen
         child: BlocConsumer<RegistrationBloc, RegistrationState>(
           listener: (context, state) {
             if (state.status.isSuccess) {

@@ -6,7 +6,7 @@ import 'package:ieee_sst/data/constants/app_colors.dart';
 import 'package:ieee_sst/data/constants/text_styles.dart';
 import 'package:ieee_sst/domain/models/event.dart';
 import 'package:ieee_sst/presentation/admin/admin_event_managment_screen/bloc/event_form_bloc.dart';
-import 'package:ieee_sst/presentation/common/bloc/events_bloc.dart';
+import 'package:ieee_sst/presentation/common/bloc/events_bloc/events_bloc.dart';
 import 'package:ieee_sst/presentation/common/widgets/event_data.dart';
 
 class AdminEventCard extends StatelessWidget {

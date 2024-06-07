@@ -4,7 +4,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ieee_sst/data/constants/app_colors.dart';
 import 'package:ieee_sst/data/router/router.dart';
 import 'package:ieee_sst/di/dependency_injection.dart';
-import 'package:ieee_sst/presentation/common/bloc/events_bloc.dart';
+import 'package:ieee_sst/presentation/common/bloc/events_bloc/events_bloc.dart';
+import 'package:ieee_sst/presentation/common/bloc/profile_bloc/profile_bloc.dart';
 import 'package:ieee_sst/presentation/login/bloc/auth_bloc.dart';
 import 'package:ieee_sst/presentation/register/bloc/registration_bloc.dart';
 
@@ -25,6 +26,7 @@ class MainApp extends StatelessWidget {
         BlocProvider(create: (context) => getIt<AuthBloc>()),
         BlocProvider(create: (context) => getIt<RegistrationBloc>()),
         BlocProvider(create: (context) => getIt<EventsManagmentBloc>()),
+        BlocProvider(create: (context) => getIt<ProfileBloc>()),
       ],
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,

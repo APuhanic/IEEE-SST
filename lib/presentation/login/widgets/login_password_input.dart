@@ -13,20 +13,20 @@ class LoginPasswordInput extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: Research a beter way to handle state
-    final loginState = context.watch<LoginBloc>().state;
     return BlocProvider(
       create: (context) => ShowPasswordCubit(),
       child: SizedBox(
         height: 60,
-        child: BlocBuilder<ShowPasswordCubit, bool>(
-          builder: (context, state) {
+        child: Builder(
+          builder: (context) {
+            final showPasswordState = context.watch<ShowPasswordCubit>().state;
+            final loginState = context.watch<LoginBloc>().state;
             return TextFormField(
               onChanged: (value) => context.read<LoginBloc>().add(
                     LoginEvent.passwordChanged(value),
                   ),
               textInputAction: TextInputAction.done,
-              obscureText: state,
+              obscureText: showPasswordState,
               decoration: InputDecoration(
                 hintText: 'Password',
                 hintStyle: AppTextStyle.textForm,
@@ -42,7 +42,7 @@ class LoginPasswordInput extends StatelessWidget {
                   borderRadius: BorderRadius.circular(10),
                   borderSide: BorderSide.none,
                 ),
-                suffixIcon: state
+                suffixIcon: showPasswordState
                     ? IconButton(
                         icon: const Icon(Icons.visibility_off),
                         onPressed: () =>

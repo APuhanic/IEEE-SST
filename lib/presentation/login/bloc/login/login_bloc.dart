@@ -20,6 +20,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     on<_Submitted>(_onSubmitted);
     on<_EmailChanged>(_onEmailChanged);
     on<_PasswordChanged>(_onPasswordChanged);
+    on<_LoginWithGoogle>(_onLoginWithGoogle);
   }
 
   final AuthenticationRepository _authRepository;
@@ -80,5 +81,14 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
         isValid: Formz.validate([email]),
       ),
     );
+  }
+
+  FutureOr<void> _onLoginWithGoogle(
+      _LoginWithGoogle event, Emitter<LoginState> emit) {
+    try {
+      _authRepository.signInWithGoogle();
+    } on AuthApiException catch (e) {
+      throw AuthException(e.toString());
+    }
   }
 }

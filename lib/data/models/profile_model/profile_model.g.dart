@@ -9,17 +9,19 @@ part of 'profile_model.dart';
 _$ProfileImpl _$$ProfileImplFromJson(Map<String, dynamic> json) =>
     _$ProfileImpl(
       id: json['id'] as String,
-      name: json['name'] as String,
+      fullName: json['fullName'] as String,
       email: json['email'] as String,
-      address: json['address'] as String,
-      image: json['image'] as String?,
+      position: json['position'] as String?,
+      organization: json['organization'] as String?,
+      role: json['role'] as String?,
     );
 
 Map<String, dynamic> _$$ProfileImplToJson(_$ProfileImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'name': instance.name,
+      'fullName': instance.fullName,
       'email': instance.email,
-      'address': instance.address,
-      'image': instance.image,
+      'position': instance.position,
+      'organization': instance.organization,
+      'role': instance.role,
     };

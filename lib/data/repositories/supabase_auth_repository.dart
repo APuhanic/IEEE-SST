@@ -1,4 +1,6 @@
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:ieee_sst/data/models/supabase_user_model.dart';
+import 'package:ieee_sst/data/supabase/supabase_profile_api.dart';
 import 'package:ieee_sst/domain/models/user_model.dart';
 import 'package:ieee_sst/domain/repositories/auth/auth_repository.dart';
 import 'package:injectable/injectable.dart';
@@ -6,8 +8,9 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 
 @LazySingleton(as: AuthenticationRepository)
 class SupabaseAuthRepository implements AuthenticationRepository {
-  SupabaseAuthRepository(this._supabase);
+  SupabaseAuthRepository(this._supabase, this._profileApi);
   final SupabaseClient _supabase;
+  final SupabaseProfileApi _profileApi;
 
   @override
   Future<AuthResponse> signInWithEmailAndPassword(
@@ -35,17 +38,13 @@ class SupabaseAuthRepository implements AuthenticationRepository {
         'position': position,
       },
     );
-    // Set the user as user in the profile table
-    // TODO: Replace with a profile creation method from supabaseAPI
-    await _supabase.from('profiles').insert({
-      'id': response.user!.id,
-      // TODO: Add a role enum or class
-      'role': 'user',
-      'full_name': fullName,
-      'email': email,
-      'organization': organization,
-      'position': position,
-    });
+    await _profileApi.addUserProfile(
+      response.user!.id,
+      fullName,
+      email,
+      organization ?? '',
+      position ?? '',
+    );
   }
 
   @override
@@ -66,8 +65,8 @@ class SupabaseAuthRepository implements AuthenticationRepository {
         : null;
   }
 
-  /// Get the current user atuh stream from local storage or session.
-  /// This stream will emit the current user when the user is signed in or
+  /// Get the current user auth stream from local storage or session.
+  /// This stream will emit the current user when the user is signed
   @override
   Stream<BaseUserModel?> getCurrentUserStream() {
     return _supabase.auth.onAuthStateChange.map((event) {
@@ -97,5 +96,32 @@ class SupabaseAuthRepository implements AuthenticationRepository {
       'role': 'admin',
     });
     await _supabase.auth.updateUser(UserAttributes(data: {'role': 'admin'}));
+  }
+
+  @override
+  Future<void> signInWithGoogle() async {
+    const webClientId =
+        '76206281014-25ljo7r9kmqctok3ird786ai3anc98kf.apps.googleusercontent.com';
+
+    final GoogleSignIn googleSignIn = GoogleSignIn(
+      serverClientId: webClientId,
+    );
+    final googleUser = await googleSignIn.signIn();
+    final googleAuth = await googleUser!.authentication;
+    final accessToken = googleAuth.accessToken;
+    final idToken = googleAuth.idToken;
+
+    if (accessToken == null) {
+      throw 'No Access Token found.';
+    }
+    if (idToken == null) {
+      throw 'No ID Token found.';
+    }
+
+    await _supabase.auth.signInWithIdToken(
+      provider: OAuthProvider.google,
+      idToken: idToken,
+      accessToken: accessToken,
+    );
   }
 }

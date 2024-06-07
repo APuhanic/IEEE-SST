@@ -17,7 +17,6 @@ class EventSearchBar extends StatelessWidget {
           borderRadius: BorderRadius.circular(15),
         ),
         child: const TextField(
-          // TODO: Add autocomplete
           decoration: InputDecoration(
             hintText: 'Search for events',
             border: InputBorder.none,

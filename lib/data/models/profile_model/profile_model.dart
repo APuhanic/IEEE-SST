@@ -3,15 +3,15 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'profile_model.freezed.dart';
 part 'profile_model.g.dart';
 
-// TODO: Change name?
 @freezed
 class Profile with _$Profile {
   const factory Profile({
     required String id,
-    required String name,
+    required String fullName,
     required String email,
-    required String address,
-    required String? image,
+    String? position,
+    String? organization,
+    String? role,
   }) = _Profile;
 
   factory Profile.fromJson(Map<String, dynamic> json) =>

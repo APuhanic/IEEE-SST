@@ -117,7 +117,9 @@ class _LoginProviders extends StatelessWidget {
             borderRadius: BorderRadius.circular(20),
           ),
           child: IconButton(
-            onPressed: () {},
+            onPressed: () {
+              context.read<LoginBloc>().add(const LoginEvent.loginWithGoogle());
+            },
             icon: Image.asset('assets/images/google-logo.png'),
           ),
         ),

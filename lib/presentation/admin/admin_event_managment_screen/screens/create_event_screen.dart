@@ -12,9 +12,8 @@ import 'package:ieee_sst/presentation/admin/admin_event_managment_screen/widgets
 import 'package:ieee_sst/presentation/admin/admin_event_managment_screen/widgets/event_speaker_input.dart';
 import 'package:ieee_sst/presentation/admin/admin_event_managment_screen/widgets/event_time_input.dart';
 
-//TODO: Rename to event input screen..
-class CreateEventNameScreen extends StatelessWidget {
-  const CreateEventNameScreen({super.key});
+class CreateEventScreen extends StatelessWidget {
+  const CreateEventScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

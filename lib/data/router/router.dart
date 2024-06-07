@@ -105,7 +105,7 @@ class AppRouter {
                         path: RoutePaths.subRouteCreateEventName,
                         pageBuilder: (context, state) => const MaterialPage(
                           key: ValueKey('CreateEventScreen'),
-                          child: CreateEventNameScreen(),
+                          child: CreateEventScreen(),
                         ),
                       ),
                       GoRoute(

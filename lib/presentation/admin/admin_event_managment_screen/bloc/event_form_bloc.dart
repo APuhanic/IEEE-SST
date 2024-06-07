@@ -14,7 +14,6 @@ part 'event_form_event.dart';
 part 'event_form_state.dart';
 part 'event_form_bloc.freezed.dart';
 
-// TODO: Replace to navbar folder?
 @injectable
 class EventFormBloc extends Bloc<EventFormEvent, EventFormState> {
   EventFormBloc(this._supabaseEventRepository)
@@ -29,8 +28,6 @@ class EventFormBloc extends Bloc<EventFormEvent, EventFormState> {
     on<_EventSpeakerChanged>(_onEventSpeakerChanged);
     on<_SetInitialValues>(_onSetInitialValues);
     on<_EventInfoChanged>(_onEventInfoChanged);
-
-    // TODO: Add event info
   }
   final SupabaseEventRepository _supabaseEventRepository;
 
@@ -46,7 +43,6 @@ class EventFormBloc extends Bloc<EventFormEvent, EventFormState> {
   /// is not possible to use TimeOfDay in the form with the copywith method
   _onEventTimeChanged(_EventTimeChanged event, Emitter<EventFormState> emit) {
     try {
-      // TODO: Ask user to set a date first?
       if (state.time == null) {
         emit(state.copyWith(time: DateTime.now()));
       }
@@ -126,9 +122,7 @@ class EventFormBloc extends Bloc<EventFormEvent, EventFormState> {
     }
   }
 
-  //TODO: Find a synonim for Event...
   _onSetInitialValues(_SetInitialValues event, Emitter<EventFormState> emit) {
-    //TODO: Refactor this
     emit(
       state.copyWith(
         id: event.event.id,

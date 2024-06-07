@@ -24,6 +24,7 @@ class EventCard extends StatelessWidget {
         onTap: () {
           showModalBottomSheet(
             context: context,
+            useRootNavigator: true,
             builder: (context) => BottomSheetEventInfo(event: event),
           );
         },
