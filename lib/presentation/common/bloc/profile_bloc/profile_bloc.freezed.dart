@@ -19,32 +19,38 @@ mixin _$ProfileEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loadProfile,
+    required TResult Function() loadProfiles,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loadProfile,
+    TResult? Function()? loadProfiles,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loadProfile,
+    TResult Function()? loadProfiles,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_LoadProfile value) loadProfile,
+    required TResult Function(_LoadProfiles value) loadProfiles,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoadProfile value)? loadProfile,
+    TResult? Function(_LoadProfiles value)? loadProfiles,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoadProfile value)? loadProfile,
+    TResult Function(_LoadProfiles value)? loadProfiles,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -107,6 +113,7 @@ class _$LoadProfileImpl implements _LoadProfile {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loadProfile,
+    required TResult Function() loadProfiles,
   }) {
     return loadProfile();
   }
@@ -115,6 +122,7 @@ class _$LoadProfileImpl implements _LoadProfile {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loadProfile,
+    TResult? Function()? loadProfiles,
   }) {
     return loadProfile?.call();
   }
@@ -123,6 +131,7 @@ class _$LoadProfileImpl implements _LoadProfile {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loadProfile,
+    TResult Function()? loadProfiles,
     required TResult orElse(),
   }) {
     if (loadProfile != null) {
@@ -135,6 +144,7 @@ class _$LoadProfileImpl implements _LoadProfile {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_LoadProfile value) loadProfile,
+    required TResult Function(_LoadProfiles value) loadProfiles,
   }) {
     return loadProfile(this);
   }
@@ -143,6 +153,7 @@ class _$LoadProfileImpl implements _LoadProfile {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoadProfile value)? loadProfile,
+    TResult? Function(_LoadProfiles value)? loadProfiles,
   }) {
     return loadProfile?.call(this);
   }
@@ -151,6 +162,7 @@ class _$LoadProfileImpl implements _LoadProfile {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoadProfile value)? loadProfile,
+    TResult Function(_LoadProfiles value)? loadProfiles,
     required TResult orElse(),
   }) {
     if (loadProfile != null) {
@@ -165,12 +177,115 @@ abstract class _LoadProfile implements ProfileEvent {
 }
 
 /// @nodoc
+abstract class _$$LoadProfilesImplCopyWith<$Res> {
+  factory _$$LoadProfilesImplCopyWith(
+          _$LoadProfilesImpl value, $Res Function(_$LoadProfilesImpl) then) =
+      __$$LoadProfilesImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$LoadProfilesImplCopyWithImpl<$Res>
+    extends _$ProfileEventCopyWithImpl<$Res, _$LoadProfilesImpl>
+    implements _$$LoadProfilesImplCopyWith<$Res> {
+  __$$LoadProfilesImplCopyWithImpl(
+      _$LoadProfilesImpl _value, $Res Function(_$LoadProfilesImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$LoadProfilesImpl implements _LoadProfiles {
+  const _$LoadProfilesImpl();
+
+  @override
+  String toString() {
+    return 'ProfileEvent.loadProfiles()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$LoadProfilesImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loadProfile,
+    required TResult Function() loadProfiles,
+  }) {
+    return loadProfiles();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loadProfile,
+    TResult? Function()? loadProfiles,
+  }) {
+    return loadProfiles?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loadProfile,
+    TResult Function()? loadProfiles,
+    required TResult orElse(),
+  }) {
+    if (loadProfiles != null) {
+      return loadProfiles();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadProfile value) loadProfile,
+    required TResult Function(_LoadProfiles value) loadProfiles,
+  }) {
+    return loadProfiles(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadProfile value)? loadProfile,
+    TResult? Function(_LoadProfiles value)? loadProfiles,
+  }) {
+    return loadProfiles?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadProfile value)? loadProfile,
+    TResult Function(_LoadProfiles value)? loadProfiles,
+    required TResult orElse(),
+  }) {
+    if (loadProfiles != null) {
+      return loadProfiles(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LoadProfiles implements ProfileEvent {
+  const factory _LoadProfiles() = _$LoadProfilesImpl;
+}
+
+/// @nodoc
 mixin _$ProfileState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(Profile profile) loaded,
+    required TResult Function(Profile profile) loadedProfile,
+    required TResult Function(List<Profile> profiles) loadedProfiles,
     required TResult Function(String message) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -178,7 +293,8 @@ mixin _$ProfileState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(Profile profile)? loaded,
+    TResult? Function(Profile profile)? loadedProfile,
+    TResult? Function(List<Profile> profiles)? loadedProfiles,
     TResult? Function(String message)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -186,7 +302,8 @@ mixin _$ProfileState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Profile profile)? loaded,
+    TResult Function(Profile profile)? loadedProfile,
+    TResult Function(List<Profile> profiles)? loadedProfiles,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) =>
@@ -195,7 +312,8 @@ mixin _$ProfileState {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
-    required TResult Function(_Loaded value) loaded,
+    required TResult Function(_Loaded value) loadedProfile,
+    required TResult Function(_LoadedProfiles value) loadedProfiles,
     required TResult Function(_Error value) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -203,7 +321,8 @@ mixin _$ProfileState {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
-    TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_Loaded value)? loadedProfile,
+    TResult? Function(_LoadedProfiles value)? loadedProfiles,
     TResult? Function(_Error value)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -211,7 +330,8 @@ mixin _$ProfileState {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
-    TResult Function(_Loaded value)? loaded,
+    TResult Function(_Loaded value)? loadedProfile,
+    TResult Function(_LoadedProfiles value)? loadedProfiles,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) =>
@@ -276,7 +396,8 @@ class _$InitialImpl implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(Profile profile) loaded,
+    required TResult Function(Profile profile) loadedProfile,
+    required TResult Function(List<Profile> profiles) loadedProfiles,
     required TResult Function(String message) error,
   }) {
     return initial();
@@ -287,7 +408,8 @@ class _$InitialImpl implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(Profile profile)? loaded,
+    TResult? Function(Profile profile)? loadedProfile,
+    TResult? Function(List<Profile> profiles)? loadedProfiles,
     TResult? Function(String message)? error,
   }) {
     return initial?.call();
@@ -298,7 +420,8 @@ class _$InitialImpl implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Profile profile)? loaded,
+    TResult Function(Profile profile)? loadedProfile,
+    TResult Function(List<Profile> profiles)? loadedProfiles,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -313,7 +436,8 @@ class _$InitialImpl implements _Initial {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
-    required TResult Function(_Loaded value) loaded,
+    required TResult Function(_Loaded value) loadedProfile,
+    required TResult Function(_LoadedProfiles value) loadedProfiles,
     required TResult Function(_Error value) error,
   }) {
     return initial(this);
@@ -324,7 +448,8 @@ class _$InitialImpl implements _Initial {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
-    TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_Loaded value)? loadedProfile,
+    TResult? Function(_LoadedProfiles value)? loadedProfiles,
     TResult? Function(_Error value)? error,
   }) {
     return initial?.call(this);
@@ -335,7 +460,8 @@ class _$InitialImpl implements _Initial {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
-    TResult Function(_Loaded value)? loaded,
+    TResult Function(_Loaded value)? loadedProfile,
+    TResult Function(_LoadedProfiles value)? loadedProfiles,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {
@@ -390,7 +516,8 @@ class _$LoadingImpl implements _Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(Profile profile) loaded,
+    required TResult Function(Profile profile) loadedProfile,
+    required TResult Function(List<Profile> profiles) loadedProfiles,
     required TResult Function(String message) error,
   }) {
     return loading();
@@ -401,7 +528,8 @@ class _$LoadingImpl implements _Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(Profile profile)? loaded,
+    TResult? Function(Profile profile)? loadedProfile,
+    TResult? Function(List<Profile> profiles)? loadedProfiles,
     TResult? Function(String message)? error,
   }) {
     return loading?.call();
@@ -412,7 +540,8 @@ class _$LoadingImpl implements _Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Profile profile)? loaded,
+    TResult Function(Profile profile)? loadedProfile,
+    TResult Function(List<Profile> profiles)? loadedProfiles,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -427,7 +556,8 @@ class _$LoadingImpl implements _Loading {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
-    required TResult Function(_Loaded value) loaded,
+    required TResult Function(_Loaded value) loadedProfile,
+    required TResult Function(_LoadedProfiles value) loadedProfiles,
     required TResult Function(_Error value) error,
   }) {
     return loading(this);
@@ -438,7 +568,8 @@ class _$LoadingImpl implements _Loading {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
-    TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_Loaded value)? loadedProfile,
+    TResult? Function(_LoadedProfiles value)? loadedProfiles,
     TResult? Function(_Error value)? error,
   }) {
     return loading?.call(this);
@@ -449,7 +580,8 @@ class _$LoadingImpl implements _Loading {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
-    TResult Function(_Loaded value)? loaded,
+    TResult Function(_Loaded value)? loadedProfile,
+    TResult Function(_LoadedProfiles value)? loadedProfiles,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {
@@ -515,7 +647,7 @@ class _$LoadedImpl implements _Loaded {
 
   @override
   String toString() {
-    return 'ProfileState.loaded(profile: $profile)';
+    return 'ProfileState.loadedProfile(profile: $profile)';
   }
 
   @override
@@ -540,10 +672,11 @@ class _$LoadedImpl implements _Loaded {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(Profile profile) loaded,
+    required TResult Function(Profile profile) loadedProfile,
+    required TResult Function(List<Profile> profiles) loadedProfiles,
     required TResult Function(String message) error,
   }) {
-    return loaded(profile);
+    return loadedProfile(profile);
   }
 
   @override
@@ -551,10 +684,11 @@ class _$LoadedImpl implements _Loaded {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(Profile profile)? loaded,
+    TResult? Function(Profile profile)? loadedProfile,
+    TResult? Function(List<Profile> profiles)? loadedProfiles,
     TResult? Function(String message)? error,
   }) {
-    return loaded?.call(profile);
+    return loadedProfile?.call(profile);
   }
 
   @override
@@ -562,12 +696,13 @@ class _$LoadedImpl implements _Loaded {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Profile profile)? loaded,
+    TResult Function(Profile profile)? loadedProfile,
+    TResult Function(List<Profile> profiles)? loadedProfiles,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
-    if (loaded != null) {
-      return loaded(profile);
+    if (loadedProfile != null) {
+      return loadedProfile(profile);
     }
     return orElse();
   }
@@ -577,10 +712,11 @@ class _$LoadedImpl implements _Loaded {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
-    required TResult Function(_Loaded value) loaded,
+    required TResult Function(_Loaded value) loadedProfile,
+    required TResult Function(_LoadedProfiles value) loadedProfiles,
     required TResult Function(_Error value) error,
   }) {
-    return loaded(this);
+    return loadedProfile(this);
   }
 
   @override
@@ -588,10 +724,11 @@ class _$LoadedImpl implements _Loaded {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
-    TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_Loaded value)? loadedProfile,
+    TResult? Function(_LoadedProfiles value)? loadedProfiles,
     TResult? Function(_Error value)? error,
   }) {
-    return loaded?.call(this);
+    return loadedProfile?.call(this);
   }
 
   @override
@@ -599,12 +736,13 @@ class _$LoadedImpl implements _Loaded {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
-    TResult Function(_Loaded value)? loaded,
+    TResult Function(_Loaded value)? loadedProfile,
+    TResult Function(_LoadedProfiles value)? loadedProfiles,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {
-    if (loaded != null) {
-      return loaded(this);
+    if (loadedProfile != null) {
+      return loadedProfile(this);
     }
     return orElse();
   }
@@ -616,6 +754,166 @@ abstract class _Loaded implements ProfileState {
   Profile get profile;
   @JsonKey(ignore: true)
   _$$LoadedImplCopyWith<_$LoadedImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$LoadedProfilesImplCopyWith<$Res> {
+  factory _$$LoadedProfilesImplCopyWith(_$LoadedProfilesImpl value,
+          $Res Function(_$LoadedProfilesImpl) then) =
+      __$$LoadedProfilesImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({List<Profile> profiles});
+}
+
+/// @nodoc
+class __$$LoadedProfilesImplCopyWithImpl<$Res>
+    extends _$ProfileStateCopyWithImpl<$Res, _$LoadedProfilesImpl>
+    implements _$$LoadedProfilesImplCopyWith<$Res> {
+  __$$LoadedProfilesImplCopyWithImpl(
+      _$LoadedProfilesImpl _value, $Res Function(_$LoadedProfilesImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? profiles = null,
+  }) {
+    return _then(_$LoadedProfilesImpl(
+      null == profiles
+          ? _value._profiles
+          : profiles // ignore: cast_nullable_to_non_nullable
+              as List<Profile>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$LoadedProfilesImpl implements _LoadedProfiles {
+  const _$LoadedProfilesImpl(final List<Profile> profiles)
+      : _profiles = profiles;
+
+  final List<Profile> _profiles;
+  @override
+  List<Profile> get profiles {
+    if (_profiles is EqualUnmodifiableListView) return _profiles;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_profiles);
+  }
+
+  @override
+  String toString() {
+    return 'ProfileState.loadedProfiles(profiles: $profiles)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$LoadedProfilesImpl &&
+            const DeepCollectionEquality().equals(other._profiles, _profiles));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_profiles));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$LoadedProfilesImplCopyWith<_$LoadedProfilesImpl> get copyWith =>
+      __$$LoadedProfilesImplCopyWithImpl<_$LoadedProfilesImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(Profile profile) loadedProfile,
+    required TResult Function(List<Profile> profiles) loadedProfiles,
+    required TResult Function(String message) error,
+  }) {
+    return loadedProfiles(profiles);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(Profile profile)? loadedProfile,
+    TResult? Function(List<Profile> profiles)? loadedProfiles,
+    TResult? Function(String message)? error,
+  }) {
+    return loadedProfiles?.call(profiles);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(Profile profile)? loadedProfile,
+    TResult Function(List<Profile> profiles)? loadedProfiles,
+    TResult Function(String message)? error,
+    required TResult orElse(),
+  }) {
+    if (loadedProfiles != null) {
+      return loadedProfiles(profiles);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Loaded value) loadedProfile,
+    required TResult Function(_LoadedProfiles value) loadedProfiles,
+    required TResult Function(_Error value) error,
+  }) {
+    return loadedProfiles(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Loaded value)? loadedProfile,
+    TResult? Function(_LoadedProfiles value)? loadedProfiles,
+    TResult? Function(_Error value)? error,
+  }) {
+    return loadedProfiles?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Loaded value)? loadedProfile,
+    TResult Function(_LoadedProfiles value)? loadedProfiles,
+    TResult Function(_Error value)? error,
+    required TResult orElse(),
+  }) {
+    if (loadedProfiles != null) {
+      return loadedProfiles(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LoadedProfiles implements ProfileState {
+  const factory _LoadedProfiles(final List<Profile> profiles) =
+      _$LoadedProfilesImpl;
+
+  List<Profile> get profiles;
+  @JsonKey(ignore: true)
+  _$$LoadedProfilesImplCopyWith<_$LoadedProfilesImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -685,7 +983,8 @@ class _$ErrorImpl implements _Error {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(Profile profile) loaded,
+    required TResult Function(Profile profile) loadedProfile,
+    required TResult Function(List<Profile> profiles) loadedProfiles,
     required TResult Function(String message) error,
   }) {
     return error(message);
@@ -696,7 +995,8 @@ class _$ErrorImpl implements _Error {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(Profile profile)? loaded,
+    TResult? Function(Profile profile)? loadedProfile,
+    TResult? Function(List<Profile> profiles)? loadedProfiles,
     TResult? Function(String message)? error,
   }) {
     return error?.call(message);
@@ -707,7 +1007,8 @@ class _$ErrorImpl implements _Error {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Profile profile)? loaded,
+    TResult Function(Profile profile)? loadedProfile,
+    TResult Function(List<Profile> profiles)? loadedProfiles,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -722,7 +1023,8 @@ class _$ErrorImpl implements _Error {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
-    required TResult Function(_Loaded value) loaded,
+    required TResult Function(_Loaded value) loadedProfile,
+    required TResult Function(_LoadedProfiles value) loadedProfiles,
     required TResult Function(_Error value) error,
   }) {
     return error(this);
@@ -733,7 +1035,8 @@ class _$ErrorImpl implements _Error {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
-    TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_Loaded value)? loadedProfile,
+    TResult? Function(_LoadedProfiles value)? loadedProfiles,
     TResult? Function(_Error value)? error,
   }) {
     return error?.call(this);
@@ -744,7 +1047,8 @@ class _$ErrorImpl implements _Error {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
-    TResult Function(_Loaded value)? loaded,
+    TResult Function(_Loaded value)? loadedProfile,
+    TResult Function(_LoadedProfiles value)? loadedProfiles,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {

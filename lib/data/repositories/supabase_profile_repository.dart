@@ -14,11 +14,21 @@ class SupabaseProfileRepository {
   Future<Profile> getProfile() async {
     try {
       final profileResponse = await _supabaseApi.fetchProfile();
-      Logger().w('Profile response: $profileResponse');
-      final profile = Profile.fromJson(profileResponse[0]);
-      return profile;
+      return Profile.fromJson(profileResponse[0]);
     } catch (e) {
-      Logger().e('Error fetching profile: $e');
+      Logger().e(e);
+      rethrow;
+    }
+  }
+
+  Future<List<Profile>> getProfiles() async {
+    try {
+      final profilesResponse = await _supabaseApi.fetchProfiles();
+      return profilesResponse
+          .map((profile) => Profile.fromJson(profile))
+          .toList();
+    } catch (e) {
+      Logger().e(e);
       rethrow;
     }
   }

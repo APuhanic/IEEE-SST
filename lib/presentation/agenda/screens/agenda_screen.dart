@@ -61,7 +61,12 @@ class AgendaScreen extends StatelessWidget {
                           loading: () => const Center(
                             child: CircularProgressIndicator(),
                           ),
-                          loaded: (events) => EventCardList(events: events),
+                          loaded: (events) => Column(
+                            children: [
+                              const SizedBox(height: 16),
+                              EventCardList(events: events),
+                            ],
+                          ),
                           orElse: () => const SizedBox.shrink(),
                         ),
                       ],

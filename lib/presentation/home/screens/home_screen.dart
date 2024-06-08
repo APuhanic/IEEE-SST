@@ -15,7 +15,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: Add builder
+    // TODO: Add builder, and switch to context.watch?
     context.read<EventsManagmentBloc>().add(const EventsEvent.loadEvents());
     context.read<ProfileBloc>().add(const ProfileEvent.loadProfile());
     return Scaffold(
@@ -52,11 +52,14 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
                 actions: [
-                  Text(
-                    state.maybeWhen(
-                      loaded: (profile) => profile.fullName,
-                      error: (message) => message,
-                      orElse: () => 'Loading...',
+                  Padding(
+                    padding: const EdgeInsets.only(right: 8.0),
+                    child: Text(
+                      state.maybeWhen(
+                        loadedProfile: (profile) => profile.fullName,
+                        error: (message) => message,
+                        orElse: () => 'Loading...',
+                      ),
                     ),
                   )
                 ],
