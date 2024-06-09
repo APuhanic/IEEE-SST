@@ -15,19 +15,20 @@ import 'package:supabase_flutter/supabase_flutter.dart' as _i3;
 
 import '../data/providers/global_bloc_observer.dart' as _i7;
 import '../data/repositories/supabase_auth_repository.dart' as _i12;
-import '../data/repositories/supabase_event_repository.dart' as _i18;
+import '../data/repositories/supabase_event_repository.dart' as _i19;
 import '../data/repositories/supabase_profile_repository.dart' as _i10;
 import '../data/router/navigator_key_manager.dart' as _i5;
 import '../data/router/router.dart' as _i15;
 import '../data/supabase/supabase_auth_api.dart' as _i6;
 import '../data/supabase/supabase_event_api.dart' as _i8;
 import '../data/supabase/supabase_profile_api.dart' as _i9;
-import '../domain/modules/app_module.dart' as _i21;
-import '../domain/modules/navigator_key_manager_module.dart' as _i22;
+import '../domain/modules/app_module.dart' as _i22;
+import '../domain/modules/navigator_key_manager_module.dart' as _i23;
 import '../domain/repositories/auth/auth_repository.dart' as _i11;
 import '../presentation/admin/admin_event_managment_screen/bloc/event_form_bloc.dart'
-    as _i20;
-import '../presentation/common/bloc/events_bloc/events_bloc.dart' as _i19;
+    as _i21;
+import '../presentation/common/bloc/attendees_bloc/attendees_bloc.dart' as _i18;
+import '../presentation/common/bloc/events_bloc/events_bloc.dart' as _i20;
 import '../presentation/common/bloc/profile_bloc/profile_bloc.dart' as _i17;
 import '../presentation/login/bloc/auth_bloc.dart' as _i13;
 import '../presentation/login/bloc/login/login_bloc.dart' as _i16;
@@ -76,16 +77,18 @@ extension GetItInjectableX on _i1.GetIt {
         () => _i16.LoginBloc(gh<_i11.AuthenticationRepository>()));
     gh.factory<_i17.ProfileBloc>(
         () => _i17.ProfileBloc(gh<_i10.SupabaseProfileRepository>()));
-    gh.lazySingleton<_i18.SupabaseEventRepository>(
-        () => _i18.SupabaseEventRepository(gh<_i8.SupabaseEventApi>()));
-    gh.factory<_i19.EventsManagmentBloc>(
-        () => _i19.EventsManagmentBloc(gh<_i18.SupabaseEventRepository>()));
-    gh.factory<_i20.EventFormBloc>(
-        () => _i20.EventFormBloc(gh<_i18.SupabaseEventRepository>()));
+    gh.factory<_i18.AttendeesBloc>(
+        () => _i18.AttendeesBloc(gh<_i10.SupabaseProfileRepository>()));
+    gh.lazySingleton<_i19.SupabaseEventRepository>(
+        () => _i19.SupabaseEventRepository(gh<_i8.SupabaseEventApi>()));
+    gh.factory<_i20.EventsManagmentBloc>(
+        () => _i20.EventsManagmentBloc(gh<_i19.SupabaseEventRepository>()));
+    gh.factory<_i21.EventFormBloc>(
+        () => _i21.EventFormBloc(gh<_i19.SupabaseEventRepository>()));
     return this;
   }
 }
 
-class _$AppModule extends _i21.AppModule {}
+class _$AppModule extends _i22.AppModule {}
 
-class _$NavigatorKeyManagerModule extends _i22.NavigatorKeyManagerModule {}
+class _$NavigatorKeyManagerModule extends _i23.NavigatorKeyManagerModule {}

@@ -5,7 +5,5 @@ class ProfileState with _$ProfileState {
   const factory ProfileState.initial() = _Initial;
   const factory ProfileState.loading() = _Loading;
   const factory ProfileState.loadedProfile(Profile profile) = _Loaded;
-  const factory ProfileState.loadedProfiles(List<Profile> profiles) =
-      _LoadedProfiles;
   const factory ProfileState.error(String message) = _Error;
 }

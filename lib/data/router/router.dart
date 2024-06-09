@@ -14,9 +14,9 @@ import 'package:ieee_sst/presentation/agenda/screens/search_events_screen.dart';
 import 'package:ieee_sst/presentation/attendees/screens/attendees_screen.dart';
 import 'package:ieee_sst/presentation/bottom_nav_bar/widgets/admin_scaffold_with_nav_bar.dart';
 import 'package:ieee_sst/presentation/bottom_nav_bar/widgets/scaffold_with_nav_bar.dart';
-import 'package:ieee_sst/presentation/community/screens/community_screen.dart';
-import 'package:ieee_sst/presentation/community/screens/organizer_announcements.dart';
-import 'package:ieee_sst/presentation/community/screens/qa_screen.dart';
+import 'package:ieee_sst/presentation/info/screens/info_screen.dart';
+import 'package:ieee_sst/presentation/info/screens/organizer_announcements.dart';
+import 'package:ieee_sst/presentation/info/screens/qa_screen.dart';
 import 'package:ieee_sst/presentation/home/screens/home_screen.dart';
 import 'package:ieee_sst/presentation/login/screens/login_screen.dart';
 import 'package:ieee_sst/presentation/messages/screens/messages_screen.dart';
@@ -169,33 +169,23 @@ class AppRouter {
                 ],
               ),
               StatefulShellBranch(
-                  navigatorKey: _navigatorKeyManager.shellNavigatorAgendaKey,
-                  routes: [
-                    GoRoute(
-                        path: RoutePaths.agenda,
-                        pageBuilder: (context, state) => const MaterialPage(
-                              key: ValueKey('AgendaScreen'),
-                              child: AgendaScreen(),
-                            ),
-                        routes: [
-                          GoRoute(
-                            path: RoutePaths.searchEvents,
-                            pageBuilder: (context, state) => const MaterialPage(
-                              key: ValueKey('SearchEventsScreen'),
-                              child: SearchEventsScreen(),
-                            ),
-                          ),
-                        ]),
-                  ]),
-              StatefulShellBranch(
-                navigatorKey: _navigatorKeyManager.shellNavigatorMessagesKey,
+                navigatorKey: _navigatorKeyManager.shellNavigatorAgendaKey,
                 routes: [
                   GoRoute(
-                    path: RoutePaths.messages,
+                    path: RoutePaths.agenda,
                     pageBuilder: (context, state) => const MaterialPage(
-                      key: ValueKey('MessagesScreen'),
-                      child: MessagesScreen(),
+                      key: ValueKey('AgendaScreen'),
+                      child: AgendaScreen(),
                     ),
+                    routes: [
+                      GoRoute(
+                        path: RoutePaths.searchEvents,
+                        pageBuilder: (context, state) => const MaterialPage(
+                          key: ValueKey('SearchEventsScreen'),
+                          child: SearchEventsScreen(),
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),
@@ -205,8 +195,8 @@ class AppRouter {
                   GoRoute(
                     path: RoutePaths.community,
                     pageBuilder: (context, state) => const MaterialPage(
-                      key: ValueKey('CommunityScreen'),
-                      child: CommunityScreen(),
+                      key: ValueKey('InfoScreen'),
+                      child: InfoScreen(),
                     ),
                     routes: [
                       GoRoute(
@@ -235,6 +225,18 @@ class AppRouter {
                     pageBuilder: (context, state) => const MaterialPage(
                       key: ValueKey('AttendeesScreen'),
                       child: AttendeesScreen(),
+                    ),
+                  ),
+                ],
+              ),
+              StatefulShellBranch(
+                navigatorKey: _navigatorKeyManager.shellNavigatorMessagesKey,
+                routes: [
+                  GoRoute(
+                    path: RoutePaths.messages,
+                    pageBuilder: (context, state) => const MaterialPage(
+                      key: ValueKey('MessagesScreen'),
+                      child: MessagesScreen(),
                     ),
                   ),
                 ],

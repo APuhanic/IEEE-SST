@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 import 'package:ieee_sst/presentation/bottom_nav_bar/widgets/bottom_nav_bar.dart';
 
@@ -24,13 +25,13 @@ class ScaffoldWithNavBar extends StatelessWidget {
       resizeToAvoidBottomInset: true,
       bottomNavigationBar: BottomNavBar(
         key: const ValueKey('BottomNavBar'),
-        tabs: const ['Home', 'Agenda', 'Messages', 'Community', 'Attendees'],
+        tabs: const ['Home', 'Agenda', 'Info', 'Attendees', 'Messages'],
         icons: const [
           Icons.home,
           Icons.calendar_today,
+          Icons.info_outline_rounded,
+          FontAwesomeIcons.peopleRoof,
           Icons.message,
-          Icons.person,
-          Icons.monitor_rounded,
         ],
         onDestinationSelected: _goBranch,
       ),

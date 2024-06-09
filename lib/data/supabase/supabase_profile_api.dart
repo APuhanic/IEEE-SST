@@ -33,7 +33,7 @@ class SupabaseProfileApi {
     return await _supabaseClient.from('profiles').insert({
       'id': id,
       'role': UserRoles.user,
-      'full_name': fullName,
+      'fullName': fullName,
       'email': email,
       'organization': organization,
       'position': position,

@@ -3,13 +3,13 @@ import 'package:go_router/go_router.dart';
 import 'package:ieee_sst/data/constants/app_colors.dart';
 import 'package:ieee_sst/data/constants/text_styles.dart';
 
-class CommunityScreenButton extends StatelessWidget {
+class InfoScreenButton extends StatelessWidget {
   final IconData icon;
   final String title;
   final String description;
   final String routePath;
 
-  const CommunityScreenButton({
+  const InfoScreenButton({
     super.key,
     required this.icon,
     required this.title,

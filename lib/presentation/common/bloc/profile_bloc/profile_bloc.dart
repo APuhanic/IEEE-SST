@@ -14,7 +14,6 @@ part 'profile_bloc.freezed.dart';
 class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
   ProfileBloc(this.supabaseProfileRepository) : super(const _Initial()) {
     on<_LoadProfile>(_onLoadProfile);
-    on<_LoadProfiles>(_onLoadProfiles);
   }
 
   final SupabaseProfileRepository supabaseProfileRepository;
@@ -25,17 +24,6 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
     try {
       final profile = await supabaseProfileRepository.getProfile();
       emit(ProfileState.loadedProfile(profile));
-    } catch (e) {
-      emit(ProfileState.error(e.toString()));
-    }
-  }
-
-  Future<FutureOr<void>> _onLoadProfiles(
-      _LoadProfiles event, Emitter<ProfileState> emit) async {
-    emit(const ProfileState.loading());
-    try {
-      final profiles = await supabaseProfileRepository.getProfiles();
-      emit(ProfileState.loadedProfiles(profiles));
     } catch (e) {
       emit(ProfileState.error(e.toString()));
     }
