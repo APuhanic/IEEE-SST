@@ -22,6 +22,7 @@ mixin _$EventsEvent {
     required TResult Function(Event event) addEvent,
     required TResult Function(Event event) deleteEvent,
     required TResult Function(Event event) updateEvent,
+    required TResult Function(Event event) markGoing,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,6 +31,7 @@ mixin _$EventsEvent {
     TResult? Function(Event event)? addEvent,
     TResult? Function(Event event)? deleteEvent,
     TResult? Function(Event event)? updateEvent,
+    TResult? Function(Event event)? markGoing,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +40,7 @@ mixin _$EventsEvent {
     TResult Function(Event event)? addEvent,
     TResult Function(Event event)? deleteEvent,
     TResult Function(Event event)? updateEvent,
+    TResult Function(Event event)? markGoing,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -47,6 +50,7 @@ mixin _$EventsEvent {
     required TResult Function(_AddEvent value) addEvent,
     required TResult Function(_DeleteEvent value) deleteEvent,
     required TResult Function(_UpdateEvent value) updateEvent,
+    required TResult Function(_MarkGoing value) markGoing,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +59,7 @@ mixin _$EventsEvent {
     TResult? Function(_AddEvent value)? addEvent,
     TResult? Function(_DeleteEvent value)? deleteEvent,
     TResult? Function(_UpdateEvent value)? updateEvent,
+    TResult? Function(_MarkGoing value)? markGoing,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +68,7 @@ mixin _$EventsEvent {
     TResult Function(_AddEvent value)? addEvent,
     TResult Function(_DeleteEvent value)? deleteEvent,
     TResult Function(_UpdateEvent value)? updateEvent,
+    TResult Function(_MarkGoing value)? markGoing,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -128,6 +134,7 @@ class _$LoadEventsImpl implements _LoadEvents {
     required TResult Function(Event event) addEvent,
     required TResult Function(Event event) deleteEvent,
     required TResult Function(Event event) updateEvent,
+    required TResult Function(Event event) markGoing,
   }) {
     return loadEvents();
   }
@@ -139,6 +146,7 @@ class _$LoadEventsImpl implements _LoadEvents {
     TResult? Function(Event event)? addEvent,
     TResult? Function(Event event)? deleteEvent,
     TResult? Function(Event event)? updateEvent,
+    TResult? Function(Event event)? markGoing,
   }) {
     return loadEvents?.call();
   }
@@ -150,6 +158,7 @@ class _$LoadEventsImpl implements _LoadEvents {
     TResult Function(Event event)? addEvent,
     TResult Function(Event event)? deleteEvent,
     TResult Function(Event event)? updateEvent,
+    TResult Function(Event event)? markGoing,
     required TResult orElse(),
   }) {
     if (loadEvents != null) {
@@ -165,6 +174,7 @@ class _$LoadEventsImpl implements _LoadEvents {
     required TResult Function(_AddEvent value) addEvent,
     required TResult Function(_DeleteEvent value) deleteEvent,
     required TResult Function(_UpdateEvent value) updateEvent,
+    required TResult Function(_MarkGoing value) markGoing,
   }) {
     return loadEvents(this);
   }
@@ -176,6 +186,7 @@ class _$LoadEventsImpl implements _LoadEvents {
     TResult? Function(_AddEvent value)? addEvent,
     TResult? Function(_DeleteEvent value)? deleteEvent,
     TResult? Function(_UpdateEvent value)? updateEvent,
+    TResult? Function(_MarkGoing value)? markGoing,
   }) {
     return loadEvents?.call(this);
   }
@@ -187,6 +198,7 @@ class _$LoadEventsImpl implements _LoadEvents {
     TResult Function(_AddEvent value)? addEvent,
     TResult Function(_DeleteEvent value)? deleteEvent,
     TResult Function(_UpdateEvent value)? updateEvent,
+    TResult Function(_MarkGoing value)? markGoing,
     required TResult orElse(),
   }) {
     if (loadEvents != null) {
@@ -278,6 +290,7 @@ class _$AddEventImpl implements _AddEvent {
     required TResult Function(Event event) addEvent,
     required TResult Function(Event event) deleteEvent,
     required TResult Function(Event event) updateEvent,
+    required TResult Function(Event event) markGoing,
   }) {
     return addEvent(event);
   }
@@ -289,6 +302,7 @@ class _$AddEventImpl implements _AddEvent {
     TResult? Function(Event event)? addEvent,
     TResult? Function(Event event)? deleteEvent,
     TResult? Function(Event event)? updateEvent,
+    TResult? Function(Event event)? markGoing,
   }) {
     return addEvent?.call(event);
   }
@@ -300,6 +314,7 @@ class _$AddEventImpl implements _AddEvent {
     TResult Function(Event event)? addEvent,
     TResult Function(Event event)? deleteEvent,
     TResult Function(Event event)? updateEvent,
+    TResult Function(Event event)? markGoing,
     required TResult orElse(),
   }) {
     if (addEvent != null) {
@@ -315,6 +330,7 @@ class _$AddEventImpl implements _AddEvent {
     required TResult Function(_AddEvent value) addEvent,
     required TResult Function(_DeleteEvent value) deleteEvent,
     required TResult Function(_UpdateEvent value) updateEvent,
+    required TResult Function(_MarkGoing value) markGoing,
   }) {
     return addEvent(this);
   }
@@ -326,6 +342,7 @@ class _$AddEventImpl implements _AddEvent {
     TResult? Function(_AddEvent value)? addEvent,
     TResult? Function(_DeleteEvent value)? deleteEvent,
     TResult? Function(_UpdateEvent value)? updateEvent,
+    TResult? Function(_MarkGoing value)? markGoing,
   }) {
     return addEvent?.call(this);
   }
@@ -337,6 +354,7 @@ class _$AddEventImpl implements _AddEvent {
     TResult Function(_AddEvent value)? addEvent,
     TResult Function(_DeleteEvent value)? deleteEvent,
     TResult Function(_UpdateEvent value)? updateEvent,
+    TResult Function(_MarkGoing value)? markGoing,
     required TResult orElse(),
   }) {
     if (addEvent != null) {
@@ -433,6 +451,7 @@ class _$DeleteEventImpl implements _DeleteEvent {
     required TResult Function(Event event) addEvent,
     required TResult Function(Event event) deleteEvent,
     required TResult Function(Event event) updateEvent,
+    required TResult Function(Event event) markGoing,
   }) {
     return deleteEvent(event);
   }
@@ -444,6 +463,7 @@ class _$DeleteEventImpl implements _DeleteEvent {
     TResult? Function(Event event)? addEvent,
     TResult? Function(Event event)? deleteEvent,
     TResult? Function(Event event)? updateEvent,
+    TResult? Function(Event event)? markGoing,
   }) {
     return deleteEvent?.call(event);
   }
@@ -455,6 +475,7 @@ class _$DeleteEventImpl implements _DeleteEvent {
     TResult Function(Event event)? addEvent,
     TResult Function(Event event)? deleteEvent,
     TResult Function(Event event)? updateEvent,
+    TResult Function(Event event)? markGoing,
     required TResult orElse(),
   }) {
     if (deleteEvent != null) {
@@ -470,6 +491,7 @@ class _$DeleteEventImpl implements _DeleteEvent {
     required TResult Function(_AddEvent value) addEvent,
     required TResult Function(_DeleteEvent value) deleteEvent,
     required TResult Function(_UpdateEvent value) updateEvent,
+    required TResult Function(_MarkGoing value) markGoing,
   }) {
     return deleteEvent(this);
   }
@@ -481,6 +503,7 @@ class _$DeleteEventImpl implements _DeleteEvent {
     TResult? Function(_AddEvent value)? addEvent,
     TResult? Function(_DeleteEvent value)? deleteEvent,
     TResult? Function(_UpdateEvent value)? updateEvent,
+    TResult? Function(_MarkGoing value)? markGoing,
   }) {
     return deleteEvent?.call(this);
   }
@@ -492,6 +515,7 @@ class _$DeleteEventImpl implements _DeleteEvent {
     TResult Function(_AddEvent value)? addEvent,
     TResult Function(_DeleteEvent value)? deleteEvent,
     TResult Function(_UpdateEvent value)? updateEvent,
+    TResult Function(_MarkGoing value)? markGoing,
     required TResult orElse(),
   }) {
     if (deleteEvent != null) {
@@ -588,6 +612,7 @@ class _$UpdateEventImpl implements _UpdateEvent {
     required TResult Function(Event event) addEvent,
     required TResult Function(Event event) deleteEvent,
     required TResult Function(Event event) updateEvent,
+    required TResult Function(Event event) markGoing,
   }) {
     return updateEvent(event);
   }
@@ -599,6 +624,7 @@ class _$UpdateEventImpl implements _UpdateEvent {
     TResult? Function(Event event)? addEvent,
     TResult? Function(Event event)? deleteEvent,
     TResult? Function(Event event)? updateEvent,
+    TResult? Function(Event event)? markGoing,
   }) {
     return updateEvent?.call(event);
   }
@@ -610,6 +636,7 @@ class _$UpdateEventImpl implements _UpdateEvent {
     TResult Function(Event event)? addEvent,
     TResult Function(Event event)? deleteEvent,
     TResult Function(Event event)? updateEvent,
+    TResult Function(Event event)? markGoing,
     required TResult orElse(),
   }) {
     if (updateEvent != null) {
@@ -625,6 +652,7 @@ class _$UpdateEventImpl implements _UpdateEvent {
     required TResult Function(_AddEvent value) addEvent,
     required TResult Function(_DeleteEvent value) deleteEvent,
     required TResult Function(_UpdateEvent value) updateEvent,
+    required TResult Function(_MarkGoing value) markGoing,
   }) {
     return updateEvent(this);
   }
@@ -636,6 +664,7 @@ class _$UpdateEventImpl implements _UpdateEvent {
     TResult? Function(_AddEvent value)? addEvent,
     TResult? Function(_DeleteEvent value)? deleteEvent,
     TResult? Function(_UpdateEvent value)? updateEvent,
+    TResult? Function(_MarkGoing value)? markGoing,
   }) {
     return updateEvent?.call(this);
   }
@@ -647,6 +676,7 @@ class _$UpdateEventImpl implements _UpdateEvent {
     TResult Function(_AddEvent value)? addEvent,
     TResult Function(_DeleteEvent value)? deleteEvent,
     TResult Function(_UpdateEvent value)? updateEvent,
+    TResult Function(_MarkGoing value)? markGoing,
     required TResult orElse(),
   }) {
     if (updateEvent != null) {
@@ -662,6 +692,167 @@ abstract class _UpdateEvent implements EventsEvent {
   Event get event;
   @JsonKey(ignore: true)
   _$$UpdateEventImplCopyWith<_$UpdateEventImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$MarkGoingImplCopyWith<$Res> {
+  factory _$$MarkGoingImplCopyWith(
+          _$MarkGoingImpl value, $Res Function(_$MarkGoingImpl) then) =
+      __$$MarkGoingImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Event event});
+
+  $EventCopyWith<$Res> get event;
+}
+
+/// @nodoc
+class __$$MarkGoingImplCopyWithImpl<$Res>
+    extends _$EventsEventCopyWithImpl<$Res, _$MarkGoingImpl>
+    implements _$$MarkGoingImplCopyWith<$Res> {
+  __$$MarkGoingImplCopyWithImpl(
+      _$MarkGoingImpl _value, $Res Function(_$MarkGoingImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? event = null,
+  }) {
+    return _then(_$MarkGoingImpl(
+      null == event
+          ? _value.event
+          : event // ignore: cast_nullable_to_non_nullable
+              as Event,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $EventCopyWith<$Res> get event {
+    return $EventCopyWith<$Res>(_value.event, (value) {
+      return _then(_value.copyWith(event: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$MarkGoingImpl implements _MarkGoing {
+  const _$MarkGoingImpl(this.event);
+
+  @override
+  final Event event;
+
+  @override
+  String toString() {
+    return 'EventsEvent.markGoing(event: $event)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$MarkGoingImpl &&
+            (identical(other.event, event) || other.event == event));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, event);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$MarkGoingImplCopyWith<_$MarkGoingImpl> get copyWith =>
+      __$$MarkGoingImplCopyWithImpl<_$MarkGoingImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loadEvents,
+    required TResult Function(Event event) addEvent,
+    required TResult Function(Event event) deleteEvent,
+    required TResult Function(Event event) updateEvent,
+    required TResult Function(Event event) markGoing,
+  }) {
+    return markGoing(event);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loadEvents,
+    TResult? Function(Event event)? addEvent,
+    TResult? Function(Event event)? deleteEvent,
+    TResult? Function(Event event)? updateEvent,
+    TResult? Function(Event event)? markGoing,
+  }) {
+    return markGoing?.call(event);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loadEvents,
+    TResult Function(Event event)? addEvent,
+    TResult Function(Event event)? deleteEvent,
+    TResult Function(Event event)? updateEvent,
+    TResult Function(Event event)? markGoing,
+    required TResult orElse(),
+  }) {
+    if (markGoing != null) {
+      return markGoing(event);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadEvents value) loadEvents,
+    required TResult Function(_AddEvent value) addEvent,
+    required TResult Function(_DeleteEvent value) deleteEvent,
+    required TResult Function(_UpdateEvent value) updateEvent,
+    required TResult Function(_MarkGoing value) markGoing,
+  }) {
+    return markGoing(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadEvents value)? loadEvents,
+    TResult? Function(_AddEvent value)? addEvent,
+    TResult? Function(_DeleteEvent value)? deleteEvent,
+    TResult? Function(_UpdateEvent value)? updateEvent,
+    TResult? Function(_MarkGoing value)? markGoing,
+  }) {
+    return markGoing?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadEvents value)? loadEvents,
+    TResult Function(_AddEvent value)? addEvent,
+    TResult Function(_DeleteEvent value)? deleteEvent,
+    TResult Function(_UpdateEvent value)? updateEvent,
+    TResult Function(_MarkGoing value)? markGoing,
+    required TResult orElse(),
+  }) {
+    if (markGoing != null) {
+      return markGoing(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _MarkGoing implements EventsEvent {
+  const factory _MarkGoing(final Event event) = _$MarkGoingImpl;
+
+  Event get event;
+  @JsonKey(ignore: true)
+  _$$MarkGoingImplCopyWith<_$MarkGoingImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 

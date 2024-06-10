@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:ieee_sst/data/constants/app_colors.dart';
 import 'package:ieee_sst/data/constants/text_styles.dart';
+import 'package:ieee_sst/presentation/admin/admin_event_managment_screen/widgets/event_filter_chips.dart';
 import 'package:ieee_sst/presentation/common/bloc/events_bloc/events_bloc.dart';
 import 'package:ieee_sst/presentation/common/widgets/event_card_list.dart';
 import 'package:date_picker_timeline/date_picker_widget.dart';
@@ -57,13 +58,16 @@ class AgendaScreen extends StatelessWidget {
                   [
                     Column(
                       children: [
+                        const Padding(
+                          padding: EdgeInsets.all(16.0),
+                          child: FilterChips(),
+                        ),
                         state.maybeWhen(
                           loading: () => const Center(
                             child: CircularProgressIndicator(),
                           ),
                           loaded: (events) => Column(
                             children: [
-                              const SizedBox(height: 16),
                               EventCardList(events: events),
                             ],
                           ),

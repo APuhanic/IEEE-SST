@@ -47,4 +47,15 @@ class SupabaseEventApi {
       debugPrint(e.toString());
     }
   }
+
+  Future<void> markGoing(String eventId) async {
+    try {
+      await _supabaseClient.from('events').update({
+        'event_id': eventId,
+        'user_id': _supabaseClient.auth.currentUser!.id,
+      }).eq('id', eventId);
+    } catch (e) {
+      debugPrint(e.toString());
+    }
+  }
 }

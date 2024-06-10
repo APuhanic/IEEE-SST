@@ -15,6 +15,7 @@ class EventsManagmentBloc extends Bloc<EventsEvent, EventsState> {
   EventsManagmentBloc(this.supabaseEventRepository) : super(const _Initial()) {
     on<_LoadEvents>(_onLoadEvents);
     on<_DeleteEvent>(_onDeleteEvent);
+    on<_MarkGoing>(_onMarkGoing);
   }
 
   final SupabaseEventRepository supabaseEventRepository;
@@ -42,5 +43,10 @@ class EventsManagmentBloc extends Bloc<EventsEvent, EventsState> {
     } catch (e) {
       emit(_Error(e.toString()));
     }
+  }
+
+  // TODO: Separate bloc?
+  FutureOr<void> _onMarkGoing(_MarkGoing event, Emitter<EventsState> emit) {
+    supabaseEventRepository.markGoing(event.event.id!);
   }
 }

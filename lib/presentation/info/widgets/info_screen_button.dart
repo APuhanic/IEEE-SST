@@ -19,10 +19,14 @@ class InfoScreenButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16),
-      child: GestureDetector(
-        onTap: () => context.go(routePath),
+    return Ink(
+      child: FilledButton(
+        style: FilledButton.styleFrom(
+          elevation: 0,
+          overlayColor: AppColors.white,
+          backgroundColor: AppColors.background,
+        ),
+        onPressed: () => context.go(routePath),
         child: SizedBox(
           height: 80,
           child: Row(

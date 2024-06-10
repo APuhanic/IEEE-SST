@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:ieee_sst/data/constants/app_colors.dart';
 import 'package:ieee_sst/data/constants/text_styles.dart';
 
+// TODO: Annoucements -> Notifications?
 class OrganizerAnnouncements extends StatelessWidget {
   const OrganizerAnnouncements({
     super.key,
@@ -9,28 +11,32 @@ class OrganizerAnnouncements extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            const SizedBox(height: 24),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                IconButton(
-                    onPressed: () {},
-                    icon: const Icon(
-                      Icons.arrow_back_ios,
-                    )),
-                Text(
-                  'Community',
-                  style: AppTextStyle.header,
+      body: CustomScrollView(
+        slivers: [
+          SliverAppBar(
+            backgroundColor: AppColors.background,
+            shadowColor: Colors.transparent,
+            surfaceTintColor: AppColors.background,
+            title: Text(
+              'Announcements',
+              style: AppTextStyle.titleSmall,
+            ),
+          ),
+          SliverList(
+            delegate: SliverChildListDelegate(
+              [
+                const Center(
+                  child: Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: Text(
+                      'No announcements yet',
+                    ),
+                  ),
                 ),
               ],
             ),
-            Text('Organizer Announcements', style: AppTextStyle.lightText),
-            const SizedBox(height: 24),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

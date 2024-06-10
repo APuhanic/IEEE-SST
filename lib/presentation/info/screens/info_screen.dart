@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ieee_sst/data/constants/app_colors.dart';
 import 'package:ieee_sst/data/constants/text_styles.dart';
-import 'package:ieee_sst/presentation/info/widgets/community_screen_button.dart';
+import 'package:ieee_sst/presentation/info/widgets/info_screen_button.dart';
 
 class InfoScreen extends StatelessWidget {
   const InfoScreen({
