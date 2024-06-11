@@ -54,9 +54,16 @@ class CreateAnnouncementScreen extends StatelessWidget {
                         child: AnnouncementDescriptionInput(),
                       ),
                       // TODO: Extract widget and add validation
-                      ElevatedButton(
-                        onPressed: () {},
-                        child: const Text('Post announcement'),
+                      FilledButton(
+                        style: FilledButton.styleFrom(
+                            backgroundColor: AppColors.primary,
+                            foregroundColor: AppColors.white,
+                            textStyle: AppTextStyle.button),
+                        onPressed: () {
+                          context.read<AnnouncementFormBloc>().add(
+                              const AnnouncementFormEvent.createAnnouncement());
+                        },
+                        child: const Text('Post Announcement'),
                       ),
                     ],
                   ),

@@ -38,10 +38,10 @@ class AnnouncementsManagmentScreen extends StatelessWidget {
             SliverList(
               delegate: SliverChildListDelegate(
                 [
-                  const Announcement(),
-                  const Announcement(),
-                  const Announcement(),
-                  const Announcement(),
+                  const AnnouncementPost(),
+                  const AnnouncementPost(),
+                  const AnnouncementPost(),
+                  const AnnouncementPost(),
                   const Center(
                     child: Padding(
                       padding: EdgeInsets.all(8.0),

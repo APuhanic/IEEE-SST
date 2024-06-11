@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:ieee_sst/data/constants/text_styles.dart';
 
-class Announcement extends StatelessWidget {
-  const Announcement({
+class AnnouncementPost extends StatelessWidget {
+  const AnnouncementPost({
     super.key,
   });
 

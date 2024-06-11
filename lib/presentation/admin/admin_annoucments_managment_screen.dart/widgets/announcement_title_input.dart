@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ieee_sst/data/constants/app_colors.dart';
 import 'package:ieee_sst/data/constants/text_styles.dart';
 import 'package:ieee_sst/presentation/admin/admin_annoucments_managment_screen.dart/bloc/announcement_form_bloc.dart';
-import 'package:ieee_sst/presentation/admin/admin_event_managment_screen/bloc/event_form_bloc.dart';
 
 class AnnoucementTitleInput extends StatelessWidget {
   const AnnoucementTitleInput({
@@ -15,9 +14,9 @@ class AnnoucementTitleInput extends StatelessWidget {
     return BlocBuilder<AnnouncementFormBloc, AnnouncementFormState>(
       builder: (context, state) {
         return TextFormField(
-          onChanged: (eventName) => context
-              .read<EventFormBloc>()
-              .add(EventFormEvent.eventNameChanged(eventName)),
+          onChanged: (announcementTitle) => context
+              .read<AnnouncementFormBloc>()
+              .add(AnnouncementFormEvent.titleChanged(announcementTitle)),
           initialValue: state.title,
           decoration: InputDecoration(
             label: Text('Announcement title', style: AppTextStyle.textForm),

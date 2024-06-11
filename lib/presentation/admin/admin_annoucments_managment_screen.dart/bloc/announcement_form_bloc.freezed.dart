@@ -19,32 +19,50 @@ mixin _$AnnouncementFormEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function() createAnnouncement,
+    required TResult Function(String title) titleChanged,
+    required TResult Function(String description) descriptionChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
+    TResult? Function()? createAnnouncement,
+    TResult? Function(String title)? titleChanged,
+    TResult? Function(String description)? descriptionChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? createAnnouncement,
+    TResult Function(String title)? titleChanged,
+    TResult Function(String description)? descriptionChanged,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_CreateAnnouncement value) createAnnouncement,
+    required TResult Function(_TitleChanged value) titleChanged,
+    required TResult Function(_DescriptionChanged value) descriptionChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
+    TResult? Function(_CreateAnnouncement value)? createAnnouncement,
+    TResult? Function(_TitleChanged value)? titleChanged,
+    TResult? Function(_DescriptionChanged value)? descriptionChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_CreateAnnouncement value)? createAnnouncement,
+    TResult Function(_TitleChanged value)? titleChanged,
+    TResult Function(_DescriptionChanged value)? descriptionChanged,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -108,6 +126,9 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function() createAnnouncement,
+    required TResult Function(String title) titleChanged,
+    required TResult Function(String description) descriptionChanged,
   }) {
     return started();
   }
@@ -116,6 +137,9 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
+    TResult? Function()? createAnnouncement,
+    TResult? Function(String title)? titleChanged,
+    TResult? Function(String description)? descriptionChanged,
   }) {
     return started?.call();
   }
@@ -124,6 +148,9 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? createAnnouncement,
+    TResult Function(String title)? titleChanged,
+    TResult Function(String description)? descriptionChanged,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -136,6 +163,9 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_CreateAnnouncement value) createAnnouncement,
+    required TResult Function(_TitleChanged value) titleChanged,
+    required TResult Function(_DescriptionChanged value) descriptionChanged,
   }) {
     return started(this);
   }
@@ -144,6 +174,9 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
+    TResult? Function(_CreateAnnouncement value)? createAnnouncement,
+    TResult? Function(_TitleChanged value)? titleChanged,
+    TResult? Function(_DescriptionChanged value)? descriptionChanged,
   }) {
     return started?.call(this);
   }
@@ -152,6 +185,9 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_CreateAnnouncement value)? createAnnouncement,
+    TResult Function(_TitleChanged value)? titleChanged,
+    TResult Function(_DescriptionChanged value)? descriptionChanged,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -163,6 +199,413 @@ class _$StartedImpl implements _Started {
 
 abstract class _Started implements AnnouncementFormEvent {
   const factory _Started() = _$StartedImpl;
+}
+
+/// @nodoc
+abstract class _$$CreateAnnouncementImplCopyWith<$Res> {
+  factory _$$CreateAnnouncementImplCopyWith(_$CreateAnnouncementImpl value,
+          $Res Function(_$CreateAnnouncementImpl) then) =
+      __$$CreateAnnouncementImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$CreateAnnouncementImplCopyWithImpl<$Res>
+    extends _$AnnouncementFormEventCopyWithImpl<$Res, _$CreateAnnouncementImpl>
+    implements _$$CreateAnnouncementImplCopyWith<$Res> {
+  __$$CreateAnnouncementImplCopyWithImpl(_$CreateAnnouncementImpl _value,
+      $Res Function(_$CreateAnnouncementImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$CreateAnnouncementImpl implements _CreateAnnouncement {
+  const _$CreateAnnouncementImpl();
+
+  @override
+  String toString() {
+    return 'AnnouncementFormEvent.createAnnouncement()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$CreateAnnouncementImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() createAnnouncement,
+    required TResult Function(String title) titleChanged,
+    required TResult Function(String description) descriptionChanged,
+  }) {
+    return createAnnouncement();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function()? createAnnouncement,
+    TResult? Function(String title)? titleChanged,
+    TResult? Function(String description)? descriptionChanged,
+  }) {
+    return createAnnouncement?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? createAnnouncement,
+    TResult Function(String title)? titleChanged,
+    TResult Function(String description)? descriptionChanged,
+    required TResult orElse(),
+  }) {
+    if (createAnnouncement != null) {
+      return createAnnouncement();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_CreateAnnouncement value) createAnnouncement,
+    required TResult Function(_TitleChanged value) titleChanged,
+    required TResult Function(_DescriptionChanged value) descriptionChanged,
+  }) {
+    return createAnnouncement(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_CreateAnnouncement value)? createAnnouncement,
+    TResult? Function(_TitleChanged value)? titleChanged,
+    TResult? Function(_DescriptionChanged value)? descriptionChanged,
+  }) {
+    return createAnnouncement?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_CreateAnnouncement value)? createAnnouncement,
+    TResult Function(_TitleChanged value)? titleChanged,
+    TResult Function(_DescriptionChanged value)? descriptionChanged,
+    required TResult orElse(),
+  }) {
+    if (createAnnouncement != null) {
+      return createAnnouncement(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _CreateAnnouncement implements AnnouncementFormEvent {
+  const factory _CreateAnnouncement() = _$CreateAnnouncementImpl;
+}
+
+/// @nodoc
+abstract class _$$TitleChangedImplCopyWith<$Res> {
+  factory _$$TitleChangedImplCopyWith(
+          _$TitleChangedImpl value, $Res Function(_$TitleChangedImpl) then) =
+      __$$TitleChangedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String title});
+}
+
+/// @nodoc
+class __$$TitleChangedImplCopyWithImpl<$Res>
+    extends _$AnnouncementFormEventCopyWithImpl<$Res, _$TitleChangedImpl>
+    implements _$$TitleChangedImplCopyWith<$Res> {
+  __$$TitleChangedImplCopyWithImpl(
+      _$TitleChangedImpl _value, $Res Function(_$TitleChangedImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? title = null,
+  }) {
+    return _then(_$TitleChangedImpl(
+      null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$TitleChangedImpl implements _TitleChanged {
+  const _$TitleChangedImpl(this.title);
+
+  @override
+  final String title;
+
+  @override
+  String toString() {
+    return 'AnnouncementFormEvent.titleChanged(title: $title)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$TitleChangedImpl &&
+            (identical(other.title, title) || other.title == title));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, title);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$TitleChangedImplCopyWith<_$TitleChangedImpl> get copyWith =>
+      __$$TitleChangedImplCopyWithImpl<_$TitleChangedImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() createAnnouncement,
+    required TResult Function(String title) titleChanged,
+    required TResult Function(String description) descriptionChanged,
+  }) {
+    return titleChanged(title);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function()? createAnnouncement,
+    TResult? Function(String title)? titleChanged,
+    TResult? Function(String description)? descriptionChanged,
+  }) {
+    return titleChanged?.call(title);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? createAnnouncement,
+    TResult Function(String title)? titleChanged,
+    TResult Function(String description)? descriptionChanged,
+    required TResult orElse(),
+  }) {
+    if (titleChanged != null) {
+      return titleChanged(title);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_CreateAnnouncement value) createAnnouncement,
+    required TResult Function(_TitleChanged value) titleChanged,
+    required TResult Function(_DescriptionChanged value) descriptionChanged,
+  }) {
+    return titleChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_CreateAnnouncement value)? createAnnouncement,
+    TResult? Function(_TitleChanged value)? titleChanged,
+    TResult? Function(_DescriptionChanged value)? descriptionChanged,
+  }) {
+    return titleChanged?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_CreateAnnouncement value)? createAnnouncement,
+    TResult Function(_TitleChanged value)? titleChanged,
+    TResult Function(_DescriptionChanged value)? descriptionChanged,
+    required TResult orElse(),
+  }) {
+    if (titleChanged != null) {
+      return titleChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _TitleChanged implements AnnouncementFormEvent {
+  const factory _TitleChanged(final String title) = _$TitleChangedImpl;
+
+  String get title;
+  @JsonKey(ignore: true)
+  _$$TitleChangedImplCopyWith<_$TitleChangedImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$DescriptionChangedImplCopyWith<$Res> {
+  factory _$$DescriptionChangedImplCopyWith(_$DescriptionChangedImpl value,
+          $Res Function(_$DescriptionChangedImpl) then) =
+      __$$DescriptionChangedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String description});
+}
+
+/// @nodoc
+class __$$DescriptionChangedImplCopyWithImpl<$Res>
+    extends _$AnnouncementFormEventCopyWithImpl<$Res, _$DescriptionChangedImpl>
+    implements _$$DescriptionChangedImplCopyWith<$Res> {
+  __$$DescriptionChangedImplCopyWithImpl(_$DescriptionChangedImpl _value,
+      $Res Function(_$DescriptionChangedImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? description = null,
+  }) {
+    return _then(_$DescriptionChangedImpl(
+      null == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$DescriptionChangedImpl implements _DescriptionChanged {
+  const _$DescriptionChangedImpl(this.description);
+
+  @override
+  final String description;
+
+  @override
+  String toString() {
+    return 'AnnouncementFormEvent.descriptionChanged(description: $description)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DescriptionChangedImpl &&
+            (identical(other.description, description) ||
+                other.description == description));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, description);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DescriptionChangedImplCopyWith<_$DescriptionChangedImpl> get copyWith =>
+      __$$DescriptionChangedImplCopyWithImpl<_$DescriptionChangedImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() createAnnouncement,
+    required TResult Function(String title) titleChanged,
+    required TResult Function(String description) descriptionChanged,
+  }) {
+    return descriptionChanged(description);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function()? createAnnouncement,
+    TResult? Function(String title)? titleChanged,
+    TResult? Function(String description)? descriptionChanged,
+  }) {
+    return descriptionChanged?.call(description);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? createAnnouncement,
+    TResult Function(String title)? titleChanged,
+    TResult Function(String description)? descriptionChanged,
+    required TResult orElse(),
+  }) {
+    if (descriptionChanged != null) {
+      return descriptionChanged(description);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_CreateAnnouncement value) createAnnouncement,
+    required TResult Function(_TitleChanged value) titleChanged,
+    required TResult Function(_DescriptionChanged value) descriptionChanged,
+  }) {
+    return descriptionChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_CreateAnnouncement value)? createAnnouncement,
+    TResult? Function(_TitleChanged value)? titleChanged,
+    TResult? Function(_DescriptionChanged value)? descriptionChanged,
+  }) {
+    return descriptionChanged?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_CreateAnnouncement value)? createAnnouncement,
+    TResult Function(_TitleChanged value)? titleChanged,
+    TResult Function(_DescriptionChanged value)? descriptionChanged,
+    required TResult orElse(),
+  }) {
+    if (descriptionChanged != null) {
+      return descriptionChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _DescriptionChanged implements AnnouncementFormEvent {
+  const factory _DescriptionChanged(final String description) =
+      _$DescriptionChangedImpl;
+
+  String get description;
+  @JsonKey(ignore: true)
+  _$$DescriptionChangedImplCopyWith<_$DescriptionChangedImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc

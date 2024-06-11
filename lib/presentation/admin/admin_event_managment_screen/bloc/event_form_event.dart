@@ -1,5 +1,6 @@
 part of 'event_form_bloc.dart';
 
+//TODO: Simplyfy names
 @freezed
 class EventFormEvent with _$EventFormEvent {
   const factory EventFormEvent.createEvent() = _CreateEvent;

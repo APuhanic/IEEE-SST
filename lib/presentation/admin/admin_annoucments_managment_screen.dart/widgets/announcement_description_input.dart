@@ -2,20 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ieee_sst/data/constants/app_colors.dart';
 import 'package:ieee_sst/data/constants/text_styles.dart';
-import 'package:ieee_sst/presentation/admin/admin_event_managment_screen/bloc/event_form_bloc.dart';
+import 'package:ieee_sst/presentation/admin/admin_annoucments_managment_screen.dart/bloc/announcement_form_bloc.dart';
 
+//TODO: Find why this doesnt print transition and change but event input does
 class AnnouncementDescriptionInput extends StatelessWidget {
   const AnnouncementDescriptionInput({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<EventFormBloc, EventFormState>(
+    return BlocBuilder<AnnouncementFormBloc, AnnouncementFormState>(
       builder: (context, state) {
         return TextFormField(
-          onChanged: (eventName) {
+          onChanged: (description) {
             context
-                .read<EventFormBloc>()
-                .add(EventFormEvent.eventDescriptionChanged(eventName));
+                .read<AnnouncementFormBloc>()
+                .add(AnnouncementFormEvent.descriptionChanged(description));
           },
           minLines: 1,
           maxLines: 10,
