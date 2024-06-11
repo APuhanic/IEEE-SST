@@ -1914,7 +1914,7 @@ mixin _$EventFormState {
   String? get id => throw _privateConstructorUsedError;
   FormzSubmissionStatus get status => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
-  String get despcription => throw _privateConstructorUsedError;
+  String get description => throw _privateConstructorUsedError;
   String get location => throw _privateConstructorUsedError;
   String get errorMessage => throw _privateConstructorUsedError;
   String get speaker => throw _privateConstructorUsedError;
@@ -1936,7 +1936,7 @@ abstract class $EventFormStateCopyWith<$Res> {
       {String? id,
       FormzSubmissionStatus status,
       String name,
-      String despcription,
+      String description,
       String location,
       String errorMessage,
       String speaker,
@@ -1960,7 +1960,7 @@ class _$EventFormStateCopyWithImpl<$Res, $Val extends EventFormState>
     Object? id = freezed,
     Object? status = null,
     Object? name = null,
-    Object? despcription = null,
+    Object? description = null,
     Object? location = null,
     Object? errorMessage = null,
     Object? speaker = null,
@@ -1980,9 +1980,9 @@ class _$EventFormStateCopyWithImpl<$Res, $Val extends EventFormState>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      despcription: null == despcription
-          ? _value.despcription
-          : despcription // ignore: cast_nullable_to_non_nullable
+      description: null == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
               as String,
       location: null == location
           ? _value.location
@@ -2020,7 +2020,7 @@ abstract class _$$CreateEventStateImplCopyWith<$Res>
       {String? id,
       FormzSubmissionStatus status,
       String name,
-      String despcription,
+      String description,
       String location,
       String errorMessage,
       String speaker,
@@ -2042,7 +2042,7 @@ class __$$CreateEventStateImplCopyWithImpl<$Res>
     Object? id = freezed,
     Object? status = null,
     Object? name = null,
-    Object? despcription = null,
+    Object? description = null,
     Object? location = null,
     Object? errorMessage = null,
     Object? speaker = null,
@@ -2062,9 +2062,9 @@ class __$$CreateEventStateImplCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      despcription: null == despcription
-          ? _value.despcription
-          : despcription // ignore: cast_nullable_to_non_nullable
+      description: null == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
               as String,
       location: null == location
           ? _value.location
@@ -2097,7 +2097,7 @@ class _$CreateEventStateImpl implements _CreateEventState {
       {this.id,
       this.status = FormzSubmissionStatus.initial,
       this.name = '',
-      this.despcription = '',
+      this.description = '',
       this.location = '',
       this.errorMessage = '',
       this.speaker = '',
@@ -2114,7 +2114,7 @@ class _$CreateEventStateImpl implements _CreateEventState {
   final String name;
   @override
   @JsonKey()
-  final String despcription;
+  final String description;
   @override
   @JsonKey()
   final String location;
@@ -2131,7 +2131,7 @@ class _$CreateEventStateImpl implements _CreateEventState {
 
   @override
   String toString() {
-    return 'EventFormState(id: $id, status: $status, name: $name, despcription: $despcription, location: $location, errorMessage: $errorMessage, speaker: $speaker, time: $time, info: $info)';
+    return 'EventFormState(id: $id, status: $status, name: $name, description: $description, location: $location, errorMessage: $errorMessage, speaker: $speaker, time: $time, info: $info)';
   }
 
   @override
@@ -2142,8 +2142,8 @@ class _$CreateEventStateImpl implements _CreateEventState {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.name, name) || other.name == name) &&
-            (identical(other.despcription, despcription) ||
-                other.despcription == despcription) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
             (identical(other.location, location) ||
                 other.location == location) &&
             (identical(other.errorMessage, errorMessage) ||
@@ -2154,7 +2154,7 @@ class _$CreateEventStateImpl implements _CreateEventState {
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id, status, name, despcription,
+  int get hashCode => Object.hash(runtimeType, id, status, name, description,
       location, errorMessage, speaker, time, info);
 
   @JsonKey(ignore: true)
@@ -2170,7 +2170,7 @@ abstract class _CreateEventState implements EventFormState {
       {final String? id,
       final FormzSubmissionStatus status,
       final String name,
-      final String despcription,
+      final String description,
       final String location,
       final String errorMessage,
       final String speaker,
@@ -2184,7 +2184,7 @@ abstract class _CreateEventState implements EventFormState {
   @override
   String get name;
   @override
-  String get despcription;
+  String get description;
   @override
   String get location;
   @override

@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:ieee_sst/data/constants/app_colors.dart';
 import 'package:ieee_sst/data/constants/text_styles.dart';
-import 'package:ieee_sst/di/dependency_injection.dart';
-import 'package:ieee_sst/presentation/home/widgets/header.dart';
+import 'package:ieee_sst/presentation/admin/admin_annoucments_managment_screen.dart/widgets/announcement.dart';
 import 'package:ieee_sst/presentation/home/widgets/home_screen_drawer.dart';
-import 'package:ieee_sst/presentation/login/bloc/auth_bloc.dart';
 
 class AnnouncementsManagmentScreen extends StatelessWidget {
   const AnnouncementsManagmentScreen({
@@ -16,32 +14,46 @@ class AnnouncementsManagmentScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         floatingActionButton: FloatingActionButton(
-          onPressed: () {},
+          onPressed: () {
+            context.go('/admin_announcements/create_announcement');
+          },
           backgroundColor: AppColors.primary,
           elevation: 0,
           child: const Icon(
-            Icons.add,
+            Icons.add_alert_outlined,
             color: AppColors.white,
           ),
         ),
-        body: BlocProvider(
-          create: (context) => getIt<AuthBloc>(),
-          child: SingleChildScrollView(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8.0),
-              child: Column(
-                children: [
-                  const Padding(
-                    padding: EdgeInsets.all(16),
-                    child: Header(),
-                  ),
-                  const SizedBox(height: 24),
-                  Text('Announcement Managment Screen',
-                      style: AppTextStyle.header),
-                ],
+        body: CustomScrollView(
+          slivers: [
+            SliverAppBar(
+              backgroundColor: AppColors.background,
+              shadowColor: Colors.transparent,
+              surfaceTintColor: AppColors.background,
+              title: Text(
+                'Announcements',
+                style: AppTextStyle.titleSmall,
               ),
             ),
-          ),
+            SliverList(
+              delegate: SliverChildListDelegate(
+                [
+                  const Announcement(),
+                  const Announcement(),
+                  const Announcement(),
+                  const Announcement(),
+                  const Center(
+                    child: Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: Text(
+                        'No announcements yet',
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            )
+          ],
         ),
         drawer: const HomeScreenDrawer());
   }

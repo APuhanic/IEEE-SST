@@ -36,7 +36,7 @@ class EventFormBloc extends Bloc<EventFormEvent, EventFormState> {
 
   _onEventDescriptionChanged(
           _EventDescriptionChanged event, Emitter<EventFormState> emit) =>
-      emit(state.copyWith(despcription: event.eventDescription));
+      emit(state.copyWith(description: event.eventDescription));
 
   /// There are 2 forms, one of DateTime and one of TimeOfDay
   /// This is a workaround to convert TimeOfDay to DateTime because it
@@ -83,7 +83,7 @@ class EventFormBloc extends Bloc<EventFormEvent, EventFormState> {
 
       await _supabaseEventRepository.addEvent(
         state.name,
-        state.despcription,
+        state.description,
         state.time!,
         state.location,
         state.speaker,
@@ -105,7 +105,7 @@ class EventFormBloc extends Bloc<EventFormEvent, EventFormState> {
       final event = Event(
         id: state.id,
         name: state.name,
-        description: state.despcription,
+        description: state.description,
         location: state.location,
         speaker: state.speaker,
         time: state.time,
@@ -127,7 +127,7 @@ class EventFormBloc extends Bloc<EventFormEvent, EventFormState> {
       state.copyWith(
         id: event.event.id,
         name: event.event.name,
-        despcription: event.event.description,
+        description: event.event.description,
         location: event.event.location,
         speaker: event.event.speaker,
         time: event.event.time,
