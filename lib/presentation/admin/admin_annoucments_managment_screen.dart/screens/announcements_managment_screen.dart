@@ -3,9 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:ieee_sst/data/constants/app_colors.dart';
 import 'package:ieee_sst/data/constants/text_styles.dart';
-import 'package:ieee_sst/data/models/announcement_model/announcement_model.dart';
-import 'package:ieee_sst/presentation/admin/admin_annoucments_managment_screen.dart/widgets/announcement_post.dart';
 import 'package:ieee_sst/presentation/common/bloc/announcement_bloc/announcement_bloc.dart';
+import 'package:ieee_sst/presentation/common/widgets/announcements_list.dart';
 import 'package:ieee_sst/presentation/home/widgets/home_screen_drawer.dart';
 
 class AnnouncementsManagmentScreen extends StatelessWidget {
@@ -49,15 +48,18 @@ class AnnouncementsManagmentScreen extends StatelessWidget {
                       BlocBuilder<AnnouncementBloc, AnnouncementState>(
                         builder: (context, state) {
                           return state.maybeWhen(
-                              loaded: (announcements) => AnnouncemetsList(
-                                  announcements: announcements),
-                              loading: () => const Center(
-                                    child: CircularProgressIndicator(),
-                                  ),
-                              error: (message) => Center(
-                                    child: Text(message),
-                                  ),
-                              orElse: () => const SizedBox.shrink());
+                            loaded: (announcements) => AnnouncemetsList(
+                              announcements: announcements,
+                              isAdmin: true,
+                            ),
+                            loading: () => const Center(
+                              child: CircularProgressIndicator(),
+                            ),
+                            error: (message) => Center(
+                              child: Text(message),
+                            ),
+                            orElse: () => const SizedBox.shrink(),
+                          );
                         },
                       ),
                     ],
@@ -68,25 +70,5 @@ class AnnouncementsManagmentScreen extends StatelessWidget {
           },
         ),
         drawer: const HomeScreenDrawer());
-  }
-}
-
-class AnnouncemetsList extends StatelessWidget {
-  const AnnouncemetsList({
-    super.key,
-    required this.announcements,
-  });
-
-  final List<Announcement> announcements;
-
-  @override
-  Widget build(BuildContext context) {
-    return ListView.separated(
-      itemBuilder: (context, index) =>
-          AnnouncementPost(annoucnement: announcements[index]),
-      separatorBuilder: (context, index) => const Divider(),
-      itemCount: announcements.length,
-      shrinkWrap: true,
-    );
   }
 }

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ieee_sst/data/constants/app_colors.dart';
 import 'package:ieee_sst/data/constants/text_styles.dart';
+import 'package:ieee_sst/presentation/common/bloc/announcement_bloc/announcement_bloc.dart';
+import 'package:ieee_sst/presentation/common/widgets/announcements_list.dart';
 
-// TODO: Annoucements -> Notifications?
 class OrganizerAnnouncements extends StatelessWidget {
   const OrganizerAnnouncements({
     super.key,
@@ -10,6 +12,9 @@ class OrganizerAnnouncements extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    context
+        .read<AnnouncementBloc>()
+        .add(const AnnouncementEvent.loadAnnouncements());
     return Scaffold(
       body: CustomScrollView(
         slivers: [
@@ -25,13 +30,22 @@ class OrganizerAnnouncements extends StatelessWidget {
           SliverList(
             delegate: SliverChildListDelegate(
               [
-                const Center(
-                  child: Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: Text(
-                      'No announcements yet',
-                    ),
-                  ),
+                BlocBuilder<AnnouncementBloc, AnnouncementState>(
+                  builder: (context, state) {
+                    return state.maybeWhen(
+                      loaded: (announcements) => AnnouncemetsList(
+                        announcements: announcements,
+                        isAdmin: false,
+                      ),
+                      loading: () => const Center(
+                        child: CircularProgressIndicator(),
+                      ),
+                      error: (message) => Center(
+                        child: Text(message),
+                      ),
+                      orElse: () => const SizedBox.shrink(),
+                    );
+                  },
                 ),
               ],
             ),

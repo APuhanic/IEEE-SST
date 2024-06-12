@@ -9,6 +9,7 @@ import 'package:ieee_sst/presentation/admin/admin_event_managment_screen/bloc/ev
 import 'package:ieee_sst/presentation/common/bloc/events_bloc/events_bloc.dart';
 import 'package:ieee_sst/presentation/common/widgets/event_data.dart';
 
+//TODO: Merge with event card?
 class AdminEventCard extends StatelessWidget {
   const AdminEventCard({super.key, required this.event});
 
@@ -37,6 +38,8 @@ class AdminEventCard extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(width: 16),
+
+                // TODO: Extract?
                 PopupMenuButton(
                   color: AppColors.white,
                   shape: RoundedRectangleBorder(
