@@ -6,9 +6,11 @@ part 'announcement_model.g.dart';
 @freezed
 class Announcement with _$Announcement {
   const factory Announcement({
-    required String id,
+    String? id,
     required String title,
     required String description,
+    required String timeposted,
+    required String fullName,
   }) = _Announcement;
 
   factory Announcement.fromJson(Map<String, dynamic> json) =>

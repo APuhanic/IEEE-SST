@@ -18,7 +18,6 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$AnnouncementFormEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
     required TResult Function() createAnnouncement,
     required TResult Function(String title) titleChanged,
     required TResult Function(String description) descriptionChanged,
@@ -26,7 +25,6 @@ mixin _$AnnouncementFormEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
     TResult? Function()? createAnnouncement,
     TResult? Function(String title)? titleChanged,
     TResult? Function(String description)? descriptionChanged,
@@ -34,7 +32,6 @@ mixin _$AnnouncementFormEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
     TResult Function()? createAnnouncement,
     TResult Function(String title)? titleChanged,
     TResult Function(String description)? descriptionChanged,
@@ -43,7 +40,6 @@ mixin _$AnnouncementFormEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
     required TResult Function(_CreateAnnouncement value) createAnnouncement,
     required TResult Function(_TitleChanged value) titleChanged,
     required TResult Function(_DescriptionChanged value) descriptionChanged,
@@ -51,7 +47,6 @@ mixin _$AnnouncementFormEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
     TResult? Function(_CreateAnnouncement value)? createAnnouncement,
     TResult? Function(_TitleChanged value)? titleChanged,
     TResult? Function(_DescriptionChanged value)? descriptionChanged,
@@ -59,7 +54,6 @@ mixin _$AnnouncementFormEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
     TResult Function(_CreateAnnouncement value)? createAnnouncement,
     TResult Function(_TitleChanged value)? titleChanged,
     TResult Function(_DescriptionChanged value)? descriptionChanged,
@@ -85,120 +79,6 @@ class _$AnnouncementFormEventCopyWithImpl<$Res,
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-}
-
-/// @nodoc
-abstract class _$$StartedImplCopyWith<$Res> {
-  factory _$$StartedImplCopyWith(
-          _$StartedImpl value, $Res Function(_$StartedImpl) then) =
-      __$$StartedImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$StartedImplCopyWithImpl<$Res>
-    extends _$AnnouncementFormEventCopyWithImpl<$Res, _$StartedImpl>
-    implements _$$StartedImplCopyWith<$Res> {
-  __$$StartedImplCopyWithImpl(
-      _$StartedImpl _value, $Res Function(_$StartedImpl) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$StartedImpl implements _Started {
-  const _$StartedImpl();
-
-  @override
-  String toString() {
-    return 'AnnouncementFormEvent.started()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$StartedImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() started,
-    required TResult Function() createAnnouncement,
-    required TResult Function(String title) titleChanged,
-    required TResult Function(String description) descriptionChanged,
-  }) {
-    return started();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
-    TResult? Function()? createAnnouncement,
-    TResult? Function(String title)? titleChanged,
-    TResult? Function(String description)? descriptionChanged,
-  }) {
-    return started?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
-    TResult Function()? createAnnouncement,
-    TResult Function(String title)? titleChanged,
-    TResult Function(String description)? descriptionChanged,
-    required TResult orElse(),
-  }) {
-    if (started != null) {
-      return started();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
-    required TResult Function(_CreateAnnouncement value) createAnnouncement,
-    required TResult Function(_TitleChanged value) titleChanged,
-    required TResult Function(_DescriptionChanged value) descriptionChanged,
-  }) {
-    return started(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
-    TResult? Function(_CreateAnnouncement value)? createAnnouncement,
-    TResult? Function(_TitleChanged value)? titleChanged,
-    TResult? Function(_DescriptionChanged value)? descriptionChanged,
-  }) {
-    return started?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
-    TResult Function(_CreateAnnouncement value)? createAnnouncement,
-    TResult Function(_TitleChanged value)? titleChanged,
-    TResult Function(_DescriptionChanged value)? descriptionChanged,
-    required TResult orElse(),
-  }) {
-    if (started != null) {
-      return started(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _Started implements AnnouncementFormEvent {
-  const factory _Started() = _$StartedImpl;
 }
 
 /// @nodoc
@@ -239,7 +119,6 @@ class _$CreateAnnouncementImpl implements _CreateAnnouncement {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
     required TResult Function() createAnnouncement,
     required TResult Function(String title) titleChanged,
     required TResult Function(String description) descriptionChanged,
@@ -250,7 +129,6 @@ class _$CreateAnnouncementImpl implements _CreateAnnouncement {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
     TResult? Function()? createAnnouncement,
     TResult? Function(String title)? titleChanged,
     TResult? Function(String description)? descriptionChanged,
@@ -261,7 +139,6 @@ class _$CreateAnnouncementImpl implements _CreateAnnouncement {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
     TResult Function()? createAnnouncement,
     TResult Function(String title)? titleChanged,
     TResult Function(String description)? descriptionChanged,
@@ -276,7 +153,6 @@ class _$CreateAnnouncementImpl implements _CreateAnnouncement {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
     required TResult Function(_CreateAnnouncement value) createAnnouncement,
     required TResult Function(_TitleChanged value) titleChanged,
     required TResult Function(_DescriptionChanged value) descriptionChanged,
@@ -287,7 +163,6 @@ class _$CreateAnnouncementImpl implements _CreateAnnouncement {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
     TResult? Function(_CreateAnnouncement value)? createAnnouncement,
     TResult? Function(_TitleChanged value)? titleChanged,
     TResult? Function(_DescriptionChanged value)? descriptionChanged,
@@ -298,7 +173,6 @@ class _$CreateAnnouncementImpl implements _CreateAnnouncement {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
     TResult Function(_CreateAnnouncement value)? createAnnouncement,
     TResult Function(_TitleChanged value)? titleChanged,
     TResult Function(_DescriptionChanged value)? descriptionChanged,
@@ -379,7 +253,6 @@ class _$TitleChangedImpl implements _TitleChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
     required TResult Function() createAnnouncement,
     required TResult Function(String title) titleChanged,
     required TResult Function(String description) descriptionChanged,
@@ -390,7 +263,6 @@ class _$TitleChangedImpl implements _TitleChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
     TResult? Function()? createAnnouncement,
     TResult? Function(String title)? titleChanged,
     TResult? Function(String description)? descriptionChanged,
@@ -401,7 +273,6 @@ class _$TitleChangedImpl implements _TitleChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
     TResult Function()? createAnnouncement,
     TResult Function(String title)? titleChanged,
     TResult Function(String description)? descriptionChanged,
@@ -416,7 +287,6 @@ class _$TitleChangedImpl implements _TitleChanged {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
     required TResult Function(_CreateAnnouncement value) createAnnouncement,
     required TResult Function(_TitleChanged value) titleChanged,
     required TResult Function(_DescriptionChanged value) descriptionChanged,
@@ -427,7 +297,6 @@ class _$TitleChangedImpl implements _TitleChanged {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
     TResult? Function(_CreateAnnouncement value)? createAnnouncement,
     TResult? Function(_TitleChanged value)? titleChanged,
     TResult? Function(_DescriptionChanged value)? descriptionChanged,
@@ -438,7 +307,6 @@ class _$TitleChangedImpl implements _TitleChanged {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
     TResult Function(_CreateAnnouncement value)? createAnnouncement,
     TResult Function(_TitleChanged value)? titleChanged,
     TResult Function(_DescriptionChanged value)? descriptionChanged,
@@ -526,7 +394,6 @@ class _$DescriptionChangedImpl implements _DescriptionChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
     required TResult Function() createAnnouncement,
     required TResult Function(String title) titleChanged,
     required TResult Function(String description) descriptionChanged,
@@ -537,7 +404,6 @@ class _$DescriptionChangedImpl implements _DescriptionChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
     TResult? Function()? createAnnouncement,
     TResult? Function(String title)? titleChanged,
     TResult? Function(String description)? descriptionChanged,
@@ -548,7 +414,6 @@ class _$DescriptionChangedImpl implements _DescriptionChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
     TResult Function()? createAnnouncement,
     TResult Function(String title)? titleChanged,
     TResult Function(String description)? descriptionChanged,
@@ -563,7 +428,6 @@ class _$DescriptionChangedImpl implements _DescriptionChanged {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
     required TResult Function(_CreateAnnouncement value) createAnnouncement,
     required TResult Function(_TitleChanged value) titleChanged,
     required TResult Function(_DescriptionChanged value) descriptionChanged,
@@ -574,7 +438,6 @@ class _$DescriptionChangedImpl implements _DescriptionChanged {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
     TResult? Function(_CreateAnnouncement value)? createAnnouncement,
     TResult? Function(_TitleChanged value)? titleChanged,
     TResult? Function(_DescriptionChanged value)? descriptionChanged,
@@ -585,7 +448,6 @@ class _$DescriptionChangedImpl implements _DescriptionChanged {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
     TResult Function(_CreateAnnouncement value)? createAnnouncement,
     TResult Function(_TitleChanged value)? titleChanged,
     TResult Function(_DescriptionChanged value)? descriptionChanged,

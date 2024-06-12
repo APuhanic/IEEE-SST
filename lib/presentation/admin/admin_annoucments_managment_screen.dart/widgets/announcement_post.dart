@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:ieee_sst/data/constants/text_styles.dart';
+import 'package:ieee_sst/data/models/announcement_model/announcement_model.dart';
 
 class AnnouncementPost extends StatelessWidget {
   const AnnouncementPost({
     super.key,
+    required this.annoucnement,
   });
 
+  final Announcement annoucnement;
   @override
   Widget build(BuildContext context) {
     // TODO: Move padding to the screen?
@@ -23,12 +26,11 @@ class AnnouncementPost extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('Ime prezime • 1h', style: AppTextStyle.lightText),
-                      Text('Example announcement 1',
-                          style: AppTextStyle.titleSmall),
-                      const Text(
-                        'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-                      ),
+                      Text(
+                          '${annoucnement.fullName} •${annoucnement.timeposted} ',
+                          style: AppTextStyle.lightText),
+                      Text(annoucnement.title, style: AppTextStyle.titleSmall),
+                      Text(annoucnement.description),
                     ],
                   ),
                 ),
@@ -44,7 +46,6 @@ class AnnouncementPost extends StatelessWidget {
                 ),
               ],
             ),
-            const Divider(),
           ],
         ),
       ),

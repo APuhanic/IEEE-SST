@@ -4,9 +4,9 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 
 @injectable
 class SupabaseAnnouncementApi {
-  final SupabaseClient _supabaseClient;
-
   SupabaseAnnouncementApi(this._supabaseClient);
+
+  final SupabaseClient _supabaseClient;
 
   Future<void> postAnnouncement(
     String title,
@@ -19,26 +19,19 @@ class SupabaseAnnouncementApi {
         'postedby': _supabaseClient.auth.currentUser?.id,
       });
     } catch (e) {
+      //TODO: Add proper error handling
       debugPrint(e.toString());
     }
   }
 
   Future<List<Map<String, dynamic>>> fetchAnnouncements() async =>
-      Supabase.instance.client.from('announcements').select();
-
-  Future<void> deleteEvent(String eventId) async {
-    try {
-      await _supabaseClient.from('events').delete().eq('id', eventId);
-    } catch (e) {
-      debugPrint(e.toString());
-    }
-  }
+      await _supabaseClient.rpc('get_announcements_with_profiles').select();
 
   Future<void> updateAnnouncemets(Map<String, dynamic> event) async {
     try {
       await _supabaseClient.from('announcements').upsert(event);
     } catch (e) {
-      debugPrint(e.toString());
+      throw Exception(e);
     }
   }
 }

@@ -8,6 +8,7 @@ class SupabaseEventApi {
 
   SupabaseEventApi(this._supabaseClient);
 
+  // TODO: Add return data after adding
   Future<void> addEvent(
     String name,
     String description,

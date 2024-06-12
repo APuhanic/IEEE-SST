@@ -20,9 +20,11 @@ Announcement _$AnnouncementFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Announcement {
-  String get id => throw _privateConstructorUsedError;
+  String? get id => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
+  String get timeposted => throw _privateConstructorUsedError;
+  String get fullName => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -36,7 +38,12 @@ abstract class $AnnouncementCopyWith<$Res> {
           Announcement value, $Res Function(Announcement) then) =
       _$AnnouncementCopyWithImpl<$Res, Announcement>;
   @useResult
-  $Res call({String id, String title, String description});
+  $Res call(
+      {String? id,
+      String title,
+      String description,
+      String timeposted,
+      String fullName});
 }
 
 /// @nodoc
@@ -52,15 +59,17 @@ class _$AnnouncementCopyWithImpl<$Res, $Val extends Announcement>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
+    Object? id = freezed,
     Object? title = null,
     Object? description = null,
+    Object? timeposted = null,
+    Object? fullName = null,
   }) {
     return _then(_value.copyWith(
-      id: null == id
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -68,6 +77,14 @@ class _$AnnouncementCopyWithImpl<$Res, $Val extends Announcement>
       description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
+              as String,
+      timeposted: null == timeposted
+          ? _value.timeposted
+          : timeposted // ignore: cast_nullable_to_non_nullable
+              as String,
+      fullName: null == fullName
+          ? _value.fullName
+          : fullName // ignore: cast_nullable_to_non_nullable
               as String,
     ) as $Val);
   }
@@ -81,7 +98,12 @@ abstract class _$$AnnouncementImplCopyWith<$Res>
       __$$AnnouncementImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String id, String title, String description});
+  $Res call(
+      {String? id,
+      String title,
+      String description,
+      String timeposted,
+      String fullName});
 }
 
 /// @nodoc
@@ -95,15 +117,17 @@ class __$$AnnouncementImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
+    Object? id = freezed,
     Object? title = null,
     Object? description = null,
+    Object? timeposted = null,
+    Object? fullName = null,
   }) {
     return _then(_$AnnouncementImpl(
-      id: null == id
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -111,6 +135,14 @@ class __$$AnnouncementImplCopyWithImpl<$Res>
       description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
+              as String,
+      timeposted: null == timeposted
+          ? _value.timeposted
+          : timeposted // ignore: cast_nullable_to_non_nullable
+              as String,
+      fullName: null == fullName
+          ? _value.fullName
+          : fullName // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -120,21 +152,29 @@ class __$$AnnouncementImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$AnnouncementImpl implements _Announcement {
   const _$AnnouncementImpl(
-      {required this.id, required this.title, required this.description});
+      {this.id,
+      required this.title,
+      required this.description,
+      required this.timeposted,
+      required this.fullName});
 
   factory _$AnnouncementImpl.fromJson(Map<String, dynamic> json) =>
       _$$AnnouncementImplFromJson(json);
 
   @override
-  final String id;
+  final String? id;
   @override
   final String title;
   @override
   final String description;
+  @override
+  final String timeposted;
+  @override
+  final String fullName;
 
   @override
   String toString() {
-    return 'Announcement(id: $id, title: $title, description: $description)';
+    return 'Announcement(id: $id, title: $title, description: $description, timeposted: $timeposted, fullName: $fullName)';
   }
 
   @override
@@ -145,12 +185,17 @@ class _$AnnouncementImpl implements _Announcement {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.description, description) ||
-                other.description == description));
+                other.description == description) &&
+            (identical(other.timeposted, timeposted) ||
+                other.timeposted == timeposted) &&
+            (identical(other.fullName, fullName) ||
+                other.fullName == fullName));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, title, description);
+  int get hashCode =>
+      Object.hash(runtimeType, id, title, description, timeposted, fullName);
 
   @JsonKey(ignore: true)
   @override
@@ -168,19 +213,25 @@ class _$AnnouncementImpl implements _Announcement {
 
 abstract class _Announcement implements Announcement {
   const factory _Announcement(
-      {required final String id,
+      {final String? id,
       required final String title,
-      required final String description}) = _$AnnouncementImpl;
+      required final String description,
+      required final String timeposted,
+      required final String fullName}) = _$AnnouncementImpl;
 
   factory _Announcement.fromJson(Map<String, dynamic> json) =
       _$AnnouncementImpl.fromJson;
 
   @override
-  String get id;
+  String? get id;
   @override
   String get title;
   @override
   String get description;
+  @override
+  String get timeposted;
+  @override
+  String get fullName;
   @override
   @JsonKey(ignore: true)
   _$$AnnouncementImplCopyWith<_$AnnouncementImpl> get copyWith =>

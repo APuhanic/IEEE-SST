@@ -24,13 +24,15 @@ import '../data/supabase/supabase_announcement_api.dart' as _i10;
 import '../data/supabase/supabase_auth_api.dart' as _i6;
 import '../data/supabase/supabase_event_api.dart' as _i8;
 import '../data/supabase/supabase_profile_api.dart' as _i9;
-import '../domain/modules/app_module.dart' as _i25;
-import '../domain/modules/navigator_key_manager_module.dart' as _i26;
+import '../domain/modules/app_module.dart' as _i26;
+import '../domain/modules/navigator_key_manager_module.dart' as _i27;
 import '../domain/repositories/auth/auth_repository.dart' as _i12;
 import '../presentation/admin/admin_annoucments_managment_screen.dart/bloc/announcement_form_bloc.dart'
     as _i22;
 import '../presentation/admin/admin_event_managment_screen/bloc/event_form_bloc.dart'
     as _i24;
+import '../presentation/common/bloc/announcement_bloc/announcement_bloc.dart'
+    as _i25;
 import '../presentation/common/bloc/attendees_bloc/attendees_bloc.dart' as _i19;
 import '../presentation/common/bloc/events_bloc/events_bloc.dart' as _i23;
 import '../presentation/common/bloc/profile_bloc/profile_bloc.dart' as _i18;
@@ -96,10 +98,12 @@ extension GetItInjectableX on _i1.GetIt {
         () => _i23.EventsManagmentBloc(gh<_i21.SupabaseEventRepository>()));
     gh.factory<_i24.EventFormBloc>(
         () => _i24.EventFormBloc(gh<_i21.SupabaseEventRepository>()));
+    gh.factory<_i25.AnnouncementBloc>(
+        () => _i25.AnnouncementBloc(gh<_i20.SupabaseAnnouncementRepository>()));
     return this;
   }
 }
 
-class _$AppModule extends _i25.AppModule {}
+class _$AppModule extends _i26.AppModule {}
 
-class _$NavigatorKeyManagerModule extends _i26.NavigatorKeyManagerModule {}
+class _$NavigatorKeyManagerModule extends _i27.NavigatorKeyManagerModule {}

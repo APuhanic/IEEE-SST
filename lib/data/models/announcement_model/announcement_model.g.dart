@@ -8,9 +8,11 @@ part of 'announcement_model.dart';
 
 _$AnnouncementImpl _$$AnnouncementImplFromJson(Map<String, dynamic> json) =>
     _$AnnouncementImpl(
-      id: json['id'] as String,
+      id: json['id'] as String?,
       title: json['title'] as String,
       description: json['description'] as String,
+      timeposted: json['timeposted'] as String,
+      fullName: json['fullName'] as String,
     );
 
 Map<String, dynamic> _$$AnnouncementImplToJson(_$AnnouncementImpl instance) =>
@@ -18,4 +20,6 @@ Map<String, dynamic> _$$AnnouncementImplToJson(_$AnnouncementImpl instance) =>
       'id': instance.id,
       'title': instance.title,
       'description': instance.description,
+      'timeposted': instance.timeposted,
+      'fullName': instance.fullName,
     };
