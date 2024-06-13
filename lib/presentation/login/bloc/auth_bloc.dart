@@ -14,7 +14,7 @@ part 'auth_bloc.freezed.dart';
 
 @injectable
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
-  AuthBloc(this._supabaseAuthRepository) : super(const _Initial()) {
+  AuthBloc(this._supabaseAuthRepository) : super(const _Unauthenticated()) {
     on<_OnInitialAuthEvent>(
       _onInitialAuthEvent,
     );

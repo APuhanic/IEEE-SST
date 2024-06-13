@@ -14,7 +14,6 @@ class AnnouncementPost extends StatelessWidget {
   final bool isAdmin;
   @override
   Widget build(BuildContext context) {
-    // TODO: Move padding to the screen?
     // TODO: Add announcement edit and delete?
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),

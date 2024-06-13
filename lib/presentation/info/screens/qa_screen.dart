@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:ieee_sst/data/constants/app_colors.dart';
 import 'package:ieee_sst/data/constants/text_styles.dart';
+import 'package:ieee_sst/presentation/info/widgets/user_post.dart';
 
 class QaScreen extends StatelessWidget {
   const QaScreen({
@@ -10,6 +12,15 @@ class QaScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        backgroundColor: AppColors.primary,
+        elevation: 0,
+        child: const FaIcon(
+          FontAwesomeIcons.calendarPlus,
+          color: AppColors.white,
+        ),
+      ),
       body: CustomScrollView(
         slivers: <Widget>[
           SliverAppBar(
@@ -26,10 +37,21 @@ class QaScreen extends StatelessWidget {
           SliverList(
             delegate: SliverChildListDelegate(
               [
-                Column(
-                  children: [
-                    Text('Test', style: AppTextStyle.titleSmall),
-                  ],
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 16,
+                    vertical: 8,
+                  ),
+                  child: Column(
+                    children: [
+                      ListView.separated(
+                        itemCount: 10,
+                        shrinkWrap: true,
+                        itemBuilder: (context, index) => const UserPost(),
+                        separatorBuilder: (context, index) => const Divider(),
+                      )
+                    ],
+                  ),
                 ),
               ],
             ),

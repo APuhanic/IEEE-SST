@@ -38,33 +38,7 @@ class AdminEventCard extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(width: 16),
-
-                // TODO: Extract?
-                PopupMenuButton(
-                  color: AppColors.white,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  itemBuilder: (context) => [
-                    PopupMenuItem(
-                      child: const Text('Edit'),
-                      onTap: () {
-                        context
-                            .read<EventFormBloc>()
-                            .add(EventFormEvent.setInitialValues(event));
-                        context.go('/admin_events_managment/update_event');
-                      },
-                    ),
-                    PopupMenuItem(
-                      child: const Text('Delete'),
-                      onTap: () {
-                        context
-                            .read<EventsManagmentBloc>()
-                            .add(EventsEvent.deleteEvent(event));
-                      },
-                    )
-                  ],
-                )
+                _PopupMenu(event: event)
               ],
             ),
             const SizedBox(height: 8),
@@ -81,6 +55,43 @@ class AdminEventCard extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+}
+
+class _PopupMenu extends StatelessWidget {
+  const _PopupMenu({
+    required this.event,
+  });
+
+  final Event event;
+
+  @override
+  Widget build(BuildContext context) {
+    return PopupMenuButton(
+      color: AppColors.white,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10),
+      ),
+      itemBuilder: (context) => [
+        PopupMenuItem(
+          child: const Text('Edit'),
+          onTap: () {
+            context
+                .read<EventFormBloc>()
+                .add(EventFormEvent.setInitialValues(event));
+            context.go('/admin_events_managment/update_event');
+          },
+        ),
+        PopupMenuItem(
+          child: const Text('Delete'),
+          onTap: () {
+            context
+                .read<EventsManagmentBloc>()
+                .add(EventsEvent.deleteEvent(event));
+          },
+        )
+      ],
     );
   }
 }

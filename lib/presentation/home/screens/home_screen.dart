@@ -15,7 +15,6 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: Add builder, and switch to context.watch?
     context.read<EventsManagmentBloc>().add(const EventsEvent.loadEvents());
     context.read<ProfileBloc>().add(const ProfileEvent.loadProfile());
     return Scaffold(

@@ -15,13 +15,13 @@ class AnnouncemetsList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.separated(
+      itemCount: announcements.length,
+      shrinkWrap: true,
+      separatorBuilder: (context, index) => const Divider(),
       itemBuilder: (context, index) => AnnouncementPost(
         annoucnement: announcements[index],
         isAdmin: isAdmin,
       ),
-      separatorBuilder: (context, index) => const Divider(),
-      itemCount: announcements.length,
-      shrinkWrap: true,
     );
   }
 }
