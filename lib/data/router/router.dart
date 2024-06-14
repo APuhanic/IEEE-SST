@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:ieee_sst/data/constants/route_paths.dart';
 import 'package:ieee_sst/data/constants/user_roles.dart';
+import 'package:ieee_sst/data/models/announcement_model/announcement_model.dart';
 import 'package:ieee_sst/data/router/navigator_key_manager.dart';
 import 'package:ieee_sst/presentation/admin/admin_annoucments_managment_screen.dart/screens/create_announcement_screen.dart';
 import 'package:ieee_sst/presentation/admin/admin_event_managment_screen/screens/update_event_screen.dart';
@@ -15,6 +16,7 @@ import 'package:ieee_sst/presentation/agenda/screens/search_events_screen.dart';
 import 'package:ieee_sst/presentation/attendees/screens/attendees_screen.dart';
 import 'package:ieee_sst/presentation/bottom_nav_bar/widgets/admin_scaffold_with_nav_bar.dart';
 import 'package:ieee_sst/presentation/bottom_nav_bar/widgets/scaffold_with_nav_bar.dart';
+import 'package:ieee_sst/presentation/info/screens/announcement_post_screen.dart';
 import 'package:ieee_sst/presentation/info/screens/info_screen.dart';
 import 'package:ieee_sst/presentation/info/screens/organizer_announcements.dart';
 import 'package:ieee_sst/presentation/info/screens/qa_screen.dart';
@@ -202,19 +204,32 @@ class AppRouter {
                 navigatorKey: _navigatorKeyManager.shellNavigatorCommunityKey,
                 routes: [
                   GoRoute(
-                    path: RoutePaths.community,
+                    path: RoutePaths.info,
                     pageBuilder: (context, state) => const MaterialPage(
                       key: ValueKey('InfoScreen'),
                       child: InfoScreen(),
                     ),
                     routes: [
                       GoRoute(
-                        path: RoutePaths.subRouteOrganizerAnnouncments,
-                        pageBuilder: (context, state) => const MaterialPage(
-                          key: ValueKey('OrganizerAnnouncements'),
-                          child: OrganizerAnnouncements(),
-                        ),
-                      ),
+                          path: RoutePaths.subRouteOrganizerAnnouncments,
+                          pageBuilder: (context, state) => const MaterialPage(
+                                key: ValueKey('OrganizerAnnouncements'),
+                                child: OrganizerAnnouncements(),
+                              ),
+                          routes: [
+                            GoRoute(
+                              path: RoutePaths.subRouteAnnouncementPost,
+                              pageBuilder: (context, state) {
+                                final announcement =
+                                    state.extra as Announcement;
+                                return MaterialPage(
+                                  key: const ValueKey('AnnounementPostScreen'),
+                                  child: AnnouncementPostScreen(
+                                      announcement: announcement),
+                                );
+                              },
+                            ),
+                          ]),
                       GoRoute(
                         path: RoutePaths.subRouteAskOrganizers,
                         pageBuilder: (context, state) => const MaterialPage(
