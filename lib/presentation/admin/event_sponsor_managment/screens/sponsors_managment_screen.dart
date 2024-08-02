@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:ieee_sst/data/constants/app_colors.dart';
-import 'package:ieee_sst/data/constants/text_styles.dart';
-import 'package:ieee_sst/di/dependency_injection.dart';
-import 'package:ieee_sst/presentation/admin/event_sponsor_managment/widgets/sponsor.dart';
+import 'package:ieee_sst/presentation/admin/event_sponsor_managment/widgets/sponsor_list.dart';
+import 'package:ieee_sst/presentation/common/bloc/sponsors_bloc/bloc/sponsor_managment_bloc.dart';
 import 'package:ieee_sst/presentation/home/widgets/home_screen_drawer.dart';
-import 'package:ieee_sst/presentation/login/bloc/auth_bloc.dart';
 
 class SponsorManagmentScreen extends StatelessWidget {
   const SponsorManagmentScreen({
@@ -14,9 +13,13 @@ class SponsorManagmentScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    context
+        .read<SponsorManagmentBloc>()
+        .add(const SponsorManagmentEvent.loadSponsors());
+
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () => context.go('/admin_sponsors/add_sponsor'),
         backgroundColor: AppColors.primary,
         elevation: 0,
         child: const Icon(
@@ -24,23 +27,46 @@ class SponsorManagmentScreen extends StatelessWidget {
           color: AppColors.white,
         ),
       ),
-      body: BlocProvider(
-        create: (context) => getIt<AuthBloc>(),
+      body: RefreshIndicator(
+        backgroundColor: AppColors.white,
+        color: AppColors.primary,
+        onRefresh: () async {
+          context
+              .read<SponsorManagmentBloc>()
+              .add(const SponsorManagmentEvent.loadSponsors());
+        },
         child: CustomScrollView(
           slivers: [
-            SliverAppBar(
+            const SliverAppBar(
               expandedHeight: 40.0,
               backgroundColor: AppColors.background,
               shadowColor: Colors.transparent,
               surfaceTintColor: AppColors.background,
-              title: Text('Sponsor Managment', style: AppTextStyle.titleSmall),
+              title: Text('Sponsor Managment'),
             ),
             SliverList(
               delegate: SliverChildListDelegate(
                 [
-                  const Padding(
-                    padding: EdgeInsets.all(16.0),
-                    child: Sponsor(),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                    child: BlocBuilder<SponsorManagmentBloc,
+                        SponsorManagmentState>(
+                      builder: (context, state) {
+                        return state.map(
+                          initial: (_) => const Center(
+                            child: CircularProgressIndicator(),
+                          ),
+                          loading: (_) => const Center(
+                            child: CircularProgressIndicator(),
+                          ),
+                          loaded: (state) =>
+                              SponsorList(sponsors: state.sponsors),
+                          error: (state) => Center(
+                            child: Text(state.message),
+                          ),
+                        );
+                      },
+                    ),
                   ),
                 ],
               ),

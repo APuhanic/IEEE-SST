@@ -28,8 +28,6 @@ class AdminHomeScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 24),
                 Text('Admin Home Screen', style: AppTextStyle.header),
-                const SizedBox(height: 24),
-                const SizedBox(height: 24),
                 const Padding(
                   padding: EdgeInsets.all(16.0),
                   child: MenagmentPart(),

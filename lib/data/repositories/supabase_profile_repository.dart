@@ -5,15 +5,16 @@ import 'package:logger/logger.dart';
 
 @LazySingleton()
 class SupabaseProfileRepository {
-  SupabaseProfileRepository(this._supabaseApi);
-  final SupabaseProfileApi _supabaseApi;
+  SupabaseProfileRepository(this._supabaseProfileApi);
+  final SupabaseProfileApi _supabaseProfileApi;
 
-  Future<String> getProfileRole(String id) async =>
-      await _supabaseApi.fetchProfile().then((value) => value[0]['role']);
+  Future<String> getProfileRole(String id) async => await _supabaseProfileApi
+      .fetchProfile()
+      .then((value) => value[0]['role']);
 
   Future<Profile> getProfile() async {
     try {
-      final profileResponse = await _supabaseApi.fetchProfile();
+      final profileResponse = await _supabaseProfileApi.fetchProfile();
       return Profile.fromJson(profileResponse[0]);
     } catch (e) {
       Logger().e(e);
@@ -23,7 +24,7 @@ class SupabaseProfileRepository {
 
   Future<List<Profile>> getProfiles() async {
     try {
-      final profilesResponse = await _supabaseApi.fetchProfiles();
+      final profilesResponse = await _supabaseProfileApi.fetchProfiles();
       return profilesResponse
           .map((profile) => Profile.fromJson(profile))
           .toList();

@@ -23,7 +23,7 @@ class UserContactTile extends StatelessWidget {
             children: [
               Text(
                 'User Name',
-                style: AppTextStyle.userNameText,
+                style: AppTextStyle.nameText,
               ),
               Row(
                 children: [

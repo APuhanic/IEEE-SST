@@ -57,7 +57,7 @@ class AppTextStyle {
     fontWeight: FontWeight.normal,
   );
 
-  static TextStyle userNameText = const TextStyle(
+  static TextStyle nameText = const TextStyle(
     fontSize: 16,
     color: AppColors.black,
   );

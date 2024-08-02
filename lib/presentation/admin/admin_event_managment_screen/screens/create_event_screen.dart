@@ -75,6 +75,14 @@ class CreateEventScreen extends StatelessWidget {
                       ),
                       // TODO: Extract widget and add validation
                       ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: AppColors.primary,
+                          foregroundColor: AppColors.white,
+                          textStyle: AppTextStyle.button,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                        ),
                         onPressed: () {
                           context.read<EventFormBloc>().add(
                                 const EventFormEvent.createEvent(),

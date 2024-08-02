@@ -16,7 +16,7 @@ class OngoingEvents extends StatelessWidget {
       height: 200,
       child: ListView.separated(
         padding: const EdgeInsets.symmetric(horizontal: 16),
-        itemCount: 5,
+        itemCount: events.length,
         scrollDirection: Axis.horizontal,
         physics: const BouncingScrollPhysics(),
         separatorBuilder: (context, index) => const SizedBox(width: 16),

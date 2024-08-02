@@ -6,6 +6,7 @@ abstract class RoutePaths {
   // TODO: Rename to registration steps?
   static const String registerEmail = 'email';
   static const String registerUserData = 'user_data';
+
   // User
   static const String home = '/home';
   static const String profile = '/profile';
@@ -13,6 +14,7 @@ abstract class RoutePaths {
   static const String searchEvents = 'search_events';
   static const String messages = '/messages';
 
+  // Community
   static const String info = '/community';
   static const String subRouteOrganizerAnnouncments = 'organizer_announcements';
   static const String subRouteAnnouncementPost = 'announcement_post';
@@ -20,12 +22,17 @@ abstract class RoutePaths {
   static const String subRouteUserPost = 'user_post';
 
   static const String attendees = '/attendees';
+
   // Admin
   static const String adminHomeScreen = '/admin_home_screen';
 
+  // Sponsors
   static const String adminSponsors = '/admin_sponsors';
+  static const String subRouteAddSponsor = 'add_sponsor';
+
   static const String adminAttendees = '/admin_attendees';
 
+  // Announcements
   static const String adminAnnouncements = '/admin_announcements';
   static const String subRouteCreateAnnouncement = 'create_announcement';
 

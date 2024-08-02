@@ -29,6 +29,7 @@ class AnnouncementsManagmentScreen extends StatelessWidget {
             color: AppColors.white,
           ),
         ),
+        // 2 bloc builders, need to fix?
         body: BlocBuilder<AnnouncementBloc, AnnouncementState>(
           builder: (context, state) {
             return CustomScrollView(

@@ -5,9 +5,11 @@ import 'package:ieee_sst/data/constants/app_colors.dart';
 import 'package:ieee_sst/data/router/router.dart';
 import 'package:ieee_sst/di/dependency_injection.dart';
 import 'package:ieee_sst/presentation/admin/admin_annoucments_managment_screen.dart/bloc/announcement_form_bloc.dart';
+import 'package:ieee_sst/presentation/admin/event_sponsor_managment/bloc/sponsor_form_bloc.dart';
 import 'package:ieee_sst/presentation/common/bloc/announcement_bloc/announcement_bloc.dart';
 import 'package:ieee_sst/presentation/common/bloc/events_bloc/events_bloc.dart';
 import 'package:ieee_sst/presentation/common/bloc/profile_bloc/profile_bloc.dart';
+import 'package:ieee_sst/presentation/common/bloc/sponsors_bloc/bloc/sponsor_managment_bloc.dart';
 import 'package:ieee_sst/presentation/login/bloc/auth_bloc.dart';
 import 'package:ieee_sst/presentation/register/bloc/registration_bloc.dart';
 
@@ -30,7 +32,9 @@ class MainApp extends StatelessWidget {
         BlocProvider(create: (context) => getIt<EventsManagmentBloc>()),
         BlocProvider(create: (context) => getIt<ProfileBloc>()),
         BlocProvider(create: (context) => getIt<AnnouncementFormBloc>()),
-        BlocProvider(create: (context) => getIt<AnnouncementBloc>())
+        BlocProvider(create: (context) => getIt<AnnouncementBloc>()),
+        BlocProvider(create: (context) => getIt<SponsorFormBloc>()),
+        BlocProvider(create: (context) => getIt<SponsorManagmentBloc>())
       ],
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,
