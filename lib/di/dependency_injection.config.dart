@@ -33,7 +33,7 @@ import '../presentation/admin/admin_annoucments_managment_screen.dart/bloc/annou
     as _i24;
 import '../presentation/admin/admin_event_managment_screen/bloc/event_form_bloc.dart'
     as _i28;
-import '../presentation/admin/event_sponsor_managment/bloc/sponsor_form_bloc.dart'
+import '../presentation/admin/admin_sponsor_managment/bloc/sponsor_form_bloc.dart'
     as _i23;
 import '../presentation/common/bloc/announcement_bloc/announcement_bloc.dart'
     as _i29;

@@ -28,11 +28,11 @@ class NavigatorKeyManager {
 
   final GlobalKey<NavigatorState> shellNavigatorSponsorManagmentKey =
       GlobalKey<NavigatorState>(
-    debugLabel: 'ShellNavigatorSponsorManagmentKey',
-  );
+          debugLabel: 'ShellNavigatorSponsorManagmentKey');
 
   final GlobalKey<NavigatorState> shellNavigatorAnnouncementsKey =
-      GlobalKey<NavigatorState>(
-    debugLabel: 'ShellNavigatorAnnouncementsKey',
-  );
+      GlobalKey<NavigatorState>(debugLabel: 'ShellNavigatorAnnouncementsKey');
+
+  final GlobalKey<NavigatorState> shellNavigatorSponsorsKey =
+      GlobalKey<NavigatorState>(debugLabel: 'ShellNavigatorSponsorsKey');
 }

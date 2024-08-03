@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ieee_sst/data/constants/app_colors.dart';
 import 'package:ieee_sst/data/constants/text_styles.dart';
-import 'package:ieee_sst/presentation/admin/event_sponsor_managment/bloc/sponsor_form_bloc.dart';
+import 'package:ieee_sst/presentation/admin/admin_sponsor_managment/bloc/sponsor_form_bloc.dart';
 import 'package:image_picker/image_picker.dart';
 
 class AddSponsorImageButton extends StatelessWidget {

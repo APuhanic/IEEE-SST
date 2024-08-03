@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:ieee_sst/data/constants/app_colors.dart';
-import 'package:ieee_sst/presentation/admin/event_sponsor_managment/widgets/sponsor_list.dart';
+import 'package:ieee_sst/presentation/admin/admin_sponsor_managment/widgets/admin_sponsor_list.dart';
 import 'package:ieee_sst/presentation/common/bloc/sponsors_bloc/bloc/sponsor_managment_bloc.dart';
 import 'package:ieee_sst/presentation/home/widgets/home_screen_drawer.dart';
 
@@ -60,7 +60,7 @@ class SponsorManagmentScreen extends StatelessWidget {
                             child: CircularProgressIndicator(),
                           ),
                           loaded: (state) =>
-                              SponsorList(sponsors: state.sponsors),
+                              AdminSponsorList(sponsors: state.sponsors),
                           error: (state) => Center(
                             child: Text(state.message),
                           ),

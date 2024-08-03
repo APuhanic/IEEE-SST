@@ -46,7 +46,9 @@ class HomeScreenDrawer extends StatelessWidget {
                 ),
                 ListTile(
                   title: const Text('Sponsors'),
-                  onTap: () {},
+                  onTap: () {
+                    context.go(RoutePaths.sponsors);
+                  },
                 ),
                 ListTile(
                   title: const Text('Photos'),

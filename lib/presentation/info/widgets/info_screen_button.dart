@@ -37,7 +37,7 @@ class InfoScreenButton extends StatelessWidget {
                 color: AppColors.primary,
                 size: 50,
               ),
-              const SizedBox(width: 16),
+              const SizedBox(width: 8),
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,

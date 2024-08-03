@@ -6,8 +6,8 @@ import 'package:ieee_sst/data/models/announcement_model/announcement_model.dart'
 import 'package:ieee_sst/data/router/navigator_key_manager.dart';
 import 'package:ieee_sst/presentation/admin/admin_annoucments_managment_screen.dart/screens/create_announcement_screen.dart';
 import 'package:ieee_sst/presentation/admin/admin_event_managment_screen/screens/update_event_screen.dart';
-import 'package:ieee_sst/presentation/admin/event_sponsor_managment/screens/add_sponsor_screen.dart';
-import 'package:ieee_sst/presentation/admin/event_sponsor_managment/screens/sponsors_managment_screen.dart';
+import 'package:ieee_sst/presentation/admin/admin_sponsor_managment/screens/add_sponsor_screen.dart';
+import 'package:ieee_sst/presentation/admin/admin_sponsor_managment/screens/sponsors_managment_screen.dart';
 import 'package:ieee_sst/presentation/admin/admin_event_managment_screen/screens/create_event_screen.dart';
 import 'package:ieee_sst/presentation/admin/admin_event_managment_screen/screens/event_managment_screen.dart';
 import 'package:ieee_sst/presentation/admin/admin_home_screen/screens/admin_home_screen.dart';
@@ -27,6 +27,7 @@ import 'package:ieee_sst/presentation/messages/screens/messages_screen.dart';
 import 'package:ieee_sst/presentation/register/screens/register_screen.dart';
 import 'package:ieee_sst/presentation/register/screens/register_user_data_screen.dart';
 import 'package:ieee_sst/presentation/register/screens/register_user_email_screen.dart';
+import 'package:ieee_sst/presentation/sponsors/screens/sponsors_screen.dart';
 import 'package:injectable/injectable.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
@@ -275,6 +276,18 @@ class AppRouter {
                   ),
                 ],
               ),
+              StatefulShellBranch(
+                navigatorKey: _navigatorKeyManager.shellNavigatorSponsorsKey,
+                routes: [
+                  GoRoute(
+                    path: RoutePaths.sponsors,
+                    pageBuilder: (context, state) => const MaterialPage(
+                      key: ValueKey('SponsorsScreen'),
+                      child: SponsorsScreen(),
+                    ),
+                  )
+                ],
+              )
             ],
           ),
         ],

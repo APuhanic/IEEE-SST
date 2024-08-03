@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ieee_sst/data/models/sponsor_model/sponsor_model.dart';
-import 'package:ieee_sst/presentation/admin/event_sponsor_managment/widgets/sponsor_card.dart';
+import 'package:ieee_sst/presentation/sponsors/widgets/sponsor_card.dart';
 
 class SponsorList extends StatelessWidget {
   const SponsorList({
@@ -13,9 +13,7 @@ class SponsorList extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       child: sponsors.isEmpty
-          ? const Center(
-              child: Text('No sponsors found'),
-            )
+          ? const Center(child: Text('No sponsors found'))
           : ListView.separated(
               padding: const EdgeInsets.symmetric(vertical: 16),
               itemCount: sponsors.length,
