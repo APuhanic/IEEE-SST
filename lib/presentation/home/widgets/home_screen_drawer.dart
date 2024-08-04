@@ -51,10 +51,6 @@ class HomeScreenDrawer extends StatelessWidget {
                   },
                 ),
                 ListTile(
-                  title: const Text('Photos'),
-                  onTap: () {},
-                ),
-                ListTile(
                   title: const Text('Documents'),
                   onTap: () {},
                 ),

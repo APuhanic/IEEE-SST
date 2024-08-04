@@ -15,6 +15,7 @@ class AnnouncementBloc extends Bloc<AnnouncementEvent, AnnouncementState> {
   AnnouncementBloc(this.supabaseAnnouncementRepository)
       : super(const _Initial()) {
     on<_LoadAnnouncements>(_onLoadAnnouncements);
+    on<_DeleteAnnouncement>(_onDeleteAnnouncement);
   }
 
   final SupabaseAnnouncementRepository supabaseAnnouncementRepository;
@@ -26,6 +27,21 @@ class AnnouncementBloc extends Bloc<AnnouncementEvent, AnnouncementState> {
       final announcementsResponse =
           await supabaseAnnouncementRepository.getAllAnnouncements();
       emit(_Loaded(announcementsResponse));
+    } catch (e) {
+      emit(_Error(e.toString()));
+    }
+  }
+
+  FutureOr<void> _onDeleteAnnouncement(
+      _DeleteAnnouncement event, Emitter<AnnouncementState> emit) {
+    try {
+      supabaseAnnouncementRepository.deleteAnnouncement(event.announcementId);
+      if (state is _Loaded) {
+        final announcements = (state as _Loaded).announcements;
+        final updatedAnnouncements =
+            announcements.where((e) => e.id != event.announcementId).toList();
+        emit(_Loaded(updatedAnnouncements));
+      }
     } catch (e) {
       emit(_Error(e.toString()));
     }

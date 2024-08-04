@@ -1,18 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:ieee_sst/data/constants/app_colors.dart';
 import 'package:ieee_sst/data/constants/text_styles.dart';
 import 'package:ieee_sst/data/models/announcement_model/announcement_model.dart';
+import 'package:ieee_sst/presentation/admin/admin_annoucments_managment_screen.dart/bloc/announcement_form_bloc.dart';
+import 'package:ieee_sst/presentation/common/bloc/announcement_bloc/announcement_bloc.dart';
+import 'package:ieee_sst/util/time_ago_util.dart';
 
 class AnnouncementPost extends StatelessWidget {
   const AnnouncementPost({
     super.key,
-    required this.annoucnement,
+    required this.announcement,
     required this.isAdmin,
   });
 
-  final Announcement annoucnement;
+  final Announcement announcement;
   final bool isAdmin;
+
   @override
   Widget build(BuildContext context) {
     // TODO: Add announcement edit and delete?
@@ -20,7 +25,7 @@ class AnnouncementPost extends StatelessWidget {
       onTap: () {
         context.go(
           '/community/organizer_announcements/announcement_post',
-          extra: annoucnement,
+          extra: announcement,
         );
       },
       child: Padding(
@@ -36,22 +41,16 @@ class AnnouncementPost extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                        '${annoucnement.fullName} • ${annoucnement.timeposted} ',
+                        '${announcement.fullName} • ${formatTimeAgo(announcement.timeposted)} ',
                         style: AppTextStyle.lightText),
-                    Text(annoucnement.title, style: AppTextStyle.titleSmall),
-                    Text(annoucnement.description),
+                    Text(announcement.title, style: AppTextStyle.titleSmall),
+                    Text(
+                      announcement.description,
+                      maxLines: 3,
+                      overflow: TextOverflow.ellipsis,
+                    ),
                   ],
                 ),
-              ),
-              Column(
-                children: [
-                  // TODO: Size to row height?
-                  Image.asset(
-                    'assets/images/ieee-sst-logo.png',
-                    width: 100,
-                    height: 100,
-                  ),
-                ],
               ),
               isAdmin
                   ? PopupMenuButton(
@@ -62,11 +61,21 @@ class AnnouncementPost extends StatelessWidget {
                       itemBuilder: (context) => [
                         PopupMenuItem(
                           child: const Text('Edit'),
-                          onTap: () {},
+                          onTap: () {
+                            context.read<AnnouncementFormBloc>().add(
+                                AnnouncementFormEvent.setInitialValues(
+                                    announcement));
+                            context
+                                .go('/admin_announcements/update_announcement');
+                          },
                         ),
                         PopupMenuItem(
                           child: const Text('Delete'),
-                          onTap: () {},
+                          onTap: () {
+                            context.read<AnnouncementBloc>().add(
+                                AnnouncementEvent.deleteAnnouncement(
+                                    announcement.id!));
+                          },
                         )
                       ],
                     )

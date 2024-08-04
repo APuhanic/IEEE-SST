@@ -12,11 +12,12 @@ class EventDescriptionInput extends StatelessWidget {
     return BlocBuilder<EventFormBloc, EventFormState>(
       builder: (context, state) {
         return TextFormField(
-          onChanged: (eventName) {
+          onChanged: (eventDescription) {
             context
                 .read<EventFormBloc>()
-                .add(EventFormEvent.eventDescriptionChanged(eventName));
+                .add(EventFormEvent.eventDescriptionChanged(eventDescription));
           },
+          initialValue: state.description,
           decoration: InputDecoration(
             label: Text('Event description', style: AppTextStyle.textForm),
             hintText: 'Event description',

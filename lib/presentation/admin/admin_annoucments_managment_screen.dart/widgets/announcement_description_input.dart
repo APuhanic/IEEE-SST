@@ -18,6 +18,7 @@ class AnnouncementDescriptionInput extends StatelessWidget {
                 .read<AnnouncementFormBloc>()
                 .add(AnnouncementFormEvent.descriptionChanged(description));
           },
+          initialValue: state.description,
           minLines: 1,
           maxLines: 10,
           decoration: InputDecoration(

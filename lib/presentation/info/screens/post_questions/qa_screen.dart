@@ -1,20 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:ieee_sst/data/constants/app_colors.dart';
-import 'package:ieee_sst/data/constants/text_styles.dart';
-import 'package:ieee_sst/data/models/announcement_model/announcement_model.dart';
-import 'package:ieee_sst/util/time_ago_util.dart';
+import 'package:ieee_sst/presentation/info/widgets/user_post.dart';
 
-class AnnouncementPostScreen extends StatelessWidget {
-  const AnnouncementPostScreen({
+class QaScreen extends StatelessWidget {
+  const QaScreen({
     super.key,
-    required this.announcement,
   });
-
-  final Announcement announcement;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.only(bottom: 48),
+        child: FloatingActionButton(
+          onPressed: () {},
+          backgroundColor: AppColors.primary,
+          elevation: 0,
+          child: const FaIcon(
+            FontAwesomeIcons.circlePlus,
+            color: AppColors.white,
+          ),
+        ),
+      ),
       body: CustomScrollView(
         slivers: <Widget>[
           const SliverAppBar(
@@ -23,6 +31,7 @@ class AnnouncementPostScreen extends StatelessWidget {
             backgroundColor: AppColors.background,
             shadowColor: Colors.transparent,
             surfaceTintColor: AppColors.background,
+            title: Text('Ask Organizers'),
           ),
           SliverList(
             delegate: SliverChildListDelegate(
@@ -33,19 +42,13 @@ class AnnouncementPostScreen extends StatelessWidget {
                     vertical: 8,
                   ),
                   child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                          '${announcement.fullName} • ${formatTimeAgo(announcement.timeposted)} ',
-                          style: AppTextStyle.lightText),
-                      Text(
-                        announcement.title,
-                        style: AppTextStyle.header,
-                      ),
-                      Text(
-                        announcement.description,
-                        style: AppTextStyle.titleSmall,
-                      ),
+                      ListView.separated(
+                        itemCount: 10,
+                        shrinkWrap: true,
+                        itemBuilder: (context, index) => const UserPost(),
+                        separatorBuilder: (context, index) => const Divider(),
+                      )
                     ],
                   ),
                 ),

@@ -21,6 +21,9 @@ mixin _$AnnouncementFormEvent {
     required TResult Function() createAnnouncement,
     required TResult Function(String title) titleChanged,
     required TResult Function(String description) descriptionChanged,
+    required TResult Function() updateAnnouncement,
+    required TResult Function(String announcementId) deleteAnnouncement,
+    required TResult Function(Announcement announcement) setInitialValues,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -28,6 +31,9 @@ mixin _$AnnouncementFormEvent {
     TResult? Function()? createAnnouncement,
     TResult? Function(String title)? titleChanged,
     TResult? Function(String description)? descriptionChanged,
+    TResult? Function()? updateAnnouncement,
+    TResult? Function(String announcementId)? deleteAnnouncement,
+    TResult? Function(Announcement announcement)? setInitialValues,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -35,6 +41,9 @@ mixin _$AnnouncementFormEvent {
     TResult Function()? createAnnouncement,
     TResult Function(String title)? titleChanged,
     TResult Function(String description)? descriptionChanged,
+    TResult Function()? updateAnnouncement,
+    TResult Function(String announcementId)? deleteAnnouncement,
+    TResult Function(Announcement announcement)? setInitialValues,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -43,6 +52,9 @@ mixin _$AnnouncementFormEvent {
     required TResult Function(_CreateAnnouncement value) createAnnouncement,
     required TResult Function(_TitleChanged value) titleChanged,
     required TResult Function(_DescriptionChanged value) descriptionChanged,
+    required TResult Function(_UpdateAnnouncement value) updateAnnouncement,
+    required TResult Function(_DeleteAnnouncement value) deleteAnnouncement,
+    required TResult Function(_SetInitialValues value) setInitialValues,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +62,9 @@ mixin _$AnnouncementFormEvent {
     TResult? Function(_CreateAnnouncement value)? createAnnouncement,
     TResult? Function(_TitleChanged value)? titleChanged,
     TResult? Function(_DescriptionChanged value)? descriptionChanged,
+    TResult? Function(_UpdateAnnouncement value)? updateAnnouncement,
+    TResult? Function(_DeleteAnnouncement value)? deleteAnnouncement,
+    TResult? Function(_SetInitialValues value)? setInitialValues,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,6 +72,9 @@ mixin _$AnnouncementFormEvent {
     TResult Function(_CreateAnnouncement value)? createAnnouncement,
     TResult Function(_TitleChanged value)? titleChanged,
     TResult Function(_DescriptionChanged value)? descriptionChanged,
+    TResult Function(_UpdateAnnouncement value)? updateAnnouncement,
+    TResult Function(_DeleteAnnouncement value)? deleteAnnouncement,
+    TResult Function(_SetInitialValues value)? setInitialValues,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -122,6 +140,9 @@ class _$CreateAnnouncementImpl implements _CreateAnnouncement {
     required TResult Function() createAnnouncement,
     required TResult Function(String title) titleChanged,
     required TResult Function(String description) descriptionChanged,
+    required TResult Function() updateAnnouncement,
+    required TResult Function(String announcementId) deleteAnnouncement,
+    required TResult Function(Announcement announcement) setInitialValues,
   }) {
     return createAnnouncement();
   }
@@ -132,6 +153,9 @@ class _$CreateAnnouncementImpl implements _CreateAnnouncement {
     TResult? Function()? createAnnouncement,
     TResult? Function(String title)? titleChanged,
     TResult? Function(String description)? descriptionChanged,
+    TResult? Function()? updateAnnouncement,
+    TResult? Function(String announcementId)? deleteAnnouncement,
+    TResult? Function(Announcement announcement)? setInitialValues,
   }) {
     return createAnnouncement?.call();
   }
@@ -142,6 +166,9 @@ class _$CreateAnnouncementImpl implements _CreateAnnouncement {
     TResult Function()? createAnnouncement,
     TResult Function(String title)? titleChanged,
     TResult Function(String description)? descriptionChanged,
+    TResult Function()? updateAnnouncement,
+    TResult Function(String announcementId)? deleteAnnouncement,
+    TResult Function(Announcement announcement)? setInitialValues,
     required TResult orElse(),
   }) {
     if (createAnnouncement != null) {
@@ -156,6 +183,9 @@ class _$CreateAnnouncementImpl implements _CreateAnnouncement {
     required TResult Function(_CreateAnnouncement value) createAnnouncement,
     required TResult Function(_TitleChanged value) titleChanged,
     required TResult Function(_DescriptionChanged value) descriptionChanged,
+    required TResult Function(_UpdateAnnouncement value) updateAnnouncement,
+    required TResult Function(_DeleteAnnouncement value) deleteAnnouncement,
+    required TResult Function(_SetInitialValues value) setInitialValues,
   }) {
     return createAnnouncement(this);
   }
@@ -166,6 +196,9 @@ class _$CreateAnnouncementImpl implements _CreateAnnouncement {
     TResult? Function(_CreateAnnouncement value)? createAnnouncement,
     TResult? Function(_TitleChanged value)? titleChanged,
     TResult? Function(_DescriptionChanged value)? descriptionChanged,
+    TResult? Function(_UpdateAnnouncement value)? updateAnnouncement,
+    TResult? Function(_DeleteAnnouncement value)? deleteAnnouncement,
+    TResult? Function(_SetInitialValues value)? setInitialValues,
   }) {
     return createAnnouncement?.call(this);
   }
@@ -176,6 +209,9 @@ class _$CreateAnnouncementImpl implements _CreateAnnouncement {
     TResult Function(_CreateAnnouncement value)? createAnnouncement,
     TResult Function(_TitleChanged value)? titleChanged,
     TResult Function(_DescriptionChanged value)? descriptionChanged,
+    TResult Function(_UpdateAnnouncement value)? updateAnnouncement,
+    TResult Function(_DeleteAnnouncement value)? deleteAnnouncement,
+    TResult Function(_SetInitialValues value)? setInitialValues,
     required TResult orElse(),
   }) {
     if (createAnnouncement != null) {
@@ -256,6 +292,9 @@ class _$TitleChangedImpl implements _TitleChanged {
     required TResult Function() createAnnouncement,
     required TResult Function(String title) titleChanged,
     required TResult Function(String description) descriptionChanged,
+    required TResult Function() updateAnnouncement,
+    required TResult Function(String announcementId) deleteAnnouncement,
+    required TResult Function(Announcement announcement) setInitialValues,
   }) {
     return titleChanged(title);
   }
@@ -266,6 +305,9 @@ class _$TitleChangedImpl implements _TitleChanged {
     TResult? Function()? createAnnouncement,
     TResult? Function(String title)? titleChanged,
     TResult? Function(String description)? descriptionChanged,
+    TResult? Function()? updateAnnouncement,
+    TResult? Function(String announcementId)? deleteAnnouncement,
+    TResult? Function(Announcement announcement)? setInitialValues,
   }) {
     return titleChanged?.call(title);
   }
@@ -276,6 +318,9 @@ class _$TitleChangedImpl implements _TitleChanged {
     TResult Function()? createAnnouncement,
     TResult Function(String title)? titleChanged,
     TResult Function(String description)? descriptionChanged,
+    TResult Function()? updateAnnouncement,
+    TResult Function(String announcementId)? deleteAnnouncement,
+    TResult Function(Announcement announcement)? setInitialValues,
     required TResult orElse(),
   }) {
     if (titleChanged != null) {
@@ -290,6 +335,9 @@ class _$TitleChangedImpl implements _TitleChanged {
     required TResult Function(_CreateAnnouncement value) createAnnouncement,
     required TResult Function(_TitleChanged value) titleChanged,
     required TResult Function(_DescriptionChanged value) descriptionChanged,
+    required TResult Function(_UpdateAnnouncement value) updateAnnouncement,
+    required TResult Function(_DeleteAnnouncement value) deleteAnnouncement,
+    required TResult Function(_SetInitialValues value) setInitialValues,
   }) {
     return titleChanged(this);
   }
@@ -300,6 +348,9 @@ class _$TitleChangedImpl implements _TitleChanged {
     TResult? Function(_CreateAnnouncement value)? createAnnouncement,
     TResult? Function(_TitleChanged value)? titleChanged,
     TResult? Function(_DescriptionChanged value)? descriptionChanged,
+    TResult? Function(_UpdateAnnouncement value)? updateAnnouncement,
+    TResult? Function(_DeleteAnnouncement value)? deleteAnnouncement,
+    TResult? Function(_SetInitialValues value)? setInitialValues,
   }) {
     return titleChanged?.call(this);
   }
@@ -310,6 +361,9 @@ class _$TitleChangedImpl implements _TitleChanged {
     TResult Function(_CreateAnnouncement value)? createAnnouncement,
     TResult Function(_TitleChanged value)? titleChanged,
     TResult Function(_DescriptionChanged value)? descriptionChanged,
+    TResult Function(_UpdateAnnouncement value)? updateAnnouncement,
+    TResult Function(_DeleteAnnouncement value)? deleteAnnouncement,
+    TResult Function(_SetInitialValues value)? setInitialValues,
     required TResult orElse(),
   }) {
     if (titleChanged != null) {
@@ -397,6 +451,9 @@ class _$DescriptionChangedImpl implements _DescriptionChanged {
     required TResult Function() createAnnouncement,
     required TResult Function(String title) titleChanged,
     required TResult Function(String description) descriptionChanged,
+    required TResult Function() updateAnnouncement,
+    required TResult Function(String announcementId) deleteAnnouncement,
+    required TResult Function(Announcement announcement) setInitialValues,
   }) {
     return descriptionChanged(description);
   }
@@ -407,6 +464,9 @@ class _$DescriptionChangedImpl implements _DescriptionChanged {
     TResult? Function()? createAnnouncement,
     TResult? Function(String title)? titleChanged,
     TResult? Function(String description)? descriptionChanged,
+    TResult? Function()? updateAnnouncement,
+    TResult? Function(String announcementId)? deleteAnnouncement,
+    TResult? Function(Announcement announcement)? setInitialValues,
   }) {
     return descriptionChanged?.call(description);
   }
@@ -417,6 +477,9 @@ class _$DescriptionChangedImpl implements _DescriptionChanged {
     TResult Function()? createAnnouncement,
     TResult Function(String title)? titleChanged,
     TResult Function(String description)? descriptionChanged,
+    TResult Function()? updateAnnouncement,
+    TResult Function(String announcementId)? deleteAnnouncement,
+    TResult Function(Announcement announcement)? setInitialValues,
     required TResult orElse(),
   }) {
     if (descriptionChanged != null) {
@@ -431,6 +494,9 @@ class _$DescriptionChangedImpl implements _DescriptionChanged {
     required TResult Function(_CreateAnnouncement value) createAnnouncement,
     required TResult Function(_TitleChanged value) titleChanged,
     required TResult Function(_DescriptionChanged value) descriptionChanged,
+    required TResult Function(_UpdateAnnouncement value) updateAnnouncement,
+    required TResult Function(_DeleteAnnouncement value) deleteAnnouncement,
+    required TResult Function(_SetInitialValues value) setInitialValues,
   }) {
     return descriptionChanged(this);
   }
@@ -441,6 +507,9 @@ class _$DescriptionChangedImpl implements _DescriptionChanged {
     TResult? Function(_CreateAnnouncement value)? createAnnouncement,
     TResult? Function(_TitleChanged value)? titleChanged,
     TResult? Function(_DescriptionChanged value)? descriptionChanged,
+    TResult? Function(_UpdateAnnouncement value)? updateAnnouncement,
+    TResult? Function(_DeleteAnnouncement value)? deleteAnnouncement,
+    TResult? Function(_SetInitialValues value)? setInitialValues,
   }) {
     return descriptionChanged?.call(this);
   }
@@ -451,6 +520,9 @@ class _$DescriptionChangedImpl implements _DescriptionChanged {
     TResult Function(_CreateAnnouncement value)? createAnnouncement,
     TResult Function(_TitleChanged value)? titleChanged,
     TResult Function(_DescriptionChanged value)? descriptionChanged,
+    TResult Function(_UpdateAnnouncement value)? updateAnnouncement,
+    TResult Function(_DeleteAnnouncement value)? deleteAnnouncement,
+    TResult Function(_SetInitialValues value)? setInitialValues,
     required TResult orElse(),
   }) {
     if (descriptionChanged != null) {
@@ -471,12 +543,470 @@ abstract class _DescriptionChanged implements AnnouncementFormEvent {
 }
 
 /// @nodoc
+abstract class _$$UpdateAnnouncementImplCopyWith<$Res> {
+  factory _$$UpdateAnnouncementImplCopyWith(_$UpdateAnnouncementImpl value,
+          $Res Function(_$UpdateAnnouncementImpl) then) =
+      __$$UpdateAnnouncementImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$UpdateAnnouncementImplCopyWithImpl<$Res>
+    extends _$AnnouncementFormEventCopyWithImpl<$Res, _$UpdateAnnouncementImpl>
+    implements _$$UpdateAnnouncementImplCopyWith<$Res> {
+  __$$UpdateAnnouncementImplCopyWithImpl(_$UpdateAnnouncementImpl _value,
+      $Res Function(_$UpdateAnnouncementImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$UpdateAnnouncementImpl implements _UpdateAnnouncement {
+  const _$UpdateAnnouncementImpl();
+
+  @override
+  String toString() {
+    return 'AnnouncementFormEvent.updateAnnouncement()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$UpdateAnnouncementImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() createAnnouncement,
+    required TResult Function(String title) titleChanged,
+    required TResult Function(String description) descriptionChanged,
+    required TResult Function() updateAnnouncement,
+    required TResult Function(String announcementId) deleteAnnouncement,
+    required TResult Function(Announcement announcement) setInitialValues,
+  }) {
+    return updateAnnouncement();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? createAnnouncement,
+    TResult? Function(String title)? titleChanged,
+    TResult? Function(String description)? descriptionChanged,
+    TResult? Function()? updateAnnouncement,
+    TResult? Function(String announcementId)? deleteAnnouncement,
+    TResult? Function(Announcement announcement)? setInitialValues,
+  }) {
+    return updateAnnouncement?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? createAnnouncement,
+    TResult Function(String title)? titleChanged,
+    TResult Function(String description)? descriptionChanged,
+    TResult Function()? updateAnnouncement,
+    TResult Function(String announcementId)? deleteAnnouncement,
+    TResult Function(Announcement announcement)? setInitialValues,
+    required TResult orElse(),
+  }) {
+    if (updateAnnouncement != null) {
+      return updateAnnouncement();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_CreateAnnouncement value) createAnnouncement,
+    required TResult Function(_TitleChanged value) titleChanged,
+    required TResult Function(_DescriptionChanged value) descriptionChanged,
+    required TResult Function(_UpdateAnnouncement value) updateAnnouncement,
+    required TResult Function(_DeleteAnnouncement value) deleteAnnouncement,
+    required TResult Function(_SetInitialValues value) setInitialValues,
+  }) {
+    return updateAnnouncement(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_CreateAnnouncement value)? createAnnouncement,
+    TResult? Function(_TitleChanged value)? titleChanged,
+    TResult? Function(_DescriptionChanged value)? descriptionChanged,
+    TResult? Function(_UpdateAnnouncement value)? updateAnnouncement,
+    TResult? Function(_DeleteAnnouncement value)? deleteAnnouncement,
+    TResult? Function(_SetInitialValues value)? setInitialValues,
+  }) {
+    return updateAnnouncement?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_CreateAnnouncement value)? createAnnouncement,
+    TResult Function(_TitleChanged value)? titleChanged,
+    TResult Function(_DescriptionChanged value)? descriptionChanged,
+    TResult Function(_UpdateAnnouncement value)? updateAnnouncement,
+    TResult Function(_DeleteAnnouncement value)? deleteAnnouncement,
+    TResult Function(_SetInitialValues value)? setInitialValues,
+    required TResult orElse(),
+  }) {
+    if (updateAnnouncement != null) {
+      return updateAnnouncement(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UpdateAnnouncement implements AnnouncementFormEvent {
+  const factory _UpdateAnnouncement() = _$UpdateAnnouncementImpl;
+}
+
+/// @nodoc
+abstract class _$$DeleteAnnouncementImplCopyWith<$Res> {
+  factory _$$DeleteAnnouncementImplCopyWith(_$DeleteAnnouncementImpl value,
+          $Res Function(_$DeleteAnnouncementImpl) then) =
+      __$$DeleteAnnouncementImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String announcementId});
+}
+
+/// @nodoc
+class __$$DeleteAnnouncementImplCopyWithImpl<$Res>
+    extends _$AnnouncementFormEventCopyWithImpl<$Res, _$DeleteAnnouncementImpl>
+    implements _$$DeleteAnnouncementImplCopyWith<$Res> {
+  __$$DeleteAnnouncementImplCopyWithImpl(_$DeleteAnnouncementImpl _value,
+      $Res Function(_$DeleteAnnouncementImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? announcementId = null,
+  }) {
+    return _then(_$DeleteAnnouncementImpl(
+      null == announcementId
+          ? _value.announcementId
+          : announcementId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$DeleteAnnouncementImpl implements _DeleteAnnouncement {
+  const _$DeleteAnnouncementImpl(this.announcementId);
+
+  @override
+  final String announcementId;
+
+  @override
+  String toString() {
+    return 'AnnouncementFormEvent.deleteAnnouncement(announcementId: $announcementId)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DeleteAnnouncementImpl &&
+            (identical(other.announcementId, announcementId) ||
+                other.announcementId == announcementId));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, announcementId);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DeleteAnnouncementImplCopyWith<_$DeleteAnnouncementImpl> get copyWith =>
+      __$$DeleteAnnouncementImplCopyWithImpl<_$DeleteAnnouncementImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() createAnnouncement,
+    required TResult Function(String title) titleChanged,
+    required TResult Function(String description) descriptionChanged,
+    required TResult Function() updateAnnouncement,
+    required TResult Function(String announcementId) deleteAnnouncement,
+    required TResult Function(Announcement announcement) setInitialValues,
+  }) {
+    return deleteAnnouncement(announcementId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? createAnnouncement,
+    TResult? Function(String title)? titleChanged,
+    TResult? Function(String description)? descriptionChanged,
+    TResult? Function()? updateAnnouncement,
+    TResult? Function(String announcementId)? deleteAnnouncement,
+    TResult? Function(Announcement announcement)? setInitialValues,
+  }) {
+    return deleteAnnouncement?.call(announcementId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? createAnnouncement,
+    TResult Function(String title)? titleChanged,
+    TResult Function(String description)? descriptionChanged,
+    TResult Function()? updateAnnouncement,
+    TResult Function(String announcementId)? deleteAnnouncement,
+    TResult Function(Announcement announcement)? setInitialValues,
+    required TResult orElse(),
+  }) {
+    if (deleteAnnouncement != null) {
+      return deleteAnnouncement(announcementId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_CreateAnnouncement value) createAnnouncement,
+    required TResult Function(_TitleChanged value) titleChanged,
+    required TResult Function(_DescriptionChanged value) descriptionChanged,
+    required TResult Function(_UpdateAnnouncement value) updateAnnouncement,
+    required TResult Function(_DeleteAnnouncement value) deleteAnnouncement,
+    required TResult Function(_SetInitialValues value) setInitialValues,
+  }) {
+    return deleteAnnouncement(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_CreateAnnouncement value)? createAnnouncement,
+    TResult? Function(_TitleChanged value)? titleChanged,
+    TResult? Function(_DescriptionChanged value)? descriptionChanged,
+    TResult? Function(_UpdateAnnouncement value)? updateAnnouncement,
+    TResult? Function(_DeleteAnnouncement value)? deleteAnnouncement,
+    TResult? Function(_SetInitialValues value)? setInitialValues,
+  }) {
+    return deleteAnnouncement?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_CreateAnnouncement value)? createAnnouncement,
+    TResult Function(_TitleChanged value)? titleChanged,
+    TResult Function(_DescriptionChanged value)? descriptionChanged,
+    TResult Function(_UpdateAnnouncement value)? updateAnnouncement,
+    TResult Function(_DeleteAnnouncement value)? deleteAnnouncement,
+    TResult Function(_SetInitialValues value)? setInitialValues,
+    required TResult orElse(),
+  }) {
+    if (deleteAnnouncement != null) {
+      return deleteAnnouncement(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _DeleteAnnouncement implements AnnouncementFormEvent {
+  const factory _DeleteAnnouncement(final String announcementId) =
+      _$DeleteAnnouncementImpl;
+
+  String get announcementId;
+  @JsonKey(ignore: true)
+  _$$DeleteAnnouncementImplCopyWith<_$DeleteAnnouncementImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SetInitialValuesImplCopyWith<$Res> {
+  factory _$$SetInitialValuesImplCopyWith(_$SetInitialValuesImpl value,
+          $Res Function(_$SetInitialValuesImpl) then) =
+      __$$SetInitialValuesImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Announcement announcement});
+
+  $AnnouncementCopyWith<$Res> get announcement;
+}
+
+/// @nodoc
+class __$$SetInitialValuesImplCopyWithImpl<$Res>
+    extends _$AnnouncementFormEventCopyWithImpl<$Res, _$SetInitialValuesImpl>
+    implements _$$SetInitialValuesImplCopyWith<$Res> {
+  __$$SetInitialValuesImplCopyWithImpl(_$SetInitialValuesImpl _value,
+      $Res Function(_$SetInitialValuesImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? announcement = null,
+  }) {
+    return _then(_$SetInitialValuesImpl(
+      null == announcement
+          ? _value.announcement
+          : announcement // ignore: cast_nullable_to_non_nullable
+              as Announcement,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $AnnouncementCopyWith<$Res> get announcement {
+    return $AnnouncementCopyWith<$Res>(_value.announcement, (value) {
+      return _then(_value.copyWith(announcement: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$SetInitialValuesImpl implements _SetInitialValues {
+  const _$SetInitialValuesImpl(this.announcement);
+
+  @override
+  final Announcement announcement;
+
+  @override
+  String toString() {
+    return 'AnnouncementFormEvent.setInitialValues(announcement: $announcement)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SetInitialValuesImpl &&
+            (identical(other.announcement, announcement) ||
+                other.announcement == announcement));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, announcement);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SetInitialValuesImplCopyWith<_$SetInitialValuesImpl> get copyWith =>
+      __$$SetInitialValuesImplCopyWithImpl<_$SetInitialValuesImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() createAnnouncement,
+    required TResult Function(String title) titleChanged,
+    required TResult Function(String description) descriptionChanged,
+    required TResult Function() updateAnnouncement,
+    required TResult Function(String announcementId) deleteAnnouncement,
+    required TResult Function(Announcement announcement) setInitialValues,
+  }) {
+    return setInitialValues(announcement);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? createAnnouncement,
+    TResult? Function(String title)? titleChanged,
+    TResult? Function(String description)? descriptionChanged,
+    TResult? Function()? updateAnnouncement,
+    TResult? Function(String announcementId)? deleteAnnouncement,
+    TResult? Function(Announcement announcement)? setInitialValues,
+  }) {
+    return setInitialValues?.call(announcement);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? createAnnouncement,
+    TResult Function(String title)? titleChanged,
+    TResult Function(String description)? descriptionChanged,
+    TResult Function()? updateAnnouncement,
+    TResult Function(String announcementId)? deleteAnnouncement,
+    TResult Function(Announcement announcement)? setInitialValues,
+    required TResult orElse(),
+  }) {
+    if (setInitialValues != null) {
+      return setInitialValues(announcement);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_CreateAnnouncement value) createAnnouncement,
+    required TResult Function(_TitleChanged value) titleChanged,
+    required TResult Function(_DescriptionChanged value) descriptionChanged,
+    required TResult Function(_UpdateAnnouncement value) updateAnnouncement,
+    required TResult Function(_DeleteAnnouncement value) deleteAnnouncement,
+    required TResult Function(_SetInitialValues value) setInitialValues,
+  }) {
+    return setInitialValues(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_CreateAnnouncement value)? createAnnouncement,
+    TResult? Function(_TitleChanged value)? titleChanged,
+    TResult? Function(_DescriptionChanged value)? descriptionChanged,
+    TResult? Function(_UpdateAnnouncement value)? updateAnnouncement,
+    TResult? Function(_DeleteAnnouncement value)? deleteAnnouncement,
+    TResult? Function(_SetInitialValues value)? setInitialValues,
+  }) {
+    return setInitialValues?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_CreateAnnouncement value)? createAnnouncement,
+    TResult Function(_TitleChanged value)? titleChanged,
+    TResult Function(_DescriptionChanged value)? descriptionChanged,
+    TResult Function(_UpdateAnnouncement value)? updateAnnouncement,
+    TResult Function(_DeleteAnnouncement value)? deleteAnnouncement,
+    TResult Function(_SetInitialValues value)? setInitialValues,
+    required TResult orElse(),
+  }) {
+    if (setInitialValues != null) {
+      return setInitialValues(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SetInitialValues implements AnnouncementFormEvent {
+  const factory _SetInitialValues(final Announcement announcement) =
+      _$SetInitialValuesImpl;
+
+  Announcement get announcement;
+  @JsonKey(ignore: true)
+  _$$SetInitialValuesImplCopyWith<_$SetInitialValuesImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$AnnouncementFormState {
   String? get id => throw _privateConstructorUsedError;
   FormzSubmissionStatus get status => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
   String get errorMessage => throw _privateConstructorUsedError;
+  String get timeposted => throw _privateConstructorUsedError;
+  String get fullName => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AnnouncementFormStateCopyWith<AnnouncementFormState> get copyWith =>
@@ -494,7 +1024,9 @@ abstract class $AnnouncementFormStateCopyWith<$Res> {
       FormzSubmissionStatus status,
       String title,
       String description,
-      String errorMessage});
+      String errorMessage,
+      String timeposted,
+      String fullName});
 }
 
 /// @nodoc
@@ -516,6 +1048,8 @@ class _$AnnouncementFormStateCopyWithImpl<$Res,
     Object? title = null,
     Object? description = null,
     Object? errorMessage = null,
+    Object? timeposted = null,
+    Object? fullName = null,
   }) {
     return _then(_value.copyWith(
       id: freezed == id
@@ -538,6 +1072,14 @@ class _$AnnouncementFormStateCopyWithImpl<$Res,
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
               as String,
+      timeposted: null == timeposted
+          ? _value.timeposted
+          : timeposted // ignore: cast_nullable_to_non_nullable
+              as String,
+      fullName: null == fullName
+          ? _value.fullName
+          : fullName // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -556,7 +1098,9 @@ abstract class _$$AnnouncementFormStateImplCopyWith<$Res>
       FormzSubmissionStatus status,
       String title,
       String description,
-      String errorMessage});
+      String errorMessage,
+      String timeposted,
+      String fullName});
 }
 
 /// @nodoc
@@ -576,6 +1120,8 @@ class __$$AnnouncementFormStateImplCopyWithImpl<$Res>
     Object? title = null,
     Object? description = null,
     Object? errorMessage = null,
+    Object? timeposted = null,
+    Object? fullName = null,
   }) {
     return _then(_$AnnouncementFormStateImpl(
       id: freezed == id
@@ -598,6 +1144,14 @@ class __$$AnnouncementFormStateImplCopyWithImpl<$Res>
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
               as String,
+      timeposted: null == timeposted
+          ? _value.timeposted
+          : timeposted // ignore: cast_nullable_to_non_nullable
+              as String,
+      fullName: null == fullName
+          ? _value.fullName
+          : fullName // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -610,7 +1164,9 @@ class _$AnnouncementFormStateImpl implements _AnnouncementFormState {
       this.status = FormzSubmissionStatus.initial,
       this.title = '',
       this.description = '',
-      this.errorMessage = ''});
+      this.errorMessage = '',
+      this.timeposted = '',
+      this.fullName = ''});
 
   @override
   final String? id;
@@ -626,10 +1182,16 @@ class _$AnnouncementFormStateImpl implements _AnnouncementFormState {
   @override
   @JsonKey()
   final String errorMessage;
+  @override
+  @JsonKey()
+  final String timeposted;
+  @override
+  @JsonKey()
+  final String fullName;
 
   @override
   String toString() {
-    return 'AnnouncementFormState(id: $id, status: $status, title: $title, description: $description, errorMessage: $errorMessage)';
+    return 'AnnouncementFormState(id: $id, status: $status, title: $title, description: $description, errorMessage: $errorMessage, timeposted: $timeposted, fullName: $fullName)';
   }
 
   @override
@@ -643,12 +1205,16 @@ class _$AnnouncementFormStateImpl implements _AnnouncementFormState {
             (identical(other.description, description) ||
                 other.description == description) &&
             (identical(other.errorMessage, errorMessage) ||
-                other.errorMessage == errorMessage));
+                other.errorMessage == errorMessage) &&
+            (identical(other.timeposted, timeposted) ||
+                other.timeposted == timeposted) &&
+            (identical(other.fullName, fullName) ||
+                other.fullName == fullName));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, status, title, description, errorMessage);
+  int get hashCode => Object.hash(runtimeType, id, status, title, description,
+      errorMessage, timeposted, fullName);
 
   @JsonKey(ignore: true)
   @override
@@ -664,7 +1230,9 @@ abstract class _AnnouncementFormState implements AnnouncementFormState {
       final FormzSubmissionStatus status,
       final String title,
       final String description,
-      final String errorMessage}) = _$AnnouncementFormStateImpl;
+      final String errorMessage,
+      final String timeposted,
+      final String fullName}) = _$AnnouncementFormStateImpl;
 
   @override
   String? get id;
@@ -676,6 +1244,10 @@ abstract class _AnnouncementFormState implements AnnouncementFormState {
   String get description;
   @override
   String get errorMessage;
+  @override
+  String get timeposted;
+  @override
+  String get fullName;
   @override
   @JsonKey(ignore: true)
   _$$AnnouncementFormStateImplCopyWith<_$AnnouncementFormStateImpl>

@@ -34,4 +34,23 @@ class SupabaseAnnouncementApi {
       throw Exception(e);
     }
   }
+
+  Future<void> deleteAnnouncement(String announcementId) async {
+    try {
+      await _supabaseClient
+          .from('announcements')
+          .delete()
+          .eq('id', announcementId);
+    } catch (e) {
+      throw Exception(e);
+    }
+  }
+
+  Future<void> updateAnnouncement(Map<String, dynamic> announcement) async {
+    try {
+      await _supabaseClient.from('announcements').upsert(announcement);
+    } catch (e) {
+      throw Exception(e);
+    }
+  }
 }

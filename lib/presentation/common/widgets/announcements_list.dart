@@ -17,9 +17,10 @@ class AnnouncemetsList extends StatelessWidget {
     return ListView.separated(
       itemCount: announcements.length,
       shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
       separatorBuilder: (context, index) => const Divider(),
       itemBuilder: (context, index) => AnnouncementPost(
-        annoucnement: announcements[index],
+        announcement: announcements[index],
         isAdmin: isAdmin,
       ),
     );

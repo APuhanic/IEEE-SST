@@ -38,12 +38,12 @@ class CreateEventScreen extends StatelessWidget {
         },
         builder: (context, state) {
           return CustomScrollView(slivers: [
-            SliverAppBar(
+            const SliverAppBar(
               expandedHeight: 40.0,
               backgroundColor: AppColors.background,
               shadowColor: Colors.transparent,
               surfaceTintColor: AppColors.background,
-              title: Text('Create event', style: AppTextStyle.titleSmall),
+              title: Text('Create event'),
             ),
             SliverList(
               delegate: SliverChildListDelegate([

@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:formz/formz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:ieee_sst/data/models/announcement_model/announcement_model.dart';
 import 'package:ieee_sst/data/repositories/supabase_announcement_repository.dart';
 import 'package:injectable/injectable.dart';
 
@@ -18,6 +19,8 @@ class AnnouncementFormBloc
     on<_CreateAnnouncement>(_onCreateAnnouncement);
     on<_TitleChanged>(_onTitleChanged);
     on<_DescriptionChanged>(_onDescriptionChanged);
+    on<_SetInitialValues>(_onSetInitialValues);
+    on<_UpdateAnnouncement>(_onUpdateAnnouncement);
   }
 
   final SupabaseAnnouncementRepository _supabaseAnnouncementRepository;
@@ -45,5 +48,32 @@ class AnnouncementFormBloc
   FutureOr<void> _onDescriptionChanged(
       _DescriptionChanged event, Emitter<AnnouncementFormState> emit) {
     emit(state.copyWith(description: event.description));
+  }
+
+  FutureOr<void> _onSetInitialValues(
+      _SetInitialValues event, Emitter<AnnouncementFormState> emit) {
+    emit(
+      state.copyWith(
+          title: event.announcement.title,
+          description: event.announcement.description),
+    );
+  }
+
+  FutureOr<void> _onUpdateAnnouncement(
+      _UpdateAnnouncement event, Emitter<AnnouncementFormState> emit) {
+    emit(state.copyWith(status: FormzSubmissionStatus.inProgress));
+    try {
+      final announcement = Announcement(
+          id: state.id,
+          title: state.title,
+          description: state.description,
+          timeposted: state.timeposted,
+          fullName: state.fullName);
+      _supabaseAnnouncementRepository.updateAnnouncement(announcement);
+      emit(state.copyWith(status: FormzSubmissionStatus.success));
+    } catch (e) {
+      emit(state.copyWith(
+          status: FormzSubmissionStatus.failure, errorMessage: e.toString()));
+    }
   }
 }

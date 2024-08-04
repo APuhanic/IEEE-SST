@@ -8,5 +8,7 @@ class AnnouncementFormState with _$AnnouncementFormState {
     @Default('') String title,
     @Default('') String description,
     @Default('') String errorMessage,
+    @Default('') String timeposted,
+    @Default('') String fullName,
   }) = _AnnouncementFormState;
 }

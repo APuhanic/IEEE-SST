@@ -19,32 +19,38 @@ mixin _$AnnouncementEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loadAnnouncements,
+    required TResult Function(String announcementId) deleteAnnouncement,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loadAnnouncements,
+    TResult? Function(String announcementId)? deleteAnnouncement,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loadAnnouncements,
+    TResult Function(String announcementId)? deleteAnnouncement,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_LoadAnnouncements value) loadAnnouncements,
+    required TResult Function(_DeleteAnnouncement value) deleteAnnouncement,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoadAnnouncements value)? loadAnnouncements,
+    TResult? Function(_DeleteAnnouncement value)? deleteAnnouncement,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoadAnnouncements value)? loadAnnouncements,
+    TResult Function(_DeleteAnnouncement value)? deleteAnnouncement,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -107,6 +113,7 @@ class _$LoadAnnouncementsImpl implements _LoadAnnouncements {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loadAnnouncements,
+    required TResult Function(String announcementId) deleteAnnouncement,
   }) {
     return loadAnnouncements();
   }
@@ -115,6 +122,7 @@ class _$LoadAnnouncementsImpl implements _LoadAnnouncements {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loadAnnouncements,
+    TResult? Function(String announcementId)? deleteAnnouncement,
   }) {
     return loadAnnouncements?.call();
   }
@@ -123,6 +131,7 @@ class _$LoadAnnouncementsImpl implements _LoadAnnouncements {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loadAnnouncements,
+    TResult Function(String announcementId)? deleteAnnouncement,
     required TResult orElse(),
   }) {
     if (loadAnnouncements != null) {
@@ -135,6 +144,7 @@ class _$LoadAnnouncementsImpl implements _LoadAnnouncements {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_LoadAnnouncements value) loadAnnouncements,
+    required TResult Function(_DeleteAnnouncement value) deleteAnnouncement,
   }) {
     return loadAnnouncements(this);
   }
@@ -143,6 +153,7 @@ class _$LoadAnnouncementsImpl implements _LoadAnnouncements {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoadAnnouncements value)? loadAnnouncements,
+    TResult? Function(_DeleteAnnouncement value)? deleteAnnouncement,
   }) {
     return loadAnnouncements?.call(this);
   }
@@ -151,6 +162,7 @@ class _$LoadAnnouncementsImpl implements _LoadAnnouncements {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoadAnnouncements value)? loadAnnouncements,
+    TResult Function(_DeleteAnnouncement value)? deleteAnnouncement,
     required TResult orElse(),
   }) {
     if (loadAnnouncements != null) {
@@ -162,6 +174,142 @@ class _$LoadAnnouncementsImpl implements _LoadAnnouncements {
 
 abstract class _LoadAnnouncements implements AnnouncementEvent {
   const factory _LoadAnnouncements() = _$LoadAnnouncementsImpl;
+}
+
+/// @nodoc
+abstract class _$$DeleteAnnouncementImplCopyWith<$Res> {
+  factory _$$DeleteAnnouncementImplCopyWith(_$DeleteAnnouncementImpl value,
+          $Res Function(_$DeleteAnnouncementImpl) then) =
+      __$$DeleteAnnouncementImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String announcementId});
+}
+
+/// @nodoc
+class __$$DeleteAnnouncementImplCopyWithImpl<$Res>
+    extends _$AnnouncementEventCopyWithImpl<$Res, _$DeleteAnnouncementImpl>
+    implements _$$DeleteAnnouncementImplCopyWith<$Res> {
+  __$$DeleteAnnouncementImplCopyWithImpl(_$DeleteAnnouncementImpl _value,
+      $Res Function(_$DeleteAnnouncementImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? announcementId = null,
+  }) {
+    return _then(_$DeleteAnnouncementImpl(
+      null == announcementId
+          ? _value.announcementId
+          : announcementId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$DeleteAnnouncementImpl implements _DeleteAnnouncement {
+  const _$DeleteAnnouncementImpl(this.announcementId);
+
+  @override
+  final String announcementId;
+
+  @override
+  String toString() {
+    return 'AnnouncementEvent.deleteAnnouncement(announcementId: $announcementId)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DeleteAnnouncementImpl &&
+            (identical(other.announcementId, announcementId) ||
+                other.announcementId == announcementId));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, announcementId);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DeleteAnnouncementImplCopyWith<_$DeleteAnnouncementImpl> get copyWith =>
+      __$$DeleteAnnouncementImplCopyWithImpl<_$DeleteAnnouncementImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loadAnnouncements,
+    required TResult Function(String announcementId) deleteAnnouncement,
+  }) {
+    return deleteAnnouncement(announcementId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loadAnnouncements,
+    TResult? Function(String announcementId)? deleteAnnouncement,
+  }) {
+    return deleteAnnouncement?.call(announcementId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loadAnnouncements,
+    TResult Function(String announcementId)? deleteAnnouncement,
+    required TResult orElse(),
+  }) {
+    if (deleteAnnouncement != null) {
+      return deleteAnnouncement(announcementId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadAnnouncements value) loadAnnouncements,
+    required TResult Function(_DeleteAnnouncement value) deleteAnnouncement,
+  }) {
+    return deleteAnnouncement(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadAnnouncements value)? loadAnnouncements,
+    TResult? Function(_DeleteAnnouncement value)? deleteAnnouncement,
+  }) {
+    return deleteAnnouncement?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadAnnouncements value)? loadAnnouncements,
+    TResult Function(_DeleteAnnouncement value)? deleteAnnouncement,
+    required TResult orElse(),
+  }) {
+    if (deleteAnnouncement != null) {
+      return deleteAnnouncement(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _DeleteAnnouncement implements AnnouncementEvent {
+  const factory _DeleteAnnouncement(final String announcementId) =
+      _$DeleteAnnouncementImpl;
+
+  String get announcementId;
+  @JsonKey(ignore: true)
+  _$$DeleteAnnouncementImplCopyWith<_$DeleteAnnouncementImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc

@@ -5,6 +5,7 @@ import 'package:ieee_sst/data/constants/user_roles.dart';
 import 'package:ieee_sst/data/models/announcement_model/announcement_model.dart';
 import 'package:ieee_sst/data/router/navigator_key_manager.dart';
 import 'package:ieee_sst/presentation/admin/admin_annoucments_managment_screen.dart/screens/create_announcement_screen.dart';
+import 'package:ieee_sst/presentation/admin/admin_annoucments_managment_screen.dart/screens/update_announcement_screen.dart';
 import 'package:ieee_sst/presentation/admin/admin_event_managment_screen/screens/update_event_screen.dart';
 import 'package:ieee_sst/presentation/admin/admin_sponsor_managment/screens/add_sponsor_screen.dart';
 import 'package:ieee_sst/presentation/admin/admin_sponsor_managment/screens/sponsors_managment_screen.dart';
@@ -163,7 +164,14 @@ class AppRouter {
                             key: ValueKey('CreateAnnouncementScreen'),
                             child: CreateAnnouncementScreen(),
                           ),
-                        )
+                        ),
+                        GoRoute(
+                          path: RoutePaths.subRouteUpdateAnnouncement,
+                          pageBuilder: (context, state) => const MaterialPage(
+                            key: ValueKey('UpdateAnnouncementScreen'),
+                            child: UpdateAnnouncementScreen(),
+                          ),
+                        ),
                       ])
                 ],
               )

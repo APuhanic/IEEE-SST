@@ -4,18 +4,27 @@ import 'package:injectable/injectable.dart';
 
 @LazySingleton()
 class SupabaseAnnouncementRepository {
-  final SupabaseAnnouncementApi _supabaseApi;
+  final SupabaseAnnouncementApi _supabaseAnnouncementApi;
 
-  SupabaseAnnouncementRepository(this._supabaseApi);
+  SupabaseAnnouncementRepository(this._supabaseAnnouncementApi);
 
   Future<List<Announcement>> getAllAnnouncements() async {
-    final announcementResponse = await _supabaseApi.fetchAnnouncements();
+    final announcementResponse =
+        await _supabaseAnnouncementApi.fetchAnnouncements();
     return announcementResponse
         .map((announcement) => Announcement.fromJson(announcement))
         .toList();
   }
 
   Future<void> postAnnouncement(String title, String description) async {
-    await _supabaseApi.postAnnouncement(title, description);
+    await _supabaseAnnouncementApi.postAnnouncement(title, description);
+  }
+
+  Future<void> deleteAnnouncement(String announcementId) {
+    return _supabaseAnnouncementApi.deleteAnnouncement(announcementId);
+  }
+
+  Future<void> updateAnnouncement(Announcement announcement) {
+    return _supabaseAnnouncementApi.updateAnnouncement(announcement.toJson());
   }
 }

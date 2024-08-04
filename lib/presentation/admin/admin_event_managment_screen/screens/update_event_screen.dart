@@ -6,6 +6,7 @@ import 'package:ieee_sst/data/constants/text_styles.dart';
 import 'package:ieee_sst/presentation/admin/admin_event_managment_screen/bloc/event_form_bloc.dart';
 import 'package:ieee_sst/presentation/admin/admin_event_managment_screen/widgets/event_date_input.dart';
 import 'package:ieee_sst/presentation/admin/admin_event_managment_screen/widgets/event_description_input.dart';
+import 'package:ieee_sst/presentation/admin/admin_event_managment_screen/widgets/event_info_input.dart';
 import 'package:ieee_sst/presentation/admin/admin_event_managment_screen/widgets/event_location_input.dart';
 import 'package:ieee_sst/presentation/admin/admin_event_managment_screen/widgets/event_name_input.dart';
 import 'package:ieee_sst/presentation/admin/admin_event_managment_screen/widgets/event_speaker_input.dart';
@@ -37,12 +38,12 @@ class UpdateEventScreen extends StatelessWidget {
         builder: (context, state) {
           return CustomScrollView(
             slivers: [
-              SliverAppBar(
+              const SliverAppBar(
                 expandedHeight: 40.0,
                 backgroundColor: AppColors.background,
                 shadowColor: Colors.transparent,
                 surfaceTintColor: AppColors.background,
-                title: Text('Update event', style: AppTextStyle.titleSmall),
+                title: Text('Update event'),
               ),
               SliverList(
                 delegate: SliverChildListDelegate([
@@ -68,9 +69,21 @@ class UpdateEventScreen extends StatelessWidget {
                           ),
                         ),
                         const EventSpeakerInput(),
+                        const Padding(
+                          padding: EdgeInsets.symmetric(vertical: 24.0),
+                          child: EventInfoInput(),
+                        ),
                         const SizedBox(height: 24),
                         // TODO: Extract widget and add validation
                         ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: AppColors.primary,
+                            foregroundColor: AppColors.white,
+                            textStyle: AppTextStyle.button,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                          ),
                           onPressed: () {
                             context
                                 .read<EventFormBloc>()

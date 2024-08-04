@@ -8,4 +8,10 @@ class AnnouncementFormEvent with _$AnnouncementFormEvent {
       _TitleChanged;
   const factory AnnouncementFormEvent.descriptionChanged(String description) =
       _DescriptionChanged;
+  const factory AnnouncementFormEvent.updateAnnouncement() =
+      _UpdateAnnouncement;
+  const factory AnnouncementFormEvent.deleteAnnouncement(
+      String announcementId) = _DeleteAnnouncement;
+  const factory AnnouncementFormEvent.setInitialValues(
+      Announcement announcement) = _SetInitialValues;
 }
