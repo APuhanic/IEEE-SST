@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 import 'package:ieee_sst/data/constants/app_colors.dart';
-import 'package:ieee_sst/presentation/info/widgets/user_post.dart';
+import 'package:ieee_sst/presentation/info/question_posts/bloc/post_managment_bloc/post_managment_bloc.dart';
+import 'package:ieee_sst/presentation/info/question_posts/widgets/user_post_list.dart';
 
-// TODO: Rename to something smarter
 class UserPostsScreen extends StatelessWidget {
   const UserPostsScreen({
     super.key,
@@ -12,6 +13,7 @@ class UserPostsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    context.read<PostManagmentBloc>().add(const PostManagmentEvent.loadPosts());
     return Scaffold(
       floatingActionButton: Padding(
         padding: const EdgeInsets.only(bottom: 48),
@@ -40,21 +42,18 @@ class UserPostsScreen extends StatelessWidget {
           SliverList(
             delegate: SliverChildListDelegate(
               [
-                Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 16,
-                    vertical: 8,
-                  ),
-                  child: Column(
-                    children: [
-                      ListView.separated(
-                        itemCount: 10,
-                        shrinkWrap: true,
-                        itemBuilder: (context, index) => const UserPost(),
-                        separatorBuilder: (context, index) => const Divider(),
-                      )
-                    ],
-                  ),
+                BlocBuilder<PostManagmentBloc, PostManagmentState>(
+                  builder: (context, state) {
+                    return state.maybeWhen(
+                        loaded: (posts) => UserPostsList(posts: posts),
+                        loading: () => const Center(
+                              child: CircularProgressIndicator(),
+                            ),
+                        error: (message) => Center(
+                              child: Text(message),
+                            ),
+                        orElse: () => const SizedBox.shrink());
+                  },
                 ),
               ],
             ),

@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:ieee_sst/data/constants/app_colors.dart';
 import 'package:ieee_sst/data/constants/text_styles.dart';
-import 'package:ieee_sst/data/models/announcement_model/announcement_model.dart';
+import 'package:ieee_sst/data/models/post_model/post_model.dart';
 import 'package:ieee_sst/util/time_ago_util.dart';
 
 class PostScreen extends StatelessWidget {
   const PostScreen({
     super.key,
-    required this.announcement,
+    required this.post,
   });
 
-  final Announcement announcement;
+  final Post post;
 
   @override
   Widget build(BuildContext context) {
@@ -36,16 +36,12 @@ class PostScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                          '${announcement.fullName} • ${formatTimeAgo(announcement.timeposted)} ',
-                          style: AppTextStyle.lightText),
-                      Text(
-                        announcement.title,
-                        style: AppTextStyle.header,
+                        '${post.fullName} • ${formatTimeAgo(post.timePosted)}',
+                        style: AppTextStyle.lightText,
                       ),
-                      Text(
-                        announcement.description,
-                        style: AppTextStyle.titleSmall,
-                      ),
+                      Text(post.title, style: AppTextStyle.titleLarge),
+                      Text(post.content, style: AppTextStyle.lightText),
+                      const Divider(),
                     ],
                   ),
                 ),

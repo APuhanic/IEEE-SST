@@ -14,9 +14,9 @@ class EventInfoInput extends StatelessWidget {
     return BlocBuilder<EventFormBloc, EventFormState>(
       builder: (context, state) {
         return TextFormField(
-          onChanged: (eventName) => context
+          onChanged: (eventInfo) => context
               .read<EventFormBloc>()
-              .add(EventFormEvent.eventInfoChanged(eventName)),
+              .add(EventFormEvent.eventInfoChanged(eventInfo)),
           initialValue: state.info,
           decoration: InputDecoration(
             label: Text('Additional info', style: AppTextStyle.textForm),

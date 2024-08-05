@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:formz/formz.dart';
 import 'package:ieee_sst/data/constants/app_colors.dart';
 import 'package:ieee_sst/data/constants/text_styles.dart';
-import 'package:ieee_sst/presentation/admin/admin_annoucments_managment_screen.dart/bloc/announcement_form_bloc.dart';
+import 'package:ieee_sst/presentation/info/question_posts/bloc/post_form_bloc.dart';
 import 'package:ieee_sst/presentation/info/question_posts/widgets/post_description_input.dart';
 import 'package:ieee_sst/presentation/info/question_posts/widgets/post_title_input.dart';
 
@@ -13,7 +13,7 @@ class CreatePostScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: BlocConsumer<AnnouncementFormBloc, AnnouncementFormState>(
+      body: BlocConsumer<PostFormBloc, PostFormState>(
         listener: (context, state) {
           if (state.status.isSuccess) {
             debugPrint('Post created successfully');
@@ -58,9 +58,9 @@ class CreatePostScreen extends StatelessWidget {
                               foregroundColor: AppColors.white,
                               textStyle: AppTextStyle.button),
                           onPressed: () {
-                            context.read<AnnouncementFormBloc>().add(
-                                const AnnouncementFormEvent
-                                    .createAnnouncement());
+                            context
+                                .read<PostFormBloc>()
+                                .add(const PostFormEvent.createPost());
                           },
                           child: const Text('Post'),
                         ),

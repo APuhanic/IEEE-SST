@@ -22,29 +22,33 @@ import '../data/providers/global_bloc_observer.dart' as _i6;
 import '../data/repositories/announcement_repository.dart' as _i16;
 import '../data/repositories/auth_repository.dart' as _i14;
 import '../data/repositories/event_repository.dart' as _i20;
+import '../data/repositories/post_repository.dart' as _i21;
 import '../data/repositories/profile_repository.dart' as _i19;
 import '../data/repositories/sponsor_repository.dart' as _i15;
 import '../data/router/navigator_key_manager.dart' as _i5;
 import '../data/router/router.dart' as _i12;
-import '../domain/modules/app_module.dart' as _i30;
-import '../domain/modules/navigator_key_manager_module.dart' as _i31;
+import '../domain/modules/app_module.dart' as _i33;
+import '../domain/modules/navigator_key_manager_module.dart' as _i34;
 import '../domain/repositories/auth/auth_repository.dart' as _i13;
 import '../presentation/admin/admin_annoucments_managment_screen.dart/bloc/announcement_form_bloc.dart'
     as _i18;
 import '../presentation/admin/admin_event_managment_screen/bloc/event_form_bloc.dart'
-    as _i26;
+    as _i27;
 import '../presentation/admin/admin_sponsor_managment/bloc/sponsor_form_bloc.dart'
-    as _i23;
+    as _i24;
 import '../presentation/common/bloc/announcement_bloc/announcement_bloc.dart'
-    as _i21;
-import '../presentation/common/bloc/attendees_bloc/attendees_bloc.dart' as _i27;
-import '../presentation/common/bloc/events_bloc/events_bloc.dart' as _i22;
-import '../presentation/common/bloc/profile_bloc/profile_bloc.dart' as _i28;
+    as _i22;
+import '../presentation/common/bloc/attendees_bloc/attendees_bloc.dart' as _i28;
+import '../presentation/common/bloc/events_bloc/events_bloc.dart' as _i23;
+import '../presentation/common/bloc/profile_bloc/profile_bloc.dart' as _i29;
 import '../presentation/common/bloc/sponsors_bloc/bloc/sponsor_managment_bloc.dart'
     as _i17;
-import '../presentation/login/bloc/auth_bloc.dart' as _i24;
-import '../presentation/login/bloc/login/login_bloc.dart' as _i29;
-import '../presentation/register/bloc/registration_bloc.dart' as _i25;
+import '../presentation/info/question_posts/bloc/post_form_bloc.dart' as _i31;
+import '../presentation/info/question_posts/bloc/post_managment_bloc/post_managment_bloc.dart'
+    as _i32;
+import '../presentation/login/bloc/auth_bloc.dart' as _i25;
+import '../presentation/login/bloc/login/login_bloc.dart' as _i30;
+import '../presentation/register/bloc/registration_bloc.dart' as _i26;
 
 extension GetItInjectableX on _i1.GetIt {
 // initializes the registration of main-scope dependencies inside of GetIt
@@ -95,28 +99,34 @@ extension GetItInjectableX on _i1.GetIt {
         () => _i19.ProfileRepository(gh<_i10.ProfileClient>()));
     gh.lazySingleton<_i20.EventRepository>(
         () => _i20.EventRepository(gh<_i8.EventClient>()));
-    gh.factory<_i21.AnnouncementBloc>(
-        () => _i21.AnnouncementBloc(gh<_i16.AnnouncementRepository>()));
-    gh.factory<_i22.EventsManagmentBloc>(
-        () => _i22.EventsManagmentBloc(gh<_i20.EventRepository>()));
-    gh.factory<_i23.SponsorFormBloc>(
-        () => _i23.SponsorFormBloc(gh<_i15.SponsorRepository>()));
-    gh.factory<_i24.AuthBloc>(
-        () => _i24.AuthBloc(gh<_i13.AuthenticationRepository>()));
-    gh.factory<_i25.RegistrationBloc>(
-        () => _i25.RegistrationBloc(gh<_i13.AuthenticationRepository>()));
-    gh.factory<_i26.EventFormBloc>(
-        () => _i26.EventFormBloc(gh<_i20.EventRepository>()));
-    gh.factory<_i27.AttendeesBloc>(
-        () => _i27.AttendeesBloc(gh<_i19.ProfileRepository>()));
-    gh.factory<_i28.ProfileBloc>(
-        () => _i28.ProfileBloc(gh<_i19.ProfileRepository>()));
-    gh.factory<_i29.LoginBloc>(
-        () => _i29.LoginBloc(gh<_i13.AuthenticationRepository>()));
+    gh.lazySingleton<_i21.PostRepository>(
+        () => _i21.PostRepository(gh<_i9.PostsClient>()));
+    gh.factory<_i22.AnnouncementBloc>(
+        () => _i22.AnnouncementBloc(gh<_i16.AnnouncementRepository>()));
+    gh.factory<_i23.EventsManagmentBloc>(
+        () => _i23.EventsManagmentBloc(gh<_i20.EventRepository>()));
+    gh.factory<_i24.SponsorFormBloc>(
+        () => _i24.SponsorFormBloc(gh<_i15.SponsorRepository>()));
+    gh.factory<_i25.AuthBloc>(
+        () => _i25.AuthBloc(gh<_i13.AuthenticationRepository>()));
+    gh.factory<_i26.RegistrationBloc>(
+        () => _i26.RegistrationBloc(gh<_i13.AuthenticationRepository>()));
+    gh.factory<_i27.EventFormBloc>(
+        () => _i27.EventFormBloc(gh<_i20.EventRepository>()));
+    gh.factory<_i28.AttendeesBloc>(
+        () => _i28.AttendeesBloc(gh<_i19.ProfileRepository>()));
+    gh.factory<_i29.ProfileBloc>(
+        () => _i29.ProfileBloc(gh<_i19.ProfileRepository>()));
+    gh.factory<_i30.LoginBloc>(
+        () => _i30.LoginBloc(gh<_i13.AuthenticationRepository>()));
+    gh.factory<_i31.PostFormBloc>(
+        () => _i31.PostFormBloc(gh<_i21.PostRepository>()));
+    gh.factory<_i32.PostManagmentBloc>(
+        () => _i32.PostManagmentBloc(gh<_i21.PostRepository>()));
     return this;
   }
 }
 
-class _$AppModule extends _i30.AppModule {}
+class _$AppModule extends _i33.AppModule {}
 
-class _$NavigatorKeyManagerModule extends _i31.NavigatorKeyManagerModule {}
+class _$NavigatorKeyManagerModule extends _i34.NavigatorKeyManagerModule {}

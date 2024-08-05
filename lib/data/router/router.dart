@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:ieee_sst/data/constants/route_paths.dart';
 import 'package:ieee_sst/data/constants/user_roles.dart';
 import 'package:ieee_sst/data/models/announcement_model/announcement_model.dart';
+import 'package:ieee_sst/data/models/post_model/post_model.dart';
 import 'package:ieee_sst/data/router/navigator_key_manager.dart';
 import 'package:ieee_sst/presentation/admin/admin_annoucments_managment_screen.dart/screens/create_announcement_screen.dart';
 import 'package:ieee_sst/presentation/admin/admin_annoucments_managment_screen.dart/screens/update_announcement_screen.dart';
@@ -20,6 +21,7 @@ import 'package:ieee_sst/presentation/bottom_nav_bar/widgets/admin_scaffold_with
 import 'package:ieee_sst/presentation/bottom_nav_bar/widgets/scaffold_with_nav_bar.dart';
 import 'package:ieee_sst/presentation/info/announcements/screens/announcement_post_screen.dart';
 import 'package:ieee_sst/presentation/info/question_posts/screens/create_post_screen.dart';
+import 'package:ieee_sst/presentation/info/question_posts/screens/post_screen.dart';
 import 'package:ieee_sst/presentation/info/question_posts/screens/user_posts_screen.dart';
 import 'package:ieee_sst/presentation/info/screens/info_screen.dart';
 import 'package:ieee_sst/presentation/info/announcements/screens/organizer_announcements.dart';
@@ -265,6 +267,17 @@ class AppRouter {
                                 key: ValueKey('CreateQuestionScreen'),
                                 child: CreatePostScreen(),
                               ),
+                            ),
+                            GoRoute(
+                              //TODO: Change so it fetches data on screen load
+                              path: RoutePaths.subRouteUserPost,
+                              pageBuilder: (context, state) {
+                                final post = state.extra as Post;
+                                return MaterialPage(
+                                  key: const ValueKey('UserPostScreen'),
+                                  child: PostScreen(post: post),
+                                );
+                              },
                             )
                           ])
                     ],

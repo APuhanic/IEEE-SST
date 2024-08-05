@@ -8,14 +8,8 @@ class EventClient {
 
   EventClient(this._supabaseClient);
 
-  // TODO: Add return data after adding
-  Future<void> addEvent(
-    String name,
-    String description,
-    DateTime time,
-    String location,
-    String speaker,
-  ) async {
+  Future<void> addEvent(String name, String description, DateTime time,
+      String location, String speaker, String info) async {
     try {
       await _supabaseClient.from('events').insert({
         'name': name,
@@ -23,7 +17,7 @@ class EventClient {
         'time': time.toIso8601String(),
         'location': location,
         'speaker': speaker,
-        'info': 'Event info',
+        'info': info,
       });
     } catch (e) {
       debugPrint(e.toString());

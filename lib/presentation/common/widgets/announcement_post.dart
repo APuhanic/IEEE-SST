@@ -20,7 +20,6 @@ class AnnouncementPost extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: Add announcement edit and delete?
     return GestureDetector(
       onTap: () {
         context.go(

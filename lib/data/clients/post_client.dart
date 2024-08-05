@@ -2,22 +2,21 @@ import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
-// TODO: Remove Supabase from the name and rename to client?
 @injectable
 class PostsClient {
   PostsClient(this._supabaseClient);
 
   final SupabaseClient _supabaseClient;
 
-  Future<void> postAnnouncement(
+  Future<void> uploadPost(
     String title,
-    String description,
+    String content,
   ) async {
     try {
-      await _supabaseClient.from('announcements').insert({
+      await _supabaseClient.from('user_posts').insert({
         'title': title,
-        'description': description,
-        'postedby': _supabaseClient.auth.currentUser?.id,
+        'content': content,
+        'postedBy': _supabaseClient.auth.currentUser?.id,
       });
     } catch (e) {
       //TODO: Add proper error handling
@@ -25,33 +24,31 @@ class PostsClient {
     }
   }
 
-  Future<List<Map<String, dynamic>>> fetchAnnouncements() async =>
-      await _supabaseClient.rpc('get_announcements_with_profiles').select();
+  Future<List<Map<String, dynamic>>> fetchPosts() async =>
+      await _supabaseClient.rpc('get_posts_with_profiles').select();
 
-  Future<void> updateAnnouncemets(Map<String, dynamic> event) async {
+  Future<void> updatePost(Map<String, dynamic> event) async {
     try {
-      await _supabaseClient.from('announcements').upsert(event);
+      await _supabaseClient.from('user_posts').upsert(event);
     } catch (e) {
       throw Exception(e);
     }
   }
 
-  Future<void> deleteAnnouncement(String announcementId) async {
+  Future<void> deletePost(String postId) async {
     try {
-      await _supabaseClient
-          .from('announcements')
-          .delete()
-          .eq('id', announcementId);
+      await _supabaseClient.from('user_posts').delete().eq('id', postId);
     } catch (e) {
       throw Exception(e);
     }
   }
 
-  Future<void> updateAnnouncement(Map<String, dynamic> announcement) async {
+  //TODO: Remove this method if not needed
+  /*Future<void> updatePost(Map<String, dynamic> post) async {
     try {
-      await _supabaseClient.from('announcements').upsert(announcement);
+      await _supabaseClient.from('user_posts').upsert(post);
     } catch (e) {
       throw Exception(e);
     }
-  }
+  }*/
 }

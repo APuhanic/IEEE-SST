@@ -10,8 +10,6 @@ part 'auth_event.dart';
 part 'auth_state.dart';
 part 'auth_bloc.freezed.dart';
 
-//TODO: Move to common bloc?
-
 @injectable
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
   AuthBloc(this._supabaseAuthRepository) : super(const _Unauthenticated()) {

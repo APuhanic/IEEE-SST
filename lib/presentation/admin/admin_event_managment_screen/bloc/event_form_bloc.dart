@@ -80,13 +80,13 @@ class EventFormBloc extends Bloc<EventFormEvent, EventFormState> {
     emit(state.copyWith(status: FormzSubmissionStatus.inProgress));
     try {
       //TODO: Refactor this
-
       await _supabaseEventRepository.addEvent(
         state.name,
         state.description,
         state.time!,
         state.location,
         state.speaker,
+        state.info ?? '',
       );
       emit(state.copyWith(status: FormzSubmissionStatus.success));
     } catch (e) {
