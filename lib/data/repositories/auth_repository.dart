@@ -1,23 +1,24 @@
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:ieee_sst/data/models/supabase_user_model.dart';
-import 'package:ieee_sst/data/supabase/supabase_profile_api.dart';
+import 'package:ieee_sst/data/clients/profile_client.dart';
 import 'package:ieee_sst/domain/models/user_model.dart';
 import 'package:ieee_sst/domain/repositories/auth/auth_repository.dart';
 import 'package:injectable/injectable.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 @LazySingleton(as: AuthenticationRepository)
-class SupabaseAuthRepository implements AuthenticationRepository {
-  SupabaseAuthRepository(this._supabase, this._profileApi);
-  final SupabaseClient _supabase;
-  final SupabaseProfileApi _profileApi;
+class AuthRepository implements AuthenticationRepository {
+  AuthRepository(this._supabaseClient, this._profileClient);
+  final SupabaseClient _supabaseClient;
+  final ProfileClient _profileClient;
 
   @override
   Future<AuthResponse> signInWithEmailAndPassword(
     String email,
     String password,
   ) async =>
-      await _supabase.auth.signInWithPassword(email: email, password: password);
+      await _supabaseClient.auth
+          .signInWithPassword(email: email, password: password);
 
   @override
   Future<void> signUpWithEmailAndPassword(
@@ -28,7 +29,7 @@ class SupabaseAuthRepository implements AuthenticationRepository {
     String? position,
   ) async {
     // TODO: Implement error handling for profile creation
-    final response = await _supabase.auth.signUp(
+    final response = await _supabaseClient.auth.signUp(
       email: email,
       password: password,
       data: {
@@ -38,7 +39,7 @@ class SupabaseAuthRepository implements AuthenticationRepository {
         'position': position,
       },
     );
-    await _profileApi.addUserProfile(
+    await _profileClient.addUserProfile(
       response.user!.id,
       fullName,
       email,
@@ -48,11 +49,11 @@ class SupabaseAuthRepository implements AuthenticationRepository {
   }
 
   @override
-  Future<void> signOut() async => _supabase.auth.signOut();
+  Future<void> signOut() async => _supabaseClient.auth.signOut();
 
   @override
   BaseUserModel? getCurrentUser() {
-    final user = _supabase.auth.currentUser;
+    final user = _supabaseClient.auth.currentUser;
     return user != null
         ? SupabaseUser(
             id: user.id,
@@ -69,7 +70,7 @@ class SupabaseAuthRepository implements AuthenticationRepository {
   /// This stream will emit the current user when the user is signed
   @override
   Stream<BaseUserModel?> getCurrentUserStream() {
-    return _supabase.auth.onAuthStateChange.map((event) {
+    return _supabaseClient.auth.onAuthStateChange.map((event) {
       final user = event.session?.user;
       return user != null
           ? SupabaseUser(
@@ -90,12 +91,13 @@ class SupabaseAuthRepository implements AuthenticationRepository {
   ) async {
     // TODO: Implement error handling for profile creation
     final response =
-        await _supabase.auth.signUp(email: email, password: password);
-    await _supabase.from('profiles').insert({
+        await _supabaseClient.auth.signUp(email: email, password: password);
+    await _supabaseClient.from('profiles').insert({
       'id': response.user!.id,
       'role': 'admin',
     });
-    await _supabase.auth.updateUser(UserAttributes(data: {'role': 'admin'}));
+    await _supabaseClient.auth
+        .updateUser(UserAttributes(data: {'role': 'admin'}));
   }
 
   @override
@@ -118,7 +120,7 @@ class SupabaseAuthRepository implements AuthenticationRepository {
       throw 'No ID Token found.';
     }
 
-    await _supabase.auth.signInWithIdToken(
+    await _supabaseClient.auth.signInWithIdToken(
       provider: OAuthProvider.google,
       idToken: idToken,
       accessToken: accessToken,

@@ -5,8 +5,8 @@ import 'package:injectable/injectable.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 @injectable
-class SupabaseSponsorApi {
-  SupabaseSponsorApi(this._supabaseClient);
+class SponsorClient {
+  SponsorClient(this._supabaseClient);
   final SupabaseClient _supabaseClient;
 
   Future<List<Map<String, dynamic>>> fetchSponsors() async {

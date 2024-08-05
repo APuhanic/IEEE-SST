@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:formz/formz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:ieee_sst/data/repositories/supabase_sponsor_repository.dart';
+import 'package:ieee_sst/data/repositories/sponsor_repository.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:injectable/injectable.dart';
 
@@ -20,7 +20,7 @@ class SponsorFormBloc extends Bloc<SponsorFormEvent, SponsorFormState> {
     on<_AddSponsor>(_onAddSponsor);
   }
 
-  final SupabaseSponsorRepository _supabaseSponsorRepository;
+  final SponsorRepository _supabaseSponsorRepository;
 
   _onNameChanged(_NameChanged event, Emitter<SponsorFormState> emit) {
     emit(state.copyWith(name: event.name));

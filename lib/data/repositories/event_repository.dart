@@ -1,15 +1,15 @@
-import 'package:ieee_sst/data/supabase/supabase_event_api.dart';
+import 'package:ieee_sst/data/clients/event_client.dart';
 import 'package:ieee_sst/domain/models/event.dart';
 import 'package:injectable/injectable.dart';
 
 @LazySingleton()
-class SupabaseEventRepository {
-  final SupabaseEventApi _supabaseApi;
+class EventRepository {
+  final EventClient _eventClient;
 
-  SupabaseEventRepository(this._supabaseApi);
+  EventRepository(this._eventClient);
 
   Future<List<Event>> getAllEvents() async {
-    final eventsResponse = await _supabaseApi.fetchEvents();
+    final eventsResponse = await _eventClient.fetchEvents();
     return eventsResponse.map((event) => Event.fromJson(event)).toList();
   }
 
@@ -24,7 +24,7 @@ class SupabaseEventRepository {
     String location,
     String speaker,
   ) async {
-    await _supabaseApi.addEvent(
+    await _eventClient.addEvent(
       name,
       description,
       time,
@@ -34,11 +34,11 @@ class SupabaseEventRepository {
   }
 
   Future<void> deleteEvent(String eventId) async =>
-      await _supabaseApi.deleteEvent(eventId);
+      await _eventClient.deleteEvent(eventId);
 
   Future<void> updateEvent(Event event) async =>
-      await _supabaseApi.updateEvent(event.toJson());
+      await _eventClient.updateEvent(event.toJson());
 
   Future<void> markGoing(String eventId) async =>
-      await _supabaseApi.markGoing(eventId);
+      await _eventClient.markGoing(eventId);
 }

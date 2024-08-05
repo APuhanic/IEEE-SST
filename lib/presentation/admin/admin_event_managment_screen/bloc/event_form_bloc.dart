@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:formz/formz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:ieee_sst/data/repositories/supabase_event_repository.dart';
+import 'package:ieee_sst/data/repositories/event_repository.dart';
 import 'package:ieee_sst/domain/models/event.dart';
 import 'package:injectable/injectable.dart';
 
@@ -29,7 +29,7 @@ class EventFormBloc extends Bloc<EventFormEvent, EventFormState> {
     on<_SetInitialValues>(_onSetInitialValues);
     on<_EventInfoChanged>(_onEventInfoChanged);
   }
-  final SupabaseEventRepository _supabaseEventRepository;
+  final EventRepository _supabaseEventRepository;
 
   _onEventNameChanged(_EventNameChanged event, Emitter<EventFormState> emit) =>
       emit(state.copyWith(name: event.name));

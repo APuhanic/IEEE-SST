@@ -3,8 +3,8 @@ import 'package:injectable/injectable.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 @injectable
-class SupabaseProfileApi {
-  SupabaseProfileApi(this._supabaseClient);
+class ProfileClient {
+  ProfileClient(this._supabaseClient);
   final SupabaseClient _supabaseClient;
 
   Future<List<Map<String, dynamic>>> fetchProfile() async {

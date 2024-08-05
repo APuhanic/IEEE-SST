@@ -3,8 +3,8 @@ import 'package:injectable/injectable.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 @injectable
-class SupabaseAnnouncementApi {
-  SupabaseAnnouncementApi(this._supabaseClient);
+class AnnouncementClient {
+  AnnouncementClient(this._supabaseClient);
 
   final SupabaseClient _supabaseClient;
 

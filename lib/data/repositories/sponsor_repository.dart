@@ -1,30 +1,29 @@
 import 'dart:io';
 
 import 'package:ieee_sst/data/models/sponsor_model/sponsor_model.dart';
-import 'package:ieee_sst/data/supabase/supabase_sponsor_api.dart';
+import 'package:ieee_sst/data/clients/sponsor_client.dart';
 import 'package:injectable/injectable.dart';
 
 @LazySingleton()
-class SupabaseSponsorRepository {
-  SupabaseSponsorRepository(this._supabaseSponsorApi);
+class SponsorRepository {
+  SponsorRepository(this._sponsorClient);
 
-  final SupabaseSponsorApi _supabaseSponsorApi;
+  final SponsorClient _sponsorClient;
 
   Future<List<Sponsor>> fetchSponsors() async {
-    final sponsorsResponse = await _supabaseSponsorApi.fetchSponsors();
+    final sponsorsResponse = await _sponsorClient.fetchSponsors();
     return sponsorsResponse
         .map((sponsor) => Sponsor.fromJson(sponsor))
         .toList();
   }
 
   Future<void> addSponsor(String name, File image) async {
-    final String imagePathResponse =
-        await _supabaseSponsorApi.uploadImage(image);
-    await _supabaseSponsorApi.addSponsor(
+    final String imagePathResponse = await _sponsorClient.uploadImage(image);
+    await _sponsorClient.addSponsor(
         name, imagePathResponse, image.path.toString());
   }
 
   Future<void> deleteSponsor(Sponsor sponsor) async {
-    await _supabaseSponsorApi.deleteSponsor(sponsor);
+    await _sponsorClient.deleteSponsor(sponsor);
   }
 }

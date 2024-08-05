@@ -4,8 +4,8 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 
 // TODO: Remove Supabase from the name and rename to client?
 @injectable
-class SupabaseAnnouncementApi {
-  SupabaseAnnouncementApi(this._supabaseClient);
+class PostsClient {
+  PostsClient(this._supabaseClient);
 
   final SupabaseClient _supabaseClient;
 

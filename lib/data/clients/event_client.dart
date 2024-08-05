@@ -3,10 +3,10 @@ import 'package:injectable/injectable.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 @injectable
-class SupabaseEventApi {
+class EventClient {
   final SupabaseClient _supabaseClient;
 
-  SupabaseEventApi(this._supabaseClient);
+  EventClient(this._supabaseClient);
 
   // TODO: Add return data after adding
   Future<void> addEvent(

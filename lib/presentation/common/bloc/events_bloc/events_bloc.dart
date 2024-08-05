@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:ieee_sst/data/repositories/supabase_event_repository.dart';
+import 'package:ieee_sst/data/repositories/event_repository.dart';
 import 'package:ieee_sst/domain/models/event.dart';
 import 'package:injectable/injectable.dart';
 
@@ -18,7 +18,7 @@ class EventsManagmentBloc extends Bloc<EventsEvent, EventsState> {
     on<_MarkGoing>(_onMarkGoing);
   }
 
-  final SupabaseEventRepository supabaseEventRepository;
+  final EventRepository supabaseEventRepository;
 
   Future<FutureOr<void>> _onLoadEvents(
       _LoadEvents event, Emitter<EventsState> emit) async {

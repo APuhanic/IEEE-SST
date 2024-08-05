@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:formz/formz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:ieee_sst/data/models/announcement_model/announcement_model.dart';
-import 'package:ieee_sst/data/repositories/supabase_announcement_repository.dart';
+import 'package:ieee_sst/data/repositories/announcement_repository.dart';
 import 'package:injectable/injectable.dart';
 
 part 'announcement_form_event.dart';
@@ -23,7 +23,7 @@ class AnnouncementFormBloc
     on<_UpdateAnnouncement>(_onUpdateAnnouncement);
   }
 
-  final SupabaseAnnouncementRepository _supabaseAnnouncementRepository;
+  final AnnouncementRepository _supabaseAnnouncementRepository;
 
   Future<FutureOr<void>> _onCreateAnnouncement(
       _CreateAnnouncement event, Emitter<AnnouncementFormState> emit) async {

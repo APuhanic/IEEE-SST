@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:ieee_sst/data/models/profile_model/profile_model.dart';
-import 'package:ieee_sst/data/repositories/supabase_profile_repository.dart';
+import 'package:ieee_sst/data/repositories/profile_repository.dart';
 import 'package:injectable/injectable.dart';
 
 part 'attendees_event.dart';
@@ -16,7 +16,7 @@ class AttendeesBloc extends Bloc<AttendeesEvent, AttendeesState> {
     on<_LoadAttendees>(_onLoadAttendees);
   }
 
-  final SupabaseProfileRepository supabaseProfileRepository;
+  final ProfileRepository supabaseProfileRepository;
 
   Future<FutureOr<void>> _onLoadAttendees(
       _LoadAttendees event, Emitter<AttendeesState> emit) async {

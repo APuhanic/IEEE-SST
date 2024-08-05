@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:ieee_sst/data/models/sponsor_model/sponsor_model.dart';
-import 'package:ieee_sst/data/repositories/supabase_sponsor_repository.dart';
+import 'package:ieee_sst/data/repositories/sponsor_repository.dart';
 import 'package:injectable/injectable.dart';
 import 'package:logger/logger.dart';
 
@@ -20,7 +20,7 @@ class SponsorManagmentBloc
     on<_DeleteSponsor>(_onDeleteSponsor);
   }
 
-  final SupabaseSponsorRepository supabaseSponsorRepository;
+  final SponsorRepository supabaseSponsorRepository;
 
   Future<FutureOr<void>> _onFetchSponsors(
       _LoadSponsors event, Emitter<SponsorManagmentState> emit) async {
