@@ -4,8 +4,8 @@ import 'package:ieee_sst/data/constants/text_styles.dart';
 import 'package:ieee_sst/data/models/announcement_model/announcement_model.dart';
 import 'package:ieee_sst/util/time_ago_util.dart';
 
-class QuestionScreen extends StatelessWidget {
-  const QuestionScreen({
+class PostScreen extends StatelessWidget {
+  const PostScreen({
     super.key,
     required this.announcement,
   });

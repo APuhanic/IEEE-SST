@@ -33,13 +33,12 @@ class CreateAnnouncementScreen extends StatelessWidget {
         },
         builder: (context, state) {
           return CustomScrollView(slivers: [
-            SliverAppBar(
+            const SliverAppBar(
               expandedHeight: 40.0,
               backgroundColor: AppColors.background,
               shadowColor: Colors.transparent,
               surfaceTintColor: AppColors.background,
-              title:
-                  Text('Create announcement', style: AppTextStyle.titleSmall),
+              title: Text('Create announcement'),
             ),
             SliverList(
               delegate: SliverChildListDelegate([

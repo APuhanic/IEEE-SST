@@ -18,10 +18,11 @@ import 'package:ieee_sst/presentation/agenda/screens/search_events_screen.dart';
 import 'package:ieee_sst/presentation/attendees/screens/attendees_screen.dart';
 import 'package:ieee_sst/presentation/bottom_nav_bar/widgets/admin_scaffold_with_nav_bar.dart';
 import 'package:ieee_sst/presentation/bottom_nav_bar/widgets/scaffold_with_nav_bar.dart';
-import 'package:ieee_sst/presentation/info/screens/announcement_post_screen.dart';
+import 'package:ieee_sst/presentation/info/announcements/screens/announcement_post_screen.dart';
+import 'package:ieee_sst/presentation/info/question_posts/screens/create_post_screen.dart';
+import 'package:ieee_sst/presentation/info/question_posts/screens/user_posts_screen.dart';
 import 'package:ieee_sst/presentation/info/screens/info_screen.dart';
-import 'package:ieee_sst/presentation/info/screens/organizer_announcements.dart';
-import 'package:ieee_sst/presentation/info/screens/qa_screen.dart';
+import 'package:ieee_sst/presentation/info/announcements/screens/organizer_announcements.dart';
 import 'package:ieee_sst/presentation/home/screens/home_screen.dart';
 import 'package:ieee_sst/presentation/login/screens/login_screen.dart';
 import 'package:ieee_sst/presentation/messages/screens/messages_screen.dart';
@@ -236,6 +237,7 @@ class AppRouter {
                                 child: OrganizerAnnouncements(),
                               ),
                           routes: [
+                            //TODO: Remove state.extra?
                             GoRoute(
                               path: RoutePaths.subRouteAnnouncementPost,
                               pageBuilder: (context, state) {
@@ -250,12 +252,21 @@ class AppRouter {
                             ),
                           ]),
                       GoRoute(
-                        path: RoutePaths.subRouteAskOrganizers,
-                        pageBuilder: (context, state) => const MaterialPage(
-                          key: ValueKey('AskOrganizers'),
-                          child: QaScreen(),
-                        ),
-                      )
+                          path: RoutePaths.subRouteAskOrganizers,
+                          pageBuilder: (context, state) => const MaterialPage(
+                                key: ValueKey('AskOrganizers'),
+                                child: UserPostsScreen(),
+                              ),
+                          routes: [
+                            GoRoute(
+                              path: RoutePaths.subRouteCreateQuestion,
+                              pageBuilder: (context, state) =>
+                                  const MaterialPage(
+                                key: ValueKey('CreateQuestionScreen'),
+                                child: CreatePostScreen(),
+                              ),
+                            )
+                          ])
                     ],
                   ),
                 ],
