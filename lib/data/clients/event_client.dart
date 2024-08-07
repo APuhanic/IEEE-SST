@@ -24,8 +24,13 @@ class EventClient {
     }
   }
 
-  Future<List<Map<String, dynamic>>> fetchEvents() async =>
-      Supabase.instance.client.from('events').select();
+  Future<List<Map<String, dynamic>>> fetchEvents() async {
+    return Supabase.instance.client.from('events').select();
+  }
+
+  Future<List<Map<String, dynamic>>> fetchEventAttendees() async {
+    return Supabase.instance.client.from('event_attendees').select();
+  }
 
   Future<void> deleteEvent(String eventId) async {
     try {
@@ -45,10 +50,21 @@ class EventClient {
 
   Future<void> markGoing(String eventId) async {
     try {
-      await _supabaseClient.from('events').update({
+      await _supabaseClient.from('event_attendees').insert({
         'event_id': eventId,
         'user_id': _supabaseClient.auth.currentUser!.id,
-      }).eq('id', eventId);
+      });
+    } catch (e) {
+      debugPrint(e.toString());
+    }
+  }
+
+  Future<void> markNotGoing(String eventId) async {
+    try {
+      await _supabaseClient
+          .from('event_attendees')
+          .delete()
+          .eq('event_id', eventId);
     } catch (e) {
       debugPrint(e.toString());
     }

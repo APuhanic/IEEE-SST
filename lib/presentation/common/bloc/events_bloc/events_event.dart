@@ -7,4 +7,5 @@ class EventsEvent with _$EventsEvent {
   const factory EventsEvent.deleteEvent(Event event) = _DeleteEvent;
   const factory EventsEvent.updateEvent(Event event) = _UpdateEvent;
   const factory EventsEvent.markGoing(Event event) = _MarkGoing;
+  const factory EventsEvent.markNotGoing(Event event) = _MarkNotGoing;
 }

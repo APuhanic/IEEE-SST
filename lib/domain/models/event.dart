@@ -3,6 +3,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'event.freezed.dart';
 part 'event.g.dart';
 
+//TODO: Move to data layer
 @freezed
 class Event with _$Event {
   const factory Event({
@@ -13,6 +14,8 @@ class Event with _$Event {
     @Default('') String speaker,
     DateTime? time,
     String? info,
+    @Default(false) bool isGoing,
+    @Default(0) int attendeeCount,
   }) = _Event;
 
   factory Event.fromJson(Map<String, dynamic> json) => _$EventFromJson(json);

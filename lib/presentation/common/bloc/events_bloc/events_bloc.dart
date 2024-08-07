@@ -16,6 +16,7 @@ class EventsManagmentBloc extends Bloc<EventsEvent, EventsState> {
     on<_LoadEvents>(_onLoadEvents);
     on<_DeleteEvent>(_onDeleteEvent);
     on<_MarkGoing>(_onMarkGoing);
+    on<_MarkNotGoing>(_onMarkNotGoing);
   }
 
   final EventRepository supabaseEventRepository;
@@ -45,8 +46,33 @@ class EventsManagmentBloc extends Bloc<EventsEvent, EventsState> {
     }
   }
 
-  // TODO: Separate bloc?
-  FutureOr<void> _onMarkGoing(_MarkGoing event, Emitter<EventsState> emit) {
-    supabaseEventRepository.markGoing(event.event.id!);
+  Future<FutureOr<void>> _onMarkGoing(
+      _MarkGoing event, Emitter<EventsState> emit) async {
+    await supabaseEventRepository.markGoing(event.event.id!);
+    if (state is _Loaded) {
+      final events = (state as _Loaded).events;
+      final updatedEvents = events.map((e) {
+        if (e.id == event.event.id) {
+          return e.copyWith(isGoing: true, attendeeCount: e.attendeeCount + 1);
+        }
+        return e;
+      }).toList();
+      emit(_Loaded(updatedEvents));
+    }
+  }
+
+  Future<FutureOr<void>> _onMarkNotGoing(
+      _MarkNotGoing event, Emitter<EventsState> emit) async {
+    await supabaseEventRepository.markNotGoing(event.event.id!);
+    if (state is _Loaded) {
+      final events = (state as _Loaded).events;
+      final updatedEvents = events.map((e) {
+        if (e.id == event.event.id) {
+          return e.copyWith(isGoing: false, attendeeCount: e.attendeeCount - 1);
+        }
+        return e;
+      }).toList();
+      emit(_Loaded(updatedEvents));
+    }
   }
 }

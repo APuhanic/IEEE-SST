@@ -4,6 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:ieee_sst/data/constants/app_colors.dart';
 import 'package:ieee_sst/data/constants/text_styles.dart';
 import 'package:ieee_sst/domain/models/event.dart';
+import 'package:ieee_sst/presentation/common/bloc/events_bloc/events_bloc.dart';
 import 'package:ieee_sst/presentation/common/cubit/is_going_cubit.dart';
 import 'package:ieee_sst/presentation/common/widgets/bottom_sheet_event_info.dart';
 import 'package:ieee_sst/presentation/common/widgets/event_data.dart';
@@ -49,7 +50,7 @@ class EventCard extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(width: 16),
-                    const _IsGoingButtonBuilder()
+                    _IsGoingButtonBuilder(event)
                   ],
                 ),
                 const SizedBox(height: 8),
@@ -67,7 +68,7 @@ class EventCard extends StatelessWidget {
                 ),
                 const SizedBox(height: 8),
                 Text(
-                  '3+ People are going to this event',
+                  '${event.attendeeCount}+ People are going to this event',
                   style: AppTextStyle.blueText,
                 )
               ],
@@ -80,15 +81,28 @@ class EventCard extends StatelessWidget {
 }
 
 class _IsGoingButtonBuilder extends StatelessWidget {
-  const _IsGoingButtonBuilder();
+  const _IsGoingButtonBuilder(this.event);
+
+  final Event event;
 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<IsGoingCubit, bool>(
       builder: (context, state) {
         return IconButton(
-          onPressed: () => context.read<IsGoingCubit>().toggleIsGoing(),
-          icon: state
+          onPressed: () {
+            context.read<IsGoingCubit>().toggleIsGoing();
+            if (event.isGoing) {
+              context
+                  .read<EventsManagmentBloc>()
+                  .add(EventsEvent.markNotGoing(event));
+            } else {
+              context
+                  .read<EventsManagmentBloc>()
+                  .add(EventsEvent.markGoing(event));
+            }
+          },
+          icon: event.isGoing
               ? const Icon(Icons.event_available)
               : const Icon(Icons.event, color: AppColors.black),
           color: AppColors.primary,

@@ -15,6 +15,8 @@ _$EventImpl _$$EventImplFromJson(Map<String, dynamic> json) => _$EventImpl(
       time:
           json['time'] == null ? null : DateTime.parse(json['time'] as String),
       info: json['info'] as String?,
+      isGoing: json['isGoing'] as bool? ?? false,
+      attendeeCount: (json['attendeeCount'] as num?)?.toInt() ?? 0,
     );
 
 Map<String, dynamic> _$$EventImplToJson(_$EventImpl instance) =>
@@ -26,4 +28,6 @@ Map<String, dynamic> _$$EventImplToJson(_$EventImpl instance) =>
       'speaker': instance.speaker,
       'time': instance.time?.toIso8601String(),
       'info': instance.info,
+      'isGoing': instance.isGoing,
+      'attendeeCount': instance.attendeeCount,
     };

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:ieee_sst/data/constants/text_styles.dart';
 import 'package:ieee_sst/presentation/home/widgets/new_screen_button.dart';
 
 class SpeakerHub extends StatelessWidget {
@@ -12,11 +11,6 @@ class SpeakerHub extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Row(
-          children: [
-            Text('Speaker hub', style: AppTextStyle.titleLarge),
-          ],
-        ),
         const SizedBox(height: 24),
         NewScreenButton(
           title: 'My sessions and audience',
