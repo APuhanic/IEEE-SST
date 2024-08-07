@@ -271,10 +271,12 @@ class AppRouter {
                             GoRoute(
                               //TODO: Change so it fetches data on screen load
                               path: RoutePaths.subRouteUserPost,
+                              parentNavigatorKey:
+                                  _navigatorKeyManager.rootNavigatorKey,
                               pageBuilder: (context, state) {
                                 final post = state.extra as Post;
                                 return MaterialPage(
-                                  key: const ValueKey('UserPostScreen'),
+                                  key: const ValueKey('PostScreen'),
                                   child: PostScreen(post: post),
                                 );
                               },
@@ -322,6 +324,8 @@ class AppRouter {
               )
             ],
           ),
+
+          // Routes with no nav bar
         ],
       );
 

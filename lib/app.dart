@@ -10,6 +10,8 @@ import 'package:ieee_sst/presentation/common/bloc/announcement_bloc/announcement
 import 'package:ieee_sst/presentation/common/bloc/events_bloc/events_bloc.dart';
 import 'package:ieee_sst/presentation/common/bloc/profile_bloc/profile_bloc.dart';
 import 'package:ieee_sst/presentation/common/bloc/sponsors_bloc/bloc/sponsor_managment_bloc.dart';
+import 'package:ieee_sst/presentation/info/question_posts/bloc/comment_form_bloc/comment_form_bloc.dart';
+import 'package:ieee_sst/presentation/info/question_posts/bloc/comment_managment_bloc/comment_managment_bloc.dart';
 import 'package:ieee_sst/presentation/info/question_posts/bloc/post_form_bloc.dart';
 import 'package:ieee_sst/presentation/info/question_posts/bloc/post_managment_bloc/post_managment_bloc.dart';
 import 'package:ieee_sst/presentation/login/bloc/auth_bloc.dart';
@@ -39,7 +41,9 @@ class MainApp extends StatelessWidget {
         BlocProvider(create: (context) => getIt<SponsorFormBloc>()),
         BlocProvider(create: (context) => getIt<SponsorManagmentBloc>()),
         BlocProvider(create: (context) => getIt<PostFormBloc>()),
-        BlocProvider(create: (context) => getIt<PostManagmentBloc>())
+        BlocProvider(create: (context) => getIt<PostManagmentBloc>()),
+        BlocProvider(create: (context) => getIt<CommentFormBloc>()),
+        BlocProvider(create: (context) => getIt<CommentManagmentBloc>()),
       ],
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,

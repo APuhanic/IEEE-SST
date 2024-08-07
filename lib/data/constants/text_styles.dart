@@ -70,4 +70,9 @@ class AppTextStyle {
     fontSize: 12,
     color: AppColors.black,
   );
+
+  static TextStyle userComment = const TextStyle(
+    fontSize: 20,
+    color: AppColors.black,
+  );
 }

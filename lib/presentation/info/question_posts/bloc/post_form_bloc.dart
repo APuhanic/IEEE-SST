@@ -22,15 +22,15 @@ class PostFormBloc extends Bloc<PostFormEvent, PostFormState> {
 
   final PostRepository _postRepository;
 
-  FutureOr<void> _onCreatePost(
-      PostFormEvent event, Emitter<PostFormState> emit) {
+  Future<FutureOr<void>> _onCreatePost(
+      PostFormEvent event, Emitter<PostFormState> emit) async {
     emit(state.copyWith(status: FormzSubmissionStatus.inProgress));
     try {
       // TODO: Rename to create post?
       Logger().w(state.title);
       Logger().w(state.content);
 
-      _postRepository.uploadPost(
+      await _postRepository.uploadPost(
         state.title,
         state.content,
       );

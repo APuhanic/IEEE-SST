@@ -4,6 +4,7 @@ import 'package:formz/formz.dart';
 import 'package:ieee_sst/data/constants/app_colors.dart';
 import 'package:ieee_sst/data/constants/text_styles.dart';
 import 'package:ieee_sst/presentation/info/question_posts/bloc/post_form_bloc.dart';
+import 'package:ieee_sst/presentation/info/question_posts/bloc/post_managment_bloc/post_managment_bloc.dart';
 import 'package:ieee_sst/presentation/info/question_posts/widgets/post_description_input.dart';
 import 'package:ieee_sst/presentation/info/question_posts/widgets/post_title_input.dart';
 
@@ -58,9 +59,13 @@ class CreatePostScreen extends StatelessWidget {
                               foregroundColor: AppColors.white,
                               textStyle: AppTextStyle.button),
                           onPressed: () {
+                            // TODO: Refactor this to not use 2 blocs
                             context
                                 .read<PostFormBloc>()
                                 .add(const PostFormEvent.createPost());
+                            context
+                                .read<PostManagmentBloc>()
+                                .add(const PostManagmentEvent.loadPosts());
                           },
                           child: const Text('Post'),
                         ),
