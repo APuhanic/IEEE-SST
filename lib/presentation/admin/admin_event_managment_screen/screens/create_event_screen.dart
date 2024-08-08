@@ -6,11 +6,12 @@ import 'package:ieee_sst/data/constants/text_styles.dart';
 import 'package:ieee_sst/presentation/admin/admin_event_managment_screen/bloc/event_form_bloc.dart';
 import 'package:ieee_sst/presentation/admin/admin_event_managment_screen/widgets/event_date_input.dart';
 import 'package:ieee_sst/presentation/admin/admin_event_managment_screen/widgets/event_description_input.dart';
+import 'package:ieee_sst/presentation/admin/admin_event_managment_screen/widgets/event_end_time_input.dart';
 import 'package:ieee_sst/presentation/admin/admin_event_managment_screen/widgets/event_info_input.dart';
 import 'package:ieee_sst/presentation/admin/admin_event_managment_screen/widgets/event_location_input.dart';
 import 'package:ieee_sst/presentation/admin/admin_event_managment_screen/widgets/event_name_input.dart';
 import 'package:ieee_sst/presentation/admin/admin_event_managment_screen/widgets/event_speaker_input.dart';
-import 'package:ieee_sst/presentation/admin/admin_event_managment_screen/widgets/event_time_input.dart';
+import 'package:ieee_sst/presentation/admin/admin_event_managment_screen/widgets/event_start_time_input.dart';
 
 class CreateEventScreen extends StatelessWidget {
   const CreateEventScreen({super.key});
@@ -62,17 +63,20 @@ class CreateEventScreen extends StatelessWidget {
                         padding: EdgeInsets.symmetric(vertical: 24.0),
                         child: Row(
                           children: [
-                            EventDateInput(),
+                            Expanded(child: EventStartTimeInput()),
                             SizedBox(width: 16),
-                            EventTimeInput(),
+                            Expanded(child: EventEndTimeInput()),
                           ],
                         ),
                       ),
-                      const EventSpeakerInput(),
+                      const EventDateInput(),
+
                       const Padding(
                         padding: EdgeInsets.symmetric(vertical: 24.0),
-                        child: EventInfoInput(),
+                        child: EventSpeakerInput(),
                       ),
+                      const EventInfoInput(),
+                      const SizedBox(height: 24),
                       // TODO: Extract widget and add validation
                       ElevatedButton(
                         style: ElevatedButton.styleFrom(

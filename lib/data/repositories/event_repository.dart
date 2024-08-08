@@ -24,10 +24,18 @@ class EventRepository {
 
   /// For now it doesn't user toJson because it converts id to a null which
   /// supabase doesn't accept so it's better to send the map directly
-  Future<void> addEvent(String name, String description, DateTime time,
-      String location, String speaker, String info) async {
+  Future<void> addEvent(
+    String name,
+    String description,
+    DateTime startTime,
+    DateTime endTime,
+    String location,
+    String speaker,
+    String info,
+    DateTime date,
+  ) async {
     await _eventClient.addEvent(
-        name, description, time, location, speaker, info);
+        name, description, startTime, endTime, date, location, speaker, info);
   }
 
   Future<void> deleteEvent(String eventId) async =>

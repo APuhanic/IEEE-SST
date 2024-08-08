@@ -11,10 +11,13 @@ class EventFormEvent with _$EventFormEvent {
       _EventNameChanged;
   const factory EventFormEvent.eventDescriptionChanged(
       String eventDescription) = _EventDescriptionChanged;
-  const factory EventFormEvent.eventDateChanged(DateTime? time) =
+
+  const factory EventFormEvent.eventStartTimeChanged(DateTime? startTime) =
+      _EventStartTimeChanged;
+  const factory EventFormEvent.eventEndTimeChanged(DateTime? endTime) =
+      _EventEndTimeChanged;
+  const factory EventFormEvent.eventDateChanged(DateTime? date) =
       _EventDateChanged;
-  const factory EventFormEvent.eventTimeChanged(TimeOfDay? time) =
-      _EventTimeChanged;
   const factory EventFormEvent.eventLocationChanged(String location) =
       _EventLocationChanged;
   const factory EventFormEvent.eventSpeakerChanged(String speaker) =

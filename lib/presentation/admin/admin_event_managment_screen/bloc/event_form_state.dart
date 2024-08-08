@@ -10,7 +10,9 @@ class EventFormState with _$EventFormState {
     @Default('') String location,
     @Default('') String errorMessage,
     @Default('') String speaker,
-    DateTime? time,
+    DateTime? startTime,
+    DateTime? endTime,
+    DateTime? date,
     String? info,
   }) = _CreateEventState;
 }

@@ -55,11 +55,11 @@ class EventCard extends StatelessWidget {
                 ),
                 const SizedBox(height: 8),
                 EventData(
-                  eventInfo: event.time!.toIso8601String().split('T')[0],
+                  eventInfo: event.startTime!.toIso8601String().split('T')[0],
                   icon: FontAwesomeIcons.calendar,
                 ),
                 EventData(
-                  eventInfo: event.time!.toIso8601String().split('T')[1],
+                  eventInfo: event.startTime!.toIso8601String().split('T')[1],
                   icon: FontAwesomeIcons.clock,
                 ),
                 EventData(

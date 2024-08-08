@@ -60,7 +60,7 @@ class BottomSheetEventInfo extends StatelessWidget {
               Row(
                 children: [
                   EventData(
-                    eventInfo: event.time!.toIso8601String().split('T')[0],
+                    eventInfo: event.startTime!.toIso8601String().split('T')[0],
                     icon: FontAwesomeIcons.calendar,
                   ),
                   Expanded(
@@ -74,7 +74,7 @@ class BottomSheetEventInfo extends StatelessWidget {
                 ],
               ),
               EventData(
-                eventInfo: event.time!.toIso8601String().split('T')[1],
+                eventInfo: event.startTime!.toIso8601String().split('T')[1],
                 icon: FontAwesomeIcons.clock,
               ),
               EventData(

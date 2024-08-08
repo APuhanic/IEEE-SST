@@ -25,7 +25,9 @@ mixin _$Event {
   String get description => throw _privateConstructorUsedError;
   String get location => throw _privateConstructorUsedError;
   String get speaker => throw _privateConstructorUsedError;
-  DateTime? get time => throw _privateConstructorUsedError;
+  DateTime? get startTime => throw _privateConstructorUsedError;
+  DateTime? get endTime => throw _privateConstructorUsedError;
+  DateTime? get date => throw _privateConstructorUsedError;
   String? get info => throw _privateConstructorUsedError;
   bool get isGoing => throw _privateConstructorUsedError;
   int get attendeeCount => throw _privateConstructorUsedError;
@@ -46,7 +48,9 @@ abstract class $EventCopyWith<$Res> {
       String description,
       String location,
       String speaker,
-      DateTime? time,
+      DateTime? startTime,
+      DateTime? endTime,
+      DateTime? date,
       String? info,
       bool isGoing,
       int attendeeCount});
@@ -70,7 +74,9 @@ class _$EventCopyWithImpl<$Res, $Val extends Event>
     Object? description = null,
     Object? location = null,
     Object? speaker = null,
-    Object? time = freezed,
+    Object? startTime = freezed,
+    Object? endTime = freezed,
+    Object? date = freezed,
     Object? info = freezed,
     Object? isGoing = null,
     Object? attendeeCount = null,
@@ -96,9 +102,17 @@ class _$EventCopyWithImpl<$Res, $Val extends Event>
           ? _value.speaker
           : speaker // ignore: cast_nullable_to_non_nullable
               as String,
-      time: freezed == time
-          ? _value.time
-          : time // ignore: cast_nullable_to_non_nullable
+      startTime: freezed == startTime
+          ? _value.startTime
+          : startTime // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      endTime: freezed == endTime
+          ? _value.endTime
+          : endTime // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      date: freezed == date
+          ? _value.date
+          : date // ignore: cast_nullable_to_non_nullable
               as DateTime?,
       info: freezed == info
           ? _value.info
@@ -129,7 +143,9 @@ abstract class _$$EventImplCopyWith<$Res> implements $EventCopyWith<$Res> {
       String description,
       String location,
       String speaker,
-      DateTime? time,
+      DateTime? startTime,
+      DateTime? endTime,
+      DateTime? date,
       String? info,
       bool isGoing,
       int attendeeCount});
@@ -151,7 +167,9 @@ class __$$EventImplCopyWithImpl<$Res>
     Object? description = null,
     Object? location = null,
     Object? speaker = null,
-    Object? time = freezed,
+    Object? startTime = freezed,
+    Object? endTime = freezed,
+    Object? date = freezed,
     Object? info = freezed,
     Object? isGoing = null,
     Object? attendeeCount = null,
@@ -177,9 +195,17 @@ class __$$EventImplCopyWithImpl<$Res>
           ? _value.speaker
           : speaker // ignore: cast_nullable_to_non_nullable
               as String,
-      time: freezed == time
-          ? _value.time
-          : time // ignore: cast_nullable_to_non_nullable
+      startTime: freezed == startTime
+          ? _value.startTime
+          : startTime // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      endTime: freezed == endTime
+          ? _value.endTime
+          : endTime // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      date: freezed == date
+          ? _value.date
+          : date // ignore: cast_nullable_to_non_nullable
               as DateTime?,
       info: freezed == info
           ? _value.info
@@ -206,7 +232,9 @@ class _$EventImpl implements _Event {
       this.description = '',
       this.location = '',
       this.speaker = '',
-      this.time,
+      this.startTime,
+      this.endTime,
+      this.date,
       this.info,
       this.isGoing = false,
       this.attendeeCount = 0});
@@ -229,7 +257,11 @@ class _$EventImpl implements _Event {
   @JsonKey()
   final String speaker;
   @override
-  final DateTime? time;
+  final DateTime? startTime;
+  @override
+  final DateTime? endTime;
+  @override
+  final DateTime? date;
   @override
   final String? info;
   @override
@@ -241,7 +273,7 @@ class _$EventImpl implements _Event {
 
   @override
   String toString() {
-    return 'Event(id: $id, name: $name, description: $description, location: $location, speaker: $speaker, time: $time, info: $info, isGoing: $isGoing, attendeeCount: $attendeeCount)';
+    return 'Event(id: $id, name: $name, description: $description, location: $location, speaker: $speaker, startTime: $startTime, endTime: $endTime, date: $date, info: $info, isGoing: $isGoing, attendeeCount: $attendeeCount)';
   }
 
   @override
@@ -256,7 +288,10 @@ class _$EventImpl implements _Event {
             (identical(other.location, location) ||
                 other.location == location) &&
             (identical(other.speaker, speaker) || other.speaker == speaker) &&
-            (identical(other.time, time) || other.time == time) &&
+            (identical(other.startTime, startTime) ||
+                other.startTime == startTime) &&
+            (identical(other.endTime, endTime) || other.endTime == endTime) &&
+            (identical(other.date, date) || other.date == date) &&
             (identical(other.info, info) || other.info == info) &&
             (identical(other.isGoing, isGoing) || other.isGoing == isGoing) &&
             (identical(other.attendeeCount, attendeeCount) ||
@@ -266,7 +301,7 @@ class _$EventImpl implements _Event {
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, id, name, description, location,
-      speaker, time, info, isGoing, attendeeCount);
+      speaker, startTime, endTime, date, info, isGoing, attendeeCount);
 
   @JsonKey(ignore: true)
   @override
@@ -289,7 +324,9 @@ abstract class _Event implements Event {
       final String description,
       final String location,
       final String speaker,
-      final DateTime? time,
+      final DateTime? startTime,
+      final DateTime? endTime,
+      final DateTime? date,
       final String? info,
       final bool isGoing,
       final int attendeeCount}) = _$EventImpl;
@@ -307,7 +344,11 @@ abstract class _Event implements Event {
   @override
   String get speaker;
   @override
-  DateTime? get time;
+  DateTime? get startTime;
+  @override
+  DateTime? get endTime;
+  @override
+  DateTime? get date;
   @override
   String? get info;
   @override

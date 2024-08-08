@@ -3,10 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ieee_sst/data/constants/app_colors.dart';
 import 'package:ieee_sst/data/constants/text_styles.dart';
 import 'package:ieee_sst/presentation/admin/admin_event_managment_screen/bloc/event_form_bloc.dart';
-import 'package:logger/logger.dart';
 
-class EventDateInput extends StatelessWidget {
-  const EventDateInput({
+class EventStartTimeInput extends StatelessWidget {
+  const EventStartTimeInput({
     super.key,
   });
 
@@ -16,15 +15,18 @@ class EventDateInput extends StatelessWidget {
       builder: (context, state) {
         return TextFormField(
           controller: TextEditingController(
-            text: state.date == null ? '' : state.date.toString().split(' ')[0],
+            text: state.startTime == null
+                ? ''
+                : state.startTime.toString().split(' ')[1],
           ),
-          onTap: () => _selectDate(context),
           readOnly: true,
+          onTap: () => _selectTime(context),
           decoration: InputDecoration(
-            prefixIcon: const Icon(Icons.date_range, color: AppColors.grayText),
-            label: Text('Event Date', style: AppTextStyle.textForm),
-            hintText: 'Event Date',
+            label: Text('Event start time', style: AppTextStyle.textForm),
+            hintText: 'Event  time',
             hintStyle: AppTextStyle.textForm,
+            prefixIcon:
+                const Icon(Icons.access_time, color: AppColors.grayText),
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(15),
               borderSide: const BorderSide(color: AppColors.grayText),
@@ -40,19 +42,31 @@ class EventDateInput extends StatelessWidget {
     );
   }
 
-  _selectDate(BuildContext context) async {
+  _selectTime(BuildContext context) {
     FocusScope.of(context).requestFocus(FocusNode());
-    await showDatePicker(
+    showTimePicker(
       context: context,
-      initialDate: DateTime.now(),
-      firstDate: DateTime(2020),
-      lastDate: DateTime(2030),
+      hourLabelText: 'Hour',
+      builder: (context, child) {
+        return MediaQuery(
+          data: MediaQuery.of(context).copyWith(alwaysUse24HourFormat: true),
+          child: child!,
+        );
+      },
+      initialEntryMode: TimePickerEntryMode.input,
+      initialTime: TimeOfDay.now(),
     ).then(
       (value) {
-        Logger().w(value);
+        final dateTimeValue = DateTime(
+          DateTime.now().year,
+          DateTime.now().month,
+          DateTime.now().day,
+          value!.hour,
+          value.minute,
+        );
         context
             .read<EventFormBloc>()
-            .add(EventFormEvent.eventDateChanged(value));
+            .add(EventFormEvent.eventStartTimeChanged(dateTimeValue));
       },
     );
   }

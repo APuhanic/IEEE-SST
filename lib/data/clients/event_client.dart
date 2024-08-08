@@ -1,4 +1,4 @@
-import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
@@ -8,19 +8,29 @@ class EventClient {
 
   EventClient(this._supabaseClient);
 
-  Future<void> addEvent(String name, String description, DateTime time,
-      String location, String speaker, String info) async {
+  Future<void> addEvent(
+    String name,
+    String description,
+    DateTime startTime,
+    DateTime endTime,
+    DateTime date,
+    String location,
+    String speaker,
+    String info,
+  ) async {
     try {
       await _supabaseClient.from('events').insert({
         'name': name,
         'description': description,
-        'time': time.toIso8601String(),
+        'startTime': startTime.toIso8601String(),
+        'endTime': endTime.toIso8601String(),
+        'date': date.toIso8601String(),
         'location': location,
         'speaker': speaker,
         'info': info,
       });
     } catch (e) {
-      debugPrint(e.toString());
+      rethrow;
     }
   }
 

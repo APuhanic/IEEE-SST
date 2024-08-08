@@ -2,13 +2,13 @@
 
 import 'dart:async';
 
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:formz/formz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:ieee_sst/data/repositories/event_repository.dart';
 import 'package:ieee_sst/domain/models/event.dart';
 import 'package:injectable/injectable.dart';
+import 'package:logger/logger.dart';
 
 part 'event_form_event.dart';
 part 'event_form_state.dart';
@@ -22,8 +22,9 @@ class EventFormBloc extends Bloc<EventFormEvent, EventFormState> {
     on<_UpdateEvent>(_onUpdateEvent);
     on<_EventNameChanged>(_onEventNameChanged);
     on<_EventDescriptionChanged>(_onEventDescriptionChanged);
-    on<_EventTimeChanged>(_onEventTimeChanged);
     on<_EventDateChanged>(_onEventDateChanged);
+    on<_EventStartTimeChanged>(_onEventStartTimeChanged);
+    on<_EventEndTimeChanged>(_onEventEndTimeChanged);
     on<_EventLocationChanged>(_onEventLocationChanged);
     on<_EventSpeakerChanged>(_onEventSpeakerChanged);
     on<_SetInitialValues>(_onSetInitialValues);
@@ -38,30 +39,16 @@ class EventFormBloc extends Bloc<EventFormEvent, EventFormState> {
           _EventDescriptionChanged event, Emitter<EventFormState> emit) =>
       emit(state.copyWith(description: event.eventDescription));
 
-  /// There are 2 forms, one of DateTime and one of TimeOfDay
-  /// This is a workaround to convert TimeOfDay to DateTime because it
-  /// is not possible to use TimeOfDay in the form with the copywith method
-  _onEventTimeChanged(_EventTimeChanged event, Emitter<EventFormState> emit) {
-    try {
-      if (state.time == null) {
-        emit(state.copyWith(time: DateTime.now()));
-      }
-      final newTime = DateTime(
-        state.time!.year,
-        state.time!.month,
-        state.time!.day,
-        event.time!.hour,
-        event.time!.minute,
-      );
-      emit(state.copyWith(time: newTime));
-    } catch (e) {
-      debugPrint(e.toString());
-    }
-  }
+  _onEventDateChanged(_EventDateChanged event, Emitter<EventFormState> emit) =>
+      emit(state.copyWith(date: event.date));
 
-  _onEventDateChanged(_EventDateChanged event, Emitter<EventFormState> emit) {
-    emit(state.copyWith(time: event.time));
-  }
+  _onEventStartTimeChanged(
+          _EventStartTimeChanged event, Emitter<EventFormState> emit) =>
+      emit(state.copyWith(startTime: event.startTime));
+
+  _onEventEndTimeChanged(
+          _EventEndTimeChanged event, Emitter<EventFormState> emit) =>
+      emit(state.copyWith(endTime: event.endTime));
 
   _onEventSpeakerChanged(
           _EventSpeakerChanged event, Emitter<EventFormState> emit) =>
@@ -80,13 +67,16 @@ class EventFormBloc extends Bloc<EventFormEvent, EventFormState> {
     emit(state.copyWith(status: FormzSubmissionStatus.inProgress));
     try {
       //TODO: Refactor this
+
       await _supabaseEventRepository.addEvent(
         state.name,
         state.description,
-        state.time!,
+        state.startTime!,
+        state.endTime!,
         state.location,
         state.speaker,
         state.info ?? '',
+        state.date!,
       );
       emit(state.copyWith(status: FormzSubmissionStatus.success));
     } catch (e) {
@@ -108,8 +98,12 @@ class EventFormBloc extends Bloc<EventFormEvent, EventFormState> {
         description: state.description,
         location: state.location,
         speaker: state.speaker,
-        time: state.time,
+        startTime: state.startTime,
+        endTime: state.endTime,
+        info: state.info,
+        date: state.date,
       );
+      Logger().w(event);
       _supabaseEventRepository.updateEvent(event);
       emit(state.copyWith(status: FormzSubmissionStatus.success));
     } catch (e) {
@@ -123,6 +117,8 @@ class EventFormBloc extends Bloc<EventFormEvent, EventFormState> {
   }
 
   _onSetInitialValues(_SetInitialValues event, Emitter<EventFormState> emit) {
+    Logger().w(event.event);
+
     emit(
       state.copyWith(
         id: event.event.id,
@@ -130,8 +126,10 @@ class EventFormBloc extends Bloc<EventFormEvent, EventFormState> {
         description: event.event.description,
         location: event.event.location,
         speaker: event.event.speaker,
-        time: event.event.time,
+        startTime: event.event.startTime,
+        endTime: event.event.endTime,
         info: event.event.info,
+        date: event.event.date,
       ),
     );
   }
