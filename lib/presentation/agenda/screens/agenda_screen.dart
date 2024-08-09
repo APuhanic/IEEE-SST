@@ -3,10 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:ieee_sst/data/constants/app_colors.dart';
 import 'package:ieee_sst/data/constants/text_styles.dart';
-import 'package:ieee_sst/presentation/admin/admin_event_managment_screen/widgets/event_filter_chips.dart';
+import 'package:ieee_sst/presentation/common/widgets/event_filter_chips.dart';
 import 'package:ieee_sst/presentation/common/bloc/events_bloc/events_bloc.dart';
+import 'package:ieee_sst/presentation/common/widgets/date_picker_filter.dart';
 import 'package:ieee_sst/presentation/common/widgets/event_card_list.dart';
-import 'package:date_picker_timeline/date_picker_widget.dart';
 
 class AgendaScreen extends StatelessWidget {
   const AgendaScreen({super.key});
@@ -36,20 +36,11 @@ class AgendaScreen extends StatelessWidget {
               ),
               SliverPersistentHeader(
                 pinned: true,
+                // TODO: Extract to a separate widget
                 delegate: _DatePickerHeaderDelegate(
                   child: Container(
                     color: AppColors.background,
-                    child: DatePicker(
-                      height: 100,
-                      DateTime.now(),
-                      initialSelectedDate: DateTime.now(),
-                      selectionColor: AppColors.primary,
-                      selectedTextColor: AppColors.white,
-                      onDateChange: (date) {
-                        // New date selected
-                      },
-                      daysCount: 7,
-                    ),
+                    child: const DatePickerFilter(),
                   ),
                 ),
               ),

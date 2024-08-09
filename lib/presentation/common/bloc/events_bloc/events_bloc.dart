@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:ieee_sst/data/models/input_models/filter_chip_types.dart';
 import 'package:ieee_sst/data/repositories/event_repository.dart';
 import 'package:ieee_sst/domain/models/event.dart';
 import 'package:injectable/injectable.dart';
@@ -17,15 +18,19 @@ class EventsManagmentBloc extends Bloc<EventsEvent, EventsState> {
     on<_DeleteEvent>(_onDeleteEvent);
     on<_MarkGoing>(_onMarkGoing);
     on<_MarkNotGoing>(_onMarkNotGoing);
+    on<_FilterEvents>(_onFilterEvents);
   }
 
   final EventRepository supabaseEventRepository;
-
+  final List<Event> originalEvents = [];
   Future<FutureOr<void>> _onLoadEvents(
       _LoadEvents event, Emitter<EventsState> emit) async {
     emit(const _Loading());
     try {
       final events = await supabaseEventRepository.getAllEvents();
+      //TODO: Implement caching instead of this
+      originalEvents.clear();
+      originalEvents.addAll(events);
       emit(_Loaded(events));
     } catch (e) {
       emit(_Error(e.toString()));
@@ -73,6 +78,21 @@ class EventsManagmentBloc extends Bloc<EventsEvent, EventsState> {
         return e;
       }).toList();
       emit(_Loaded(updatedEvents));
+    }
+  }
+
+  FutureOr<void> _onFilterEvents(
+      _FilterEvents event, Emitter<EventsState> emit) {
+    if (state is _Loaded) {
+      if (event.date == null) {
+        emit(_Loaded(originalEvents));
+      } else {
+        final filteredEventsByDate = originalEvents
+            .where((e) => e.date!.isAtSameMomentAs(event.date!))
+            .toList();
+
+        emit(_Loaded(filteredEventsByDate));
+      }
     }
   }
 }

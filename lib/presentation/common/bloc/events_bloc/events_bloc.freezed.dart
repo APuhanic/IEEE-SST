@@ -24,6 +24,8 @@ mixin _$EventsEvent {
     required TResult Function(Event event) updateEvent,
     required TResult Function(Event event) markGoing,
     required TResult Function(Event event) markNotGoing,
+    required TResult Function(String? query, DateTime? date, FilterType? filter)
+        filterEvents,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -34,6 +36,8 @@ mixin _$EventsEvent {
     TResult? Function(Event event)? updateEvent,
     TResult? Function(Event event)? markGoing,
     TResult? Function(Event event)? markNotGoing,
+    TResult? Function(String? query, DateTime? date, FilterType? filter)?
+        filterEvents,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -44,6 +48,8 @@ mixin _$EventsEvent {
     TResult Function(Event event)? updateEvent,
     TResult Function(Event event)? markGoing,
     TResult Function(Event event)? markNotGoing,
+    TResult Function(String? query, DateTime? date, FilterType? filter)?
+        filterEvents,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -55,6 +61,7 @@ mixin _$EventsEvent {
     required TResult Function(_UpdateEvent value) updateEvent,
     required TResult Function(_MarkGoing value) markGoing,
     required TResult Function(_MarkNotGoing value) markNotGoing,
+    required TResult Function(_FilterEvents value) filterEvents,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -65,6 +72,7 @@ mixin _$EventsEvent {
     TResult? Function(_UpdateEvent value)? updateEvent,
     TResult? Function(_MarkGoing value)? markGoing,
     TResult? Function(_MarkNotGoing value)? markNotGoing,
+    TResult? Function(_FilterEvents value)? filterEvents,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -75,6 +83,7 @@ mixin _$EventsEvent {
     TResult Function(_UpdateEvent value)? updateEvent,
     TResult Function(_MarkGoing value)? markGoing,
     TResult Function(_MarkNotGoing value)? markNotGoing,
+    TResult Function(_FilterEvents value)? filterEvents,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -142,6 +151,8 @@ class _$LoadEventsImpl implements _LoadEvents {
     required TResult Function(Event event) updateEvent,
     required TResult Function(Event event) markGoing,
     required TResult Function(Event event) markNotGoing,
+    required TResult Function(String? query, DateTime? date, FilterType? filter)
+        filterEvents,
   }) {
     return loadEvents();
   }
@@ -155,6 +166,8 @@ class _$LoadEventsImpl implements _LoadEvents {
     TResult? Function(Event event)? updateEvent,
     TResult? Function(Event event)? markGoing,
     TResult? Function(Event event)? markNotGoing,
+    TResult? Function(String? query, DateTime? date, FilterType? filter)?
+        filterEvents,
   }) {
     return loadEvents?.call();
   }
@@ -168,6 +181,8 @@ class _$LoadEventsImpl implements _LoadEvents {
     TResult Function(Event event)? updateEvent,
     TResult Function(Event event)? markGoing,
     TResult Function(Event event)? markNotGoing,
+    TResult Function(String? query, DateTime? date, FilterType? filter)?
+        filterEvents,
     required TResult orElse(),
   }) {
     if (loadEvents != null) {
@@ -185,6 +200,7 @@ class _$LoadEventsImpl implements _LoadEvents {
     required TResult Function(_UpdateEvent value) updateEvent,
     required TResult Function(_MarkGoing value) markGoing,
     required TResult Function(_MarkNotGoing value) markNotGoing,
+    required TResult Function(_FilterEvents value) filterEvents,
   }) {
     return loadEvents(this);
   }
@@ -198,6 +214,7 @@ class _$LoadEventsImpl implements _LoadEvents {
     TResult? Function(_UpdateEvent value)? updateEvent,
     TResult? Function(_MarkGoing value)? markGoing,
     TResult? Function(_MarkNotGoing value)? markNotGoing,
+    TResult? Function(_FilterEvents value)? filterEvents,
   }) {
     return loadEvents?.call(this);
   }
@@ -211,6 +228,7 @@ class _$LoadEventsImpl implements _LoadEvents {
     TResult Function(_UpdateEvent value)? updateEvent,
     TResult Function(_MarkGoing value)? markGoing,
     TResult Function(_MarkNotGoing value)? markNotGoing,
+    TResult Function(_FilterEvents value)? filterEvents,
     required TResult orElse(),
   }) {
     if (loadEvents != null) {
@@ -304,6 +322,8 @@ class _$AddEventImpl implements _AddEvent {
     required TResult Function(Event event) updateEvent,
     required TResult Function(Event event) markGoing,
     required TResult Function(Event event) markNotGoing,
+    required TResult Function(String? query, DateTime? date, FilterType? filter)
+        filterEvents,
   }) {
     return addEvent(event);
   }
@@ -317,6 +337,8 @@ class _$AddEventImpl implements _AddEvent {
     TResult? Function(Event event)? updateEvent,
     TResult? Function(Event event)? markGoing,
     TResult? Function(Event event)? markNotGoing,
+    TResult? Function(String? query, DateTime? date, FilterType? filter)?
+        filterEvents,
   }) {
     return addEvent?.call(event);
   }
@@ -330,6 +352,8 @@ class _$AddEventImpl implements _AddEvent {
     TResult Function(Event event)? updateEvent,
     TResult Function(Event event)? markGoing,
     TResult Function(Event event)? markNotGoing,
+    TResult Function(String? query, DateTime? date, FilterType? filter)?
+        filterEvents,
     required TResult orElse(),
   }) {
     if (addEvent != null) {
@@ -347,6 +371,7 @@ class _$AddEventImpl implements _AddEvent {
     required TResult Function(_UpdateEvent value) updateEvent,
     required TResult Function(_MarkGoing value) markGoing,
     required TResult Function(_MarkNotGoing value) markNotGoing,
+    required TResult Function(_FilterEvents value) filterEvents,
   }) {
     return addEvent(this);
   }
@@ -360,6 +385,7 @@ class _$AddEventImpl implements _AddEvent {
     TResult? Function(_UpdateEvent value)? updateEvent,
     TResult? Function(_MarkGoing value)? markGoing,
     TResult? Function(_MarkNotGoing value)? markNotGoing,
+    TResult? Function(_FilterEvents value)? filterEvents,
   }) {
     return addEvent?.call(this);
   }
@@ -373,6 +399,7 @@ class _$AddEventImpl implements _AddEvent {
     TResult Function(_UpdateEvent value)? updateEvent,
     TResult Function(_MarkGoing value)? markGoing,
     TResult Function(_MarkNotGoing value)? markNotGoing,
+    TResult Function(_FilterEvents value)? filterEvents,
     required TResult orElse(),
   }) {
     if (addEvent != null) {
@@ -471,6 +498,8 @@ class _$DeleteEventImpl implements _DeleteEvent {
     required TResult Function(Event event) updateEvent,
     required TResult Function(Event event) markGoing,
     required TResult Function(Event event) markNotGoing,
+    required TResult Function(String? query, DateTime? date, FilterType? filter)
+        filterEvents,
   }) {
     return deleteEvent(event);
   }
@@ -484,6 +513,8 @@ class _$DeleteEventImpl implements _DeleteEvent {
     TResult? Function(Event event)? updateEvent,
     TResult? Function(Event event)? markGoing,
     TResult? Function(Event event)? markNotGoing,
+    TResult? Function(String? query, DateTime? date, FilterType? filter)?
+        filterEvents,
   }) {
     return deleteEvent?.call(event);
   }
@@ -497,6 +528,8 @@ class _$DeleteEventImpl implements _DeleteEvent {
     TResult Function(Event event)? updateEvent,
     TResult Function(Event event)? markGoing,
     TResult Function(Event event)? markNotGoing,
+    TResult Function(String? query, DateTime? date, FilterType? filter)?
+        filterEvents,
     required TResult orElse(),
   }) {
     if (deleteEvent != null) {
@@ -514,6 +547,7 @@ class _$DeleteEventImpl implements _DeleteEvent {
     required TResult Function(_UpdateEvent value) updateEvent,
     required TResult Function(_MarkGoing value) markGoing,
     required TResult Function(_MarkNotGoing value) markNotGoing,
+    required TResult Function(_FilterEvents value) filterEvents,
   }) {
     return deleteEvent(this);
   }
@@ -527,6 +561,7 @@ class _$DeleteEventImpl implements _DeleteEvent {
     TResult? Function(_UpdateEvent value)? updateEvent,
     TResult? Function(_MarkGoing value)? markGoing,
     TResult? Function(_MarkNotGoing value)? markNotGoing,
+    TResult? Function(_FilterEvents value)? filterEvents,
   }) {
     return deleteEvent?.call(this);
   }
@@ -540,6 +575,7 @@ class _$DeleteEventImpl implements _DeleteEvent {
     TResult Function(_UpdateEvent value)? updateEvent,
     TResult Function(_MarkGoing value)? markGoing,
     TResult Function(_MarkNotGoing value)? markNotGoing,
+    TResult Function(_FilterEvents value)? filterEvents,
     required TResult orElse(),
   }) {
     if (deleteEvent != null) {
@@ -638,6 +674,8 @@ class _$UpdateEventImpl implements _UpdateEvent {
     required TResult Function(Event event) updateEvent,
     required TResult Function(Event event) markGoing,
     required TResult Function(Event event) markNotGoing,
+    required TResult Function(String? query, DateTime? date, FilterType? filter)
+        filterEvents,
   }) {
     return updateEvent(event);
   }
@@ -651,6 +689,8 @@ class _$UpdateEventImpl implements _UpdateEvent {
     TResult? Function(Event event)? updateEvent,
     TResult? Function(Event event)? markGoing,
     TResult? Function(Event event)? markNotGoing,
+    TResult? Function(String? query, DateTime? date, FilterType? filter)?
+        filterEvents,
   }) {
     return updateEvent?.call(event);
   }
@@ -664,6 +704,8 @@ class _$UpdateEventImpl implements _UpdateEvent {
     TResult Function(Event event)? updateEvent,
     TResult Function(Event event)? markGoing,
     TResult Function(Event event)? markNotGoing,
+    TResult Function(String? query, DateTime? date, FilterType? filter)?
+        filterEvents,
     required TResult orElse(),
   }) {
     if (updateEvent != null) {
@@ -681,6 +723,7 @@ class _$UpdateEventImpl implements _UpdateEvent {
     required TResult Function(_UpdateEvent value) updateEvent,
     required TResult Function(_MarkGoing value) markGoing,
     required TResult Function(_MarkNotGoing value) markNotGoing,
+    required TResult Function(_FilterEvents value) filterEvents,
   }) {
     return updateEvent(this);
   }
@@ -694,6 +737,7 @@ class _$UpdateEventImpl implements _UpdateEvent {
     TResult? Function(_UpdateEvent value)? updateEvent,
     TResult? Function(_MarkGoing value)? markGoing,
     TResult? Function(_MarkNotGoing value)? markNotGoing,
+    TResult? Function(_FilterEvents value)? filterEvents,
   }) {
     return updateEvent?.call(this);
   }
@@ -707,6 +751,7 @@ class _$UpdateEventImpl implements _UpdateEvent {
     TResult Function(_UpdateEvent value)? updateEvent,
     TResult Function(_MarkGoing value)? markGoing,
     TResult Function(_MarkNotGoing value)? markNotGoing,
+    TResult Function(_FilterEvents value)? filterEvents,
     required TResult orElse(),
   }) {
     if (updateEvent != null) {
@@ -805,6 +850,8 @@ class _$MarkGoingImpl implements _MarkGoing {
     required TResult Function(Event event) updateEvent,
     required TResult Function(Event event) markGoing,
     required TResult Function(Event event) markNotGoing,
+    required TResult Function(String? query, DateTime? date, FilterType? filter)
+        filterEvents,
   }) {
     return markGoing(event);
   }
@@ -818,6 +865,8 @@ class _$MarkGoingImpl implements _MarkGoing {
     TResult? Function(Event event)? updateEvent,
     TResult? Function(Event event)? markGoing,
     TResult? Function(Event event)? markNotGoing,
+    TResult? Function(String? query, DateTime? date, FilterType? filter)?
+        filterEvents,
   }) {
     return markGoing?.call(event);
   }
@@ -831,6 +880,8 @@ class _$MarkGoingImpl implements _MarkGoing {
     TResult Function(Event event)? updateEvent,
     TResult Function(Event event)? markGoing,
     TResult Function(Event event)? markNotGoing,
+    TResult Function(String? query, DateTime? date, FilterType? filter)?
+        filterEvents,
     required TResult orElse(),
   }) {
     if (markGoing != null) {
@@ -848,6 +899,7 @@ class _$MarkGoingImpl implements _MarkGoing {
     required TResult Function(_UpdateEvent value) updateEvent,
     required TResult Function(_MarkGoing value) markGoing,
     required TResult Function(_MarkNotGoing value) markNotGoing,
+    required TResult Function(_FilterEvents value) filterEvents,
   }) {
     return markGoing(this);
   }
@@ -861,6 +913,7 @@ class _$MarkGoingImpl implements _MarkGoing {
     TResult? Function(_UpdateEvent value)? updateEvent,
     TResult? Function(_MarkGoing value)? markGoing,
     TResult? Function(_MarkNotGoing value)? markNotGoing,
+    TResult? Function(_FilterEvents value)? filterEvents,
   }) {
     return markGoing?.call(this);
   }
@@ -874,6 +927,7 @@ class _$MarkGoingImpl implements _MarkGoing {
     TResult Function(_UpdateEvent value)? updateEvent,
     TResult Function(_MarkGoing value)? markGoing,
     TResult Function(_MarkNotGoing value)? markNotGoing,
+    TResult Function(_FilterEvents value)? filterEvents,
     required TResult orElse(),
   }) {
     if (markGoing != null) {
@@ -972,6 +1026,8 @@ class _$MarkNotGoingImpl implements _MarkNotGoing {
     required TResult Function(Event event) updateEvent,
     required TResult Function(Event event) markGoing,
     required TResult Function(Event event) markNotGoing,
+    required TResult Function(String? query, DateTime? date, FilterType? filter)
+        filterEvents,
   }) {
     return markNotGoing(event);
   }
@@ -985,6 +1041,8 @@ class _$MarkNotGoingImpl implements _MarkNotGoing {
     TResult? Function(Event event)? updateEvent,
     TResult? Function(Event event)? markGoing,
     TResult? Function(Event event)? markNotGoing,
+    TResult? Function(String? query, DateTime? date, FilterType? filter)?
+        filterEvents,
   }) {
     return markNotGoing?.call(event);
   }
@@ -998,6 +1056,8 @@ class _$MarkNotGoingImpl implements _MarkNotGoing {
     TResult Function(Event event)? updateEvent,
     TResult Function(Event event)? markGoing,
     TResult Function(Event event)? markNotGoing,
+    TResult Function(String? query, DateTime? date, FilterType? filter)?
+        filterEvents,
     required TResult orElse(),
   }) {
     if (markNotGoing != null) {
@@ -1015,6 +1075,7 @@ class _$MarkNotGoingImpl implements _MarkNotGoing {
     required TResult Function(_UpdateEvent value) updateEvent,
     required TResult Function(_MarkGoing value) markGoing,
     required TResult Function(_MarkNotGoing value) markNotGoing,
+    required TResult Function(_FilterEvents value) filterEvents,
   }) {
     return markNotGoing(this);
   }
@@ -1028,6 +1089,7 @@ class _$MarkNotGoingImpl implements _MarkNotGoing {
     TResult? Function(_UpdateEvent value)? updateEvent,
     TResult? Function(_MarkGoing value)? markGoing,
     TResult? Function(_MarkNotGoing value)? markNotGoing,
+    TResult? Function(_FilterEvents value)? filterEvents,
   }) {
     return markNotGoing?.call(this);
   }
@@ -1041,6 +1103,7 @@ class _$MarkNotGoingImpl implements _MarkNotGoing {
     TResult Function(_UpdateEvent value)? updateEvent,
     TResult Function(_MarkGoing value)? markGoing,
     TResult Function(_MarkNotGoing value)? markNotGoing,
+    TResult Function(_FilterEvents value)? filterEvents,
     required TResult orElse(),
   }) {
     if (markNotGoing != null) {
@@ -1056,6 +1119,193 @@ abstract class _MarkNotGoing implements EventsEvent {
   Event get event;
   @JsonKey(ignore: true)
   _$$MarkNotGoingImplCopyWith<_$MarkNotGoingImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$FilterEventsImplCopyWith<$Res> {
+  factory _$$FilterEventsImplCopyWith(
+          _$FilterEventsImpl value, $Res Function(_$FilterEventsImpl) then) =
+      __$$FilterEventsImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String? query, DateTime? date, FilterType? filter});
+}
+
+/// @nodoc
+class __$$FilterEventsImplCopyWithImpl<$Res>
+    extends _$EventsEventCopyWithImpl<$Res, _$FilterEventsImpl>
+    implements _$$FilterEventsImplCopyWith<$Res> {
+  __$$FilterEventsImplCopyWithImpl(
+      _$FilterEventsImpl _value, $Res Function(_$FilterEventsImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? query = freezed,
+    Object? date = freezed,
+    Object? filter = freezed,
+  }) {
+    return _then(_$FilterEventsImpl(
+      query: freezed == query
+          ? _value.query
+          : query // ignore: cast_nullable_to_non_nullable
+              as String?,
+      date: freezed == date
+          ? _value.date
+          : date // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      filter: freezed == filter
+          ? _value.filter
+          : filter // ignore: cast_nullable_to_non_nullable
+              as FilterType?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$FilterEventsImpl implements _FilterEvents {
+  const _$FilterEventsImpl({this.query, this.date, this.filter});
+
+  @override
+  final String? query;
+  @override
+  final DateTime? date;
+  @override
+  final FilterType? filter;
+
+  @override
+  String toString() {
+    return 'EventsEvent.filterEvents(query: $query, date: $date, filter: $filter)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$FilterEventsImpl &&
+            (identical(other.query, query) || other.query == query) &&
+            (identical(other.date, date) || other.date == date) &&
+            (identical(other.filter, filter) || other.filter == filter));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, query, date, filter);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$FilterEventsImplCopyWith<_$FilterEventsImpl> get copyWith =>
+      __$$FilterEventsImplCopyWithImpl<_$FilterEventsImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loadEvents,
+    required TResult Function(Event event) addEvent,
+    required TResult Function(Event event) deleteEvent,
+    required TResult Function(Event event) updateEvent,
+    required TResult Function(Event event) markGoing,
+    required TResult Function(Event event) markNotGoing,
+    required TResult Function(String? query, DateTime? date, FilterType? filter)
+        filterEvents,
+  }) {
+    return filterEvents(query, date, filter);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loadEvents,
+    TResult? Function(Event event)? addEvent,
+    TResult? Function(Event event)? deleteEvent,
+    TResult? Function(Event event)? updateEvent,
+    TResult? Function(Event event)? markGoing,
+    TResult? Function(Event event)? markNotGoing,
+    TResult? Function(String? query, DateTime? date, FilterType? filter)?
+        filterEvents,
+  }) {
+    return filterEvents?.call(query, date, filter);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loadEvents,
+    TResult Function(Event event)? addEvent,
+    TResult Function(Event event)? deleteEvent,
+    TResult Function(Event event)? updateEvent,
+    TResult Function(Event event)? markGoing,
+    TResult Function(Event event)? markNotGoing,
+    TResult Function(String? query, DateTime? date, FilterType? filter)?
+        filterEvents,
+    required TResult orElse(),
+  }) {
+    if (filterEvents != null) {
+      return filterEvents(query, date, filter);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadEvents value) loadEvents,
+    required TResult Function(_AddEvent value) addEvent,
+    required TResult Function(_DeleteEvent value) deleteEvent,
+    required TResult Function(_UpdateEvent value) updateEvent,
+    required TResult Function(_MarkGoing value) markGoing,
+    required TResult Function(_MarkNotGoing value) markNotGoing,
+    required TResult Function(_FilterEvents value) filterEvents,
+  }) {
+    return filterEvents(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadEvents value)? loadEvents,
+    TResult? Function(_AddEvent value)? addEvent,
+    TResult? Function(_DeleteEvent value)? deleteEvent,
+    TResult? Function(_UpdateEvent value)? updateEvent,
+    TResult? Function(_MarkGoing value)? markGoing,
+    TResult? Function(_MarkNotGoing value)? markNotGoing,
+    TResult? Function(_FilterEvents value)? filterEvents,
+  }) {
+    return filterEvents?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadEvents value)? loadEvents,
+    TResult Function(_AddEvent value)? addEvent,
+    TResult Function(_DeleteEvent value)? deleteEvent,
+    TResult Function(_UpdateEvent value)? updateEvent,
+    TResult Function(_MarkGoing value)? markGoing,
+    TResult Function(_MarkNotGoing value)? markNotGoing,
+    TResult Function(_FilterEvents value)? filterEvents,
+    required TResult orElse(),
+  }) {
+    if (filterEvents != null) {
+      return filterEvents(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _FilterEvents implements EventsEvent {
+  const factory _FilterEvents(
+      {final String? query,
+      final DateTime? date,
+      final FilterType? filter}) = _$FilterEventsImpl;
+
+  String? get query;
+  DateTime? get date;
+  FilterType? get filter;
+  @JsonKey(ignore: true)
+  _$$FilterEventsImplCopyWith<_$FilterEventsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 

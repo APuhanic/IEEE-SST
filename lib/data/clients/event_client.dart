@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
+import 'package:logger/logger.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 @injectable
@@ -19,6 +20,7 @@ class EventClient {
     String info,
   ) async {
     try {
+      Logger().i(date.toIso8601String());
       await _supabaseClient.from('events').insert({
         'name': name,
         'description': description,

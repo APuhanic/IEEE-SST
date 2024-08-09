@@ -4,6 +4,7 @@ import 'package:ieee_sst/data/constants/app_colors.dart';
 import 'package:ieee_sst/data/constants/text_styles.dart';
 import 'package:ieee_sst/data/models/input_models/filter_chip_types.dart';
 import 'package:ieee_sst/presentation/admin/admin_event_managment_screen/bloc/cubit/filter_chip_cubit.dart';
+import 'package:ieee_sst/presentation/common/bloc/events_bloc/events_bloc.dart';
 
 class FilterChips extends StatelessWidget {
   const FilterChips({
@@ -54,6 +55,11 @@ class FilterChips extends StatelessWidget {
                         context
                             .read<FilterChipCubit>()
                             .selectFilterChip(filterType);
+                        context.read<EventsManagmentBloc>().add(
+                              EventsEvent.filterEvents(
+                                filter: filterType,
+                              ),
+                            );
                       },
                     );
                   },
