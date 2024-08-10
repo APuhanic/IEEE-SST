@@ -15,12 +15,13 @@ class FilterChips extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => FilterChipCubit(),
-      child: SizedBox(
-        height: 40,
-        child: Row(
-          children: [
-            ListView.separated(
+      child: Row(
+        children: [
+          SizedBox(
+            height: 40,
+            child: ListView.separated(
               shrinkWrap: true,
+              padding: const EdgeInsets.symmetric(horizontal: 8),
               scrollDirection: Axis.horizontal,
               itemCount: FilterType.values.length,
               separatorBuilder: (context, index) => const SizedBox(width: 8),
@@ -65,9 +66,9 @@ class FilterChips extends StatelessWidget {
                   },
                 );
               },
-            )
-          ],
-        ),
+            ),
+          ),
+        ],
       ),
     );
   }

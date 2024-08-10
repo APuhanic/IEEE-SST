@@ -8,6 +8,6 @@ class EventsEvent with _$EventsEvent {
   const factory EventsEvent.updateEvent(Event event) = _UpdateEvent;
   const factory EventsEvent.markGoing(Event event) = _MarkGoing;
   const factory EventsEvent.markNotGoing(Event event) = _MarkNotGoing;
-  const factory EventsEvent.filterEvents(
-      {String? query, DateTime? date, FilterType? filter}) = _FilterEvents;
+  const factory EventsEvent.filterEvents({DateTime? date, FilterType? filter}) =
+      _FilterEvents;
 }

@@ -54,6 +54,7 @@ class EventsManagmentBloc extends Bloc<EventsEvent, EventsState> {
   Future<FutureOr<void>> _onMarkGoing(
       _MarkGoing event, Emitter<EventsState> emit) async {
     await supabaseEventRepository.markGoing(event.event.id!);
+
     if (state is _Loaded) {
       final events = (state as _Loaded).events;
       final updatedEvents = events.map((e) {
@@ -62,6 +63,8 @@ class EventsManagmentBloc extends Bloc<EventsEvent, EventsState> {
         }
         return e;
       }).toList();
+      originalEvents.clear();
+      originalEvents.addAll(updatedEvents);
       emit(_Loaded(updatedEvents));
     }
   }
@@ -77,22 +80,74 @@ class EventsManagmentBloc extends Bloc<EventsEvent, EventsState> {
         }
         return e;
       }).toList();
+      originalEvents.clear();
+      originalEvents.addAll(updatedEvents);
       emit(_Loaded(updatedEvents));
     }
   }
 
   FutureOr<void> _onFilterEvents(
       _FilterEvents event, Emitter<EventsState> emit) {
-    if (state is _Loaded) {
-      if (event.date == null) {
-        emit(_Loaded(originalEvents));
-      } else {
-        final filteredEventsByDate = originalEvents
-            .where((e) => e.date!.isAtSameMomentAs(event.date!))
-            .toList();
+    if (state is! _Loaded) return null;
 
-        emit(_Loaded(filteredEventsByDate));
-      }
+    final isSameFilter = _isSameFilterApplied(event);
+
+    List<Event> filteredEvents = _filterEventsByDate(event.date);
+
+    // If the same filter is clicked again, reset to original events
+    if (isSameFilter) {
+      emit(_Loaded(filteredEvents));
+      return null;
+    }
+    filteredEvents = _filterEventsByType(filteredEvents, event.filter);
+
+    emit(_Loaded(filteredEvents));
+  }
+
+  List<Event> _filterEventsByDate(DateTime? date) {
+    if (date == null) return originalEvents;
+    return originalEvents
+        .where((element) => element.date?.isAtSameMomentAs(date) ?? false)
+        .toList();
+  }
+
+  //TODO: Fix color change when re-clicking the same filter
+  List<Event> _filterEventsByType(
+      List<Event> filteredEvents, FilterType? filter) {
+    if (filter == null) return filteredEvents;
+    switch (filter) {
+      case FilterType.going:
+        return filteredEvents.where((element) => element.isGoing).toList();
+      case FilterType.past:
+        return filteredEvents.where(hasEventPassed).toList();
+      case FilterType.upcoming:
+        return filteredEvents.where(isEventUpcoming).toList();
+      case FilterType.yours:
+        return filteredEvents.where((element) => element.isGoing).toList();
+      default:
+        return filteredEvents;
+    }
+  }
+
+  bool isEventUpcoming(event) => event.startTime!.isAfter(DateTime.now());
+
+  bool hasEventPassed(event) => event.startTime!.isBefore(DateTime.now());
+
+  bool _isSameFilterApplied(_FilterEvents event) {
+    if (event.filter == null) return false;
+
+    final currentEvents = (state as _Loaded).events;
+    switch (event.filter) {
+      case FilterType.going:
+        return currentEvents.every((e) => e.isGoing);
+      case FilterType.past:
+        return currentEvents.every(hasEventPassed);
+      case FilterType.upcoming:
+        return currentEvents.every(isEventUpcoming);
+      case FilterType.yours:
+        return currentEvents.every((e) => e.isGoing);
+      default:
+        return false;
     }
   }
 }

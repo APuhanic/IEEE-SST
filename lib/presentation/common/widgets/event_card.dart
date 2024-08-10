@@ -8,6 +8,7 @@ import 'package:ieee_sst/presentation/common/bloc/events_bloc/events_bloc.dart';
 import 'package:ieee_sst/presentation/common/cubit/is_going_cubit.dart';
 import 'package:ieee_sst/presentation/common/widgets/bottom_sheet_event_info.dart';
 import 'package:ieee_sst/presentation/common/widgets/event_data.dart';
+import 'package:ieee_sst/util/debouncer.dart';
 
 class EventCard extends StatelessWidget {
   const EventCard({
@@ -22,92 +23,130 @@ class EventCard extends StatelessWidget {
     return BlocProvider(
       create: (context) => IsGoingCubit(),
       child: GestureDetector(
-        onTap: () {
-          showModalBottomSheet(
-            context: context,
-            useRootNavigator: true,
-            builder: (context) => BottomSheetEventInfo(event: event),
-          );
-        },
-        child: Container(
-          width: 325,
-          decoration: BoxDecoration(
-            color: AppColors.white,
-            borderRadius: BorderRadius.circular(15),
-          ),
-          child: Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Flexible(
-                      child: Text(
-                        event.name,
-                        style: AppTextStyle.titleSmall,
-                      ),
-                    ),
-                    const SizedBox(width: 16),
-                    _IsGoingButtonBuilder(event)
-                  ],
-                ),
-                const SizedBox(height: 8),
-                EventData(
-                  eventInfo: event.startTime!.toIso8601String().split('T')[0],
-                  icon: FontAwesomeIcons.calendar,
-                ),
-                EventData(
-                  eventInfo: event.startTime!.toIso8601String().split('T')[1],
-                  icon: FontAwesomeIcons.clock,
-                ),
-                EventData(
-                  eventInfo: event.location,
-                  icon: FontAwesomeIcons.locationDot,
-                ),
-                const SizedBox(height: 8),
-                Text(
-                  '${event.attendeeCount}+ People are going to this event',
-                  style: AppTextStyle.blueText,
-                )
-              ],
-            ),
-          ),
+        onTap: () => _showEventInfo(context),
+        child: _buildCard(context),
+      ),
+    );
+  }
+
+  void _showEventInfo(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      useRootNavigator: true,
+      builder: (context) => BottomSheetEventInfo(event: event),
+    );
+  }
+
+  Widget _buildCard(BuildContext context) {
+    return Container(
+      width: 325,
+      decoration: BoxDecoration(
+        color: AppColors.white,
+        borderRadius: BorderRadius.circular(15),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            _buildHeader(context),
+            const SizedBox(height: 8),
+            _buildEventData(),
+            const SizedBox(height: 8),
+            _buildAttendeeInfo(),
+          ],
         ),
       ),
     );
   }
+
+  Widget _buildHeader(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Flexible(
+          child: Text(
+            event.name,
+            style: AppTextStyle.titleSmall,
+          ),
+        ),
+        const SizedBox(width: 16),
+        _IsGoingButton(event: event),
+      ],
+    );
+  }
+
+  Widget _buildEventData() {
+    return Column(
+      children: [
+        EventData(
+          eventInfo: event.startTime?.toIso8601String().split('T')[0] ?? '',
+          icon: FontAwesomeIcons.calendar,
+        ),
+        EventData(
+          eventInfo: event.startTime?.toIso8601String().split('T')[1] ?? '',
+          icon: FontAwesomeIcons.clock,
+        ),
+        EventData(
+          eventInfo: event.location,
+          icon: FontAwesomeIcons.locationDot,
+        ),
+      ],
+    );
+  }
+
+  Widget _buildAttendeeInfo() {
+    return Text(
+      '${event.attendeeCount}+ People are going to this event',
+      style: AppTextStyle.blueText,
+    );
+  }
 }
 
-class _IsGoingButtonBuilder extends StatelessWidget {
-  const _IsGoingButtonBuilder(this.event);
+class _IsGoingButton extends StatefulWidget {
+  const _IsGoingButton({required this.event});
 
   final Event event;
+
+  @override
+  _IsGoingButtonState createState() => _IsGoingButtonState();
+}
+
+class _IsGoingButtonState extends State<_IsGoingButton> {
+  final Debouncer debouncer = Debouncer(milliseconds: 350);
+  bool isLoading = false;
 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<IsGoingCubit, bool>(
       builder: (context, state) {
         return IconButton(
-          onPressed: () {
-            context.read<IsGoingCubit>().toggleIsGoing();
-            if (event.isGoing) {
-              context
-                  .read<EventsManagmentBloc>()
-                  .add(EventsEvent.markNotGoing(event));
-            } else {
-              context
-                  .read<EventsManagmentBloc>()
-                  .add(EventsEvent.markGoing(event));
-            }
-          },
-          icon: event.isGoing
-              ? const Icon(Icons.event_available)
-              : const Icon(Icons.event, color: AppColors.black),
+          onPressed: _onPressed,
+          icon: isLoading
+              ? const CircularProgressIndicator(color: AppColors.primary)
+              : _buildIcon(),
           color: AppColors.primary,
         );
       },
     );
+  }
+
+  void _onPressed() {
+    setState(() => isLoading = true);
+    debouncer.run(() {
+      context.read<IsGoingCubit>().toggleIsGoing();
+      final eventAction = widget.event.isGoing
+          ? EventsEvent.markNotGoing(widget.event)
+          : EventsEvent.markGoing(widget.event);
+
+      context.read<EventsManagmentBloc>().add(eventAction);
+      setState(() => isLoading = false);
+    });
+  }
+
+  Icon _buildIcon() {
+    return widget.event.isGoing
+        ? const Icon(Icons.event_available)
+        : const Icon(Icons.event, color: AppColors.black);
   }
 }

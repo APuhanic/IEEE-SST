@@ -1,4 +1,9 @@
-enum FilterType { all, upcoming, past, yours }
+enum FilterType {
+  upcoming,
+  past,
+  yours,
+  going,
+}
 
 class FilterChipItem {
   final String label;

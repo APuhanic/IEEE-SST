@@ -18,38 +18,38 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$FilterChipState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
+    required TResult Function() unselected,
     required TResult Function(FilterType filterType) selected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
+    TResult? Function()? unselected,
     TResult? Function(FilterType filterType)? selected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
+    TResult Function()? unselected,
     TResult Function(FilterType filterType)? selected,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
+    required TResult Function(_Unselected value) unselected,
     required TResult Function(_Selected value) selected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Unselected value)? unselected,
     TResult? Function(_Selected value)? selected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
+    TResult Function(_Unselected value)? unselected,
     TResult Function(_Selected value)? selected,
     required TResult orElse(),
   }) =>
@@ -75,35 +75,35 @@ class _$FilterChipStateCopyWithImpl<$Res, $Val extends FilterChipState>
 }
 
 /// @nodoc
-abstract class _$$InitialImplCopyWith<$Res> {
-  factory _$$InitialImplCopyWith(
-          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
-      __$$InitialImplCopyWithImpl<$Res>;
+abstract class _$$UnselectedImplCopyWith<$Res> {
+  factory _$$UnselectedImplCopyWith(
+          _$UnselectedImpl value, $Res Function(_$UnselectedImpl) then) =
+      __$$UnselectedImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$InitialImplCopyWithImpl<$Res>
-    extends _$FilterChipStateCopyWithImpl<$Res, _$InitialImpl>
-    implements _$$InitialImplCopyWith<$Res> {
-  __$$InitialImplCopyWithImpl(
-      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
+class __$$UnselectedImplCopyWithImpl<$Res>
+    extends _$FilterChipStateCopyWithImpl<$Res, _$UnselectedImpl>
+    implements _$$UnselectedImplCopyWith<$Res> {
+  __$$UnselectedImplCopyWithImpl(
+      _$UnselectedImpl _value, $Res Function(_$UnselectedImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$InitialImpl implements _Initial {
-  const _$InitialImpl();
+class _$UnselectedImpl implements _Unselected {
+  const _$UnselectedImpl();
 
   @override
   String toString() {
-    return 'FilterChipState.initial()';
+    return 'FilterChipState.unselected()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$InitialImpl);
+        (other.runtimeType == runtimeType && other is _$UnselectedImpl);
   }
 
   @override
@@ -112,30 +112,30 @@ class _$InitialImpl implements _Initial {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
+    required TResult Function() unselected,
     required TResult Function(FilterType filterType) selected,
   }) {
-    return initial();
+    return unselected();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
+    TResult? Function()? unselected,
     TResult? Function(FilterType filterType)? selected,
   }) {
-    return initial?.call();
+    return unselected?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
+    TResult Function()? unselected,
     TResult Function(FilterType filterType)? selected,
     required TResult orElse(),
   }) {
-    if (initial != null) {
-      return initial();
+    if (unselected != null) {
+      return unselected();
     }
     return orElse();
   }
@@ -143,37 +143,37 @@ class _$InitialImpl implements _Initial {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
+    required TResult Function(_Unselected value) unselected,
     required TResult Function(_Selected value) selected,
   }) {
-    return initial(this);
+    return unselected(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Unselected value)? unselected,
     TResult? Function(_Selected value)? selected,
   }) {
-    return initial?.call(this);
+    return unselected?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
+    TResult Function(_Unselected value)? unselected,
     TResult Function(_Selected value)? selected,
     required TResult orElse(),
   }) {
-    if (initial != null) {
-      return initial(this);
+    if (unselected != null) {
+      return unselected(this);
     }
     return orElse();
   }
 }
 
-abstract class _Initial implements FilterChipState {
-  const factory _Initial() = _$InitialImpl;
+abstract class _Unselected implements FilterChipState {
+  const factory _Unselected() = _$UnselectedImpl;
 }
 
 /// @nodoc
@@ -241,7 +241,7 @@ class _$SelectedImpl implements _Selected {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
+    required TResult Function() unselected,
     required TResult Function(FilterType filterType) selected,
   }) {
     return selected(filterType);
@@ -250,7 +250,7 @@ class _$SelectedImpl implements _Selected {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
+    TResult? Function()? unselected,
     TResult? Function(FilterType filterType)? selected,
   }) {
     return selected?.call(filterType);
@@ -259,7 +259,7 @@ class _$SelectedImpl implements _Selected {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
+    TResult Function()? unselected,
     TResult Function(FilterType filterType)? selected,
     required TResult orElse(),
   }) {
@@ -272,7 +272,7 @@ class _$SelectedImpl implements _Selected {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
+    required TResult Function(_Unselected value) unselected,
     required TResult Function(_Selected value) selected,
   }) {
     return selected(this);
@@ -281,7 +281,7 @@ class _$SelectedImpl implements _Selected {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Unselected value)? unselected,
     TResult? Function(_Selected value)? selected,
   }) {
     return selected?.call(this);
@@ -290,7 +290,7 @@ class _$SelectedImpl implements _Selected {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
+    TResult Function(_Unselected value)? unselected,
     TResult Function(_Selected value)? selected,
     required TResult orElse(),
   }) {

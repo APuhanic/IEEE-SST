@@ -76,7 +76,8 @@ class EventClient {
       await _supabaseClient
           .from('event_attendees')
           .delete()
-          .eq('event_id', eventId);
+          .eq('event_id', eventId)
+          .eq('user_id', _supabaseClient.auth.currentUser!.id);
     } catch (e) {
       debugPrint(e.toString());
     }
