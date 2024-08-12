@@ -1,6 +1,8 @@
 import 'package:ieee_sst/data/clients/event_client.dart';
+import 'package:ieee_sst/data/local_storage/event_local_storage.dart';
 import 'package:ieee_sst/data/models/event_attendee_model/event_attendee.dart';
 import 'package:ieee_sst/domain/models/event.dart';
+import 'package:ieee_sst/util/connection_checker.dart';
 import 'package:injectable/injectable.dart';
 import 'package:supabase_auth_ui/supabase_auth_ui.dart';
 
@@ -8,21 +10,22 @@ import 'package:supabase_auth_ui/supabase_auth_ui.dart';
 class EventRepository {
   final EventClient _eventClient;
   final SupabaseClient _supabaseClient;
+  final EventLocalStorage _eventLocalStorage;
+  final ConnectionChecker _connectionChecker;
 
-  EventRepository(this._eventClient, this._supabaseClient);
+  EventRepository(
+    this._eventClient,
+    this._supabaseClient,
+    this._eventLocalStorage,
+    this._connectionChecker,
+  );
 
   Future<List<Event>> getAllEvents() async {
-    final eventsResponse = await _eventClient.fetchEvents();
-    final eventAttendResponse = await getAllEventAttendees();
-    return eventsResponse
-        .map((event) => Event.fromJson(event).copyWith(
-            isGoing: eventAttendResponse.any((eventAttendee) =>
-                eventAttendee.event_id == event['id'] &&
-                eventAttendee.user_id == _supabaseClient.auth.currentUser!.id),
-            attendeeCount: eventAttendResponse
-                .where((eventAttendee) => eventAttendee.event_id == event['id'])
-                .length))
-        .toList();
+    if (await _connectionChecker.hasConnection) {
+      return await _getAllEventsFromClient();
+    } else {
+      return await _eventLocalStorage.getEvents();
+    }
   }
 
   /// For now it doesn't user toJson because it converts id to a null which
@@ -58,5 +61,21 @@ class EventRepository {
     return eventAttendeesResponse
         .map((eventAttendee) => EventAttendee.fromJson(eventAttendee))
         .toList();
+  }
+
+  _getAllEventsFromClient() async {
+    final eventsResponse = await _eventClient.fetchEvents();
+    final eventAttendResponse = await getAllEventAttendees();
+    final eventList = eventsResponse
+        .map((event) => Event.fromJson(event).copyWith(
+            isGoing: eventAttendResponse.any((eventAttendee) =>
+                eventAttendee.event_id == event['id'] &&
+                eventAttendee.user_id == _supabaseClient.auth.currentUser!.id),
+            attendeeCount: eventAttendResponse
+                .where((eventAttendee) => eventAttendee.event_id == event['id'])
+                .length))
+        .toList();
+    await _eventLocalStorage.saveEvents(eventList);
+    return eventList;
   }
 }

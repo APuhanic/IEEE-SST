@@ -20,16 +20,27 @@ Event _$EventFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Event {
+  @HiveField(0)
   String? get id => throw _privateConstructorUsedError;
+  @HiveField(1)
   String get name => throw _privateConstructorUsedError;
+  @HiveField(2)
   String get description => throw _privateConstructorUsedError;
+  @HiveField(3)
   String get location => throw _privateConstructorUsedError;
+  @HiveField(4)
   String get speaker => throw _privateConstructorUsedError;
+  @HiveField(5)
   DateTime? get startTime => throw _privateConstructorUsedError;
+  @HiveField(6)
   DateTime? get endTime => throw _privateConstructorUsedError;
+  @HiveField(7)
   DateTime? get date => throw _privateConstructorUsedError;
+  @HiveField(8)
   String? get info => throw _privateConstructorUsedError;
+  @HiveField(9)
   bool get isGoing => throw _privateConstructorUsedError;
+  @HiveField(10)
   int get attendeeCount => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -43,17 +54,17 @@ abstract class $EventCopyWith<$Res> {
       _$EventCopyWithImpl<$Res, Event>;
   @useResult
   $Res call(
-      {String? id,
-      String name,
-      String description,
-      String location,
-      String speaker,
-      DateTime? startTime,
-      DateTime? endTime,
-      DateTime? date,
-      String? info,
-      bool isGoing,
-      int attendeeCount});
+      {@HiveField(0) String? id,
+      @HiveField(1) String name,
+      @HiveField(2) String description,
+      @HiveField(3) String location,
+      @HiveField(4) String speaker,
+      @HiveField(5) DateTime? startTime,
+      @HiveField(6) DateTime? endTime,
+      @HiveField(7) DateTime? date,
+      @HiveField(8) String? info,
+      @HiveField(9) bool isGoing,
+      @HiveField(10) int attendeeCount});
 }
 
 /// @nodoc
@@ -138,17 +149,17 @@ abstract class _$$EventImplCopyWith<$Res> implements $EventCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String? id,
-      String name,
-      String description,
-      String location,
-      String speaker,
-      DateTime? startTime,
-      DateTime? endTime,
-      DateTime? date,
-      String? info,
-      bool isGoing,
-      int attendeeCount});
+      {@HiveField(0) String? id,
+      @HiveField(1) String name,
+      @HiveField(2) String description,
+      @HiveField(3) String location,
+      @HiveField(4) String speaker,
+      @HiveField(5) DateTime? startTime,
+      @HiveField(6) DateTime? endTime,
+      @HiveField(7) DateTime? date,
+      @HiveField(8) String? info,
+      @HiveField(9) bool isGoing,
+      @HiveField(10) int attendeeCount});
 }
 
 /// @nodoc
@@ -227,48 +238,59 @@ class __$$EventImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$EventImpl implements _Event {
   const _$EventImpl(
-      {this.id,
-      this.name = '',
-      this.description = '',
-      this.location = '',
-      this.speaker = '',
-      this.startTime,
-      this.endTime,
-      this.date,
-      this.info,
-      this.isGoing = false,
-      this.attendeeCount = 0});
+      {@HiveField(0) this.id,
+      @HiveField(1) this.name = '',
+      @HiveField(2) this.description = '',
+      @HiveField(3) this.location = '',
+      @HiveField(4) this.speaker = '',
+      @HiveField(5) this.startTime,
+      @HiveField(6) this.endTime,
+      @HiveField(7) this.date,
+      @HiveField(8) this.info,
+      @HiveField(9) this.isGoing = false,
+      @HiveField(10) this.attendeeCount = 0});
 
   factory _$EventImpl.fromJson(Map<String, dynamic> json) =>
       _$$EventImplFromJson(json);
 
   @override
+  @HiveField(0)
   final String? id;
   @override
   @JsonKey()
+  @HiveField(1)
   final String name;
   @override
   @JsonKey()
+  @HiveField(2)
   final String description;
   @override
   @JsonKey()
+  @HiveField(3)
   final String location;
   @override
   @JsonKey()
+  @HiveField(4)
   final String speaker;
   @override
+  @HiveField(5)
   final DateTime? startTime;
   @override
+  @HiveField(6)
   final DateTime? endTime;
   @override
+  @HiveField(7)
   final DateTime? date;
   @override
+  @HiveField(8)
   final String? info;
   @override
   @JsonKey()
+  @HiveField(9)
   final bool isGoing;
   @override
   @JsonKey()
+  @HiveField(10)
   final int attendeeCount;
 
   @override
@@ -319,41 +341,52 @@ class _$EventImpl implements _Event {
 
 abstract class _Event implements Event {
   const factory _Event(
-      {final String? id,
-      final String name,
-      final String description,
-      final String location,
-      final String speaker,
-      final DateTime? startTime,
-      final DateTime? endTime,
-      final DateTime? date,
-      final String? info,
-      final bool isGoing,
-      final int attendeeCount}) = _$EventImpl;
+      {@HiveField(0) final String? id,
+      @HiveField(1) final String name,
+      @HiveField(2) final String description,
+      @HiveField(3) final String location,
+      @HiveField(4) final String speaker,
+      @HiveField(5) final DateTime? startTime,
+      @HiveField(6) final DateTime? endTime,
+      @HiveField(7) final DateTime? date,
+      @HiveField(8) final String? info,
+      @HiveField(9) final bool isGoing,
+      @HiveField(10) final int attendeeCount}) = _$EventImpl;
 
   factory _Event.fromJson(Map<String, dynamic> json) = _$EventImpl.fromJson;
 
   @override
+  @HiveField(0)
   String? get id;
   @override
+  @HiveField(1)
   String get name;
   @override
+  @HiveField(2)
   String get description;
   @override
+  @HiveField(3)
   String get location;
   @override
+  @HiveField(4)
   String get speaker;
   @override
+  @HiveField(5)
   DateTime? get startTime;
   @override
+  @HiveField(6)
   DateTime? get endTime;
   @override
+  @HiveField(7)
   DateTime? get date;
   @override
+  @HiveField(8)
   String? get info;
   @override
+  @HiveField(9)
   bool get isGoing;
   @override
+  @HiveField(10)
   int get attendeeCount;
   @override
   @JsonKey(ignore: true)
