@@ -1,6 +1,6 @@
 import 'package:hive_flutter/adapters.dart';
 import 'package:injectable/injectable.dart';
-import 'package:internet_connection_checker/internet_connection_checker.dart';
+import 'package:internet_connection_checker_plus/internet_connection_checker_plus.dart';
 import 'package:logger/logger.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
@@ -22,6 +22,6 @@ abstract class AppModule {
   @lazySingleton
   HiveInterface get hive => Hive;
   @lazySingleton
-  InternetConnectionChecker get internetConnectionChecker =>
-      InternetConnectionChecker();
+  InternetConnection get internetConnectionChecker =>
+      InternetConnection.createInstance();
 }

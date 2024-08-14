@@ -8,6 +8,7 @@ import 'package:ieee_sst/domain/models/event.dart';
 import 'package:ieee_sst/presentation/admin/admin_event_managment_screen/bloc/event_form_bloc.dart';
 import 'package:ieee_sst/presentation/common/bloc/events_bloc/events_bloc.dart';
 import 'package:ieee_sst/presentation/common/widgets/event_data.dart';
+import 'package:intl/intl.dart';
 
 class AdminEventCard extends StatelessWidget {
   const AdminEventCard({super.key, required this.event});
@@ -42,20 +43,13 @@ class AdminEventCard extends StatelessWidget {
             ),
             const SizedBox(height: 8),
             EventData(
-              eventInfo: event.date!.toIso8601String().split('T')[0],
+              eventInfo: DateFormat('d.M.yyyy').format(event.date!),
               icon: Icons.calendar_today,
             ),
-            Row(
-              children: [
-                EventData(
-                  eventInfo: event.startTime!.toIso8601String().split('T')[1],
-                  icon: Icons.access_time,
-                ),
-                EventData(
-                  eventInfo: event.endTime!.toIso8601String().split('T')[1],
-                  icon: Icons.access_time,
-                ),
-              ],
+            EventData(
+              eventInfo:
+                  '${event.startTime?.hour}:${event.startTime?.minute} - ${event.endTime?.hour}:${event.endTime?.minute}',
+              icon: Icons.access_time,
             ),
             EventData(
               eventInfo: event.location,

@@ -80,11 +80,12 @@ class EventCard extends StatelessWidget {
     return Column(
       children: [
         EventData(
-          eventInfo: event.startTime?.toIso8601String().split('T')[0] ?? '',
+          eventInfo: DateFormat('d.M.yyyy').format(event.date!),
           icon: FontAwesomeIcons.calendar,
         ),
         EventData(
-          eventInfo: event.startTime?.toIso8601String().split('T')[1] ?? '',
+          eventInfo:
+              '${event.startTime?.hour}:${event.startTime?.minute} - ${event.endTime?.hour}:${event.endTime?.minute}',
           icon: FontAwesomeIcons.clock,
         ),
         EventData(

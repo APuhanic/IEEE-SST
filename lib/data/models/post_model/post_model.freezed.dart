@@ -20,10 +20,15 @@ Post _$PostFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Post {
+  @HiveField(0)
   int? get id => throw _privateConstructorUsedError;
+  @HiveField(1)
   String get title => throw _privateConstructorUsedError;
+  @HiveField(2)
   String get content => throw _privateConstructorUsedError;
+  @HiveField(3)
   String get timePosted => throw _privateConstructorUsedError;
+  @HiveField(4)
   String get fullName => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -37,11 +42,11 @@ abstract class $PostCopyWith<$Res> {
       _$PostCopyWithImpl<$Res, Post>;
   @useResult
   $Res call(
-      {int? id,
-      String title,
-      String content,
-      String timePosted,
-      String fullName});
+      {@HiveField(0) int? id,
+      @HiveField(1) String title,
+      @HiveField(2) String content,
+      @HiveField(3) String timePosted,
+      @HiveField(4) String fullName});
 }
 
 /// @nodoc
@@ -96,11 +101,11 @@ abstract class _$$PostImplCopyWith<$Res> implements $PostCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {int? id,
-      String title,
-      String content,
-      String timePosted,
-      String fullName});
+      {@HiveField(0) int? id,
+      @HiveField(1) String title,
+      @HiveField(2) String content,
+      @HiveField(3) String timePosted,
+      @HiveField(4) String fullName});
 }
 
 /// @nodoc
@@ -148,24 +153,29 @@ class __$$PostImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$PostImpl implements _Post {
   const _$PostImpl(
-      {this.id,
-      required this.title,
-      required this.content,
-      required this.timePosted,
-      required this.fullName});
+      {@HiveField(0) this.id,
+      @HiveField(1) required this.title,
+      @HiveField(2) required this.content,
+      @HiveField(3) required this.timePosted,
+      @HiveField(4) required this.fullName});
 
   factory _$PostImpl.fromJson(Map<String, dynamic> json) =>
       _$$PostImplFromJson(json);
 
   @override
+  @HiveField(0)
   final int? id;
   @override
+  @HiveField(1)
   final String title;
   @override
+  @HiveField(2)
   final String content;
   @override
+  @HiveField(3)
   final String timePosted;
   @override
+  @HiveField(4)
   final String fullName;
 
   @override
@@ -208,23 +218,28 @@ class _$PostImpl implements _Post {
 
 abstract class _Post implements Post {
   const factory _Post(
-      {final int? id,
-      required final String title,
-      required final String content,
-      required final String timePosted,
-      required final String fullName}) = _$PostImpl;
+      {@HiveField(0) final int? id,
+      @HiveField(1) required final String title,
+      @HiveField(2) required final String content,
+      @HiveField(3) required final String timePosted,
+      @HiveField(4) required final String fullName}) = _$PostImpl;
 
   factory _Post.fromJson(Map<String, dynamic> json) = _$PostImpl.fromJson;
 
   @override
+  @HiveField(0)
   int? get id;
   @override
+  @HiveField(1)
   String get title;
   @override
+  @HiveField(2)
   String get content;
   @override
+  @HiveField(3)
   String get timePosted;
   @override
+  @HiveField(4)
   String get fullName;
   @override
   @JsonKey(ignore: true)

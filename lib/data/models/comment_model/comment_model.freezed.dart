@@ -20,11 +20,17 @@ Comment _$CommentFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Comment {
+  @HiveField(0)
   int? get id => throw _privateConstructorUsedError;
+  @HiveField(1)
   String get content => throw _privateConstructorUsedError;
+  @HiveField(2)
   String get createdAt => throw _privateConstructorUsedError;
+  @HiveField(3)
   String get fullName => throw _privateConstructorUsedError;
+  @HiveField(4)
   String get postedBy => throw _privateConstructorUsedError;
+  @HiveField(5)
   bool? get isOwner => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -38,12 +44,12 @@ abstract class $CommentCopyWith<$Res> {
       _$CommentCopyWithImpl<$Res, Comment>;
   @useResult
   $Res call(
-      {int? id,
-      String content,
-      String createdAt,
-      String fullName,
-      String postedBy,
-      bool? isOwner});
+      {@HiveField(0) int? id,
+      @HiveField(1) String content,
+      @HiveField(2) String createdAt,
+      @HiveField(3) String fullName,
+      @HiveField(4) String postedBy,
+      @HiveField(5) bool? isOwner});
 }
 
 /// @nodoc
@@ -103,12 +109,12 @@ abstract class _$$CommentImplCopyWith<$Res> implements $CommentCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {int? id,
-      String content,
-      String createdAt,
-      String fullName,
-      String postedBy,
-      bool? isOwner});
+      {@HiveField(0) int? id,
+      @HiveField(1) String content,
+      @HiveField(2) String createdAt,
+      @HiveField(3) String fullName,
+      @HiveField(4) String postedBy,
+      @HiveField(5) bool? isOwner});
 }
 
 /// @nodoc
@@ -162,27 +168,33 @@ class __$$CommentImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$CommentImpl implements _Comment {
   const _$CommentImpl(
-      {this.id,
-      required this.content,
-      required this.createdAt,
-      required this.fullName,
-      required this.postedBy,
-      this.isOwner});
+      {@HiveField(0) this.id,
+      @HiveField(1) required this.content,
+      @HiveField(2) required this.createdAt,
+      @HiveField(3) required this.fullName,
+      @HiveField(4) required this.postedBy,
+      @HiveField(5) this.isOwner});
 
   factory _$CommentImpl.fromJson(Map<String, dynamic> json) =>
       _$$CommentImplFromJson(json);
 
   @override
+  @HiveField(0)
   final int? id;
   @override
+  @HiveField(1)
   final String content;
   @override
+  @HiveField(2)
   final String createdAt;
   @override
+  @HiveField(3)
   final String fullName;
   @override
+  @HiveField(4)
   final String postedBy;
   @override
+  @HiveField(5)
   final bool? isOwner;
 
   @override
@@ -227,26 +239,32 @@ class _$CommentImpl implements _Comment {
 
 abstract class _Comment implements Comment {
   const factory _Comment(
-      {final int? id,
-      required final String content,
-      required final String createdAt,
-      required final String fullName,
-      required final String postedBy,
-      final bool? isOwner}) = _$CommentImpl;
+      {@HiveField(0) final int? id,
+      @HiveField(1) required final String content,
+      @HiveField(2) required final String createdAt,
+      @HiveField(3) required final String fullName,
+      @HiveField(4) required final String postedBy,
+      @HiveField(5) final bool? isOwner}) = _$CommentImpl;
 
   factory _Comment.fromJson(Map<String, dynamic> json) = _$CommentImpl.fromJson;
 
   @override
+  @HiveField(0)
   int? get id;
   @override
+  @HiveField(1)
   String get content;
   @override
+  @HiveField(2)
   String get createdAt;
   @override
+  @HiveField(3)
   String get fullName;
   @override
+  @HiveField(4)
   String get postedBy;
   @override
+  @HiveField(5)
   bool? get isOwner;
   @override
   @JsonKey(ignore: true)

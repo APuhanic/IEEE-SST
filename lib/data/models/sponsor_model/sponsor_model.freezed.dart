@@ -20,9 +20,13 @@ Sponsor _$SponsorFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Sponsor {
+  @HiveField(0)
   int get id => throw _privateConstructorUsedError;
+  @HiveField(1)
   String get name => throw _privateConstructorUsedError;
+  @HiveField(2)
   String get imageUrl => throw _privateConstructorUsedError;
+  @HiveField(3)
   String get imagePath => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -35,7 +39,11 @@ abstract class $SponsorCopyWith<$Res> {
   factory $SponsorCopyWith(Sponsor value, $Res Function(Sponsor) then) =
       _$SponsorCopyWithImpl<$Res, Sponsor>;
   @useResult
-  $Res call({int id, String name, String imageUrl, String imagePath});
+  $Res call(
+      {@HiveField(0) int id,
+      @HiveField(1) String name,
+      @HiveField(2) String imageUrl,
+      @HiveField(3) String imagePath});
 }
 
 /// @nodoc
@@ -84,7 +92,11 @@ abstract class _$$SponsorImplCopyWith<$Res> implements $SponsorCopyWith<$Res> {
       __$$SponsorImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int id, String name, String imageUrl, String imagePath});
+  $Res call(
+      {@HiveField(0) int id,
+      @HiveField(1) String name,
+      @HiveField(2) String imageUrl,
+      @HiveField(3) String imagePath});
 }
 
 /// @nodoc
@@ -128,21 +140,25 @@ class __$$SponsorImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$SponsorImpl implements _Sponsor {
   const _$SponsorImpl(
-      {required this.id,
-      required this.name,
-      required this.imageUrl,
-      required this.imagePath});
+      {@HiveField(0) required this.id,
+      @HiveField(1) required this.name,
+      @HiveField(2) required this.imageUrl,
+      @HiveField(3) required this.imagePath});
 
   factory _$SponsorImpl.fromJson(Map<String, dynamic> json) =>
       _$$SponsorImplFromJson(json);
 
   @override
+  @HiveField(0)
   final int id;
   @override
+  @HiveField(1)
   final String name;
   @override
+  @HiveField(2)
   final String imageUrl;
   @override
+  @HiveField(3)
   final String imagePath;
 
   @override
@@ -183,20 +199,24 @@ class _$SponsorImpl implements _Sponsor {
 
 abstract class _Sponsor implements Sponsor {
   const factory _Sponsor(
-      {required final int id,
-      required final String name,
-      required final String imageUrl,
-      required final String imagePath}) = _$SponsorImpl;
+      {@HiveField(0) required final int id,
+      @HiveField(1) required final String name,
+      @HiveField(2) required final String imageUrl,
+      @HiveField(3) required final String imagePath}) = _$SponsorImpl;
 
   factory _Sponsor.fromJson(Map<String, dynamic> json) = _$SponsorImpl.fromJson;
 
   @override
+  @HiveField(0)
   int get id;
   @override
+  @HiveField(1)
   String get name;
   @override
+  @HiveField(2)
   String get imageUrl;
   @override
+  @HiveField(3)
   String get imagePath;
   @override
   @JsonKey(ignore: true)

@@ -20,10 +20,15 @@ Announcement _$AnnouncementFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Announcement {
+  @HiveField(0)
   String? get id => throw _privateConstructorUsedError;
+  @HiveField(1)
   String get title => throw _privateConstructorUsedError;
+  @HiveField(2)
   String get description => throw _privateConstructorUsedError;
+  @HiveField(3)
   String get timeposted => throw _privateConstructorUsedError;
+  @HiveField(4)
   String get fullName => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -39,11 +44,11 @@ abstract class $AnnouncementCopyWith<$Res> {
       _$AnnouncementCopyWithImpl<$Res, Announcement>;
   @useResult
   $Res call(
-      {String? id,
-      String title,
-      String description,
-      String timeposted,
-      String fullName});
+      {@HiveField(0) String? id,
+      @HiveField(1) String title,
+      @HiveField(2) String description,
+      @HiveField(3) String timeposted,
+      @HiveField(4) String fullName});
 }
 
 /// @nodoc
@@ -99,11 +104,11 @@ abstract class _$$AnnouncementImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String? id,
-      String title,
-      String description,
-      String timeposted,
-      String fullName});
+      {@HiveField(0) String? id,
+      @HiveField(1) String title,
+      @HiveField(2) String description,
+      @HiveField(3) String timeposted,
+      @HiveField(4) String fullName});
 }
 
 /// @nodoc
@@ -152,24 +157,29 @@ class __$$AnnouncementImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$AnnouncementImpl implements _Announcement {
   const _$AnnouncementImpl(
-      {this.id,
-      required this.title,
-      required this.description,
-      required this.timeposted,
-      required this.fullName});
+      {@HiveField(0) this.id,
+      @HiveField(1) required this.title,
+      @HiveField(2) required this.description,
+      @HiveField(3) required this.timeposted,
+      @HiveField(4) required this.fullName});
 
   factory _$AnnouncementImpl.fromJson(Map<String, dynamic> json) =>
       _$$AnnouncementImplFromJson(json);
 
   @override
+  @HiveField(0)
   final String? id;
   @override
+  @HiveField(1)
   final String title;
   @override
+  @HiveField(2)
   final String description;
   @override
+  @HiveField(3)
   final String timeposted;
   @override
+  @HiveField(4)
   final String fullName;
 
   @override
@@ -213,24 +223,29 @@ class _$AnnouncementImpl implements _Announcement {
 
 abstract class _Announcement implements Announcement {
   const factory _Announcement(
-      {final String? id,
-      required final String title,
-      required final String description,
-      required final String timeposted,
-      required final String fullName}) = _$AnnouncementImpl;
+      {@HiveField(0) final String? id,
+      @HiveField(1) required final String title,
+      @HiveField(2) required final String description,
+      @HiveField(3) required final String timeposted,
+      @HiveField(4) required final String fullName}) = _$AnnouncementImpl;
 
   factory _Announcement.fromJson(Map<String, dynamic> json) =
       _$AnnouncementImpl.fromJson;
 
   @override
+  @HiveField(0)
   String? get id;
   @override
+  @HiveField(1)
   String get title;
   @override
+  @HiveField(2)
   String get description;
   @override
+  @HiveField(3)
   String get timeposted;
   @override
+  @HiveField(4)
   String get fullName;
   @override
   @JsonKey(ignore: true)

@@ -20,9 +20,12 @@ EventAttendee _$EventAttendeeFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$EventAttendee {
+  @HiveField(0)
   int? get id =>
       throw _privateConstructorUsedError; // TODO: change to eventId and userId
+  @HiveField(1)
   String get event_id => throw _privateConstructorUsedError;
+  @HiveField(2)
   String get user_id => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -37,7 +40,10 @@ abstract class $EventAttendeeCopyWith<$Res> {
           EventAttendee value, $Res Function(EventAttendee) then) =
       _$EventAttendeeCopyWithImpl<$Res, EventAttendee>;
   @useResult
-  $Res call({int? id, String event_id, String user_id});
+  $Res call(
+      {@HiveField(0) int? id,
+      @HiveField(1) String event_id,
+      @HiveField(2) String user_id});
 }
 
 /// @nodoc
@@ -82,7 +88,10 @@ abstract class _$$EventAttendeeImplCopyWith<$Res>
       __$$EventAttendeeImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int? id, String event_id, String user_id});
+  $Res call(
+      {@HiveField(0) int? id,
+      @HiveField(1) String event_id,
+      @HiveField(2) String user_id});
 }
 
 /// @nodoc
@@ -121,17 +130,22 @@ class __$$EventAttendeeImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$EventAttendeeImpl implements _EventAttendee {
   const _$EventAttendeeImpl(
-      {this.id, required this.event_id, required this.user_id});
+      {@HiveField(0) this.id,
+      @HiveField(1) required this.event_id,
+      @HiveField(2) required this.user_id});
 
   factory _$EventAttendeeImpl.fromJson(Map<String, dynamic> json) =>
       _$$EventAttendeeImplFromJson(json);
 
   @override
+  @HiveField(0)
   final int? id;
 // TODO: change to eventId and userId
   @override
+  @HiveField(1)
   final String event_id;
   @override
+  @HiveField(2)
   final String user_id;
 
   @override
@@ -170,18 +184,21 @@ class _$EventAttendeeImpl implements _EventAttendee {
 
 abstract class _EventAttendee implements EventAttendee {
   const factory _EventAttendee(
-      {final int? id,
-      required final String event_id,
-      required final String user_id}) = _$EventAttendeeImpl;
+      {@HiveField(0) final int? id,
+      @HiveField(1) required final String event_id,
+      @HiveField(2) required final String user_id}) = _$EventAttendeeImpl;
 
   factory _EventAttendee.fromJson(Map<String, dynamic> json) =
       _$EventAttendeeImpl.fromJson;
 
   @override
+  @HiveField(0)
   int? get id;
   @override // TODO: change to eventId and userId
+  @HiveField(1)
   String get event_id;
   @override
+  @HiveField(2)
   String get user_id;
   @override
   @JsonKey(ignore: true)

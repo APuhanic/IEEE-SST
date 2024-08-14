@@ -20,11 +20,17 @@ Profile _$ProfileFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Profile {
+  @HiveField(0)
   String get id => throw _privateConstructorUsedError;
+  @HiveField(1)
   String get fullName => throw _privateConstructorUsedError;
+  @HiveField(2)
   String get email => throw _privateConstructorUsedError;
+  @HiveField(3)
   String? get position => throw _privateConstructorUsedError;
+  @HiveField(4)
   String? get organization => throw _privateConstructorUsedError;
+  @HiveField(5)
   String? get role => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -38,12 +44,12 @@ abstract class $ProfileCopyWith<$Res> {
       _$ProfileCopyWithImpl<$Res, Profile>;
   @useResult
   $Res call(
-      {String id,
-      String fullName,
-      String email,
-      String? position,
-      String? organization,
-      String? role});
+      {@HiveField(0) String id,
+      @HiveField(1) String fullName,
+      @HiveField(2) String email,
+      @HiveField(3) String? position,
+      @HiveField(4) String? organization,
+      @HiveField(5) String? role});
 }
 
 /// @nodoc
@@ -103,12 +109,12 @@ abstract class _$$ProfileImplCopyWith<$Res> implements $ProfileCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String id,
-      String fullName,
-      String email,
-      String? position,
-      String? organization,
-      String? role});
+      {@HiveField(0) String id,
+      @HiveField(1) String fullName,
+      @HiveField(2) String email,
+      @HiveField(3) String? position,
+      @HiveField(4) String? organization,
+      @HiveField(5) String? role});
 }
 
 /// @nodoc
@@ -162,27 +168,33 @@ class __$$ProfileImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$ProfileImpl implements _Profile {
   const _$ProfileImpl(
-      {required this.id,
-      required this.fullName,
-      required this.email,
-      this.position,
-      this.organization,
-      this.role});
+      {@HiveField(0) required this.id,
+      @HiveField(1) required this.fullName,
+      @HiveField(2) required this.email,
+      @HiveField(3) this.position,
+      @HiveField(4) this.organization,
+      @HiveField(5) this.role});
 
   factory _$ProfileImpl.fromJson(Map<String, dynamic> json) =>
       _$$ProfileImplFromJson(json);
 
   @override
+  @HiveField(0)
   final String id;
   @override
+  @HiveField(1)
   final String fullName;
   @override
+  @HiveField(2)
   final String email;
   @override
+  @HiveField(3)
   final String? position;
   @override
+  @HiveField(4)
   final String? organization;
   @override
+  @HiveField(5)
   final String? role;
 
   @override
@@ -227,26 +239,32 @@ class _$ProfileImpl implements _Profile {
 
 abstract class _Profile implements Profile {
   const factory _Profile(
-      {required final String id,
-      required final String fullName,
-      required final String email,
-      final String? position,
-      final String? organization,
-      final String? role}) = _$ProfileImpl;
+      {@HiveField(0) required final String id,
+      @HiveField(1) required final String fullName,
+      @HiveField(2) required final String email,
+      @HiveField(3) final String? position,
+      @HiveField(4) final String? organization,
+      @HiveField(5) final String? role}) = _$ProfileImpl;
 
   factory _Profile.fromJson(Map<String, dynamic> json) = _$ProfileImpl.fromJson;
 
   @override
+  @HiveField(0)
   String get id;
   @override
+  @HiveField(1)
   String get fullName;
   @override
+  @HiveField(2)
   String get email;
   @override
+  @HiveField(3)
   String? get position;
   @override
+  @HiveField(4)
   String? get organization;
   @override
+  @HiveField(5)
   String? get role;
   @override
   @JsonKey(ignore: true)

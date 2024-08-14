@@ -3,6 +3,59 @@
 part of 'profile_model.dart';
 
 // **************************************************************************
+// TypeAdapterGenerator
+// **************************************************************************
+
+class ProfileAdapter extends TypeAdapter<Profile> {
+  @override
+  final int typeId = 5;
+
+  @override
+  Profile read(BinaryReader reader) {
+    final numOfFields = reader.readByte();
+    final fields = <int, dynamic>{
+      for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
+    };
+    return Profile(
+      id: fields[0] as String,
+      fullName: fields[1] as String,
+      email: fields[2] as String,
+      position: fields[3] as String?,
+      organization: fields[4] as String?,
+      role: fields[5] as String?,
+    );
+  }
+
+  @override
+  void write(BinaryWriter writer, Profile obj) {
+    writer
+      ..writeByte(6)
+      ..writeByte(0)
+      ..write(obj.id)
+      ..writeByte(1)
+      ..write(obj.fullName)
+      ..writeByte(2)
+      ..write(obj.email)
+      ..writeByte(3)
+      ..write(obj.position)
+      ..writeByte(4)
+      ..write(obj.organization)
+      ..writeByte(5)
+      ..write(obj.role);
+  }
+
+  @override
+  int get hashCode => typeId.hashCode;
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is ProfileAdapter &&
+          runtimeType == other.runtimeType &&
+          typeId == other.typeId;
+}
+
+// **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
