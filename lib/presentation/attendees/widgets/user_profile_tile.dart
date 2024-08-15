@@ -34,7 +34,7 @@ class UserProfileTile extends StatelessWidget {
                   color: Colors.grey,
                 ),
               ),
-              const UserTagChip()
+              const UserTagChip(tag: 'Speaker')
             ],
           ),
           const Spacer(),

@@ -11,6 +11,7 @@ abstract class AuthenticationRepository {
     String? organization,
     String? position,
   );
+  Future<void> signUpWithEmailAndPasswordAsAdmin(String email, String password);
   Future<void> signOut();
   BaseUserModel? getCurrentUser();
   Stream<BaseUserModel?> getCurrentUserStream();

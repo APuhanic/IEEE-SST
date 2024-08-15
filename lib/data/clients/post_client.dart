@@ -27,9 +27,9 @@ class PostsClient {
   Future<List<Map<String, dynamic>>> fetchPosts() async =>
       await _supabaseClient.rpc('get_posts_with_profiles').select();
 
-  Future<void> updatePost(Map<String, dynamic> event) async {
+  Future<void> updatePost(Map<String, dynamic> post) async {
     try {
-      await _supabaseClient.from('user_posts').upsert(event);
+      await _supabaseClient.from('user_posts').upsert(post);
     } catch (e) {
       throw Exception(e);
     }

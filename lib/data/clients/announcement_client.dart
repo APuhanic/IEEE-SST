@@ -27,9 +27,9 @@ class AnnouncementClient {
   Future<List<Map<String, dynamic>>> fetchAnnouncements() async =>
       await _supabaseClient.rpc('get_announcements_with_profiles').select();
 
-  Future<void> updateAnnouncemets(Map<String, dynamic> event) async {
+  Future<void> updateAnnouncemets(Map<String, dynamic> announcement) async {
     try {
-      await _supabaseClient.from('announcements').upsert(event);
+      await _supabaseClient.from('announcements').upsert(announcement);
     } catch (e) {
       throw Exception(e);
     }

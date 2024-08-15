@@ -9,6 +9,7 @@ import 'package:ieee_sst/presentation/common/cubit/is_going_cubit.dart';
 import 'package:ieee_sst/presentation/common/widgets/bottom_sheet_event_info.dart';
 import 'package:ieee_sst/presentation/common/widgets/event_data.dart';
 import 'package:ieee_sst/util/debouncer.dart';
+import 'package:intl/intl.dart';
 
 class EventCard extends StatelessWidget {
   const EventCard({
@@ -80,6 +81,7 @@ class EventCard extends StatelessWidget {
     return Column(
       children: [
         EventData(
+          // TODO: Make an extansion on string for formating?
           eventInfo: DateFormat('d.M.yyyy').format(event.date!),
           icon: FontAwesomeIcons.calendar,
         ),

@@ -20,21 +20,21 @@ mixin _$AuthEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() signOut,
     required TResult Function(BaseUserModel? user) onCurrentUserChanged,
-    required TResult Function() onInitialAuthEvent,
+    required TResult Function() initialAuthEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? signOut,
     TResult? Function(BaseUserModel? user)? onCurrentUserChanged,
-    TResult? Function()? onInitialAuthEvent,
+    TResult? Function()? initialAuthEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? signOut,
     TResult Function(BaseUserModel? user)? onCurrentUserChanged,
-    TResult Function()? onInitialAuthEvent,
+    TResult Function()? initialAuthEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -42,21 +42,21 @@ mixin _$AuthEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_SignOut value) signOut,
     required TResult Function(_OnCurrentUserChanged value) onCurrentUserChanged,
-    required TResult Function(_OnInitialAuthEvent value) onInitialAuthEvent,
+    required TResult Function(_InitialAuthEvent value) initialAuthEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_SignOut value)? signOut,
     TResult? Function(_OnCurrentUserChanged value)? onCurrentUserChanged,
-    TResult? Function(_OnInitialAuthEvent value)? onInitialAuthEvent,
+    TResult? Function(_InitialAuthEvent value)? initialAuthEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_SignOut value)? signOut,
     TResult Function(_OnCurrentUserChanged value)? onCurrentUserChanged,
-    TResult Function(_OnInitialAuthEvent value)? onInitialAuthEvent,
+    TResult Function(_InitialAuthEvent value)? initialAuthEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -119,7 +119,7 @@ class _$SignOutImpl implements _SignOut {
   TResult when<TResult extends Object?>({
     required TResult Function() signOut,
     required TResult Function(BaseUserModel? user) onCurrentUserChanged,
-    required TResult Function() onInitialAuthEvent,
+    required TResult Function() initialAuthEvent,
   }) {
     return signOut();
   }
@@ -129,7 +129,7 @@ class _$SignOutImpl implements _SignOut {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? signOut,
     TResult? Function(BaseUserModel? user)? onCurrentUserChanged,
-    TResult? Function()? onInitialAuthEvent,
+    TResult? Function()? initialAuthEvent,
   }) {
     return signOut?.call();
   }
@@ -139,7 +139,7 @@ class _$SignOutImpl implements _SignOut {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? signOut,
     TResult Function(BaseUserModel? user)? onCurrentUserChanged,
-    TResult Function()? onInitialAuthEvent,
+    TResult Function()? initialAuthEvent,
     required TResult orElse(),
   }) {
     if (signOut != null) {
@@ -153,7 +153,7 @@ class _$SignOutImpl implements _SignOut {
   TResult map<TResult extends Object?>({
     required TResult Function(_SignOut value) signOut,
     required TResult Function(_OnCurrentUserChanged value) onCurrentUserChanged,
-    required TResult Function(_OnInitialAuthEvent value) onInitialAuthEvent,
+    required TResult Function(_InitialAuthEvent value) initialAuthEvent,
   }) {
     return signOut(this);
   }
@@ -163,7 +163,7 @@ class _$SignOutImpl implements _SignOut {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_SignOut value)? signOut,
     TResult? Function(_OnCurrentUserChanged value)? onCurrentUserChanged,
-    TResult? Function(_OnInitialAuthEvent value)? onInitialAuthEvent,
+    TResult? Function(_InitialAuthEvent value)? initialAuthEvent,
   }) {
     return signOut?.call(this);
   }
@@ -173,7 +173,7 @@ class _$SignOutImpl implements _SignOut {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_SignOut value)? signOut,
     TResult Function(_OnCurrentUserChanged value)? onCurrentUserChanged,
-    TResult Function(_OnInitialAuthEvent value)? onInitialAuthEvent,
+    TResult Function(_InitialAuthEvent value)? initialAuthEvent,
     required TResult orElse(),
   }) {
     if (signOut != null) {
@@ -255,7 +255,7 @@ class _$OnCurrentUserChangedImpl implements _OnCurrentUserChanged {
   TResult when<TResult extends Object?>({
     required TResult Function() signOut,
     required TResult Function(BaseUserModel? user) onCurrentUserChanged,
-    required TResult Function() onInitialAuthEvent,
+    required TResult Function() initialAuthEvent,
   }) {
     return onCurrentUserChanged(user);
   }
@@ -265,7 +265,7 @@ class _$OnCurrentUserChangedImpl implements _OnCurrentUserChanged {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? signOut,
     TResult? Function(BaseUserModel? user)? onCurrentUserChanged,
-    TResult? Function()? onInitialAuthEvent,
+    TResult? Function()? initialAuthEvent,
   }) {
     return onCurrentUserChanged?.call(user);
   }
@@ -275,7 +275,7 @@ class _$OnCurrentUserChangedImpl implements _OnCurrentUserChanged {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? signOut,
     TResult Function(BaseUserModel? user)? onCurrentUserChanged,
-    TResult Function()? onInitialAuthEvent,
+    TResult Function()? initialAuthEvent,
     required TResult orElse(),
   }) {
     if (onCurrentUserChanged != null) {
@@ -289,7 +289,7 @@ class _$OnCurrentUserChangedImpl implements _OnCurrentUserChanged {
   TResult map<TResult extends Object?>({
     required TResult Function(_SignOut value) signOut,
     required TResult Function(_OnCurrentUserChanged value) onCurrentUserChanged,
-    required TResult Function(_OnInitialAuthEvent value) onInitialAuthEvent,
+    required TResult Function(_InitialAuthEvent value) initialAuthEvent,
   }) {
     return onCurrentUserChanged(this);
   }
@@ -299,7 +299,7 @@ class _$OnCurrentUserChangedImpl implements _OnCurrentUserChanged {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_SignOut value)? signOut,
     TResult? Function(_OnCurrentUserChanged value)? onCurrentUserChanged,
-    TResult? Function(_OnInitialAuthEvent value)? onInitialAuthEvent,
+    TResult? Function(_InitialAuthEvent value)? initialAuthEvent,
   }) {
     return onCurrentUserChanged?.call(this);
   }
@@ -309,7 +309,7 @@ class _$OnCurrentUserChangedImpl implements _OnCurrentUserChanged {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_SignOut value)? signOut,
     TResult Function(_OnCurrentUserChanged value)? onCurrentUserChanged,
-    TResult Function(_OnInitialAuthEvent value)? onInitialAuthEvent,
+    TResult Function(_InitialAuthEvent value)? initialAuthEvent,
     required TResult orElse(),
   }) {
     if (onCurrentUserChanged != null) {
@@ -330,35 +330,35 @@ abstract class _OnCurrentUserChanged implements AuthEvent {
 }
 
 /// @nodoc
-abstract class _$$OnInitialAuthEventImplCopyWith<$Res> {
-  factory _$$OnInitialAuthEventImplCopyWith(_$OnInitialAuthEventImpl value,
-          $Res Function(_$OnInitialAuthEventImpl) then) =
-      __$$OnInitialAuthEventImplCopyWithImpl<$Res>;
+abstract class _$$InitialAuthEventImplCopyWith<$Res> {
+  factory _$$InitialAuthEventImplCopyWith(_$InitialAuthEventImpl value,
+          $Res Function(_$InitialAuthEventImpl) then) =
+      __$$InitialAuthEventImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$OnInitialAuthEventImplCopyWithImpl<$Res>
-    extends _$AuthEventCopyWithImpl<$Res, _$OnInitialAuthEventImpl>
-    implements _$$OnInitialAuthEventImplCopyWith<$Res> {
-  __$$OnInitialAuthEventImplCopyWithImpl(_$OnInitialAuthEventImpl _value,
-      $Res Function(_$OnInitialAuthEventImpl) _then)
+class __$$InitialAuthEventImplCopyWithImpl<$Res>
+    extends _$AuthEventCopyWithImpl<$Res, _$InitialAuthEventImpl>
+    implements _$$InitialAuthEventImplCopyWith<$Res> {
+  __$$InitialAuthEventImplCopyWithImpl(_$InitialAuthEventImpl _value,
+      $Res Function(_$InitialAuthEventImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$OnInitialAuthEventImpl implements _OnInitialAuthEvent {
-  const _$OnInitialAuthEventImpl();
+class _$InitialAuthEventImpl implements _InitialAuthEvent {
+  const _$InitialAuthEventImpl();
 
   @override
   String toString() {
-    return 'AuthEvent.onInitialAuthEvent()';
+    return 'AuthEvent.initialAuthEvent()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$OnInitialAuthEventImpl);
+        (other.runtimeType == runtimeType && other is _$InitialAuthEventImpl);
   }
 
   @override
@@ -369,9 +369,9 @@ class _$OnInitialAuthEventImpl implements _OnInitialAuthEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() signOut,
     required TResult Function(BaseUserModel? user) onCurrentUserChanged,
-    required TResult Function() onInitialAuthEvent,
+    required TResult Function() initialAuthEvent,
   }) {
-    return onInitialAuthEvent();
+    return initialAuthEvent();
   }
 
   @override
@@ -379,9 +379,9 @@ class _$OnInitialAuthEventImpl implements _OnInitialAuthEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? signOut,
     TResult? Function(BaseUserModel? user)? onCurrentUserChanged,
-    TResult? Function()? onInitialAuthEvent,
+    TResult? Function()? initialAuthEvent,
   }) {
-    return onInitialAuthEvent?.call();
+    return initialAuthEvent?.call();
   }
 
   @override
@@ -389,11 +389,11 @@ class _$OnInitialAuthEventImpl implements _OnInitialAuthEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? signOut,
     TResult Function(BaseUserModel? user)? onCurrentUserChanged,
-    TResult Function()? onInitialAuthEvent,
+    TResult Function()? initialAuthEvent,
     required TResult orElse(),
   }) {
-    if (onInitialAuthEvent != null) {
-      return onInitialAuthEvent();
+    if (initialAuthEvent != null) {
+      return initialAuthEvent();
     }
     return orElse();
   }
@@ -403,9 +403,9 @@ class _$OnInitialAuthEventImpl implements _OnInitialAuthEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_SignOut value) signOut,
     required TResult Function(_OnCurrentUserChanged value) onCurrentUserChanged,
-    required TResult Function(_OnInitialAuthEvent value) onInitialAuthEvent,
+    required TResult Function(_InitialAuthEvent value) initialAuthEvent,
   }) {
-    return onInitialAuthEvent(this);
+    return initialAuthEvent(this);
   }
 
   @override
@@ -413,9 +413,9 @@ class _$OnInitialAuthEventImpl implements _OnInitialAuthEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_SignOut value)? signOut,
     TResult? Function(_OnCurrentUserChanged value)? onCurrentUserChanged,
-    TResult? Function(_OnInitialAuthEvent value)? onInitialAuthEvent,
+    TResult? Function(_InitialAuthEvent value)? initialAuthEvent,
   }) {
-    return onInitialAuthEvent?.call(this);
+    return initialAuthEvent?.call(this);
   }
 
   @override
@@ -423,18 +423,18 @@ class _$OnInitialAuthEventImpl implements _OnInitialAuthEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_SignOut value)? signOut,
     TResult Function(_OnCurrentUserChanged value)? onCurrentUserChanged,
-    TResult Function(_OnInitialAuthEvent value)? onInitialAuthEvent,
+    TResult Function(_InitialAuthEvent value)? initialAuthEvent,
     required TResult orElse(),
   }) {
-    if (onInitialAuthEvent != null) {
-      return onInitialAuthEvent(this);
+    if (initialAuthEvent != null) {
+      return initialAuthEvent(this);
     }
     return orElse();
   }
 }
 
-abstract class _OnInitialAuthEvent implements AuthEvent {
-  const factory _OnInitialAuthEvent() = _$OnInitialAuthEventImpl;
+abstract class _InitialAuthEvent implements AuthEvent {
+  const factory _InitialAuthEvent() = _$InitialAuthEventImpl;
 }
 
 /// @nodoc

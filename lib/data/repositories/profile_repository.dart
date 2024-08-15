@@ -32,4 +32,13 @@ class ProfileRepository {
       rethrow;
     }
   }
+
+  Future<void> updateProfileRole(String id, String role) async {
+    try {
+      await _profileClient.updateUserRole(id, role);
+    } catch (e) {
+      Logger().e(e);
+      rethrow;
+    }
+  }
 }

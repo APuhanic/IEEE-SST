@@ -1,5 +1,6 @@
 import 'package:ieee_sst/data/constants/user_roles.dart';
 import 'package:injectable/injectable.dart';
+import 'package:supabase_auth_ui/supabase_auth_ui.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 @injectable
@@ -41,4 +42,9 @@ class ProfileClient {
 
   Future<List<User>> getAllRegisteredUsers() async =>
       await _supabaseClient.auth.admin.listUsers();
+
+  Future<void> updateUserRole(String id, String role) async =>
+      await _supabaseClient
+          .from('profiles')
+          .update({'role': role}).eq('id', id);
 }

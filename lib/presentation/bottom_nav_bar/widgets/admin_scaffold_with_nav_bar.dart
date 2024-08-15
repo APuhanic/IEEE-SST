@@ -27,12 +27,13 @@ class AdminScaffoldWtihNavBar extends StatelessWidget {
       resizeToAvoidBottomInset: true,
       bottomNavigationBar: BottomNavBar(
         key: const ValueKey('BottomNavBar'),
-        tabs: const ['Home', 'Event', 'Sponsors', 'Announcements'],
+        tabs: const ['Home', 'Event', 'Sponsors', 'Announcements', 'Users'],
         icons: const [
           Icons.home,
           Icons.event,
           Icons.handshake,
           Icons.announcement,
+          Icons.people,
         ],
         onDestinationSelected: _goBranch,
       ),

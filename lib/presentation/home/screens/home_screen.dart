@@ -6,7 +6,6 @@ import 'package:ieee_sst/presentation/common/bloc/events_bloc/events_bloc.dart';
 import 'package:ieee_sst/presentation/common/bloc/profile_bloc/profile_bloc.dart';
 import 'package:ieee_sst/presentation/home/widgets/home_screen_drawer.dart';
 import 'package:ieee_sst/presentation/home/widgets/ongoing_events.dart';
-import 'package:ieee_sst/presentation/home/widgets/speaker_hub.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({
@@ -76,7 +75,7 @@ class HomeScreen extends StatelessWidget {
                     ),
                     child: Row(
                       children: [
-                        Text('Ongoing', style: AppTextStyle.titleLarge),
+                        Text('Upcoming', style: AppTextStyle.titleLarge),
                       ],
                     ),
                   ),
@@ -92,10 +91,6 @@ class HomeScreen extends StatelessWidget {
                     },
                   ),
                   const SizedBox(height: 24),
-                  const Padding(
-                    padding: EdgeInsets.all(16.0),
-                    child: SpeakerHub(),
-                  ),
                 ],
               ),
             ]),

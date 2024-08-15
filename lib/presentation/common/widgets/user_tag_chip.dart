@@ -5,7 +5,10 @@ import 'package:ieee_sst/data/constants/text_styles.dart';
 class UserTagChip extends StatelessWidget {
   const UserTagChip({
     super.key,
+    required this.tag,
   });
+
+  final String tag;
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +18,7 @@ class UserTagChip extends StatelessWidget {
         borderRadius: BorderRadius.circular(15),
       ),
       padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 2),
-      child: Text('Speaker', style: AppTextStyle.tagText),
+      child: Text(tag, style: AppTextStyle.tagText),
     );
   }
 }

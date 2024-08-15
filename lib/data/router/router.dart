@@ -14,6 +14,7 @@ import 'package:ieee_sst/presentation/admin/admin_event_managment_screen/screens
 import 'package:ieee_sst/presentation/admin/admin_event_managment_screen/screens/event_managment_screen.dart';
 import 'package:ieee_sst/presentation/admin/admin_home_screen/screens/admin_home_screen.dart';
 import 'package:ieee_sst/presentation/admin/admin_annoucments_managment_screen.dart/screens/announcements_managment_screen.dart';
+import 'package:ieee_sst/presentation/admin/admin_user_managment/screens/user_managment_screen.dart';
 import 'package:ieee_sst/presentation/agenda/screens/agenda_screen.dart';
 import 'package:ieee_sst/presentation/agenda/screens/search_events_screen.dart';
 import 'package:ieee_sst/presentation/attendees/screens/attendees_screen.dart';
@@ -177,6 +178,19 @@ class AppRouter {
                         ),
                       ])
                 ],
+              ),
+              StatefulShellBranch(
+                navigatorKey:
+                    _navigatorKeyManager.shellNavigatorAdminUserManagmentKey,
+                routes: [
+                  GoRoute(
+                    path: RoutePaths.adminUserManagment,
+                    pageBuilder: (context, state) => const MaterialPage(
+                      key: ValueKey('AdminUserManagmentScreen'),
+                      child: UserManagmentScreen(),
+                    ),
+                  )
+                ],
               )
             ],
           ),
@@ -331,6 +345,7 @@ class AppRouter {
 
   String getInitialRoute() {
     final Session? session = _supabaseClient.auth.currentSession;
+
     if (session == null || session.isExpired) {
       return RoutePaths.login;
     }

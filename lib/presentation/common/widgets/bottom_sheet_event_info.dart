@@ -44,7 +44,7 @@ class BottomSheetEventInfo extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(event.speaker, style: AppTextStyle.titleSmall),
-                      const UserTagChip(),
+                      const UserTagChip(tag: 'speaker'),
                     ],
                   )
                 ],

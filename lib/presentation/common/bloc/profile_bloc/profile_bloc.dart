@@ -28,4 +28,6 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
       emit(ProfileState.error(e.toString()));
     }
   }
+
+
 }
