@@ -46,4 +46,8 @@ abstract class RoutePaths {
 
   // User Managment
   static const String adminUserManagment = '/admin_user_managment';
+
+  // Documents
+  static const String documents = '/documents';
+  static const String subRouteUploadDocument = 'upload_document';
 }

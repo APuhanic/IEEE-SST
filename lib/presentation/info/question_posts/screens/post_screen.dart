@@ -86,7 +86,6 @@ class PostScreen extends StatelessWidget {
   }
 }
 
-//TODO: Put in a separate file?
 class CommentInput extends StatefulWidget {
   const CommentInput({
     super.key,

@@ -20,6 +20,8 @@ import 'package:ieee_sst/presentation/agenda/screens/search_events_screen.dart';
 import 'package:ieee_sst/presentation/attendees/screens/attendees_screen.dart';
 import 'package:ieee_sst/presentation/bottom_nav_bar/widgets/admin_scaffold_with_nav_bar.dart';
 import 'package:ieee_sst/presentation/bottom_nav_bar/widgets/scaffold_with_nav_bar.dart';
+import 'package:ieee_sst/presentation/documents/screens/documents_screen.dart';
+import 'package:ieee_sst/presentation/documents/screens/upload_document_screen.dart';
 import 'package:ieee_sst/presentation/info/announcements/screens/announcement_post_screen.dart';
 import 'package:ieee_sst/presentation/info/question_posts/screens/create_post_screen.dart';
 import 'package:ieee_sst/presentation/info/question_posts/screens/post_screen.dart';
@@ -334,6 +336,26 @@ class AppRouter {
                       child: SponsorsScreen(),
                     ),
                   )
+                ],
+              ),
+              StatefulShellBranch(
+                navigatorKey: _navigatorKeyManager.shellNavigatorDocumentsKey,
+                routes: [
+                  GoRoute(
+                      path: RoutePaths.documents,
+                      pageBuilder: (context, state) => const MaterialPage(
+                            key: ValueKey('DocumentsScreen'),
+                            child: DocumentsScreen(),
+                          ),
+                      routes: [
+                        GoRoute(
+                          path: RoutePaths.subRouteUploadDocument,
+                          pageBuilder: (context, state) => const MaterialPage(
+                            key: ValueKey('UploadDocumentScreen'),
+                            child: UploadDocumentScreen(),
+                          ),
+                        )
+                      ])
                 ],
               )
             ],

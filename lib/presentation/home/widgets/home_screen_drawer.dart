@@ -59,7 +59,9 @@ class HomeScreenDrawer extends StatelessWidget {
               ),
               ListTile(
                 title: const Text('Documents'),
-                onTap: () {},
+                onTap: () {
+                  context.go(RoutePaths.documents);
+                },
               ),
               BlocBuilder<AuthSessionCubit, AuthSessionState>(
                 builder: (context, state) {

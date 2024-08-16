@@ -32,8 +32,10 @@ class EventFormBloc extends Bloc<EventFormEvent, EventFormState> {
   }
   final EventRepository _supabaseEventRepository;
 
-  _onEventNameChanged(_EventNameChanged event, Emitter<EventFormState> emit) =>
-      emit(state.copyWith(name: event.name));
+  void _onEventNameChanged(
+      _EventNameChanged event, Emitter<EventFormState> emit) {
+    emit(state.copyWith(name: event.name));
+  }
 
   _onEventDescriptionChanged(
           _EventDescriptionChanged event, Emitter<EventFormState> emit) =>

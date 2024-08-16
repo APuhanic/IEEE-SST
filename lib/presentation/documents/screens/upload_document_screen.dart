@@ -1,0 +1,86 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:formz/formz.dart';
+import 'package:ieee_sst/data/constants/app_colors.dart';
+import 'package:ieee_sst/data/constants/text_styles.dart';
+import 'package:ieee_sst/presentation/info/question_posts/bloc/post_form_bloc.dart';
+
+class UploadDocumentScreen extends StatelessWidget {
+  const UploadDocumentScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: BlocConsumer<PostFormBloc, PostFormState>(
+        listener: (context, state) {
+          if (state.status.isSuccess) {
+            debugPrint('Document uploaded successfully');
+            Navigator.pop(context);
+          }
+          if (state.status.isFailure) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text(state.errorMessage),
+                backgroundColor: AppColors.primary,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+              ),
+            );
+          }
+        },
+        builder: (context, state) {
+          return CustomScrollView(
+            slivers: [
+              const SliverAppBar(
+                  expandedHeight: 40.0,
+                  backgroundColor: AppColors.background,
+                  shadowColor: Colors.transparent,
+                  surfaceTintColor: AppColors.background,
+                  title: Text('Upload document')),
+              SliverList(
+                delegate: SliverChildListDelegate([
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(24.0),
+                          child: Container(
+                            height: 50,
+                            width: 50,
+                            decoration: BoxDecoration(
+                              color: AppColors.primary,
+                              borderRadius: BorderRadius.circular(15),
+                            ),
+                            child: IconButton(
+                              onPressed: () {},
+                              icon: const Icon(
+                                Icons.upload_file,
+                                color: AppColors.white,
+                              ),
+                            ),
+                          ),
+                        ),
+
+                        // TODO: Extract widget and add validation
+                        FilledButton(
+                          style: FilledButton.styleFrom(
+                              backgroundColor: AppColors.primary,
+                              foregroundColor: AppColors.white,
+                              textStyle: AppTextStyle.button),
+                          onPressed: () {},
+                          child: const Text('Upload'),
+                        ),
+                      ],
+                    ),
+                  ),
+                ]),
+              )
+            ],
+          );
+        },
+      ),
+    );
+  }
+}

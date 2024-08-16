@@ -8,7 +8,7 @@ class FullName extends FormzInput<String, FullNameValidationError> {
   const FullName.dirty([super.value = '']) : super.dirty();
 
   static final RegExp _userNameRegExp = RegExp(
-    r'^[a-zA-Z0-9_]{3,20}$',
+    r'^[a-zA-Z0-9_ ]{3,40}$',
   );
 
   @override

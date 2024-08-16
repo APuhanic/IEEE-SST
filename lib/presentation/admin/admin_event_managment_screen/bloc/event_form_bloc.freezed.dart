@@ -2192,6 +2192,7 @@ mixin _$EventFormState {
   DateTime? get endTime => throw _privateConstructorUsedError;
   DateTime? get date => throw _privateConstructorUsedError;
   String? get info => throw _privateConstructorUsedError;
+  bool get isValid => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $EventFormStateCopyWith<EventFormState> get copyWith =>
@@ -2215,7 +2216,8 @@ abstract class $EventFormStateCopyWith<$Res> {
       DateTime? startTime,
       DateTime? endTime,
       DateTime? date,
-      String? info});
+      String? info,
+      bool isValid});
 }
 
 /// @nodoc
@@ -2242,6 +2244,7 @@ class _$EventFormStateCopyWithImpl<$Res, $Val extends EventFormState>
     Object? endTime = freezed,
     Object? date = freezed,
     Object? info = freezed,
+    Object? isValid = null,
   }) {
     return _then(_value.copyWith(
       id: freezed == id
@@ -2288,6 +2291,10 @@ class _$EventFormStateCopyWithImpl<$Res, $Val extends EventFormState>
           ? _value.info
           : info // ignore: cast_nullable_to_non_nullable
               as String?,
+      isValid: null == isValid
+          ? _value.isValid
+          : isValid // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -2311,7 +2318,8 @@ abstract class _$$CreateEventStateImplCopyWith<$Res>
       DateTime? startTime,
       DateTime? endTime,
       DateTime? date,
-      String? info});
+      String? info,
+      bool isValid});
 }
 
 /// @nodoc
@@ -2336,6 +2344,7 @@ class __$$CreateEventStateImplCopyWithImpl<$Res>
     Object? endTime = freezed,
     Object? date = freezed,
     Object? info = freezed,
+    Object? isValid = null,
   }) {
     return _then(_$CreateEventStateImpl(
       id: freezed == id
@@ -2382,6 +2391,10 @@ class __$$CreateEventStateImplCopyWithImpl<$Res>
           ? _value.info
           : info // ignore: cast_nullable_to_non_nullable
               as String?,
+      isValid: null == isValid
+          ? _value.isValid
+          : isValid // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -2400,7 +2413,8 @@ class _$CreateEventStateImpl implements _CreateEventState {
       this.startTime,
       this.endTime,
       this.date,
-      this.info});
+      this.info,
+      this.isValid = false});
 
   @override
   final String? id;
@@ -2430,10 +2444,13 @@ class _$CreateEventStateImpl implements _CreateEventState {
   final DateTime? date;
   @override
   final String? info;
+  @override
+  @JsonKey()
+  final bool isValid;
 
   @override
   String toString() {
-    return 'EventFormState(id: $id, status: $status, name: $name, description: $description, location: $location, errorMessage: $errorMessage, speaker: $speaker, startTime: $startTime, endTime: $endTime, date: $date, info: $info)';
+    return 'EventFormState(id: $id, status: $status, name: $name, description: $description, location: $location, errorMessage: $errorMessage, speaker: $speaker, startTime: $startTime, endTime: $endTime, date: $date, info: $info, isValid: $isValid)';
   }
 
   @override
@@ -2455,12 +2472,13 @@ class _$CreateEventStateImpl implements _CreateEventState {
                 other.startTime == startTime) &&
             (identical(other.endTime, endTime) || other.endTime == endTime) &&
             (identical(other.date, date) || other.date == date) &&
-            (identical(other.info, info) || other.info == info));
+            (identical(other.info, info) || other.info == info) &&
+            (identical(other.isValid, isValid) || other.isValid == isValid));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, id, status, name, description,
-      location, errorMessage, speaker, startTime, endTime, date, info);
+      location, errorMessage, speaker, startTime, endTime, date, info, isValid);
 
   @JsonKey(ignore: true)
   @override
@@ -2482,7 +2500,8 @@ abstract class _CreateEventState implements EventFormState {
       final DateTime? startTime,
       final DateTime? endTime,
       final DateTime? date,
-      final String? info}) = _$CreateEventStateImpl;
+      final String? info,
+      final bool isValid}) = _$CreateEventStateImpl;
 
   @override
   String? get id;
@@ -2506,6 +2525,8 @@ abstract class _CreateEventState implements EventFormState {
   DateTime? get date;
   @override
   String? get info;
+  @override
+  bool get isValid;
   @override
   @JsonKey(ignore: true)
   _$$CreateEventStateImplCopyWith<_$CreateEventStateImpl> get copyWith =>

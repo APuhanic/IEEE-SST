@@ -14,5 +14,6 @@ class EventFormState with _$EventFormState {
     DateTime? endTime,
     DateTime? date,
     String? info,
+    @Default(false) bool isValid,
   }) = _CreateEventState;
 }

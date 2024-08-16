@@ -111,7 +111,7 @@ class RegistrationBloc extends Bloc<RegistrationEvent, RegistrationState> {
     );
   }
 
-  FutureOr<void> _onOrganizationChanged(
+  void _onOrganizationChanged(
     _OrganizationChanged event,
     Emitter<RegistrationState> emit,
   ) {
