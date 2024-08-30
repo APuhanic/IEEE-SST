@@ -54,7 +54,6 @@ class EventsManagmentBloc extends Bloc<EventsEvent, EventsState> {
   Future<FutureOr<void>> _onMarkGoing(
       _MarkGoing event, Emitter<EventsState> emit) async {
     await supabaseEventRepository.markGoing(event.event.id!);
-
     if (state is _Loaded) {
       final events = (state as _Loaded).events;
       final updatedEvents = events.map((e) {
@@ -122,8 +121,7 @@ class EventsManagmentBloc extends Bloc<EventsEvent, EventsState> {
         return filteredEvents.where(hasEventPassed).toList();
       case FilterType.upcoming:
         return filteredEvents.where(isEventUpcoming).toList();
-      case FilterType.yours:
-        return filteredEvents.where((element) => element.isGoing).toList();
+
       default:
         return filteredEvents;
     }
@@ -144,8 +142,7 @@ class EventsManagmentBloc extends Bloc<EventsEvent, EventsState> {
         return currentEvents.every(hasEventPassed);
       case FilterType.upcoming:
         return currentEvents.every(isEventUpcoming);
-      case FilterType.yours:
-        return currentEvents.every((e) => e.isGoing);
+
       default:
         return false;
     }

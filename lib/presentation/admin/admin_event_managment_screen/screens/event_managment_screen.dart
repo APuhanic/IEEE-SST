@@ -62,7 +62,9 @@ class EventManagmentScreen extends StatelessWidget {
                               state.maybeWhen(
                                 loading: () => const Center(
                                   // TODO: Add skeletonizer
-                                  child: CircularProgressIndicator(),
+                                  child: CircularProgressIndicator(
+                                    color: AppColors.primary,
+                                  ),
                                 ),
                                 loaded: (events) =>
                                     AdminEventCardList(events: events),

@@ -28,7 +28,6 @@ import 'package:ieee_sst/presentation/info/question_posts/screens/post_screen.da
 import 'package:ieee_sst/presentation/info/question_posts/screens/user_posts_screen.dart';
 import 'package:ieee_sst/presentation/info/screens/info_screen.dart';
 import 'package:ieee_sst/presentation/info/announcements/screens/organizer_announcements.dart';
-import 'package:ieee_sst/presentation/home/screens/home_screen.dart';
 import 'package:ieee_sst/presentation/login/screens/login_screen.dart';
 import 'package:ieee_sst/presentation/messages/screens/messages_screen.dart';
 import 'package:ieee_sst/presentation/register/screens/register_screen.dart';
@@ -206,18 +205,6 @@ class AppRouter {
             },
             branches: [
               StatefulShellBranch(
-                navigatorKey: _navigatorKeyManager.shellNavigatorHomeKey,
-                routes: [
-                  GoRoute(
-                    path: RoutePaths.home,
-                    pageBuilder: (context, state) => const MaterialPage(
-                      key: ValueKey('HomeScreen'),
-                      child: HomeScreen(),
-                    ),
-                  ),
-                ],
-              ),
-              StatefulShellBranch(
                 navigatorKey: _navigatorKeyManager.shellNavigatorAgendaKey,
                 routes: [
                   GoRoute(
@@ -374,6 +361,6 @@ class AppRouter {
     if (session.user.userMetadata!['role'] == UserRoles.admin) {
       return RoutePaths.adminHomeScreen;
     }
-    return RoutePaths.home;
+    return RoutePaths.agenda;
   }
 }

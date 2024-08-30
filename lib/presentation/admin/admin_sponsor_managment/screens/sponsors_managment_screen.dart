@@ -54,10 +54,14 @@ class SponsorManagmentScreen extends StatelessWidget {
                       builder: (context, state) {
                         return state.map(
                           initial: (_) => const Center(
-                            child: CircularProgressIndicator(),
+                            child: CircularProgressIndicator(
+                              color: AppColors.primary,
+                            ),
                           ),
                           loading: (_) => const Center(
-                            child: CircularProgressIndicator(),
+                            child: CircularProgressIndicator(
+                              color: AppColors.primary,
+                            ),
                           ),
                           loaded: (state) =>
                               AdminSponsorList(sponsors: state.sponsors),

@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ieee_sst/data/constants/app_colors.dart';
-import 'package:ieee_sst/data/constants/text_styles.dart';
 import 'package:ieee_sst/di/dependency_injection.dart';
-import 'package:ieee_sst/presentation/attendees/widgets/attendees_search_bar.dart';
 import 'package:ieee_sst/presentation/attendees/widgets/user_profile_tile_list.dart';
 import 'package:ieee_sst/presentation/common/bloc/attendees_bloc/attendees_bloc.dart';
 
@@ -19,17 +17,11 @@ class AttendeesScreen extends StatelessWidget {
         ),
       child: Scaffold(
         body: CustomScrollView(slivers: <Widget>[
-          SliverAppBar(
+          const SliverAppBar(
             backgroundColor: AppColors.background,
             shadowColor: Colors.transparent,
             surfaceTintColor: AppColors.background,
-            title: Text('Attendees', style: AppTextStyle.titleSmall),
-            actions: [
-              IconButton(
-                onPressed: () {},
-                icon: const Icon(Icons.search),
-              ),
-            ],
+            title: Text('Attendees'),
           ),
           BlocBuilder<AttendeesBloc, AttendeesState>(
             builder: (context, state) {
@@ -40,7 +32,7 @@ class AttendeesScreen extends StatelessWidget {
                       padding: const EdgeInsets.all(16.0),
                       child: Column(
                         children: [
-                          Row(
+                          /*Row(
                             children: [
                               const AttendeesSearchBar(),
                               Container(
@@ -59,7 +51,7 @@ class AttendeesScreen extends StatelessWidget {
                                 ),
                               ),
                             ],
-                          ),
+                          ),*/
                           const SizedBox(height: 16),
                           state.maybeWhen(
                             orElse: () {

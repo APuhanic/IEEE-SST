@@ -44,7 +44,6 @@ class AnnouncementPostScreen extends StatelessWidget {
                       ),
                       Text(
                         announcement.description,
-                        style: AppTextStyle.titleSmall,
                       ),
                     ],
                   ),

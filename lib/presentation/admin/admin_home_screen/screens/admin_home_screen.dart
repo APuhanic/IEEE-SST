@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:ieee_sst/data/constants/app_colors.dart';
 import 'package:ieee_sst/data/constants/route_paths.dart';
 import 'package:ieee_sst/data/constants/text_styles.dart';
-import 'package:ieee_sst/di/dependency_injection.dart';
-import 'package:ieee_sst/presentation/home/widgets/header.dart';
+import 'package:ieee_sst/presentation/common/bloc/profile_bloc/profile_bloc.dart';
 import 'package:ieee_sst/presentation/home/widgets/home_screen_drawer.dart';
 import 'package:ieee_sst/presentation/home/widgets/new_screen_button.dart';
-import 'package:ieee_sst/presentation/login/bloc/auth_bloc.dart';
 
 class AdminHomeScreen extends StatelessWidget {
   const AdminHomeScreen({
@@ -16,25 +15,52 @@ class AdminHomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    context.read<ProfileBloc>().add(const ProfileEvent.loadProfile());
+
     return Scaffold(
-        body: BlocProvider(
-          create: (context) => getIt<AuthBloc>(),
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                const Padding(
-                  padding: EdgeInsets.all(16),
-                  child: Header(),
-                ),
-                const SizedBox(height: 24),
-                Text('Admin Home Screen', style: AppTextStyle.header),
-                const Padding(
-                  padding: EdgeInsets.all(16.0),
-                  child: MenagmentPart(),
-                ),
-              ],
+        body: CustomScrollView(
+          slivers: <Widget>[
+            BlocBuilder<ProfileBloc, ProfileState>(
+              builder: (context, state) {
+                return SliverAppBar(
+                  expandedHeight: 40.0,
+                  floating: true,
+                  snap: true,
+                  backgroundColor: AppColors.background,
+                  shadowColor: Colors.transparent,
+                  surfaceTintColor: AppColors.background,
+                  title: Text('IEEE SST', style: AppTextStyle.titleSmall),
+                  actions: [
+                    Padding(
+                      padding: const EdgeInsets.only(right: 8.0),
+                      child: Text(
+                        state.maybeWhen(
+                          loadedProfile: (profile) => profile.fullName,
+                          error: (message) => message,
+                          orElse: () => 'Loading...',
+                        ),
+                      ),
+                    )
+                  ],
+                );
+              },
             ),
-          ),
+            SliverList(
+              delegate: SliverChildListDelegate(
+                [
+                  Text(
+                    'Admin dashboard',
+                    style: AppTextStyle.titleLarge,
+                    textAlign: TextAlign.center,
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 16.0),
+                    child: MenagmentPart(),
+                  ),
+                ],
+              ),
+            ),
+          ],
         ),
         drawer: const HomeScreenDrawer());
   }

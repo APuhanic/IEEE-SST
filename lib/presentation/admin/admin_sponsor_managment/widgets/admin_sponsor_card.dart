@@ -23,23 +23,30 @@ class AdminSponsorCard extends StatelessWidget {
         children: [
           Row(
             children: [
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
-                child: Text(
-                  sponsor.name,
-                  style: AppTextStyle.nameText,
+              Expanded(
+                // Wrapping the Text in Expanded to allow wrapping
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 8.0,
+                    horizontal: 16.0,
+                  ),
+                  child: Text(
+                    sponsor.name,
+                    style: AppTextStyle.nameText,
+                    maxLines: null, // Allows unlimited lines
+                    overflow: TextOverflow.visible, // Ensures text visibility
+                  ),
                 ),
               ),
-              const Spacer(),
               _SponsorPopupMenu(sponsor),
             ],
           ),
-          // Image here
           Expanded(
-            child: Image.network(
-              sponsor.imageUrl,
-              fit: BoxFit.cover,
+            child: Center(
+              child: Image.network(
+                sponsor.imageUrl,
+                fit: BoxFit.cover,
+              ),
             ),
           ),
         ],

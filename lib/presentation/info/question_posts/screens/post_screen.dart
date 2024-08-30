@@ -22,7 +22,7 @@ class PostScreen extends StatelessWidget {
           CommentManagmentEvent.loadComments(post.id!),
         );
     return Scaffold(
-      backgroundColor: AppColors.white,
+      backgroundColor: AppColors.background,
       body: RefreshIndicator(
         onRefresh: () async {
           context.read<CommentManagmentBloc>().add(
@@ -34,7 +34,7 @@ class PostScreen extends StatelessWidget {
             const SliverAppBar(
               expandedHeight: 50,
               pinned: true,
-              backgroundColor: AppColors.white,
+              backgroundColor: AppColors.background,
               shadowColor: Colors.transparent,
               surfaceTintColor: AppColors.white,
             ),

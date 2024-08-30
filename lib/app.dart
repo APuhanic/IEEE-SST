@@ -13,6 +13,8 @@ import 'package:ieee_sst/presentation/common/bloc/events_bloc/events_bloc.dart';
 import 'package:ieee_sst/presentation/common/bloc/profile_bloc/profile_bloc.dart';
 import 'package:ieee_sst/presentation/common/bloc/sponsors_bloc/bloc/sponsor_managment_bloc.dart';
 import 'package:ieee_sst/presentation/common/cubit/cubit/auth_session_cubit.dart';
+import 'package:ieee_sst/presentation/documents/bloc/document_form_bloc/document_form_bloc.dart';
+import 'package:ieee_sst/presentation/documents/bloc/document_managment_bloc/document_managment_bloc.dart';
 import 'package:ieee_sst/presentation/info/question_posts/bloc/comment_form_bloc/comment_form_bloc.dart';
 import 'package:ieee_sst/presentation/info/question_posts/bloc/comment_managment_bloc/comment_managment_bloc.dart';
 import 'package:ieee_sst/presentation/info/question_posts/bloc/post_form_bloc.dart';
@@ -51,7 +53,9 @@ class MainApp extends StatelessWidget {
           create: (context) => getIt<AuthSessionCubit>()..checkUserRole(),
         ),
         BlocProvider(create: (context) => getIt<AttendeesBloc>()),
-        BlocProvider(create: (context) => getIt<UserManagmentBloc>())
+        BlocProvider(create: (context) => getIt<UserManagmentBloc>()),
+        BlocProvider(create: (context) => getIt<DocumentFormBloc>()),
+        BlocProvider(create: (context) => getIt<DocumentManagmentBloc>()),
       ],
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,

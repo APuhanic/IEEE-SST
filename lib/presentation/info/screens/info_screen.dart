@@ -34,12 +34,6 @@ class InfoScreen extends StatelessWidget {
                     description: 'Ask questions to the organizers',
                     routePath: '/community/ask_organizers',
                   ),
-                  InfoScreenButton(
-                    icon: Icons.online_prediction,
-                    title: 'Virtual events',
-                    description: 'Links to virtual events',
-                    routePath: '',
-                  ),
                 ],
               ),
             ]),

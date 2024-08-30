@@ -37,8 +37,6 @@ class UserProfileTile extends StatelessWidget {
               const UserTagChip(tag: 'Speaker')
             ],
           ),
-          const Spacer(),
-          const Center(child: Icon(Icons.star, color: AppColors.primary))
         ],
       ),
     );

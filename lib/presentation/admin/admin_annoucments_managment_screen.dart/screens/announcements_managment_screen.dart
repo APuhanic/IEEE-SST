@@ -59,7 +59,9 @@ class AnnouncementsManagmentScreen extends StatelessWidget {
                                 isAdmin: true,
                               ),
                               loading: () => const Center(
-                                child: CircularProgressIndicator(),
+                                child: CircularProgressIndicator(
+                                  color: AppColors.primary,
+                                ),
                               ),
                               error: (message) => Center(
                                 child: Text(message),

@@ -21,6 +21,7 @@ mixin _$SponsorFormEvent {
     required TResult Function(String name) nameChanged,
     required TResult Function(XFile? image) imageChanged,
     required TResult Function() addSponsor,
+    required TResult Function() removeImage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -28,6 +29,7 @@ mixin _$SponsorFormEvent {
     TResult? Function(String name)? nameChanged,
     TResult? Function(XFile? image)? imageChanged,
     TResult? Function()? addSponsor,
+    TResult? Function()? removeImage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -35,6 +37,7 @@ mixin _$SponsorFormEvent {
     TResult Function(String name)? nameChanged,
     TResult Function(XFile? image)? imageChanged,
     TResult Function()? addSponsor,
+    TResult Function()? removeImage,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -43,6 +46,7 @@ mixin _$SponsorFormEvent {
     required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_ImageChanged value) imageChanged,
     required TResult Function(_AddSponsor value) addSponsor,
+    required TResult Function(_RemoveImage value) removeImage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +54,7 @@ mixin _$SponsorFormEvent {
     TResult? Function(_NameChanged value)? nameChanged,
     TResult? Function(_ImageChanged value)? imageChanged,
     TResult? Function(_AddSponsor value)? addSponsor,
+    TResult? Function(_RemoveImage value)? removeImage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,6 +62,7 @@ mixin _$SponsorFormEvent {
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_ImageChanged value)? imageChanged,
     TResult Function(_AddSponsor value)? addSponsor,
+    TResult Function(_RemoveImage value)? removeImage,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -147,6 +153,7 @@ class _$NameChangedImpl implements _NameChanged {
     required TResult Function(String name) nameChanged,
     required TResult Function(XFile? image) imageChanged,
     required TResult Function() addSponsor,
+    required TResult Function() removeImage,
   }) {
     return nameChanged(name);
   }
@@ -157,6 +164,7 @@ class _$NameChangedImpl implements _NameChanged {
     TResult? Function(String name)? nameChanged,
     TResult? Function(XFile? image)? imageChanged,
     TResult? Function()? addSponsor,
+    TResult? Function()? removeImage,
   }) {
     return nameChanged?.call(name);
   }
@@ -167,6 +175,7 @@ class _$NameChangedImpl implements _NameChanged {
     TResult Function(String name)? nameChanged,
     TResult Function(XFile? image)? imageChanged,
     TResult Function()? addSponsor,
+    TResult Function()? removeImage,
     required TResult orElse(),
   }) {
     if (nameChanged != null) {
@@ -181,6 +190,7 @@ class _$NameChangedImpl implements _NameChanged {
     required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_ImageChanged value) imageChanged,
     required TResult Function(_AddSponsor value) addSponsor,
+    required TResult Function(_RemoveImage value) removeImage,
   }) {
     return nameChanged(this);
   }
@@ -191,6 +201,7 @@ class _$NameChangedImpl implements _NameChanged {
     TResult? Function(_NameChanged value)? nameChanged,
     TResult? Function(_ImageChanged value)? imageChanged,
     TResult? Function(_AddSponsor value)? addSponsor,
+    TResult? Function(_RemoveImage value)? removeImage,
   }) {
     return nameChanged?.call(this);
   }
@@ -201,6 +212,7 @@ class _$NameChangedImpl implements _NameChanged {
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_ImageChanged value)? imageChanged,
     TResult Function(_AddSponsor value)? addSponsor,
+    TResult Function(_RemoveImage value)? removeImage,
     required TResult orElse(),
   }) {
     if (nameChanged != null) {
@@ -286,6 +298,7 @@ class _$ImageChangedImpl implements _ImageChanged {
     required TResult Function(String name) nameChanged,
     required TResult Function(XFile? image) imageChanged,
     required TResult Function() addSponsor,
+    required TResult Function() removeImage,
   }) {
     return imageChanged(image);
   }
@@ -296,6 +309,7 @@ class _$ImageChangedImpl implements _ImageChanged {
     TResult? Function(String name)? nameChanged,
     TResult? Function(XFile? image)? imageChanged,
     TResult? Function()? addSponsor,
+    TResult? Function()? removeImage,
   }) {
     return imageChanged?.call(image);
   }
@@ -306,6 +320,7 @@ class _$ImageChangedImpl implements _ImageChanged {
     TResult Function(String name)? nameChanged,
     TResult Function(XFile? image)? imageChanged,
     TResult Function()? addSponsor,
+    TResult Function()? removeImage,
     required TResult orElse(),
   }) {
     if (imageChanged != null) {
@@ -320,6 +335,7 @@ class _$ImageChangedImpl implements _ImageChanged {
     required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_ImageChanged value) imageChanged,
     required TResult Function(_AddSponsor value) addSponsor,
+    required TResult Function(_RemoveImage value) removeImage,
   }) {
     return imageChanged(this);
   }
@@ -330,6 +346,7 @@ class _$ImageChangedImpl implements _ImageChanged {
     TResult? Function(_NameChanged value)? nameChanged,
     TResult? Function(_ImageChanged value)? imageChanged,
     TResult? Function(_AddSponsor value)? addSponsor,
+    TResult? Function(_RemoveImage value)? removeImage,
   }) {
     return imageChanged?.call(this);
   }
@@ -340,6 +357,7 @@ class _$ImageChangedImpl implements _ImageChanged {
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_ImageChanged value)? imageChanged,
     TResult Function(_AddSponsor value)? addSponsor,
+    TResult Function(_RemoveImage value)? removeImage,
     required TResult orElse(),
   }) {
     if (imageChanged != null) {
@@ -399,6 +417,7 @@ class _$AddSponsorImpl implements _AddSponsor {
     required TResult Function(String name) nameChanged,
     required TResult Function(XFile? image) imageChanged,
     required TResult Function() addSponsor,
+    required TResult Function() removeImage,
   }) {
     return addSponsor();
   }
@@ -409,6 +428,7 @@ class _$AddSponsorImpl implements _AddSponsor {
     TResult? Function(String name)? nameChanged,
     TResult? Function(XFile? image)? imageChanged,
     TResult? Function()? addSponsor,
+    TResult? Function()? removeImage,
   }) {
     return addSponsor?.call();
   }
@@ -419,6 +439,7 @@ class _$AddSponsorImpl implements _AddSponsor {
     TResult Function(String name)? nameChanged,
     TResult Function(XFile? image)? imageChanged,
     TResult Function()? addSponsor,
+    TResult Function()? removeImage,
     required TResult orElse(),
   }) {
     if (addSponsor != null) {
@@ -433,6 +454,7 @@ class _$AddSponsorImpl implements _AddSponsor {
     required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_ImageChanged value) imageChanged,
     required TResult Function(_AddSponsor value) addSponsor,
+    required TResult Function(_RemoveImage value) removeImage,
   }) {
     return addSponsor(this);
   }
@@ -443,6 +465,7 @@ class _$AddSponsorImpl implements _AddSponsor {
     TResult? Function(_NameChanged value)? nameChanged,
     TResult? Function(_ImageChanged value)? imageChanged,
     TResult? Function(_AddSponsor value)? addSponsor,
+    TResult? Function(_RemoveImage value)? removeImage,
   }) {
     return addSponsor?.call(this);
   }
@@ -453,6 +476,7 @@ class _$AddSponsorImpl implements _AddSponsor {
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_ImageChanged value)? imageChanged,
     TResult Function(_AddSponsor value)? addSponsor,
+    TResult Function(_RemoveImage value)? removeImage,
     required TResult orElse(),
   }) {
     if (addSponsor != null) {
@@ -464,6 +488,120 @@ class _$AddSponsorImpl implements _AddSponsor {
 
 abstract class _AddSponsor implements SponsorFormEvent {
   const factory _AddSponsor() = _$AddSponsorImpl;
+}
+
+/// @nodoc
+abstract class _$$RemoveImageImplCopyWith<$Res> {
+  factory _$$RemoveImageImplCopyWith(
+          _$RemoveImageImpl value, $Res Function(_$RemoveImageImpl) then) =
+      __$$RemoveImageImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$RemoveImageImplCopyWithImpl<$Res>
+    extends _$SponsorFormEventCopyWithImpl<$Res, _$RemoveImageImpl>
+    implements _$$RemoveImageImplCopyWith<$Res> {
+  __$$RemoveImageImplCopyWithImpl(
+      _$RemoveImageImpl _value, $Res Function(_$RemoveImageImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$RemoveImageImpl implements _RemoveImage {
+  const _$RemoveImageImpl();
+
+  @override
+  String toString() {
+    return 'SponsorFormEvent.removeImage()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$RemoveImageImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String name) nameChanged,
+    required TResult Function(XFile? image) imageChanged,
+    required TResult Function() addSponsor,
+    required TResult Function() removeImage,
+  }) {
+    return removeImage();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name)? nameChanged,
+    TResult? Function(XFile? image)? imageChanged,
+    TResult? Function()? addSponsor,
+    TResult? Function()? removeImage,
+  }) {
+    return removeImage?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String name)? nameChanged,
+    TResult Function(XFile? image)? imageChanged,
+    TResult Function()? addSponsor,
+    TResult Function()? removeImage,
+    required TResult orElse(),
+  }) {
+    if (removeImage != null) {
+      return removeImage();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_NameChanged value) nameChanged,
+    required TResult Function(_ImageChanged value) imageChanged,
+    required TResult Function(_AddSponsor value) addSponsor,
+    required TResult Function(_RemoveImage value) removeImage,
+  }) {
+    return removeImage(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_NameChanged value)? nameChanged,
+    TResult? Function(_ImageChanged value)? imageChanged,
+    TResult? Function(_AddSponsor value)? addSponsor,
+    TResult? Function(_RemoveImage value)? removeImage,
+  }) {
+    return removeImage?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_NameChanged value)? nameChanged,
+    TResult Function(_ImageChanged value)? imageChanged,
+    TResult Function(_AddSponsor value)? addSponsor,
+    TResult Function(_RemoveImage value)? removeImage,
+    required TResult orElse(),
+  }) {
+    if (removeImage != null) {
+      return removeImage(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _RemoveImage implements SponsorFormEvent {
+  const factory _RemoveImage() = _$RemoveImageImpl;
 }
 
 /// @nodoc

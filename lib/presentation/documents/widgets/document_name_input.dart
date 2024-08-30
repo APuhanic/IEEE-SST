@@ -2,25 +2,25 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ieee_sst/data/constants/app_colors.dart';
 import 'package:ieee_sst/data/constants/text_styles.dart';
-import 'package:ieee_sst/presentation/admin/admin_sponsor_managment/bloc/sponsor_form_bloc.dart';
+import 'package:ieee_sst/presentation/documents/bloc/document_form_bloc/document_form_bloc.dart';
 
-class SponsorNameInput extends StatelessWidget {
-  const SponsorNameInput({
+class DocumentNameInput extends StatelessWidget {
+  const DocumentNameInput({
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<SponsorFormBloc, SponsorFormState>(
+    return BlocBuilder<DocumentFormBloc, DocumentFormState>(
       builder: (context, state) {
         return TextFormField(
-          onChanged: (eventName) => context
-              .read<SponsorFormBloc>()
-              .add(SponsorFormEvent.nameChanged(eventName)),
+          onChanged: (fileName) => context
+              .read<DocumentFormBloc>()
+              .add(DocumentFormEvent.nameChanged(fileName)),
           initialValue: state.name,
           decoration: InputDecoration(
-            label: Text('Sponsor name', style: AppTextStyle.textForm),
-            hintText: 'Sponsor name',
+            label: Text('Document name', style: AppTextStyle.textForm),
+            hintText: 'Document name',
             hintStyle: AppTextStyle.textForm,
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(15),

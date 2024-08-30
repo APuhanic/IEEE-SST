@@ -1,7 +1,6 @@
 enum FilterType {
   upcoming,
   past,
-  yours,
   going,
 }
 

@@ -14,27 +14,34 @@ class AddSponsorImageButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<SponsorFormBloc, SponsorFormState>(
       builder: (context, state) {
-        return ElevatedButton(
-          style: ElevatedButton.styleFrom(
-            backgroundColor: AppColors.primary,
-            foregroundColor: AppColors.white,
-            textStyle: AppTextStyle.button,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10),
+        return Container(
+          padding: const EdgeInsets.symmetric(vertical: 24.0),
+          width: double.infinity,
+          height: 200,
+          child: FilledButton(
+            style: FilledButton.styleFrom(
+              backgroundColor: AppColors.background,
+              foregroundColor: AppColors.grayText,
+              textStyle: AppTextStyle.button,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                  side: const BorderSide(color: AppColors.grayText)),
+            ),
+            onPressed: () async {
+              final image =
+                  await ImagePicker().pickImage(source: ImageSource.gallery);
+              if (image == null) return;
+              if (context.mounted) {
+                context
+                    .read<SponsorFormBloc>()
+                    .add(SponsorFormEvent.imageChanged(image));
+              }
+            },
+            child: const Icon(
+              Icons.add_a_photo,
+              color: AppColors.grayText,
             ),
           ),
-          onPressed: () async {
-            final image =
-                await ImagePicker().pickImage(source: ImageSource.gallery);
-            if (image == null) return;
-            // TODO: Remove mounted check
-            if (context.mounted) {
-              context
-                  .read<SponsorFormBloc>()
-                  .add(SponsorFormEvent.imageChanged(image));
-            }
-          },
-          child: const Text('Add image'),
         );
       },
     );

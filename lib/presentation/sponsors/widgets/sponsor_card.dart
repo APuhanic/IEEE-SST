@@ -16,25 +16,27 @@ class SponsorCard extends StatelessWidget {
       width: double.infinity,
       height: 200,
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Row(
-            children: [
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
-                child: Text(
-                  sponsor.name,
-                  style: AppTextStyle.nameText,
-                ),
-              ),
-            ],
+          // Centering the text and allowing it to wrap to the next row
+          Padding(
+            padding:
+                const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
+            child: Text(
+              sponsor.name,
+              style: AppTextStyle.nameText,
+              textAlign: TextAlign.center, // Center the text
+              maxLines: null, // Allow unlimited lines
+              overflow: TextOverflow.visible, // Let the text wrap naturally
+            ),
           ),
-          // Image here
+          // Centering the image
           Expanded(
-            child: Image.network(
-              sponsor.imageUrl,
-              fit: BoxFit.cover,
+            child: Center(
+              child: Image.network(
+                sponsor.imageUrl,
+                fit: BoxFit
+                    .contain, // Ensure the image is contained within the available space
+              ),
             ),
           ),
         ],

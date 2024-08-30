@@ -29,36 +29,39 @@ class UserPostsScreen extends StatelessWidget {
           ),
         ),
       ),
-      body: CustomScrollView(
-        slivers: <Widget>[
-          const SliverAppBar(
-            expandedHeight: 50,
-            pinned: true,
-            backgroundColor: AppColors.background,
-            shadowColor: Colors.transparent,
-            surfaceTintColor: AppColors.background,
-            title: Text('Ask Organizers'),
-          ),
-          SliverList(
-            delegate: SliverChildListDelegate(
-              [
-                BlocBuilder<PostManagmentBloc, PostManagmentState>(
-                  builder: (context, state) {
-                    return state.maybeWhen(
-                        loaded: (posts) => UserPostsList(posts: posts),
-                        loading: () => const Center(
-                              child: CircularProgressIndicator(),
-                            ),
-                        error: (message) => Center(
-                              child: Text(message),
-                            ),
-                        orElse: () => const SizedBox.shrink());
-                  },
-                ),
-              ],
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+        child: CustomScrollView(
+          slivers: <Widget>[
+            const SliverAppBar(
+              expandedHeight: 50,
+              pinned: true,
+              backgroundColor: AppColors.background,
+              shadowColor: Colors.transparent,
+              surfaceTintColor: AppColors.background,
+              title: Text('Ask Organizers'),
             ),
-          )
-        ],
+            SliverList(
+              delegate: SliverChildListDelegate(
+                [
+                  BlocBuilder<PostManagmentBloc, PostManagmentState>(
+                    builder: (context, state) {
+                      return state.maybeWhen(
+                          loaded: (posts) => UserPostsList(posts: posts),
+                          loading: () => const Center(
+                                child: CircularProgressIndicator(),
+                              ),
+                          error: (message) => Center(
+                                child: Text(message),
+                              ),
+                          orElse: () => const SizedBox.shrink());
+                    },
+                  ),
+                ],
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
