@@ -6,15 +6,11 @@ class NewScreenButton extends StatelessWidget {
   const NewScreenButton({
     super.key,
     required this.title,
-    required this.description,
-    required this.icon,
     required this.onPressed,
     required this.routePath,
   });
 
   final String title;
-  final String description;
-  final IconData icon;
   final Function onPressed;
   final String routePath;
 
@@ -31,25 +27,17 @@ class NewScreenButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(15),
         ),
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const SizedBox(width: 16),
-            Icon(
-              icon,
-              color: AppColors.black,
-              size: 50,
-            ),
-            const SizedBox(width: 16),
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  title,
-                  style: AppTextStyle.titleSmall,
-                ),
-                Text(
-                  description,
-                  style: AppTextStyle.lightText,
+                FittedBox(
+                  fit: BoxFit.scaleDown,
+                  child: Text(
+                    title,
+                    style: AppTextStyle.blackButtonText,
+                  ),
                 ),
               ],
             )

@@ -29,7 +29,7 @@ class LoginScreen extends StatelessWidget {
               context.go(RoutePaths.adminHomeScreen);
             }
             if (state.status.isSuccess && !state.isAdmin) {
-              context.go(RoutePaths.agenda);
+              context.go(RoutePaths.home);
             }
           },
           listenWhen: (previous, current) => previous.status != current.status,

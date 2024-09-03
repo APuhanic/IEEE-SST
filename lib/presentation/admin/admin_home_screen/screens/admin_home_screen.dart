@@ -76,16 +76,12 @@ class MenagmentPart extends StatelessWidget {
         const SizedBox(height: 24),
         NewScreenButton(
           title: 'Manage events',
-          description: 'Add, delete, and edit events',
-          icon: Icons.event_note_outlined,
           onPressed: () => context.go(RoutePaths.adminEventsMangment),
           routePath: '',
         ),
         const SizedBox(height: 16),
         NewScreenButton(
           title: 'Manage sponsors',
-          description: 'Add, delete, and edit sponsors',
-          icon: Icons.person_outline,
           onPressed: () {
             context.go(RoutePaths.adminSponsors);
           },
@@ -94,8 +90,6 @@ class MenagmentPart extends StatelessWidget {
         const SizedBox(height: 16),
         NewScreenButton(
           title: 'Manage users',
-          description: 'Add, delete, and edit users',
-          icon: Icons.person_outline,
           onPressed: () {
             context.go(RoutePaths.adminUserManagment);
           },

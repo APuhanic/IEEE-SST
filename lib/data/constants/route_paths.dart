@@ -8,6 +8,13 @@ abstract class RoutePaths {
 
   // User
   static const String home = '/home';
+  static const String conferenceChairsSubRoute = 'conference_chairs';
+  static const String steeringCommitteeSubRoute = 'steering_committee';
+  static const String programCommitteeSubRoute = 'program_committee';
+  static const String keynoteSpeakerSubRoute = 'keynote_speaker';
+  static const String specialSessionsSubRoute = 'special_sessions';
+  static const String phdForumSubRoute = 'phd_forum';
+
   static const String profile = '/profile';
   static const String agenda = '/agenda';
   static const String searchEvents = 'search_events';

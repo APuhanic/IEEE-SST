@@ -26,7 +26,7 @@ class RegisterScreen extends StatelessWidget {
         child: BlocConsumer<RegistrationBloc, RegistrationState>(
           listener: (context, state) {
             if (state.status.isSuccess) {
-              context.go(RoutePaths.agenda);
+              context.go(RoutePaths.home);
             }
             if (state.status.isFailure) {
               FocusScope.of(context).unfocus();

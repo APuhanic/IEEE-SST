@@ -75,4 +75,10 @@ class AppTextStyle {
     fontSize: 20,
     color: AppColors.black,
   );
+
+  static TextStyle blackButtonText = const TextStyle(
+    fontSize: 16,
+    color: AppColors.black,
+    fontWeight: FontWeight.w600,
+  );
 }

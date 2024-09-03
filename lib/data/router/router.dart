@@ -22,6 +22,9 @@ import 'package:ieee_sst/presentation/bottom_nav_bar/widgets/admin_scaffold_with
 import 'package:ieee_sst/presentation/bottom_nav_bar/widgets/scaffold_with_nav_bar.dart';
 import 'package:ieee_sst/presentation/documents/screens/documents_screen.dart';
 import 'package:ieee_sst/presentation/documents/screens/upload_document_screen.dart';
+import 'package:ieee_sst/presentation/home/conference_chairs_screen/screens/conference_chair_screen.dart';
+import 'package:ieee_sst/presentation/home/screens/home_screen.dart';
+import 'package:ieee_sst/presentation/home/steering_committee_screen/screens/steering_committee_screen.dart';
 import 'package:ieee_sst/presentation/info/announcements/screens/announcement_post_screen.dart';
 import 'package:ieee_sst/presentation/info/question_posts/screens/create_post_screen.dart';
 import 'package:ieee_sst/presentation/info/question_posts/screens/post_screen.dart';
@@ -204,6 +207,33 @@ class AppRouter {
               );
             },
             branches: [
+              StatefulShellBranch(
+                navigatorKey: _navigatorKeyManager.shellNavigatorHomeKey,
+                routes: [
+                  GoRoute(
+                      path: RoutePaths.home,
+                      pageBuilder: (context, state) => const MaterialPage(
+                            key: ValueKey('HomeScreen'),
+                            child: HomeScreen(),
+                          ),
+                      routes: [
+                        GoRoute(
+                          path: RoutePaths.conferenceChairsSubRoute,
+                          pageBuilder: (context, state) => const MaterialPage(
+                            key: ValueKey('ConferenceChairsScreen'),
+                            child: ConferenceChairScreen(),
+                          ),
+                        ),
+                        GoRoute(
+                          path: RoutePaths.steeringCommitteeSubRoute,
+                          pageBuilder: (context, state) => const MaterialPage(
+                            key: ValueKey('SteeringCommitteeScreen'),
+                            child: SteeringCommitteeScreen(),
+                          ),
+                        )
+                      ]),
+                ],
+              ),
               StatefulShellBranch(
                 navigatorKey: _navigatorKeyManager.shellNavigatorAgendaKey,
                 routes: [

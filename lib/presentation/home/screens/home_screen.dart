@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:ieee_sst/data/constants/app_colors.dart';
 import 'package:ieee_sst/data/constants/text_styles.dart';
-import 'package:ieee_sst/presentation/common/bloc/events_bloc/events_bloc.dart';
 import 'package:ieee_sst/presentation/common/bloc/profile_bloc/profile_bloc.dart';
 import 'package:ieee_sst/presentation/home/widgets/home_screen_drawer.dart';
-import 'package:ieee_sst/presentation/home/widgets/ongoing_events.dart';
+import 'package:ieee_sst/presentation/home/widgets/new_screen_button.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({
@@ -14,7 +16,6 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    context.read<EventsManagmentBloc>().add(const EventsEvent.loadEvents());
     context.read<ProfileBloc>().add(const ProfileEvent.loadProfile());
     return Scaffold(
       body: CustomScrollView(
@@ -30,25 +31,8 @@ class HomeScreen extends StatelessWidget {
                 backgroundColor: AppColors.background,
                 shadowColor: Colors.transparent,
                 surfaceTintColor: AppColors.background,
-                title: Text('IEEE SST', style: AppTextStyle.titleSmall),
-                leading: Builder(
-                  builder: (context) => Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: AppColors.primary,
-                        borderRadius: BorderRadius.circular(15),
-                      ),
-                      child: IconButton(
-                        onPressed: () => Scaffold.of(context).openDrawer(),
-                        icon: const Icon(
-                          Icons.menu,
-                          color: AppColors.white,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
+                title: Text('IEEE SST 2024', style: AppTextStyle.titleSmall),
+                leading: const _BlueHomeScreenDrawer(),
                 actions: [
                   Padding(
                     padding: const EdgeInsets.only(right: 8.0),
@@ -68,36 +52,172 @@ class HomeScreen extends StatelessWidget {
             delegate: SliverChildListDelegate([
               Column(
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 16.0,
-                      vertical: 8,
-                    ),
-                    child: Row(
-                      children: [
-                        Text('Upcoming', style: AppTextStyle.titleLarge),
-                      ],
+                  InteractiveViewer(
+                    panEnabled: false,
+                    child: const Image(
+                      image: AssetImage(
+                        'assets/images/ieee_header.jpg',
+                      ),
                     ),
                   ),
-                  BlocBuilder<EventsManagmentBloc, EventsState>(
-                    builder: (context, state) {
-                      return state.maybeWhen(
-                        loading: () => const Center(
-                          child: CircularProgressIndicator(),
-                        ),
-                        loaded: (events) => OngoingEvents(events: events),
-                        orElse: () => const SizedBox.shrink(),
-                      );
-                    },
+                  Row(
+                    children: [
+                      const _ConferenceEmail(),
+                      Expanded(child: Container()),
+                      const _FacebookPageLink(),
+                    ],
                   ),
-                  const SizedBox(height: 24),
+                  const SizedBox(height: 16.0),
                 ],
               ),
             ]),
-          )
+          ),
+          SliverPadding(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            sliver: SliverGrid(
+              delegate: SliverChildBuilderDelegate(
+                (BuildContext context, int index) {
+                  final titles = [
+                    'Conference Chairs',
+                    'Steering Committee',
+                    'Program Comittee',
+                    'Keynote Speaker',
+                    'Special Sessions',
+                    'PhD Forum'
+                  ];
+                  // TODO: Extract these routes to a constants file
+                  final routes = [
+                    '/home/conference_chairs',
+                    '/home/steering_committee',
+                    '/home/program_committee',
+                    '/home/keynote_speaker',
+                    '/home/special_sessions',
+                    '/home/phd_forum'
+                  ];
+
+                  return NewScreenButton(
+                    title: titles[index],
+                    onPressed: () {
+                      context.go(
+                        routes[index],
+                      );
+                    },
+                    routePath: routes[index],
+                  );
+                },
+                childCount: 6, // Number of buttons
+              ),
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2, // 2 buttons per row
+                mainAxisSpacing: 8.0,
+                crossAxisSpacing: 8.0,
+                childAspectRatio: 3,
+              ),
+            ),
+          ),
         ],
       ),
       drawer: const HomeScreenDrawer(),
+    );
+  }
+}
+
+class _FacebookPageLink extends StatelessWidget {
+  const _FacebookPageLink();
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () async {
+        final facebookUrl = Uri.parse(
+            'https://web.facebook.com/SSTInternationalConference/?_rdc=1&_rdr');
+        final facebookFallbackUrl = Uri.parse(
+            'https://web.facebook.com/SSTInternationalConference/?_rdc=1&_rdr');
+
+        // Attempt to open the Facebook app
+        if (await canLaunchUrl(facebookUrl)) {
+          await launchUrl(facebookUrl);
+        } else {
+          // If the Facebook app is not available, open in a web browser
+          if (await canLaunchUrl(facebookFallbackUrl)) {
+            await launchUrl(facebookFallbackUrl);
+          } else {
+            throw 'Could not launch $facebookFallbackUrl';
+          }
+        }
+      },
+      child: Padding(
+        padding: const EdgeInsets.only(right: 8.0),
+        child: Image.asset(
+          'assets/images/facebook-logo.png',
+          width: 40,
+        ),
+      ),
+    );
+  }
+}
+
+class _ConferenceEmail extends StatelessWidget {
+  const _ConferenceEmail();
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        Clipboard.setData(
+          const ClipboardData(
+            text: 'sst-conference@ferit.hr',
+          ),
+        );
+      },
+      child: Padding(
+        padding: const EdgeInsets.symmetric(
+          horizontal: 16.0,
+          vertical: 16.0,
+        ),
+        child: Row(
+          children: [
+            Text(
+              'sst-conference@ferit.hr',
+              style: AppTextStyle.lightText,
+            ),
+            const Padding(
+              padding: EdgeInsets.only(left: 8.0),
+              child: Icon(
+                Icons.copy,
+                color: AppColors.grayText,
+                applyTextScaling: true,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _BlueHomeScreenDrawer extends StatelessWidget {
+  const _BlueHomeScreenDrawer();
+
+  @override
+  Widget build(BuildContext context) {
+    return Builder(
+      builder: (context) => Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Container(
+          decoration: BoxDecoration(
+            color: AppColors.primary,
+            borderRadius: BorderRadius.circular(15),
+          ),
+          child: IconButton(
+            onPressed: () => Scaffold.of(context).openDrawer(),
+            icon: const Icon(
+              Icons.menu,
+              color: AppColors.white,
+            ),
+          ),
+        ),
+      ),
     );
   }
 }

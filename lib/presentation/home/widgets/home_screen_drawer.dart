@@ -71,7 +71,7 @@ class HomeScreenDrawer extends StatelessWidget {
                           ? 'Exit Admin Mode'
                           : 'Enter Admin Mode';
                       final destination = isInAdminMode
-                          ? RoutePaths.agenda
+                          ? RoutePaths.home
                           : RoutePaths.adminHomeScreen;
                       return ListTile(
                         title: Text(text),

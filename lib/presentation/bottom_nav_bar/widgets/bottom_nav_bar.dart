@@ -28,11 +28,11 @@ class BottomNavBar extends StatelessWidget {
             type: BottomNavigationBarType.fixed,
             backgroundColor: AppColors.white,
             useLegacyColorScheme: false,
-            selectedItemColor: AppColors.black,
+            selectedItemColor: AppColors.primary,
             unselectedItemColor: AppColors.gray,
             enableFeedback: true,
             selectedLabelStyle: const TextStyle(
-              color: AppColors.black,
+              color: AppColors.primary,
               fontSize: 10,
             ),
             unselectedLabelStyle: const TextStyle(
