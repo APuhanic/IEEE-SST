@@ -86,15 +86,19 @@ class MenagmentPart extends StatelessWidget {
           title: 'Manage sponsors',
           description: 'Add, delete, and edit sponsors',
           icon: Icons.person_outline,
-          onPressed: () {},
+          onPressed: () {
+            context.go(RoutePaths.adminSponsors);
+          },
           routePath: '',
         ),
         const SizedBox(height: 16),
         NewScreenButton(
-          title: 'Manage speakers',
-          description: 'Add, delete, and edit speakers',
+          title: 'Manage users',
+          description: 'Add, delete, and edit users',
           icon: Icons.person_outline,
-          onPressed: () {},
+          onPressed: () {
+            context.go(RoutePaths.adminUserManagment);
+          },
           routePath: '',
         ),
       ],

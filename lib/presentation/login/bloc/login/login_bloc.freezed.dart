@@ -22,6 +22,7 @@ mixin _$LoginEvent {
     required TResult Function(String email) emailChanged,
     required TResult Function(String password) passwordChanged,
     required TResult Function() loginWithGoogle,
+    required TResult Function() resetPassword,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,6 +31,7 @@ mixin _$LoginEvent {
     TResult? Function(String email)? emailChanged,
     TResult? Function(String password)? passwordChanged,
     TResult? Function()? loginWithGoogle,
+    TResult? Function()? resetPassword,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +40,7 @@ mixin _$LoginEvent {
     TResult Function(String email)? emailChanged,
     TResult Function(String password)? passwordChanged,
     TResult Function()? loginWithGoogle,
+    TResult Function()? resetPassword,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -47,6 +50,7 @@ mixin _$LoginEvent {
     required TResult Function(_EmailChanged value) emailChanged,
     required TResult Function(_PasswordChanged value) passwordChanged,
     required TResult Function(_LoginWithGoogle value) loginWithGoogle,
+    required TResult Function(_ResetPassword value) resetPassword,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +59,7 @@ mixin _$LoginEvent {
     TResult? Function(_EmailChanged value)? emailChanged,
     TResult? Function(_PasswordChanged value)? passwordChanged,
     TResult? Function(_LoginWithGoogle value)? loginWithGoogle,
+    TResult? Function(_ResetPassword value)? resetPassword,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +68,7 @@ mixin _$LoginEvent {
     TResult Function(_EmailChanged value)? emailChanged,
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_LoginWithGoogle value)? loginWithGoogle,
+    TResult Function(_ResetPassword value)? resetPassword,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -172,6 +178,7 @@ class _$SubmittedImpl with DiagnosticableTreeMixin implements _Submitted {
     required TResult Function(String email) emailChanged,
     required TResult Function(String password) passwordChanged,
     required TResult Function() loginWithGoogle,
+    required TResult Function() resetPassword,
   }) {
     return submitted(email, password);
   }
@@ -183,6 +190,7 @@ class _$SubmittedImpl with DiagnosticableTreeMixin implements _Submitted {
     TResult? Function(String email)? emailChanged,
     TResult? Function(String password)? passwordChanged,
     TResult? Function()? loginWithGoogle,
+    TResult? Function()? resetPassword,
   }) {
     return submitted?.call(email, password);
   }
@@ -194,6 +202,7 @@ class _$SubmittedImpl with DiagnosticableTreeMixin implements _Submitted {
     TResult Function(String email)? emailChanged,
     TResult Function(String password)? passwordChanged,
     TResult Function()? loginWithGoogle,
+    TResult Function()? resetPassword,
     required TResult orElse(),
   }) {
     if (submitted != null) {
@@ -209,6 +218,7 @@ class _$SubmittedImpl with DiagnosticableTreeMixin implements _Submitted {
     required TResult Function(_EmailChanged value) emailChanged,
     required TResult Function(_PasswordChanged value) passwordChanged,
     required TResult Function(_LoginWithGoogle value) loginWithGoogle,
+    required TResult Function(_ResetPassword value) resetPassword,
   }) {
     return submitted(this);
   }
@@ -220,6 +230,7 @@ class _$SubmittedImpl with DiagnosticableTreeMixin implements _Submitted {
     TResult? Function(_EmailChanged value)? emailChanged,
     TResult? Function(_PasswordChanged value)? passwordChanged,
     TResult? Function(_LoginWithGoogle value)? loginWithGoogle,
+    TResult? Function(_ResetPassword value)? resetPassword,
   }) {
     return submitted?.call(this);
   }
@@ -231,6 +242,7 @@ class _$SubmittedImpl with DiagnosticableTreeMixin implements _Submitted {
     TResult Function(_EmailChanged value)? emailChanged,
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_LoginWithGoogle value)? loginWithGoogle,
+    TResult Function(_ResetPassword value)? resetPassword,
     required TResult orElse(),
   }) {
     if (submitted != null) {
@@ -327,6 +339,7 @@ class _$EmailChangedImpl with DiagnosticableTreeMixin implements _EmailChanged {
     required TResult Function(String email) emailChanged,
     required TResult Function(String password) passwordChanged,
     required TResult Function() loginWithGoogle,
+    required TResult Function() resetPassword,
   }) {
     return emailChanged(email);
   }
@@ -338,6 +351,7 @@ class _$EmailChangedImpl with DiagnosticableTreeMixin implements _EmailChanged {
     TResult? Function(String email)? emailChanged,
     TResult? Function(String password)? passwordChanged,
     TResult? Function()? loginWithGoogle,
+    TResult? Function()? resetPassword,
   }) {
     return emailChanged?.call(email);
   }
@@ -349,6 +363,7 @@ class _$EmailChangedImpl with DiagnosticableTreeMixin implements _EmailChanged {
     TResult Function(String email)? emailChanged,
     TResult Function(String password)? passwordChanged,
     TResult Function()? loginWithGoogle,
+    TResult Function()? resetPassword,
     required TResult orElse(),
   }) {
     if (emailChanged != null) {
@@ -364,6 +379,7 @@ class _$EmailChangedImpl with DiagnosticableTreeMixin implements _EmailChanged {
     required TResult Function(_EmailChanged value) emailChanged,
     required TResult Function(_PasswordChanged value) passwordChanged,
     required TResult Function(_LoginWithGoogle value) loginWithGoogle,
+    required TResult Function(_ResetPassword value) resetPassword,
   }) {
     return emailChanged(this);
   }
@@ -375,6 +391,7 @@ class _$EmailChangedImpl with DiagnosticableTreeMixin implements _EmailChanged {
     TResult? Function(_EmailChanged value)? emailChanged,
     TResult? Function(_PasswordChanged value)? passwordChanged,
     TResult? Function(_LoginWithGoogle value)? loginWithGoogle,
+    TResult? Function(_ResetPassword value)? resetPassword,
   }) {
     return emailChanged?.call(this);
   }
@@ -386,6 +403,7 @@ class _$EmailChangedImpl with DiagnosticableTreeMixin implements _EmailChanged {
     TResult Function(_EmailChanged value)? emailChanged,
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_LoginWithGoogle value)? loginWithGoogle,
+    TResult Function(_ResetPassword value)? resetPassword,
     required TResult orElse(),
   }) {
     if (emailChanged != null) {
@@ -484,6 +502,7 @@ class _$PasswordChangedImpl
     required TResult Function(String email) emailChanged,
     required TResult Function(String password) passwordChanged,
     required TResult Function() loginWithGoogle,
+    required TResult Function() resetPassword,
   }) {
     return passwordChanged(password);
   }
@@ -495,6 +514,7 @@ class _$PasswordChangedImpl
     TResult? Function(String email)? emailChanged,
     TResult? Function(String password)? passwordChanged,
     TResult? Function()? loginWithGoogle,
+    TResult? Function()? resetPassword,
   }) {
     return passwordChanged?.call(password);
   }
@@ -506,6 +526,7 @@ class _$PasswordChangedImpl
     TResult Function(String email)? emailChanged,
     TResult Function(String password)? passwordChanged,
     TResult Function()? loginWithGoogle,
+    TResult Function()? resetPassword,
     required TResult orElse(),
   }) {
     if (passwordChanged != null) {
@@ -521,6 +542,7 @@ class _$PasswordChangedImpl
     required TResult Function(_EmailChanged value) emailChanged,
     required TResult Function(_PasswordChanged value) passwordChanged,
     required TResult Function(_LoginWithGoogle value) loginWithGoogle,
+    required TResult Function(_ResetPassword value) resetPassword,
   }) {
     return passwordChanged(this);
   }
@@ -532,6 +554,7 @@ class _$PasswordChangedImpl
     TResult? Function(_EmailChanged value)? emailChanged,
     TResult? Function(_PasswordChanged value)? passwordChanged,
     TResult? Function(_LoginWithGoogle value)? loginWithGoogle,
+    TResult? Function(_ResetPassword value)? resetPassword,
   }) {
     return passwordChanged?.call(this);
   }
@@ -543,6 +566,7 @@ class _$PasswordChangedImpl
     TResult Function(_EmailChanged value)? emailChanged,
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_LoginWithGoogle value)? loginWithGoogle,
+    TResult Function(_ResetPassword value)? resetPassword,
     required TResult orElse(),
   }) {
     if (passwordChanged != null) {
@@ -611,6 +635,7 @@ class _$LoginWithGoogleImpl
     required TResult Function(String email) emailChanged,
     required TResult Function(String password) passwordChanged,
     required TResult Function() loginWithGoogle,
+    required TResult Function() resetPassword,
   }) {
     return loginWithGoogle();
   }
@@ -622,6 +647,7 @@ class _$LoginWithGoogleImpl
     TResult? Function(String email)? emailChanged,
     TResult? Function(String password)? passwordChanged,
     TResult? Function()? loginWithGoogle,
+    TResult? Function()? resetPassword,
   }) {
     return loginWithGoogle?.call();
   }
@@ -633,6 +659,7 @@ class _$LoginWithGoogleImpl
     TResult Function(String email)? emailChanged,
     TResult Function(String password)? passwordChanged,
     TResult Function()? loginWithGoogle,
+    TResult Function()? resetPassword,
     required TResult orElse(),
   }) {
     if (loginWithGoogle != null) {
@@ -648,6 +675,7 @@ class _$LoginWithGoogleImpl
     required TResult Function(_EmailChanged value) emailChanged,
     required TResult Function(_PasswordChanged value) passwordChanged,
     required TResult Function(_LoginWithGoogle value) loginWithGoogle,
+    required TResult Function(_ResetPassword value) resetPassword,
   }) {
     return loginWithGoogle(this);
   }
@@ -659,6 +687,7 @@ class _$LoginWithGoogleImpl
     TResult? Function(_EmailChanged value)? emailChanged,
     TResult? Function(_PasswordChanged value)? passwordChanged,
     TResult? Function(_LoginWithGoogle value)? loginWithGoogle,
+    TResult? Function(_ResetPassword value)? resetPassword,
   }) {
     return loginWithGoogle?.call(this);
   }
@@ -670,6 +699,7 @@ class _$LoginWithGoogleImpl
     TResult Function(_EmailChanged value)? emailChanged,
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_LoginWithGoogle value)? loginWithGoogle,
+    TResult Function(_ResetPassword value)? resetPassword,
     required TResult orElse(),
   }) {
     if (loginWithGoogle != null) {
@@ -681,6 +711,134 @@ class _$LoginWithGoogleImpl
 
 abstract class _LoginWithGoogle implements LoginEvent {
   const factory _LoginWithGoogle() = _$LoginWithGoogleImpl;
+}
+
+/// @nodoc
+abstract class _$$ResetPasswordImplCopyWith<$Res> {
+  factory _$$ResetPasswordImplCopyWith(
+          _$ResetPasswordImpl value, $Res Function(_$ResetPasswordImpl) then) =
+      __$$ResetPasswordImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ResetPasswordImplCopyWithImpl<$Res>
+    extends _$LoginEventCopyWithImpl<$Res, _$ResetPasswordImpl>
+    implements _$$ResetPasswordImplCopyWith<$Res> {
+  __$$ResetPasswordImplCopyWithImpl(
+      _$ResetPasswordImpl _value, $Res Function(_$ResetPasswordImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$ResetPasswordImpl
+    with DiagnosticableTreeMixin
+    implements _ResetPassword {
+  const _$ResetPasswordImpl();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'LoginEvent.resetPassword()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'LoginEvent.resetPassword'));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$ResetPasswordImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String email, String password) submitted,
+    required TResult Function(String email) emailChanged,
+    required TResult Function(String password) passwordChanged,
+    required TResult Function() loginWithGoogle,
+    required TResult Function() resetPassword,
+  }) {
+    return resetPassword();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String email, String password)? submitted,
+    TResult? Function(String email)? emailChanged,
+    TResult? Function(String password)? passwordChanged,
+    TResult? Function()? loginWithGoogle,
+    TResult? Function()? resetPassword,
+  }) {
+    return resetPassword?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String email, String password)? submitted,
+    TResult Function(String email)? emailChanged,
+    TResult Function(String password)? passwordChanged,
+    TResult Function()? loginWithGoogle,
+    TResult Function()? resetPassword,
+    required TResult orElse(),
+  }) {
+    if (resetPassword != null) {
+      return resetPassword();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Submitted value) submitted,
+    required TResult Function(_EmailChanged value) emailChanged,
+    required TResult Function(_PasswordChanged value) passwordChanged,
+    required TResult Function(_LoginWithGoogle value) loginWithGoogle,
+    required TResult Function(_ResetPassword value) resetPassword,
+  }) {
+    return resetPassword(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Submitted value)? submitted,
+    TResult? Function(_EmailChanged value)? emailChanged,
+    TResult? Function(_PasswordChanged value)? passwordChanged,
+    TResult? Function(_LoginWithGoogle value)? loginWithGoogle,
+    TResult? Function(_ResetPassword value)? resetPassword,
+  }) {
+    return resetPassword?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Submitted value)? submitted,
+    TResult Function(_EmailChanged value)? emailChanged,
+    TResult Function(_PasswordChanged value)? passwordChanged,
+    TResult Function(_LoginWithGoogle value)? loginWithGoogle,
+    TResult Function(_ResetPassword value)? resetPassword,
+    required TResult orElse(),
+  }) {
+    if (resetPassword != null) {
+      return resetPassword(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ResetPassword implements LoginEvent {
+  const factory _ResetPassword() = _$ResetPasswordImpl;
 }
 
 /// @nodoc

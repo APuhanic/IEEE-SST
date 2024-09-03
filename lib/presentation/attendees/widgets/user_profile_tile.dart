@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ieee_sst/data/constants/app_colors.dart';
 import 'package:ieee_sst/data/models/profile_model/profile_model.dart';
-import 'package:ieee_sst/presentation/common/widgets/user_tag_chip.dart';
 
 class UserProfileTile extends StatelessWidget {
   const UserProfileTile({super.key, required this.profile});
@@ -34,7 +33,6 @@ class UserProfileTile extends StatelessWidget {
                   color: Colors.grey,
                 ),
               ),
-              const UserTagChip(tag: 'Speaker')
             ],
           ),
         ],

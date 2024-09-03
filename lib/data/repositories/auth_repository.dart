@@ -126,4 +126,9 @@ class AuthRepository implements AuthenticationRepository {
       accessToken: accessToken,
     );
   }
+
+  @override
+  Future<void> resetPassword(String email) async {
+    await _supabaseClient.auth.resetPasswordForEmail(email);
+  }
 }

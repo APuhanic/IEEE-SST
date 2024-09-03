@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:formz/formz.dart';
 import 'package:go_router/go_router.dart';
 import 'package:ieee_sst/data/constants/app_colors.dart';
+import 'package:ieee_sst/data/constants/route_paths.dart';
 import 'package:ieee_sst/data/constants/text_styles.dart';
 import 'package:ieee_sst/presentation/register/bloc/registration_bloc.dart';
 import 'package:ieee_sst/presentation/register/widgets/register_with_email_button.dart';
@@ -19,15 +20,16 @@ class RegisterScreen extends StatelessWidget {
         title: const Text('Create Your Account'),
         backgroundColor: AppColors.background,
       ),
-      resizeToAvoidBottomInset: false,
+      resizeToAvoidBottomInset: true,
       body: Padding(
         padding: const EdgeInsets.all(32.0),
         child: BlocConsumer<RegistrationBloc, RegistrationState>(
           listener: (context, state) {
             if (state.status.isSuccess) {
-              context.go('/home');
+              context.go(RoutePaths.agenda);
             }
             if (state.status.isFailure) {
+              FocusScope.of(context).unfocus();
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
                   content: Text(state.errorMessage),
@@ -58,8 +60,8 @@ class RegisterScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   _GoogleSignUp(),
-                  SizedBox(width: 24),
-                  _FacebookSignUp(),
+                  //SizedBox(width: 24),
+                  //_FacebookSignUp(),
                 ],
               ),
               const SizedBox(height: 24),

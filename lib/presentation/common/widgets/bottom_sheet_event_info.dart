@@ -4,7 +4,7 @@ import 'package:ieee_sst/data/constants/app_colors.dart';
 import 'package:ieee_sst/data/constants/text_styles.dart';
 import 'package:ieee_sst/domain/models/event.dart';
 import 'package:ieee_sst/presentation/common/widgets/event_data.dart';
-import 'package:ieee_sst/presentation/common/widgets/user_tag_chip.dart';
+import 'package:intl/intl.dart';
 
 class BottomSheetEventInfo extends StatelessWidget {
   const BottomSheetEventInfo({super.key, required this.event});
@@ -31,20 +31,11 @@ class BottomSheetEventInfo extends StatelessWidget {
               const SizedBox(height: 24),
               Row(
                 children: [
-                  Container(
-                    height: 70,
-                    width: 70,
-                    decoration: BoxDecoration(
-                      color: AppColors.primary,
-                      borderRadius: BorderRadius.circular(50),
-                    ),
-                  ),
                   const SizedBox(width: 16),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(event.speaker, style: AppTextStyle.titleSmall),
-                      const UserTagChip(tag: 'speaker'),
                     ],
                   )
                 ],
@@ -60,13 +51,15 @@ class BottomSheetEventInfo extends StatelessWidget {
               Row(
                 children: [
                   EventData(
-                    eventInfo: event.startTime!.toIso8601String().split('T')[0],
-                    icon: FontAwesomeIcons.calendar,
+                    eventInfo:
+                        '${event.startTime?.hour}:${event.startTime?.minute} - ${event.endTime?.hour}:${event.endTime?.minute}',
+                    icon: Icons.access_time,
                   ),
                   Expanded(
                     child: Container(),
                   ),
-                  const Text('20'),
+                  Text(event.attendeeCount.toString()),
+                  const SizedBox(width: 8),
                   const Icon(
                     Icons.people_alt_outlined,
                     color: AppColors.black,
@@ -74,8 +67,8 @@ class BottomSheetEventInfo extends StatelessWidget {
                 ],
               ),
               EventData(
-                eventInfo: event.startTime!.toIso8601String().split('T')[1],
-                icon: FontAwesomeIcons.clock,
+                eventInfo: DateFormat('d.M.yyyy').format(event.date!),
+                icon: Icons.calendar_today,
               ),
               EventData(
                 eventInfo: event.location,

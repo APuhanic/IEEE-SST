@@ -10,6 +10,8 @@ class UserTagChip extends StatelessWidget {
 
   final String tag;
 
+  String capitalize(String s) => s[0].toUpperCase() + s.substring(1);
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -17,8 +19,8 @@ class UserTagChip extends StatelessWidget {
         color: AppColors.primary,
         borderRadius: BorderRadius.circular(15),
       ),
-      padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 2),
-      child: Text(tag, style: AppTextStyle.tagText),
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+      child: Text(capitalize(tag), style: AppTextStyle.tagText),
     );
   }
 }

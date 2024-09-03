@@ -4,6 +4,7 @@ import 'package:ieee_sst/data/constants/app_colors.dart';
 import 'package:ieee_sst/di/dependency_injection.dart';
 import 'package:ieee_sst/presentation/attendees/widgets/user_profile_tile_list.dart';
 import 'package:ieee_sst/presentation/common/bloc/attendees_bloc/attendees_bloc.dart';
+import 'package:ieee_sst/presentation/home/widgets/home_screen_drawer.dart';
 
 class AttendeesScreen extends StatelessWidget {
   const AttendeesScreen({super.key});
@@ -16,6 +17,7 @@ class AttendeesScreen extends StatelessWidget {
           const AttendeesEvent.loadAttendees(),
         ),
       child: Scaffold(
+        drawer: const HomeScreenDrawer(),
         body: CustomScrollView(slivers: <Widget>[
           const SliverAppBar(
             backgroundColor: AppColors.background,

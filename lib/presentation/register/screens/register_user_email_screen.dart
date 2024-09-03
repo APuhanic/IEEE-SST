@@ -14,27 +14,27 @@ class RegisterUserEmailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false,
+      resizeToAvoidBottomInset:
+          true, // Allow the keyboard to push up the content
       appBar: AppBar(
         title: const Text('Register Account'),
         backgroundColor: AppColors.background,
       ),
-      body: Padding(
+      body: SingleChildScrollView(
+        // Make the content scrollable
         padding: EdgeInsets.only(
           bottom: MediaQuery.of(context).viewInsets.bottom,
           left: 32.0,
           right: 32.0,
         ),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Expanded(child: SizedBox()),
-            Align(
-              alignment: Alignment.centerLeft,
-              child: Text(
-                'Fill your details',
-                style: AppTextStyle.lightText,
-              ),
+            const SizedBox(
+                height: 24), // Space to adjust the vertical alignment
+            Text(
+              'Fill your details',
+              style: AppTextStyle.lightText,
             ),
             const Padding(
               padding: EdgeInsets.symmetric(vertical: 24.0),
@@ -45,7 +45,6 @@ class RegisterUserEmailScreen extends StatelessWidget {
               padding: EdgeInsets.symmetric(vertical: 24.0),
               child: ConfirmPasswordInput(),
             ),
-            const Expanded(child: SizedBox()),
             const Align(
               alignment: Alignment.centerRight,
               child: RegisterButton(),

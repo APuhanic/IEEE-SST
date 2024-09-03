@@ -17,7 +17,6 @@ class AgendaScreen extends StatelessWidget {
       drawer: const HomeScreenDrawer(),
       body: BlocBuilder<EventsManagmentBloc, EventsState>(
         builder: (context, state) {
-          //TODO: Reset filters on refresh
           return RefreshIndicator(
             onRefresh: () async {
               context
@@ -33,17 +32,10 @@ class AgendaScreen extends StatelessWidget {
                   backgroundColor: AppColors.background,
                   shadowColor: Colors.transparent,
                   surfaceTintColor: AppColors.background,
-                  /*actions: [
-                    IconButton(
-                      onPressed: () => context.go('/agenda/search_events'),
-                      icon: const Icon(Icons.search),
-                    ),
-                  ],*/
                   snap: true,
                 ),
                 SliverPersistentHeader(
                   pinned: true,
-                  // TODO: Extract to a separate widget
                   delegate: _DatePickerHeaderDelegate(
                     child: Container(
                       color: AppColors.background,
@@ -51,29 +43,33 @@ class AgendaScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                SliverList(
-                  delegate: SliverChildListDelegate(
-                    [
-                      Column(
-                        children: [
-                          const Padding(
-                            padding: EdgeInsets.all(16.0),
-                            child: FilterChips(),
-                          ),
-                          state.maybeWhen(
-                            loading: () => const Center(
-                              child: CircularProgressIndicator(),
+                SliverPadding(
+                  padding: const EdgeInsets.only(
+                      bottom: 80.0), // Add padding to avoid the bottom nav bar
+                  sliver: SliverList(
+                    delegate: SliverChildListDelegate(
+                      [
+                        Column(
+                          children: [
+                            const Padding(
+                              padding: EdgeInsets.all(16.0),
+                              child: FilterChips(),
                             ),
-                            loaded: (events) => Column(
-                              children: [
-                                EventCardList(events: events),
-                              ],
+                            state.maybeWhen(
+                              loading: () => const Center(
+                                child: CircularProgressIndicator(),
+                              ),
+                              loaded: (events) => Column(
+                                children: [
+                                  EventCardList(events: events),
+                                ],
+                              ),
+                              orElse: () => const SizedBox.shrink(),
                             ),
-                            orElse: () => const SizedBox.shrink(),
-                          ),
-                        ],
-                      ),
-                    ],
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ],

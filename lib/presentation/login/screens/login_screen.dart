@@ -29,7 +29,7 @@ class LoginScreen extends StatelessWidget {
               context.go(RoutePaths.adminHomeScreen);
             }
             if (state.status.isSuccess && !state.isAdmin) {
-              context.go(RoutePaths.home);
+              context.go(RoutePaths.agenda);
             }
           },
           listenWhen: (previous, current) => previous.status != current.status,
@@ -67,7 +67,9 @@ class LoginScreen extends StatelessWidget {
                             )
                           : const SizedBox.shrink(),
                       TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          _showForgotPasswordBottomSheet(context);
+                        },
                         child: Text(
                           'Forgot Password?',
                           style: AppTextStyle.lightText,
@@ -99,6 +101,55 @@ class LoginScreen extends StatelessWidget {
       ),
     );
   }
+
+  void _showForgotPasswordBottomSheet(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      builder: (context) {
+        return Container(
+          height: 1000,
+          decoration: BoxDecoration(
+            color: AppColors.background,
+            borderRadius: BorderRadius.circular(24),
+          ),
+          child: Padding(
+            padding:
+                const EdgeInsets.symmetric(vertical: 16.0, horizontal: 32.0),
+            child: Center(
+              child: Column(
+                children: [
+                  Text(
+                    'Forgot Password',
+                    style: AppTextStyle.titleLarge,
+                  ),
+                  const SizedBox(height: 24),
+                  Text(
+                    'Enter your email address and we will send you a link to reset your password',
+                    style: AppTextStyle.lightText,
+                  ),
+                  const SizedBox(height: 24),
+                  const LoginEmailInput(),
+                  const SizedBox(height: 24),
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: AppColors.primary,
+                    ),
+                    onPressed: () {
+                      context
+                          .read<LoginBloc>()
+                          .add(const LoginEvent.resetPassword());
+                      Navigator.pop(context);
+                    },
+                    child: Text('Send Reset Link', style: AppTextStyle.button),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        );
+      },
+    );
+  }
 }
 
 class _LoginProviders extends StatelessWidget {
@@ -121,19 +172,6 @@ class _LoginProviders extends StatelessWidget {
               context.read<LoginBloc>().add(const LoginEvent.loginWithGoogle());
             },
             icon: Image.asset('assets/images/google-logo.png'),
-          ),
-        ),
-        const SizedBox(width: 24),
-        Container(
-          height: 60,
-          width: 60,
-          decoration: BoxDecoration(
-            color: const Color.fromRGBO(68, 96, 160, 1),
-            borderRadius: BorderRadius.circular(20),
-          ),
-          child: IconButton(
-            onPressed: () {},
-            icon: Image.asset('assets/images/facebook-logo.png'),
           ),
         ),
       ],

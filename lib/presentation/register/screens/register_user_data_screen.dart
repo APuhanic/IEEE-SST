@@ -20,33 +20,39 @@ class RegisterUserDataScreen extends StatelessWidget {
         title: const Text('Create Your Account'),
         backgroundColor: AppColors.background,
       ),
-      body: Padding(
-        padding: EdgeInsets.only(
-          bottom: MediaQuery.of(context).viewInsets.bottom,
-          left: 32.0,
-          right: 32.0,
-        ),
-        child: const Column(
-          children: [
-            Expanded(child: SizedBox()),
-            Align(
-              alignment: Alignment.centerLeft,
-              child: Text('Fill your details'),
-            ),
-            SizedBox(height: 24),
-            FullNameInput(),
-            SizedBox(height: 24),
-            OrganizationInput(),
-            SizedBox(height: 24),
-            PositionInput(),
-            Expanded(child: SizedBox()),
-            Align(
-              alignment: Alignment.centerRight,
-              child: _NextRegisterScreenButton(
-                nextScreenPath: '/register/user_data/email',
+      body: SafeArea(
+        child: SingleChildScrollView(
+          padding: EdgeInsets.only(
+            bottom: MediaQuery.of(context).viewInsets.bottom,
+            left: 32.0,
+            right: 32.0,
+          ),
+          child: const Column(
+            mainAxisSize: MainAxisSize
+                .min, // Ensure the column takes minimum height required
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(height: 24),
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Text('Fill your details'),
               ),
-            ),
-          ],
+              SizedBox(height: 24),
+              FullNameInput(),
+              SizedBox(height: 24),
+              OrganizationInput(),
+              SizedBox(height: 24),
+              PositionInput(),
+              SizedBox(height: 24),
+              Align(
+                alignment: Alignment.centerRight,
+                child: _NextRegisterScreenButton(
+                  nextScreenPath: '/register/user_data/email',
+                ),
+              ),
+              SizedBox(height: 16),
+            ],
+          ),
         ),
       ),
     );
@@ -59,6 +65,7 @@ class _NextRegisterScreenButton extends StatelessWidget {
   });
 
   final String nextScreenPath;
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<RegistrationBloc, RegistrationState>(

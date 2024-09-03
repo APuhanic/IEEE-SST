@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:formz/formz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -21,6 +22,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     on<_EmailChanged>(_onEmailChanged);
     on<_PasswordChanged>(_onPasswordChanged);
     on<_LoginWithGoogle>(_onLoginWithGoogle);
+    on<_ResetPassword>(_onResetPassword);
   }
 
   final AuthenticationRepository _authRepository;
@@ -87,6 +89,15 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       _LoginWithGoogle event, Emitter<LoginState> emit) {
     try {
       _authRepository.signInWithGoogle();
+    } on AuthApiException catch (e) {
+      throw AuthException(e.toString());
+    }
+  }
+
+  FutureOr<void> _onResetPassword(
+      _ResetPassword event, Emitter<LoginState> emit) {
+    try {
+      _authRepository.resetPassword(state.email.value);
     } on AuthApiException catch (e) {
       throw AuthException(e.toString());
     }
