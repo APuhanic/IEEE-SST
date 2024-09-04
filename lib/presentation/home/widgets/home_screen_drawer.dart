@@ -51,7 +51,7 @@ class HomeScreenDrawer extends StatelessWidget {
                   ),
                 ),
               ),
-              ListTile(
+              /*ListTile(
                 title: const Text('Sponsors'),
                 onTap: () {
                   context.go(RoutePaths.sponsors);
@@ -62,7 +62,7 @@ class HomeScreenDrawer extends StatelessWidget {
                 onTap: () {
                   context.go(RoutePaths.documents);
                 },
-              ),
+              ),*/
               BlocBuilder<AuthSessionCubit, AuthSessionState>(
                 builder: (context, state) {
                   return state.maybeWhen(

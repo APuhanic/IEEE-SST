@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:ieee_sst/data/constants/app_colors.dart';
+import 'package:ieee_sst/data/constants/route_paths.dart';
 import 'package:ieee_sst/data/constants/text_styles.dart';
 import 'package:ieee_sst/presentation/common/bloc/profile_bloc/profile_bloc.dart';
 import 'package:ieee_sst/presentation/home/widgets/home_screen_drawer.dart';
@@ -52,14 +53,7 @@ class HomeScreen extends StatelessWidget {
             delegate: SliverChildListDelegate([
               Column(
                 children: [
-                  InteractiveViewer(
-                    panEnabled: false,
-                    child: const Image(
-                      image: AssetImage(
-                        'assets/images/ieee_header.jpg',
-                      ),
-                    ),
-                  ),
+                  const _IEEESSTHeader(),
                   Row(
                     children: [
                       const _ConferenceEmail(),
@@ -115,9 +109,76 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
           ),
+          SliverPadding(
+            padding: const EdgeInsets.only(
+                top: 16.0, bottom: 50, left: 16.0, right: 16.0),
+            sliver: SliverList(
+              delegate: SliverChildListDelegate(
+                [
+                  Text(
+                    'Additional resources',
+                    style: AppTextStyle.titleSmall,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 8.0),
+                    child: SizedBox(
+                      height: 50,
+                      child: Row(
+                        children: [
+                          Expanded(
+                            child: NewScreenButton(
+                              title: 'Sponsors',
+                              onPressed: () {
+                                context.go(
+                                  RoutePaths.sponsors,
+                                );
+                              },
+                              routePath: RoutePaths.sponsors,
+                            ),
+                          ),
+                          const SizedBox(width: 8.0),
+                          Expanded(
+                            child: NewScreenButton(
+                              title: 'Documents',
+                              onPressed: () {
+                                context.go(
+                                  RoutePaths.documents,
+                                );
+                              },
+                              routePath: RoutePaths.documents,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 16.0),
+                ],
+              ),
+            ),
+          ),
         ],
       ),
       drawer: const HomeScreenDrawer(),
+    );
+  }
+}
+
+class _IEEESSTHeader extends StatelessWidget {
+  const _IEEESSTHeader();
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        final ieeeUrl = Uri.parse('https://sst-conference.org/');
+        launchUrl(ieeeUrl);
+      },
+      child: const Image(
+        image: AssetImage(
+          'assets/images/ieee_header.jpg',
+        ),
+      ),
     );
   }
 }
@@ -129,6 +190,7 @@ class _FacebookPageLink extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () async {
+        //TODO: Refactor this
         final facebookUrl = Uri.parse(
             'https://web.facebook.com/SSTInternationalConference/?_rdc=1&_rdr');
         final facebookFallbackUrl = Uri.parse(

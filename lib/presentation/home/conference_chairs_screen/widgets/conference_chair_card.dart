@@ -19,15 +19,24 @@ class ConferenceChairCard extends StatelessWidget {
       child: Column(
         children: [
           Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Image(
-                image: AssetImage(chair.imageUrl),
-                fit: BoxFit
-                    .contain, // Ensure the image is contained within the available space
+              // Image column with 1/3 of the screen width
+              Expanded(
+                flex: 1, // 1/3 of the available width
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(
+                      8.0), // Rounded corners for the image
+                  child: Image.asset(
+                    chair.imageUrl,
+                    fit: BoxFit.contain,
+                  ),
+                ),
               ),
               const SizedBox(width: 16),
+              // Data column with 2/3 of the screen width
               Expanded(
+                flex: 2, // 2/3 of the available width
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -35,10 +44,11 @@ class ConferenceChairCard extends StatelessWidget {
                       children: [
                         Text(chair.role, style: AppTextStyle.blueText),
                         const Expanded(
-                            child: Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 8.0),
-                          child: Divider(color: AppColors.primary),
-                        )),
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 8.0),
+                            child: Divider(color: AppColors.primary),
+                          ),
+                        ),
                       ],
                     ),
                     Padding(

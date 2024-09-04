@@ -42,4 +42,7 @@ class NavigatorKeyManager {
 
   final GlobalKey<NavigatorState> shellNavigatorDocumentsKey =
       GlobalKey<NavigatorState>(debugLabel: 'ShellNavigatorDocumentsKey');
+
+  final GlobalKey<NavigatorState> shellNavigatorProfileKey =
+      GlobalKey<NavigatorState>(debugLabel: 'ShellNavigatorProfileKey');
 }

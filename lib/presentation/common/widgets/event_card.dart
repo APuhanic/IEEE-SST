@@ -116,7 +116,7 @@ class _IsGoingButton extends StatefulWidget {
 }
 
 class _IsGoingButtonState extends State<_IsGoingButton> {
-  final Debouncer debouncer = Debouncer(milliseconds: 350);
+  final Debouncer debouncer = Debouncer(milliseconds: 200);
   bool isLoading = false;
 
   @override
@@ -126,7 +126,13 @@ class _IsGoingButtonState extends State<_IsGoingButton> {
         return IconButton(
           onPressed: _onPressed,
           icon: isLoading
-              ? const CircularProgressIndicator(color: AppColors.primary)
+              ? const SizedBox(
+                  width: 24,
+                  height: 24,
+                  child: CircularProgressIndicator(
+                    color: AppColors.primary,
+                  ),
+                )
               : _buildIcon(),
           color: AppColors.primary,
         );
@@ -137,12 +143,12 @@ class _IsGoingButtonState extends State<_IsGoingButton> {
   void _onPressed() {
     setState(() => isLoading = true);
     debouncer.run(() {
-      context.read<IsGoingCubit>().toggleIsGoing();
-      final eventAction = widget.event.isGoing
-          ? EventsEvent.markNotGoing(widget.event)
-          : EventsEvent.markGoing(widget.event);
-
-      context.read<EventsManagmentBloc>().add(eventAction);
+      final eventBloc = context.read<EventsManagmentBloc>();
+      if (widget.event.isGoing) {
+        eventBloc.add(EventsEvent.markNotGoing(widget.event));
+      } else {
+        eventBloc.add(EventsEvent.markGoing(widget.event));
+      }
       setState(() => isLoading = false);
     });
   }

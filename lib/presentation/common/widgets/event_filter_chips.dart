@@ -58,7 +58,7 @@ class FilterChips extends StatelessWidget {
                             .selectFilterChip(filterType);
                         context.read<EventsManagmentBloc>().add(
                               EventsEvent.filterEvents(
-                                filter: filterType,
+                                filter: isSelected ? null : filterType,
                               ),
                             );
                       },

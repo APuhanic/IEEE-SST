@@ -47,16 +47,16 @@ import '../domain/repositories/auth/auth_repository.dart' as _i27;
 import '../presentation/admin/admin_annoucments_managment_screen.dart/bloc/announcement_form_bloc.dart'
     as _i33;
 import '../presentation/admin/admin_event_managment_screen/bloc/event_form_bloc.dart'
-    as _i47;
+    as _i48;
 import '../presentation/admin/admin_sponsor_managment/bloc/sponsor_form_bloc.dart'
     as _i43;
 import '../presentation/admin/admin_user_managment/bloc/user_managment_bloc.dart'
     as _i44;
 import '../presentation/common/bloc/announcement_bloc/announcement_bloc.dart'
     as _i35;
-import '../presentation/common/bloc/attendees_bloc/attendees_bloc.dart' as _i48;
-import '../presentation/common/bloc/events_bloc/events_bloc.dart' as _i52;
-import '../presentation/common/bloc/profile_bloc/profile_bloc.dart' as _i49;
+import '../presentation/common/bloc/attendees_bloc/attendees_bloc.dart' as _i49;
+import '../presentation/common/bloc/events_bloc/events_bloc.dart' as _i47;
+import '../presentation/common/bloc/profile_bloc/profile_bloc.dart' as _i50;
 import '../presentation/common/bloc/sponsors_bloc/bloc/sponsor_managment_bloc.dart'
     as _i32;
 import '../presentation/common/cubit/cubit/auth_session_cubit.dart' as _i11;
@@ -68,9 +68,9 @@ import '../presentation/info/question_posts/bloc/comment_form_bloc/comment_form_
     as _i41;
 import '../presentation/info/question_posts/bloc/comment_managment_bloc/comment_managment_bloc.dart'
     as _i42;
-import '../presentation/info/question_posts/bloc/post_form_bloc.dart' as _i50;
+import '../presentation/info/question_posts/bloc/post_form_bloc.dart' as _i51;
 import '../presentation/info/question_posts/bloc/post_managment_bloc/post_managment_bloc.dart'
-    as _i51;
+    as _i52;
 import '../presentation/login/bloc/auth_bloc.dart' as _i45;
 import '../presentation/login/bloc/login/login_bloc.dart' as _i29;
 import '../presentation/register/bloc/registration_bloc.dart' as _i46;
@@ -178,18 +178,18 @@ extension GetItInjectableX on _i1.GetIt {
         () => _i45.AuthBloc(gh<_i27.AuthenticationRepository>()));
     gh.factory<_i46.RegistrationBloc>(
         () => _i46.RegistrationBloc(gh<_i27.AuthenticationRepository>()));
-    gh.factory<_i47.EventFormBloc>(
-        () => _i47.EventFormBloc(gh<_i40.EventRepository>()));
-    gh.factory<_i48.AttendeesBloc>(
-        () => _i48.AttendeesBloc(gh<_i34.ProfileRepository>()));
-    gh.factory<_i49.ProfileBloc>(
-        () => _i49.ProfileBloc(gh<_i34.ProfileRepository>()));
-    gh.factory<_i50.PostFormBloc>(
-        () => _i50.PostFormBloc(gh<_i36.PostRepository>()));
-    gh.factory<_i51.PostManagmentBloc>(
-        () => _i51.PostManagmentBloc(gh<_i36.PostRepository>()));
-    gh.factory<_i52.EventsManagmentBloc>(
-        () => _i52.EventsManagmentBloc(gh<_i40.EventRepository>()));
+    gh.factory<_i47.EventsManagmentBloc>(
+        () => _i47.EventsManagmentBloc(gh<_i40.EventRepository>()));
+    gh.factory<_i48.EventFormBloc>(
+        () => _i48.EventFormBloc(gh<_i40.EventRepository>()));
+    gh.factory<_i49.AttendeesBloc>(
+        () => _i49.AttendeesBloc(gh<_i34.ProfileRepository>()));
+    gh.factory<_i50.ProfileBloc>(
+        () => _i50.ProfileBloc(gh<_i34.ProfileRepository>()));
+    gh.factory<_i51.PostFormBloc>(
+        () => _i51.PostFormBloc(gh<_i36.PostRepository>()));
+    gh.factory<_i52.PostManagmentBloc>(
+        () => _i52.PostManagmentBloc(gh<_i36.PostRepository>()));
     return this;
   }
 }

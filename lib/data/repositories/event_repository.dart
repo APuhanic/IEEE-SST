@@ -1,6 +1,7 @@
 import 'package:ieee_sst/data/clients/event_client.dart';
 import 'package:ieee_sst/data/local_storage/event_local_storage.dart';
 import 'package:ieee_sst/data/models/event_attendee_model/event_attendee.dart';
+import 'package:ieee_sst/data/models/input_models/filter_chip_types.dart';
 import 'package:ieee_sst/domain/models/event.dart';
 import 'package:ieee_sst/util/connection_checker.dart';
 import 'package:injectable/injectable.dart';
@@ -24,7 +25,28 @@ class EventRepository {
     if (await _connectionChecker.hasConnection) {
       return await _getAllEventsFromClient();
     } else {
-      return await _eventLocalStorage.getEvents();
+      return await _getAllEventsFromCache();
+    }
+  }
+
+  Future<List<Event>> getEventsByDateFromCache(DateTime? date) async {
+    if (date == null) return await _getAllEventsFromCache();
+    final events = await _getAllEventsFromCache();
+    return events.where((event) => event.date == date).toList();
+  }
+
+  Future<List<Event>> getEventsByFilterFromCache(
+      FilterType? filter, List<Event> events) async {
+    if (filter == null) return events;
+    switch (filter) {
+      case FilterType.going:
+        return events.where((element) => element.isGoing).toList();
+      case FilterType.past:
+        return events.where(hasEventPassed).toList();
+      case FilterType.upcoming:
+        return events.where(isEventUpcoming).toList();
+      default:
+        return events;
     }
   }
 
@@ -50,11 +72,15 @@ class EventRepository {
   Future<void> updateEvent(Event event) async =>
       await _eventClient.updateEvent(event.toJson());
 
-  Future<void> markGoing(String eventId) async =>
-      await _eventClient.markGoing(eventId);
+  Future<void> markGoing(Event event) async {
+    _eventLocalStorage.saveIsGoing(event);
+    await _eventClient.markGoing(event.id!);
+  }
 
-  Future<void> markNotGoing(String eventId) async =>
-      await _eventClient.markNotGoing(eventId);
+  Future<void> markNotGoing(Event event) async {
+    _eventLocalStorage.saveIsGoing(event);
+    await _eventClient.markNotGoing(event.id!);
+  }
 
   Future<List<EventAttendee>> getAllEventAttendees() async {
     final eventAttendeesResponse = await _eventClient.fetchEventAttendees();
@@ -78,4 +104,13 @@ class EventRepository {
     await _eventLocalStorage.saveEvents(eventList);
     return eventList;
   }
+
+  Future<List<Event>> _getAllEventsFromCache() {
+    return _eventLocalStorage.getEvents();
+  }
+
+  //TODO: Extrat to another class?
+  bool isEventUpcoming(event) => event.date!.isAfter(DateTime.now());
+
+  bool hasEventPassed(event) => event.date!.isBefore(DateTime.now());
 }

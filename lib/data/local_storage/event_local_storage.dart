@@ -11,7 +11,9 @@ class EventLocalStorage {
   Future<void> saveEvents(List<Event> events) async {
     final box = await _keyValueStorage.eventsBox;
     await box.clear();
-    await box.addAll(events);
+    await box.putAll(
+      {for (var event in events) (event).id: event},
+    );
   }
 
   Future<List<Event>> getEvents() async {
@@ -44,9 +46,9 @@ class EventLocalStorage {
     return box.get(eventId);
   }
 
-  Future<void> saveIsGoing(Event event, bool isGoing) async {
+  Future<void> saveIsGoing(Event event) async {
     final box = await _keyValueStorage.eventsBox;
-    final updatedEvent = event.copyWith(isGoing: isGoing);
+    final updatedEvent = event.copyWith(isGoing: !event.isGoing);
     await box.put(event.id, updatedEvent);
   }
 

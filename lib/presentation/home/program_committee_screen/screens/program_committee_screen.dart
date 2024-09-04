@@ -4,6 +4,7 @@ import 'package:ieee_sst/data/models/steering_committee_model/steering_committee
 import 'package:ieee_sst/presentation/home/steering_committee_screen/widgets/steering_committee_card.dart';
 import 'package:ieee_sst/util/load_json.dart';
 
+//TODO: Refactor this screen to not be a duplicate of SteeringCommitteeScreen
 class ProgramCommitteeScreen extends StatelessWidget {
   const ProgramCommitteeScreen({super.key});
 
@@ -20,25 +21,24 @@ class ProgramCommitteeScreen extends StatelessWidget {
           } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
             return const Center(child: Text('No Data Available'));
           } else {
-            final steeringCommittee = snapshot.data!;
-            debugPrint('Conference Chairs: $steeringCommittee');
+            final programCommittee = snapshot.data!;
             return CustomScrollView(
               slivers: <Widget>[
                 const SliverAppBar(
                   backgroundColor: AppColors.background,
                   shadowColor: Colors.transparent,
                   surfaceTintColor: AppColors.background,
-                  title: Text('Steering Committee'),
+                  title: Text('Program Committee'),
                 ),
                 SliverPadding(
                   padding: const EdgeInsets.only(bottom: 40.0),
                   sliver: SliverList(
                     delegate: SliverChildBuilderDelegate(
                       (context, index) {
-                        final committee = steeringCommittee[index];
+                        final committee = programCommittee[index];
                         return SteeringCommitteeCard(committee: committee);
                       },
-                      childCount: steeringCommittee.length,
+                      childCount: programCommittee.length,
                     ),
                   ),
                 ),

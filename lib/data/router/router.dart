@@ -23,7 +23,10 @@ import 'package:ieee_sst/presentation/bottom_nav_bar/widgets/scaffold_with_nav_b
 import 'package:ieee_sst/presentation/documents/screens/documents_screen.dart';
 import 'package:ieee_sst/presentation/documents/screens/upload_document_screen.dart';
 import 'package:ieee_sst/presentation/home/conference_chairs_screen/screens/conference_chair_screen.dart';
+import 'package:ieee_sst/presentation/home/keynote_speakers_screen/screens/keynote_speakers_screen.dart';
+import 'package:ieee_sst/presentation/home/program_committee_screen/screens/program_committee_screen.dart';
 import 'package:ieee_sst/presentation/home/screens/home_screen.dart';
+import 'package:ieee_sst/presentation/home/special_sessions/screens/special_sessions_screen.dart';
 import 'package:ieee_sst/presentation/home/steering_committee_screen/screens/steering_committee_screen.dart';
 import 'package:ieee_sst/presentation/info/announcements/screens/announcement_post_screen.dart';
 import 'package:ieee_sst/presentation/info/question_posts/screens/create_post_screen.dart';
@@ -33,6 +36,7 @@ import 'package:ieee_sst/presentation/info/screens/info_screen.dart';
 import 'package:ieee_sst/presentation/info/announcements/screens/organizer_announcements.dart';
 import 'package:ieee_sst/presentation/login/screens/login_screen.dart';
 import 'package:ieee_sst/presentation/messages/screens/messages_screen.dart';
+import 'package:ieee_sst/presentation/profile/screens/profile_screen.dart';
 import 'package:ieee_sst/presentation/register/screens/register_screen.dart';
 import 'package:ieee_sst/presentation/register/screens/register_user_data_screen.dart';
 import 'package:ieee_sst/presentation/register/screens/register_user_email_screen.dart';
@@ -230,7 +234,28 @@ class AppRouter {
                             key: ValueKey('SteeringCommitteeScreen'),
                             child: SteeringCommitteeScreen(),
                           ),
-                        )
+                        ),
+                        GoRoute(
+                          path: RoutePaths.programCommitteeSubRoute,
+                          pageBuilder: (context, state) => const MaterialPage(
+                            key: ValueKey('ProgramCommitteeScreen'),
+                            child: ProgramCommitteeScreen(),
+                          ),
+                        ),
+                        GoRoute(
+                          path: RoutePaths.keynoteSpeakerSubRoute,
+                          pageBuilder: (context, state) => const MaterialPage(
+                            key: ValueKey('KeynoteSpeakerScreen'),
+                            child: KeynoteSpeakersScreen(),
+                          ),
+                        ),
+                        GoRoute(
+                          path: RoutePaths.specialSessionsSubRoute,
+                          pageBuilder: (context, state) => const MaterialPage(
+                            key: ValueKey('SpecialSessionsScreen'),
+                            child: SpecialSessionsScreen(),
+                          ),
+                        ),
                       ]),
                 ],
               ),
@@ -374,7 +399,19 @@ class AppRouter {
                         )
                       ])
                 ],
-              )
+              ),
+              StatefulShellBranch(
+                navigatorKey: _navigatorKeyManager.shellNavigatorProfileKey,
+                routes: [
+                  GoRoute(
+                    path: RoutePaths.profile,
+                    pageBuilder: (context, state) => const MaterialPage(
+                      key: ValueKey('ProfileScreen'),
+                      child: ProfileScreen(),
+                    ),
+                  )
+                ],
+              ),
             ],
           ),
 
