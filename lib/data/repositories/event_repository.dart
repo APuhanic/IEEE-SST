@@ -69,8 +69,22 @@ class EventRepository {
   Future<void> deleteEvent(String eventId) async =>
       await _eventClient.deleteEvent(eventId);
 
-  Future<void> updateEvent(Event event) async =>
-      await _eventClient.updateEvent(event.toJson());
+  Future<void> updateEvent(Event event) async {
+    //TODO Implement upload event model
+    final eventData = {
+      'id': event.id,
+      'name': event.name,
+      'description': event.description,
+      'location': event.location,
+      'speaker': event.speaker,
+      'startTime': event.startTime!.toIso8601String(),
+      'endTime': event.endTime!.toIso8601String(),
+      'date': event.date!.toIso8601String(),
+      'info': event.info,
+      // Exclude 'isGoing' and 'attendeeCount'
+    };
+    await _eventClient.updateEvent(eventData);
+  }
 
   Future<void> markGoing(Event event) async {
     _eventLocalStorage.saveIsGoing(event);

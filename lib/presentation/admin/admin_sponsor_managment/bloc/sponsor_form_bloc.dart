@@ -39,7 +39,8 @@ class SponsorFormBloc extends Bloc<SponsorFormEvent, SponsorFormState> {
         state.name,
         File(state.image!.path),
       );
-      emit(state.copyWith(status: FormzSubmissionStatus.success));
+      emit(state.copyWith(
+          status: FormzSubmissionStatus.success, image: null, name: ''));
     } catch (e) {
       emit(state.copyWith(
         status: FormzSubmissionStatus.failure,

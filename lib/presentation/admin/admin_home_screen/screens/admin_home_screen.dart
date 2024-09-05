@@ -41,12 +41,21 @@ class AdminHomeScreen extends StatelessWidget {
                     },
                     child: Padding(
                       padding: const EdgeInsets.only(right: 8.0),
-                      child: Text(
-                        state.maybeWhen(
-                          loadedProfile: (profile) => profile.fullName,
-                          error: (message) => message,
-                          orElse: () => 'Loading...',
-                        ),
+                      child: state.maybeWhen(
+                        loadedProfile: (profile) {
+                          return GestureDetector(
+                            onTap: () {
+                              context.push(RoutePaths.profile);
+                            },
+                            child: const CircleAvatar(
+                              backgroundColor: AppColors.background,
+                              backgroundImage:
+                                  AssetImage('assets/images/user.png'),
+                            ),
+                          );
+                        },
+                        error: (message) => const Icon(Icons.error),
+                        orElse: () => const CircularProgressIndicator(),
                       ),
                     ),
                   )
@@ -66,7 +75,13 @@ class AdminHomeScreen extends StatelessWidget {
                       const _FacebookPageLink(),
                     ],
                   ),
-                  const SizedBox(height: 16.0),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 16.0),
+                    child: Text(
+                      'Admin ',
+                      style: AppTextStyle.titleSmall,
+                    ),
+                  ),
                 ],
               ),
             ]),
@@ -81,8 +96,8 @@ class AdminHomeScreen extends StatelessWidget {
                     'Steering Committee',
                     'Program Comittee',
                     'Keynote Speaker',
-                    'Special Sessions',
-                    'PhD Forum'
+                    /*'Special Sessions',
+                    'PhD Forum'*/
                   ];
                   // TODO: Extract these routes to a constants file
                   final routes = [
@@ -90,8 +105,8 @@ class AdminHomeScreen extends StatelessWidget {
                     '/home/steering_committee',
                     '/home/program_committee',
                     '/home/keynote_speaker',
-                    '/home/special_sessions',
-                    '/home/phd_forum'
+                    /*'/home/special_sessions',
+                    '/home/phd_forum'*/
                   ];
 
                   return NewScreenButton(
@@ -104,7 +119,7 @@ class AdminHomeScreen extends StatelessWidget {
                     routePath: routes[index],
                   );
                 },
-                childCount: 6, // Number of buttons
+                childCount: 4, // Number of buttons
               ),
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2, // 2 buttons per row
@@ -139,7 +154,7 @@ class AdminHomeScreen extends StatelessWidget {
                               title: 'Sponsors',
                               onPressed: () {
                                 context.go(
-                                  RoutePaths.sponsors,
+                                  '/home/sponsors',
                                 );
                               },
                               routePath: RoutePaths.sponsors,
@@ -151,7 +166,7 @@ class AdminHomeScreen extends StatelessWidget {
                               title: 'Documents',
                               onPressed: () {
                                 context.go(
-                                  RoutePaths.documents,
+                                  '/home/documents',
                                 );
                               },
                               routePath: RoutePaths.documents,

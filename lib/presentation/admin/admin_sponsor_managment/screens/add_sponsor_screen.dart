@@ -8,6 +8,7 @@ import 'package:ieee_sst/data/constants/text_styles.dart';
 import 'package:ieee_sst/presentation/admin/admin_sponsor_managment/bloc/sponsor_form_bloc.dart';
 import 'package:ieee_sst/presentation/admin/admin_sponsor_managment/widgets/add_sponsor_image_button.dart';
 import 'package:ieee_sst/presentation/admin/admin_sponsor_managment/widgets/sponsor_name_input.dart';
+import 'package:ieee_sst/presentation/common/bloc/sponsors_bloc/bloc/sponsor_managment_bloc.dart';
 
 class AddSponsorScreen extends StatelessWidget {
   const AddSponsorScreen({
@@ -21,7 +22,6 @@ class AddSponsorScreen extends StatelessWidget {
         listener: (context, state) {
           if (state.status.isSuccess) {
             debugPrint('Sponsor added successfully');
-            Navigator.pop(context);
           }
           if (state.status.isFailure) {
             ScaffoldMessenger.of(context).showSnackBar(
@@ -121,6 +121,9 @@ class AddSponsorScreen extends StatelessWidget {
                                   : context
                                       .read<SponsorFormBloc>()
                                       .add(const SponsorFormEvent.addSponsor());
+                              context.read<SponsorManagmentBloc>().add(
+                                  const SponsorManagmentEvent.loadSponsors());
+                              Navigator.pop(context);
                             },
                             child: state.status.isInProgress
                                 ? const CircularProgressIndicator()

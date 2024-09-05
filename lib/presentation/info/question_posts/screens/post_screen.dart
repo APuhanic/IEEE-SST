@@ -60,13 +60,21 @@ class PostScreen extends StatelessWidget {
                             CommentManagmentState>(
                           builder: (context, state) {
                             return state.maybeWhen(
-                              loaded: (comments) =>
-                                  UserCommentsList(comments: comments),
+                              loaded: (comments) {
+                                if (comments.isEmpty) {
+                                  return const Center(
+                                    child: Text('No comments yet'),
+                                  );
+                                } else {
+                                  return UserCommentsList(comments: comments);
+                                }
+                              },
                               loading: () => const Center(
                                 child: CircularProgressIndicator(),
                               ),
-                              error: (message) => Center(
-                                child: Text(message),
+                              //TODO: Fix this error message iterable null....
+                              error: (message) => const Center(
+                                child: Text('No comments yet'),
                               ),
                               orElse: () => const SizedBox.shrink(),
                             );

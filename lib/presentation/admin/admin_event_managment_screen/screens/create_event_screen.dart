@@ -12,6 +12,7 @@ import 'package:ieee_sst/presentation/admin/admin_event_managment_screen/widgets
 import 'package:ieee_sst/presentation/admin/admin_event_managment_screen/widgets/event_name_input.dart';
 import 'package:ieee_sst/presentation/admin/admin_event_managment_screen/widgets/event_speaker_input.dart';
 import 'package:ieee_sst/presentation/admin/admin_event_managment_screen/widgets/event_start_time_input.dart';
+import 'package:ieee_sst/presentation/common/bloc/events_bloc/events_bloc.dart';
 
 class CreateEventScreen extends StatelessWidget {
   const CreateEventScreen({super.key});
@@ -23,7 +24,6 @@ class CreateEventScreen extends StatelessWidget {
         listener: (context, state) {
           if (state.status.isSuccess) {
             debugPrint('Event created successfully');
-            Navigator.pop(context);
           }
           if (state.status.isFailure) {
             ScaffoldMessenger.of(context).showSnackBar(
@@ -91,6 +91,10 @@ class CreateEventScreen extends StatelessWidget {
                           context.read<EventFormBloc>().add(
                                 const EventFormEvent.createEvent(),
                               );
+                          context.read<EventsManagmentBloc>().add(
+                                const EventsEvent.loadEvents(),
+                              );
+                          Navigator.pop(context);
                         },
                         child: const Text('Create event'),
                       ),

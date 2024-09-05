@@ -48,8 +48,10 @@ class EventEndTimeInput extends StatelessWidget {
       context: context,
       hourLabelText: 'Hour',
       builder: (context, child) {
-        return MediaQuery(
-          data: MediaQuery.of(context).copyWith(alwaysUse24HourFormat: true),
+        return Theme(
+          data: ThemeData.light().copyWith(
+            colorScheme: ColorScheme.light(primary: AppColors.primary),
+          ),
           child: child!,
         );
       },
@@ -57,11 +59,12 @@ class EventEndTimeInput extends StatelessWidget {
       initialTime: TimeOfDay.now(),
     ).then(
       (value) {
+        if (value == null) return;
         final dateTimeValue = DateTime(
           DateTime.now().year,
           DateTime.now().month,
           DateTime.now().day,
-          value!.hour,
+          value.hour,
           value.minute,
         );
         context

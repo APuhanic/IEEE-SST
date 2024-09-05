@@ -35,13 +35,27 @@ class HomeScreen extends StatelessWidget {
                 title: Text('IEEE SST 2024', style: AppTextStyle.titleSmall),
                 leading: const _BlueHomeScreenDrawer(),
                 actions: [
-                  Padding(
-                    padding: const EdgeInsets.only(right: 8.0),
-                    child: Text(
-                      state.maybeWhen(
-                        loadedProfile: (profile) => profile.fullName,
-                        error: (message) => message,
-                        orElse: () => 'Loading...',
+                  GestureDetector(
+                    onTap: () {
+                      context.push(RoutePaths.profile);
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.only(right: 8.0),
+                      child: state.maybeWhen(
+                        loadedProfile: (profile) {
+                          return GestureDetector(
+                            onTap: () {
+                              context.push(RoutePaths.profile);
+                            },
+                            child: const CircleAvatar(
+                              backgroundColor: AppColors.background,
+                              backgroundImage:
+                                  AssetImage('assets/images/user.png'),
+                            ),
+                          );
+                        },
+                        error: (message) => const Icon(Icons.error),
+                        orElse: () => const CircularProgressIndicator(),
                       ),
                     ),
                   )
@@ -111,7 +125,7 @@ class HomeScreen extends StatelessWidget {
           ),
           SliverPadding(
             padding: const EdgeInsets.only(
-                top: 16.0, bottom: 50, left: 16.0, right: 16.0),
+                top: 16.0, bottom: 60, left: 16.0, right: 16.0),
             sliver: SliverList(
               delegate: SliverChildListDelegate(
                 [
@@ -130,7 +144,7 @@ class HomeScreen extends StatelessWidget {
                               title: 'Sponsors',
                               onPressed: () {
                                 context.go(
-                                  RoutePaths.sponsors,
+                                  '/home/sponsors',
                                 );
                               },
                               routePath: RoutePaths.sponsors,
@@ -142,7 +156,7 @@ class HomeScreen extends StatelessWidget {
                               title: 'Documents',
                               onPressed: () {
                                 context.go(
-                                  RoutePaths.documents,
+                                  '/home/documents',
                                 );
                               },
                               routePath: RoutePaths.documents,
@@ -152,7 +166,29 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  const SizedBox(height: 16.0),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 16.0),
+                    child: Row(
+                      children: [
+                        Text(
+                          'SST 2024',
+                          style: AppTextStyle.titleSmall,
+                        ),
+                        const Expanded(
+                          child: Divider(
+                            color: AppColors.black,
+                            thickness: 1,
+                            indent: 8,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Text(
+                    'International Conference on Smart Systems and Technologies (SST) is a conference organized and hosted by the Faculty of Electrical Engineering, Computer Science and Information Technology Osijek, Josip Juraj Strossmayer University of Osijek. The conference will provide a platform for researchers and practitioners interested in the theory and practice of smart systems and technologies related to electrical engineering, communications, computer science and engineering, control systems, robotics, as well as interdisciplinary research and applications.',
+                    style: AppTextStyle.lightText,
+                    textAlign: TextAlign.justify,
+                  ),
                 ],
               ),
             ),

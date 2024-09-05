@@ -12,6 +12,7 @@ import 'package:ieee_sst/presentation/admin/admin_event_managment_screen/widgets
 import 'package:ieee_sst/presentation/admin/admin_event_managment_screen/widgets/event_name_input.dart';
 import 'package:ieee_sst/presentation/admin/admin_event_managment_screen/widgets/event_speaker_input.dart';
 import 'package:ieee_sst/presentation/admin/admin_event_managment_screen/widgets/event_start_time_input.dart';
+import 'package:ieee_sst/presentation/common/bloc/events_bloc/events_bloc.dart';
 
 class UpdateEventScreen extends StatelessWidget {
   const UpdateEventScreen({super.key});
@@ -89,6 +90,9 @@ class UpdateEventScreen extends StatelessWidget {
                             context
                                 .read<EventFormBloc>()
                                 .add(const EventFormEvent.updateEvent());
+                            context
+                                .read<EventsManagmentBloc>()
+                                .add(const EventsEvent.loadEvents());
                           },
                           child: const Text('Update event'),
                         ),

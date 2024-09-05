@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:ieee_sst/data/models/comment_model/comment_model.dart';
@@ -22,6 +23,8 @@ class CommentManagmentBloc
 
   Future<FutureOr<void>> _onLoadComments(
       _LoadComments event, Emitter<CommentManagmentState> emit) async {
+    debugPrint('Loading comments...'); // Add this line
+
     emit(const _Loading());
     try {
       final commentsResponse =

@@ -8,24 +8,16 @@ import 'package:ieee_sst/data/models/steering_committee_model/steering_committee
 //TODO: Refactor this function to use generics?
 Future<List<ConferenceChair>> loadConferenceChairs() async {
   try {
-    // Load the JSON string from the assets
     final jsonString =
         await rootBundle.loadString('assets/json/conference_chairs.json');
-
-    // Decode the JSON string into a Map
     final Map<String, dynamic> jsonMap = jsonDecode(jsonString);
-
-    // Access the list of conference chairs from the Map
     final List<dynamic> jsonList =
         jsonMap['conference_chairs'] as List<dynamic>;
-
-    // Convert the list of maps into a list of ConferenceChair objects
     return jsonList.map((e) {
       return ConferenceChair.fromJson(e as Map<String, dynamic>);
     }).toList();
   } catch (e) {
-    debugPrint(
-        'Error loading conference chairs: $e'); // Changed debugPrint to print
+    debugPrint('Error loading conference chairs: $e');
     return [];
   }
 }

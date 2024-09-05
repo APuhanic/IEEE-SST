@@ -215,48 +215,72 @@ class AppRouter {
                 navigatorKey: _navigatorKeyManager.shellNavigatorHomeKey,
                 routes: [
                   GoRoute(
-                      path: RoutePaths.home,
-                      pageBuilder: (context, state) => const MaterialPage(
-                            key: ValueKey('HomeScreen'),
-                            child: HomeScreen(),
-                          ),
-                      routes: [
-                        GoRoute(
-                          path: RoutePaths.conferenceChairsSubRoute,
-                          pageBuilder: (context, state) => const MaterialPage(
-                            key: ValueKey('ConferenceChairsScreen'),
-                            child: ConferenceChairScreen(),
-                          ),
+                    path: RoutePaths.home,
+                    pageBuilder: (context, state) => const MaterialPage(
+                      key: ValueKey('HomeScreen'),
+                      child: HomeScreen(),
+                    ),
+                    routes: [
+                      GoRoute(
+                        path: RoutePaths.conferenceChairsSubRoute,
+                        pageBuilder: (context, state) => const MaterialPage(
+                          key: ValueKey('ConferenceChairsScreen'),
+                          child: ConferenceChairScreen(),
                         ),
-                        GoRoute(
-                          path: RoutePaths.steeringCommitteeSubRoute,
-                          pageBuilder: (context, state) => const MaterialPage(
-                            key: ValueKey('SteeringCommitteeScreen'),
-                            child: SteeringCommitteeScreen(),
-                          ),
+                      ),
+                      GoRoute(
+                        path: RoutePaths.steeringCommitteeSubRoute,
+                        pageBuilder: (context, state) => const MaterialPage(
+                          key: ValueKey('SteeringCommitteeScreen'),
+                          child: SteeringCommitteeScreen(),
                         ),
-                        GoRoute(
-                          path: RoutePaths.programCommitteeSubRoute,
-                          pageBuilder: (context, state) => const MaterialPage(
-                            key: ValueKey('ProgramCommitteeScreen'),
-                            child: ProgramCommitteeScreen(),
-                          ),
+                      ),
+                      GoRoute(
+                        path: RoutePaths.programCommitteeSubRoute,
+                        pageBuilder: (context, state) => const MaterialPage(
+                          key: ValueKey('ProgramCommitteeScreen'),
+                          child: ProgramCommitteeScreen(),
                         ),
-                        GoRoute(
-                          path: RoutePaths.keynoteSpeakerSubRoute,
-                          pageBuilder: (context, state) => const MaterialPage(
-                            key: ValueKey('KeynoteSpeakerScreen'),
-                            child: KeynoteSpeakersScreen(),
-                          ),
+                      ),
+                      GoRoute(
+                        path: RoutePaths.keynoteSpeakerSubRoute,
+                        pageBuilder: (context, state) => const MaterialPage(
+                          key: ValueKey('KeynoteSpeakerScreen'),
+                          child: KeynoteSpeakersScreen(),
                         ),
-                        GoRoute(
-                          path: RoutePaths.specialSessionsSubRoute,
-                          pageBuilder: (context, state) => const MaterialPage(
-                            key: ValueKey('SpecialSessionsScreen'),
-                            child: SpecialSessionsScreen(),
-                          ),
+                      ),
+                      GoRoute(
+                        path: RoutePaths.specialSessionsSubRoute,
+                        pageBuilder: (context, state) => const MaterialPage(
+                          key: ValueKey('SpecialSessionsScreen'),
+                          child: SpecialSessionsScreen(),
                         ),
-                      ]),
+                      ),
+                      GoRoute(
+                        path: RoutePaths.sponsors,
+                        pageBuilder: (context, state) => const MaterialPage(
+                          key: ValueKey('SponsorsScreen'),
+                          child: SponsorsScreen(),
+                        ),
+                      ),
+                      GoRoute(
+                          path: RoutePaths.documents,
+                          pageBuilder: (context, state) => const MaterialPage(
+                                key: ValueKey('DocumentsScreen'),
+                                child: DocumentsScreen(),
+                              ),
+                          routes: [
+                            GoRoute(
+                              path: RoutePaths.subRouteUploadDocument,
+                              pageBuilder: (context, state) =>
+                                  const MaterialPage(
+                                key: ValueKey('UploadDocumentScreen'),
+                                child: UploadDocumentScreen(),
+                              ),
+                            )
+                          ])
+                    ],
+                  ),
                 ],
               ),
               StatefulShellBranch(
@@ -366,38 +390,6 @@ class AppRouter {
                       child: MessagesScreen(),
                     ),
                   ),
-                ],
-              ),
-              StatefulShellBranch(
-                navigatorKey: _navigatorKeyManager.shellNavigatorSponsorsKey,
-                routes: [
-                  GoRoute(
-                    path: RoutePaths.sponsors,
-                    pageBuilder: (context, state) => const MaterialPage(
-                      key: ValueKey('SponsorsScreen'),
-                      child: SponsorsScreen(),
-                    ),
-                  )
-                ],
-              ),
-              StatefulShellBranch(
-                navigatorKey: _navigatorKeyManager.shellNavigatorDocumentsKey,
-                routes: [
-                  GoRoute(
-                      path: RoutePaths.documents,
-                      pageBuilder: (context, state) => const MaterialPage(
-                            key: ValueKey('DocumentsScreen'),
-                            child: DocumentsScreen(),
-                          ),
-                      routes: [
-                        GoRoute(
-                          path: RoutePaths.subRouteUploadDocument,
-                          pageBuilder: (context, state) => const MaterialPage(
-                            key: ValueKey('UploadDocumentScreen'),
-                            child: UploadDocumentScreen(),
-                          ),
-                        )
-                      ])
                 ],
               ),
               StatefulShellBranch(

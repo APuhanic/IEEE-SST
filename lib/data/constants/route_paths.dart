@@ -38,7 +38,7 @@ abstract class RoutePaths {
   // Sponsors
   static const String adminSponsors = '/admin_sponsors';
   static const String subRouteAddSponsor = 'add_sponsor';
-  static const String sponsors = '/sponsors';
+  static const String sponsors = 'sponsors';
 
   static const String adminAttendees = '/admin_attendees';
 
@@ -55,6 +55,6 @@ abstract class RoutePaths {
   static const String adminUserManagment = '/admin_user_managment';
 
   // Documents
-  static const String documents = '/documents';
+  static const String documents = 'documents';
   static const String subRouteUploadDocument = 'upload_document';
 }

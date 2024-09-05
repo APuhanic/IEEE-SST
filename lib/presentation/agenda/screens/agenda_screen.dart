@@ -17,7 +17,10 @@ class AgendaScreen extends StatelessWidget {
       drawer: const HomeScreenDrawer(),
       body: BlocBuilder<EventsManagmentBloc, EventsState>(
         builder: (context, state) {
+          // TODO: Global refresh indicator
           return RefreshIndicator(
+            backgroundColor: AppColors.white,
+            color: AppColors.primary,
             onRefresh: () async {
               context
                   .read<EventsManagmentBloc>()

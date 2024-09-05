@@ -5,7 +5,6 @@ import 'package:go_router/go_router.dart';
 import 'package:ieee_sst/data/constants/app_colors.dart';
 import 'package:ieee_sst/presentation/documents/bloc/document_managment_bloc/document_managment_bloc.dart';
 import 'package:ieee_sst/presentation/documents/widgets/document_list.dart';
-import 'package:ieee_sst/presentation/home/widgets/home_screen_drawer.dart';
 
 class DocumentsScreen extends StatelessWidget {
   const DocumentsScreen({
@@ -21,7 +20,7 @@ class DocumentsScreen extends StatelessWidget {
       floatingActionButton: Padding(
         padding: const EdgeInsets.only(bottom: 56.0),
         child: FloatingActionButton(
-          onPressed: () => context.go('/documents/upload_document'),
+          onPressed: () => context.go('/home/documents/upload_document'),
           backgroundColor: AppColors.primary,
           child: const Icon(
             FontAwesomeIcons.plus,
@@ -76,7 +75,6 @@ class DocumentsScreen extends StatelessWidget {
           ],
         ),
       ),
-      drawer: const HomeScreenDrawer(),
     );
   }
 }
