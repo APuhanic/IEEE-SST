@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ieee_sst/data/constants/app_colors.dart';
 import 'package:ieee_sst/presentation/bottom_nav_bar/cubit/screen_index_cubit.dart';
 
-/// Bottom Navigation Bar that takes function to handle tab selection
 class BottomNavBar extends StatelessWidget {
   const BottomNavBar({
     super.key,
@@ -13,7 +12,6 @@ class BottomNavBar extends StatelessWidget {
   });
 
   final void Function(int) onDestinationSelected;
-  // Strings for tabs on bottom nav tab that come from constructor
   final List<String> tabs;
   final List<IconData> icons;
 
@@ -23,7 +21,6 @@ class BottomNavBar extends StatelessWidget {
       create: (context) => ScreenIndexCubit(),
       child: BlocBuilder<ScreenIndexCubit, int>(
         builder: (context, state) {
-          // TODO: Replace with a prettier BottomNavigationBar
           return BottomNavigationBar(
             type: BottomNavigationBarType.fixed,
             backgroundColor: AppColors.white,

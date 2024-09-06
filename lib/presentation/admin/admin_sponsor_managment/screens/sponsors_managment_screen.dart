@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:ieee_sst/data/constants/app_colors.dart';
 import 'package:ieee_sst/presentation/admin/admin_sponsor_managment/widgets/admin_sponsor_list.dart';
 import 'package:ieee_sst/presentation/common/bloc/sponsors_bloc/bloc/sponsor_managment_bloc.dart';
+import 'package:ieee_sst/presentation/common/widgets/loading_indicator.dart';
 import 'package:ieee_sst/presentation/home/widgets/home_screen_drawer.dart';
 
 class SponsorManagmentScreen extends StatelessWidget {
@@ -18,6 +19,7 @@ class SponsorManagmentScreen extends StatelessWidget {
         .add(const SponsorManagmentEvent.loadSponsors());
 
     return Scaffold(
+      backgroundColor: AppColors.white,
       floatingActionButton: FloatingActionButton(
         onPressed: () => context.go('/admin_sponsors/add_sponsor'),
         backgroundColor: AppColors.primary,
@@ -39,9 +41,9 @@ class SponsorManagmentScreen extends StatelessWidget {
           slivers: [
             const SliverAppBar(
               expandedHeight: 40.0,
-              backgroundColor: AppColors.background,
+              backgroundColor: AppColors.white,
               shadowColor: Colors.transparent,
-              surfaceTintColor: AppColors.background,
+              surfaceTintColor: AppColors.white,
               title: Text('Sponsor Managment'),
             ),
             SliverList(
@@ -53,16 +55,10 @@ class SponsorManagmentScreen extends StatelessWidget {
                         SponsorManagmentState>(
                       builder: (context, state) {
                         return state.map(
-                          initial: (_) => const Center(
-                            child: CircularProgressIndicator(
-                              color: AppColors.primary,
-                            ),
-                          ),
-                          loading: (_) => const Center(
-                            child: CircularProgressIndicator(
-                              color: AppColors.primary,
-                            ),
-                          ),
+                          initial: (_) =>
+                              const Center(child: LoadingIndicator()),
+                          loading: (_) =>
+                              const Center(child: LoadingIndicator()),
                           loaded: (state) =>
                               AdminSponsorList(sponsors: state.sponsors),
                           error: (state) => Center(

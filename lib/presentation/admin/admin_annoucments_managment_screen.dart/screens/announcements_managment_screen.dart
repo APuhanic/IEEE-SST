@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:ieee_sst/data/constants/app_colors.dart';
 import 'package:ieee_sst/presentation/common/bloc/announcement_bloc/announcement_bloc.dart';
 import 'package:ieee_sst/presentation/common/widgets/announcements_list.dart';
+import 'package:ieee_sst/presentation/common/widgets/loading_indicator.dart';
 import 'package:ieee_sst/presentation/home/widgets/home_screen_drawer.dart';
 
 class AnnouncementsManagmentScreen extends StatelessWidget {
@@ -58,11 +59,8 @@ class AnnouncementsManagmentScreen extends StatelessWidget {
                                 announcements: announcements,
                                 isAdmin: true,
                               ),
-                              loading: () => const Center(
-                                child: CircularProgressIndicator(
-                                  color: AppColors.primary,
-                                ),
-                              ),
+                              loading: () =>
+                                  const Center(child: LoadingIndicator()),
                               error: (message) => Center(
                                 child: Text(message),
                               ),

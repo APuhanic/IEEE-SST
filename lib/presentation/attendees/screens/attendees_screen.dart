@@ -4,6 +4,7 @@ import 'package:ieee_sst/data/constants/app_colors.dart';
 import 'package:ieee_sst/di/dependency_injection.dart';
 import 'package:ieee_sst/presentation/attendees/widgets/user_profile_tile_list.dart';
 import 'package:ieee_sst/presentation/common/bloc/attendees_bloc/attendees_bloc.dart';
+import 'package:ieee_sst/presentation/common/widgets/loading_indicator.dart';
 import 'package:ieee_sst/presentation/home/widgets/home_screen_drawer.dart';
 
 class AttendeesScreen extends StatelessWidget {
@@ -58,7 +59,7 @@ class AttendeesScreen extends StatelessWidget {
                           state.maybeWhen(
                             orElse: () {
                               return const Center(
-                                child: CircularProgressIndicator(),
+                                child: LoadingIndicator(),
                               );
                             },
                             loaded: (profiles) => profiles.isEmpty

@@ -22,7 +22,7 @@ class SponsorManagmentBloc
 
   final SponsorRepository supabaseSponsorRepository;
 
-  Future<FutureOr<void>> _onFetchSponsors(
+  Future<void> _onFetchSponsors(
       _LoadSponsors event, Emitter<SponsorManagmentState> emit) async {
     emit(const _Loading());
     try {

@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ieee_sst/data/constants/app_colors.dart';
 import 'package:ieee_sst/presentation/common/bloc/announcement_bloc/announcement_bloc.dart';
 import 'package:ieee_sst/presentation/common/widgets/announcements_list.dart';
+import 'package:ieee_sst/presentation/common/widgets/loading_indicator.dart';
 
 class OrganizerAnnouncements extends StatelessWidget {
   const OrganizerAnnouncements({
@@ -18,11 +19,9 @@ class OrganizerAnnouncements extends StatelessWidget {
       body: RefreshIndicator(
         backgroundColor: AppColors.white,
         color: AppColors.primary,
-        onRefresh: () async {
-          context
-              .read<AnnouncementBloc>()
-              .add(const AnnouncementEvent.loadAnnouncements());
-        },
+        onRefresh: () async => context
+            .read<AnnouncementBloc>()
+            .add(const AnnouncementEvent.loadAnnouncements()),
         child: CustomScrollView(
           slivers: [
             const SliverAppBar(
@@ -41,12 +40,8 @@ class OrganizerAnnouncements extends StatelessWidget {
                           announcements: announcements,
                           isAdmin: false,
                         ),
-                        loading: () => const Center(
-                          child: CircularProgressIndicator(),
-                        ),
-                        error: (message) => Center(
-                          child: Text(message),
-                        ),
+                        loading: () => const Center(child: LoadingIndicator()),
+                        error: (message) => Center(child: Text(message)),
                         orElse: () => const SizedBox.shrink(),
                       );
                     },

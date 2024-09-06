@@ -85,6 +85,7 @@ class AuthRepository implements AuthenticationRepository {
     });
   }
 
+  @override
   Future<void> signUpWithEmailAndPasswordAsAdmin(
     String email,
     String password,

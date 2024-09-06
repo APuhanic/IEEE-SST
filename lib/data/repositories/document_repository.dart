@@ -26,7 +26,6 @@ class DocumentRepository {
     );
   }
 
-  Future<void> deleteDocument(Document document) async {
-    await _documentClient.deleteDocument(document);
-  }
+  Future<void> deleteDocument(Document document) async =>
+      await _documentClient.deleteDocument(document);
 }

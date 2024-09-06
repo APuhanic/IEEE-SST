@@ -6,9 +6,7 @@ import 'package:ieee_sst/presentation/admin/admin_event_managment_screen/bloc/ev
 import 'package:logger/logger.dart';
 
 class EventDateInput extends StatelessWidget {
-  const EventDateInput({
-    super.key,
-  });
+  const EventDateInput({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +48,7 @@ class EventDateInput extends StatelessWidget {
       builder: (context, child) {
         return Theme(
           data: ThemeData.light().copyWith(
-            colorScheme: ColorScheme.light(primary: AppColors.primary),
+            colorScheme: const ColorScheme.light(primary: AppColors.primary),
           ),
           child: child!,
         );

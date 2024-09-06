@@ -21,7 +21,7 @@ class CommentManagmentBloc
 
   final CommentsRepository _commentsRepository;
 
-  Future<FutureOr<void>> _onLoadComments(
+  Future<void> _onLoadComments(
       _LoadComments event, Emitter<CommentManagmentState> emit) async {
     debugPrint('Loading comments...'); // Add this line
 
@@ -35,7 +35,7 @@ class CommentManagmentBloc
     }
   }
 
-  FutureOr<void> _onDeleteComment(
+  void _onDeleteComment(
       _DeleteComment event, Emitter<CommentManagmentState> emit) {
     try {
       _commentsRepository.deleteComment(event.commentId);

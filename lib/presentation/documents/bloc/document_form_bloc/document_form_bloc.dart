@@ -23,22 +23,19 @@ class DocumentFormBloc extends Bloc<DocumentFormEvent, DocumentFormState> {
 
   final DocumentRepository _documentRepository;
 
-  FutureOr<void> _onFileChanged(
-      _FileChanged event, Emitter<DocumentFormState> emit) {
+  void _onFileChanged(_FileChanged event, Emitter<DocumentFormState> emit) {
     emit(state.copyWith(file: event.file));
   }
 
-  FutureOr<void> _onNameChanged(
-      _NameChanged event, Emitter<DocumentFormState> emit) {
+  void _onNameChanged(_NameChanged event, Emitter<DocumentFormState> emit) {
     emit(state.copyWith(name: event.name));
   }
 
-  FutureOr<void> _onRemoveFile(
-      _RemoveFile event, Emitter<DocumentFormState> emit) {
+  void _onRemoveFile(_RemoveFile event, Emitter<DocumentFormState> emit) {
     emit(state.copyWith(file: null));
   }
 
-  Future<FutureOr<void>> _onUploadDocument(
+  Future<void> _onUploadDocument(
       _UploadDocument event, Emitter<DocumentFormState> emit) async {
     emit(state.copyWith(status: FormzSubmissionStatus.inProgress));
     try {

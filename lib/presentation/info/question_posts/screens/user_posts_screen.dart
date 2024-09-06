@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 import 'package:ieee_sst/data/constants/app_colors.dart';
+import 'package:ieee_sst/presentation/common/widgets/loading_indicator.dart';
 import 'package:ieee_sst/presentation/info/question_posts/bloc/post_managment_bloc/post_managment_bloc.dart';
 import 'package:ieee_sst/presentation/info/question_posts/widgets/user_post_list.dart';
 
@@ -18,9 +19,8 @@ class UserPostsScreen extends StatelessWidget {
       floatingActionButton: Padding(
         padding: const EdgeInsets.only(bottom: 48),
         child: FloatingActionButton(
-          onPressed: () {
-            context.go('/community/ask_organizers/create_question');
-          },
+          onPressed: () =>
+              context.go('/community/ask_organizers/create_question'),
           backgroundColor: AppColors.primary,
           elevation: 0,
           child: const FaIcon(
@@ -48,9 +48,8 @@ class UserPostsScreen extends StatelessWidget {
                     builder: (context, state) {
                       return state.maybeWhen(
                           loaded: (posts) => UserPostsList(posts: posts),
-                          loading: () => const Center(
-                                child: CircularProgressIndicator(),
-                              ),
+                          loading: () =>
+                              const Center(child: LoadingIndicator()),
                           error: (message) => Center(
                                 child: Text(message),
                               ),

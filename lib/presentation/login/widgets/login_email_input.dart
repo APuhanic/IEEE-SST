@@ -12,6 +12,7 @@ class LoginEmailInput extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // TODO: add builder instead?
     final state = context.watch<LoginBloc>().state;
     return SizedBox(
       height: 60,

@@ -39,9 +39,13 @@ class _UserManagmentTileState extends State<UserManagmentTile> {
       child: SizedBox(
         height: 80,
         child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const Icon(Icons.person, color: AppColors.primary, size: 50),
+            Image.asset(
+              'assets/images/user.png',
+              height: 60,
+              width: 60,
+            ),
             const SizedBox(width: 16),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -85,56 +89,60 @@ class _UserManagmentTileState extends State<UserManagmentTile> {
         String selectedRole = widget.profile.role!;
         return StatefulBuilder(
           builder: (context, setState) {
-            return AlertDialog(
-              backgroundColor: AppColors.white,
-              title: const Text('Edit user role'),
-              content: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  RadioListTile<String>(
-                    title: const Text('Admin'),
-                    value: 'admin',
-                    groupValue: selectedRole,
-                    onChanged: (value) {
-                      setState(() => selectedRole = value!);
-                      context.read<UserManagmentBloc>().add(
-                            UserManagmentEvent.roleChanged(selectedRole),
-                          );
-                    },
+            return Theme(
+              data: ThemeData.light().copyWith(
+                colorScheme:
+                    const ColorScheme.light(primary: AppColors.primary),
+              ),
+              child: AlertDialog(
+                backgroundColor: AppColors.white,
+                title: const Text('Edit user role'),
+                content: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    RadioListTile<String>(
+                      title: const Text('Admin'),
+                      value: 'admin',
+                      groupValue: selectedRole,
+                      onChanged: (value) {
+                        setState(() => selectedRole = value!);
+                        context
+                            .read<UserManagmentBloc>()
+                            .add(UserManagmentEvent.roleChanged(selectedRole));
+                      },
+                    ),
+                    RadioListTile<String>(
+                      title: const Text('User'),
+                      value: 'user',
+                      groupValue: selectedRole,
+                      onChanged: (value) {
+                        setState(() => selectedRole = value!);
+                        context.read<UserManagmentBloc>().add(
+                              UserManagmentEvent.roleChanged(selectedRole),
+                            );
+                      },
+                    ),
+                  ],
+                ),
+                actions: [
+                  TextButton(
+                    onPressed: () => Navigator.of(context).pop(),
+                    child: const Text('Cancel'),
                   ),
-                  RadioListTile<String>(
-                    title: const Text('User'),
-                    value: 'user',
-                    groupValue: selectedRole,
-                    onChanged: (value) {
-                      setState(() => selectedRole = value!);
+                  TextButton(
+                    onPressed: () {
+                      Navigator.of(context).pop();
                       context.read<UserManagmentBloc>().add(
-                            UserManagmentEvent.roleChanged(selectedRole),
+                            UserManagmentEvent.updateRole(widget.profile.id),
                           );
+                      context
+                          .read<AttendeesBloc>()
+                          .add(const AttendeesEvent.loadAttendees());
                     },
+                    child: const Text('Save'),
                   ),
                 ],
               ),
-              actions: [
-                TextButton(
-                  onPressed: () {
-                    Navigator.of(context).pop();
-                  },
-                  child: const Text('Cancel'),
-                ),
-                TextButton(
-                  onPressed: () {
-                    Navigator.of(context).pop();
-                    context.read<UserManagmentBloc>().add(
-                          UserManagmentEvent.updateRole(widget.profile.id),
-                        );
-                    context
-                        .read<AttendeesBloc>()
-                        .add(const AttendeesEvent.loadAttendees());
-                  },
-                  child: const Text('Save'),
-                ),
-              ],
             );
           },
         );

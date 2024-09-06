@@ -119,8 +119,8 @@ class EventRepository {
     return eventList;
   }
 
-  Future<List<Event>> _getAllEventsFromCache() {
-    return _eventLocalStorage.getEvents();
+  Future<List<Event>> _getAllEventsFromCache() async {
+    return await _eventLocalStorage.getEvents();
   }
 
   //TODO: Extrat to another class?

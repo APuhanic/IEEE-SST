@@ -8,6 +8,7 @@ import 'package:ieee_sst/presentation/common/bloc/events_bloc/events_bloc.dart';
 import 'package:ieee_sst/presentation/common/cubit/is_going_cubit.dart';
 import 'package:ieee_sst/presentation/common/widgets/bottom_sheet_event_info.dart';
 import 'package:ieee_sst/presentation/common/widgets/event_data.dart';
+import 'package:ieee_sst/presentation/common/widgets/loading_indicator.dart';
 import 'package:ieee_sst/util/debouncer.dart';
 import 'package:intl/intl.dart';
 
@@ -126,13 +127,7 @@ class _IsGoingButtonState extends State<_IsGoingButton> {
         return IconButton(
           onPressed: _onPressed,
           icon: isLoading
-              ? const SizedBox(
-                  width: 24,
-                  height: 24,
-                  child: CircularProgressIndicator(
-                    color: AppColors.primary,
-                  ),
-                )
+              ? const SizedBox(width: 24, height: 24, child: LoadingIndicator())
               : _buildIcon(),
           color: AppColors.primary,
         );

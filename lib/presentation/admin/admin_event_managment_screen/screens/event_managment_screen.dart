@@ -10,9 +10,7 @@ import 'package:ieee_sst/presentation/common/widgets/date_picker_filter.dart';
 import 'package:ieee_sst/presentation/home/widgets/home_screen_drawer.dart';
 
 class EventManagmentScreen extends StatelessWidget {
-  const EventManagmentScreen({
-    super.key,
-  });
+  const EventManagmentScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -56,9 +54,8 @@ class EventManagmentScreen extends StatelessWidget {
                           padding: const EdgeInsets.symmetric(horizontal: 8.0),
                           child: Column(
                             children: [
-                              const FilterChips(),
-                              const SizedBox(height: 24),
                               const DatePickerFilter(),
+                              const FilterChips(),
                               state.maybeWhen(
                                 loading: () => const Center(
                                   // TODO: Add skeletonizer

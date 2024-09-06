@@ -19,12 +19,12 @@ class CommentFormBloc extends Bloc<CommentFormEvent, CommentFormState> {
 
   final CommentsRepository _commentsRepository;
 
-  FutureOr<void> _onCommentChanged(
+  void _onCommentChanged(
       _CommentChanged event, Emitter<CommentFormState> emit) {
     emit(state.copyWith(content: event.content));
   }
 
-  Future<FutureOr<void>> _onPostComment(
+  Future<void> _onPostComment(
       _PostComment event, Emitter<CommentFormState> emit) async {
     emit(state.copyWith(status: FormzSubmissionStatus.inProgress));
     try {

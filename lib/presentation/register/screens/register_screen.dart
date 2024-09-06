@@ -92,26 +92,6 @@ class RegisterScreen extends StatelessWidget {
   }
 }
 
-class _FacebookSignUp extends StatelessWidget {
-  const _FacebookSignUp();
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 60,
-      width: 60,
-      decoration: BoxDecoration(
-        color: const Color.fromRGBO(68, 96, 160, 1),
-        borderRadius: BorderRadius.circular(20),
-      ),
-      child: IconButton(
-        onPressed: () {},
-        icon: Image.asset('assets/images/facebook-logo.png'),
-      ),
-    );
-  }
-}
-
 class _GoogleSignUp extends StatelessWidget {
   const _GoogleSignUp();
 

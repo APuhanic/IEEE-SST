@@ -19,7 +19,7 @@ class AnnouncementBloc extends Bloc<AnnouncementEvent, AnnouncementState> {
 
   final AnnouncementRepository announcementRepository;
 
-  Future<FutureOr<void>> _onLoadAnnouncements(
+  Future<void> _onLoadAnnouncements(
       _LoadAnnouncements event, Emitter<AnnouncementState> emit) async {
     emit(const _Loading());
     try {
@@ -31,7 +31,7 @@ class AnnouncementBloc extends Bloc<AnnouncementEvent, AnnouncementState> {
     }
   }
 
-  FutureOr<void> _onDeleteAnnouncement(
+  void _onDeleteAnnouncement(
       _DeleteAnnouncement event, Emitter<AnnouncementState> emit) {
     try {
       announcementRepository.deleteAnnouncement(event.announcementId);

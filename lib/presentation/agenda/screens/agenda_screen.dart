@@ -5,6 +5,7 @@ import 'package:ieee_sst/presentation/common/widgets/event_filter_chips.dart';
 import 'package:ieee_sst/presentation/common/bloc/events_bloc/events_bloc.dart';
 import 'package:ieee_sst/presentation/common/widgets/date_picker_filter.dart';
 import 'package:ieee_sst/presentation/common/widgets/event_card_list.dart';
+import 'package:ieee_sst/presentation/common/widgets/loading_indicator.dart';
 import 'package:ieee_sst/presentation/home/widgets/home_screen_drawer.dart';
 
 class AgendaScreen extends StatelessWidget {
@@ -47,8 +48,7 @@ class AgendaScreen extends StatelessWidget {
                   ),
                 ),
                 SliverPadding(
-                  padding: const EdgeInsets.only(
-                      bottom: 80.0), // Add padding to avoid the bottom nav bar
+                  padding: const EdgeInsets.only(bottom: 80.0),
                   sliver: SliverList(
                     delegate: SliverChildListDelegate(
                       [
@@ -60,12 +60,10 @@ class AgendaScreen extends StatelessWidget {
                             ),
                             state.maybeWhen(
                               loading: () => const Center(
-                                child: CircularProgressIndicator(),
+                                child: LoadingIndicator(),
                               ),
                               loaded: (events) => Column(
-                                children: [
-                                  EventCardList(events: events),
-                                ],
+                                children: [EventCardList(events: events)],
                               ),
                               orElse: () => const SizedBox.shrink(),
                             ),

@@ -68,7 +68,8 @@ import '../presentation/info/question_posts/bloc/comment_form_bloc/comment_form_
     as _i41;
 import '../presentation/info/question_posts/bloc/comment_managment_bloc/comment_managment_bloc.dart'
     as _i42;
-import '../presentation/info/question_posts/bloc/post_form_bloc.dart' as _i51;
+import '../presentation/info/question_posts/bloc/post_form_bloc/post_form_bloc.dart'
+    as _i51;
 import '../presentation/info/question_posts/bloc/post_managment_bloc/post_managment_bloc.dart'
     as _i52;
 import '../presentation/login/bloc/auth_bloc.dart' as _i45;

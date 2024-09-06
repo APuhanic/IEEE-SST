@@ -18,7 +18,7 @@ class PostManagmentBloc extends Bloc<PostManagmentEvent, PostManagmentState> {
 
   final PostRepository _postRepository;
 
-  Future<FutureOr<void>> _onLoadPosts(
+  Future<void> _onLoadPosts(
       _LoadPosts event, Emitter<PostManagmentState> emit) async {
     emit(const _Loading());
     try {

@@ -1,7 +1,6 @@
 import 'package:ieee_sst/data/models/profile_model/profile_model.dart';
 import 'package:ieee_sst/data/clients/profile_client.dart';
 import 'package:injectable/injectable.dart';
-import 'package:logger/logger.dart';
 
 @LazySingleton()
 class ProfileRepository {
@@ -16,8 +15,7 @@ class ProfileRepository {
       final profileResponse = await _profileClient.fetchProfile();
       return Profile.fromJson(profileResponse[0]);
     } catch (e) {
-      Logger().e(e);
-      rethrow;
+      throw Exception('Error fetching profile');
     }
   }
 
@@ -28,8 +26,7 @@ class ProfileRepository {
           .map((profile) => Profile.fromJson(profile))
           .toList();
     } catch (e) {
-      Logger().e(e);
-      rethrow;
+      throw Exception('Error fetching profiles');
     }
   }
 
@@ -37,8 +34,7 @@ class ProfileRepository {
     try {
       await _profileClient.updateUserRole(id, role);
     } catch (e) {
-      Logger().e(e);
-      rethrow;
+      throw Exception('Error updating profile role');
     }
   }
 }

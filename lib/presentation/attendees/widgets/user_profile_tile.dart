@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:ieee_sst/data/constants/app_colors.dart';
 import 'package:ieee_sst/data/models/profile_model/profile_model.dart';
 
 class UserProfileTile extends StatelessWidget {
@@ -14,7 +13,11 @@ class UserProfileTile extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Icon(Icons.person, color: AppColors.primary, size: 50),
+          Image.asset(
+            'assets/images/user.png',
+            height: 60,
+            width: 60,
+          ),
           const SizedBox(width: 16),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,

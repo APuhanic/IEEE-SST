@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ieee_sst/data/constants/app_colors.dart';
 import 'package:ieee_sst/data/models/conference_chair_model/conference_chair_model.dart';
+import 'package:ieee_sst/presentation/common/widgets/loading_indicator.dart';
 import 'package:ieee_sst/presentation/home/conference_chairs_screen/widgets/conference_chair_card.dart';
 import 'package:ieee_sst/util/load_json.dart';
 
@@ -14,7 +15,7 @@ class ConferenceChairScreen extends StatelessWidget {
         future: loadConferenceChairs(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Center(child: CircularProgressIndicator());
+            return const Center(child: LoadingIndicator());
           } else if (snapshot.hasError) {
             return Center(child: Text('Error: ${snapshot.error}'));
           } else if (!snapshot.hasData || snapshot.data!.isEmpty) {

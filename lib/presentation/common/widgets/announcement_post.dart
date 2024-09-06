@@ -70,11 +70,9 @@ class AnnouncementPost extends StatelessWidget {
                         ),
                         PopupMenuItem(
                           child: const Text('Delete'),
-                          onTap: () {
-                            context.read<AnnouncementBloc>().add(
-                                AnnouncementEvent.deleteAnnouncement(
-                                    announcement.id!));
-                          },
+                          onTap: () => context.read<AnnouncementBloc>().add(
+                              AnnouncementEvent.deleteAnnouncement(
+                                  announcement.id!)),
                         )
                       ],
                     )

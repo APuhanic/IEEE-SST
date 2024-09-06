@@ -15,15 +15,12 @@ class AnnouncementRepository {
         .toList();
   }
 
-  Future<void> postAnnouncement(String title, String description) async {
-    await _announcementClient.postAnnouncement(title, description);
-  }
+  Future<void> postAnnouncement(String title, String description) async =>
+      await _announcementClient.postAnnouncement(title, description);
 
-  Future<void> deleteAnnouncement(String announcementId) {
-    return _announcementClient.deleteAnnouncement(announcementId);
-  }
+  Future<void> deleteAnnouncement(String announcementId) =>
+      _announcementClient.deleteAnnouncement(announcementId);
 
-  Future<void> updateAnnouncement(Announcement announcement) {
-    return _announcementClient.updateAnnouncement(announcement.toJson());
-  }
+  Future<void> updateAnnouncement(Announcement announcement) =>
+      _announcementClient.updateAnnouncement(announcement.toJson());
 }

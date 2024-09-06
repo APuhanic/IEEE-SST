@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ieee_sst/data/constants/app_colors.dart';
 import 'package:ieee_sst/presentation/common/bloc/sponsors_bloc/bloc/sponsor_managment_bloc.dart';
+import 'package:ieee_sst/presentation/common/widgets/loading_indicator.dart';
 import 'package:ieee_sst/presentation/sponsors/widgets/sponsor_card_list.dart';
 
 class SponsorsScreen extends StatelessWidget {
@@ -43,12 +44,10 @@ class SponsorsScreen extends StatelessWidget {
                         SponsorManagmentState>(
                       builder: (context, state) {
                         return state.map(
-                          initial: (_) => const Center(
-                            child: CircularProgressIndicator(),
-                          ),
-                          loading: (_) => const Center(
-                            child: CircularProgressIndicator(),
-                          ),
+                          initial: (_) =>
+                              const Center(child: LoadingIndicator()),
+                          loading: (_) =>
+                              const Center(child: LoadingIndicator()),
                           loaded: (state) =>
                               SponsorList(sponsors: state.sponsors),
                           error: (state) => Center(

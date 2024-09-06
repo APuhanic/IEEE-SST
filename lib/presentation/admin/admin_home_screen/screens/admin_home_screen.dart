@@ -6,14 +6,13 @@ import 'package:ieee_sst/data/constants/app_colors.dart';
 import 'package:ieee_sst/data/constants/route_paths.dart';
 import 'package:ieee_sst/data/constants/text_styles.dart';
 import 'package:ieee_sst/presentation/common/bloc/profile_bloc/profile_bloc.dart';
+import 'package:ieee_sst/presentation/common/widgets/loading_indicator.dart';
 import 'package:ieee_sst/presentation/home/widgets/home_screen_drawer.dart';
 import 'package:ieee_sst/presentation/home/widgets/new_screen_button.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class AdminHomeScreen extends StatelessWidget {
-  const AdminHomeScreen({
-    super.key,
-  });
+  const AdminHomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -36,17 +35,13 @@ class AdminHomeScreen extends StatelessWidget {
                 leading: const _BlueHomeScreenDrawer(),
                 actions: [
                   GestureDetector(
-                    onTap: () {
-                      context.push(RoutePaths.profile);
-                    },
+                    onTap: () => context.push(RoutePaths.profile),
                     child: Padding(
                       padding: const EdgeInsets.only(right: 8.0),
                       child: state.maybeWhen(
                         loadedProfile: (profile) {
                           return GestureDetector(
-                            onTap: () {
-                              context.push(RoutePaths.profile);
-                            },
+                            onTap: () => context.push(RoutePaths.profile),
                             child: const CircleAvatar(
                               backgroundColor: AppColors.background,
                               backgroundImage:
@@ -55,7 +50,7 @@ class AdminHomeScreen extends StatelessWidget {
                           );
                         },
                         error: (message) => const Icon(Icons.error),
-                        orElse: () => const CircularProgressIndicator(),
+                        orElse: () => const LoadingIndicator(),
                       ),
                     ),
                   )

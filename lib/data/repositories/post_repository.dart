@@ -10,7 +10,6 @@ class PostRepository {
 
   Future<List<Post>> getAllPosts() async {
     final postResponse = await _postClient.fetchPosts();
-    //Logger().w(postResponse);
     return postResponse.map((post) => Post.fromJson(post)).toList();
   }
 

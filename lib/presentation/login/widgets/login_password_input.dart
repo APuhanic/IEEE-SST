@@ -22,9 +22,9 @@ class LoginPasswordInput extends StatelessWidget {
             final showPasswordState = context.watch<ShowPasswordCubit>().state;
             final loginState = context.watch<LoginBloc>().state;
             return TextFormField(
-              onChanged: (value) => context.read<LoginBloc>().add(
-                    LoginEvent.passwordChanged(value),
-                  ),
+              onChanged: (value) => context
+                  .read<LoginBloc>()
+                  .add(LoginEvent.passwordChanged(value)),
               textInputAction: TextInputAction.done,
               obscureText: showPasswordState,
               decoration: InputDecoration(

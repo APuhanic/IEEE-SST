@@ -6,6 +6,7 @@ import 'package:ieee_sst/data/constants/app_colors.dart';
 import 'package:ieee_sst/data/constants/route_paths.dart';
 import 'package:ieee_sst/data/constants/text_styles.dart';
 import 'package:ieee_sst/presentation/common/bloc/profile_bloc/profile_bloc.dart';
+import 'package:ieee_sst/presentation/common/widgets/loading_indicator.dart';
 import 'package:ieee_sst/presentation/home/widgets/home_screen_drawer.dart';
 import 'package:ieee_sst/presentation/home/widgets/new_screen_button.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -55,7 +56,7 @@ class HomeScreen extends StatelessWidget {
                           );
                         },
                         error: (message) => const Icon(Icons.error),
-                        orElse: () => const CircularProgressIndicator(),
+                        orElse: () => const LoadingIndicator(),
                       ),
                     ),
                   )
@@ -113,10 +114,10 @@ class HomeScreen extends StatelessWidget {
                     routePath: routes[index],
                   );
                 },
-                childCount: 6, // Number of buttons
+                childCount: 6,
               ),
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2, // 2 buttons per row
+                crossAxisCount: 2,
                 mainAxisSpacing: 8.0,
                 crossAxisSpacing: 8.0,
                 childAspectRatio: 3,

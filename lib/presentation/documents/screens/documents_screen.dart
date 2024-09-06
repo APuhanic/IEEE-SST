@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 import 'package:ieee_sst/data/constants/app_colors.dart';
+import 'package:ieee_sst/presentation/common/widgets/loading_indicator.dart';
 import 'package:ieee_sst/presentation/documents/bloc/document_managment_bloc/document_managment_bloc.dart';
 import 'package:ieee_sst/presentation/documents/widgets/document_list.dart';
 
@@ -55,10 +56,10 @@ class DocumentsScreen extends StatelessWidget {
                       builder: (context, state) {
                         return state.map(
                           initial: (_) => const Center(
-                            child: CircularProgressIndicator(),
+                            child: LoadingIndicator(),
                           ),
                           loading: (_) => const Center(
-                            child: CircularProgressIndicator(),
+                            child: LoadingIndicator(),
                           ),
                           loaded: (state) =>
                               DocumentList(documents: state.documents),

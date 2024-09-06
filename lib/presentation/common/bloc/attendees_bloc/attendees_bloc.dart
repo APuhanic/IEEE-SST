@@ -18,7 +18,7 @@ class AttendeesBloc extends Bloc<AttendeesEvent, AttendeesState> {
 
   final ProfileRepository supabaseProfileRepository;
 
-  Future<FutureOr<void>> _onLoadAttendees(
+  Future<void> _onLoadAttendees(
       _LoadAttendees event, Emitter<AttendeesState> emit) async {
     emit(const AttendeesState.loading());
     try {

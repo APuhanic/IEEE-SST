@@ -18,7 +18,7 @@ class AddSponsorScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: BlocListener<SponsorFormBloc, SponsorFormState>(
+      body: BlocConsumer<SponsorFormBloc, SponsorFormState>(
         listener: (context, state) {
           if (state.status.isSuccess) {
             debugPrint('Sponsor added successfully');
@@ -35,7 +35,7 @@ class AddSponsorScreen extends StatelessWidget {
             );
           }
         },
-        child: Padding(
+        builder: (context, state) => Padding(
           padding: const EdgeInsets.all(16),
           child: CustomScrollView(
             slivers: [
@@ -53,84 +53,76 @@ class AddSponsorScreen extends StatelessWidget {
                       padding: EdgeInsets.symmetric(vertical: 24.0),
                       child: SponsorNameInput(),
                     ),
-                    BlocBuilder<SponsorFormBloc, SponsorFormState>(
-                      builder: (context, state) {
-                        return state.image == null
-                            ? const AddSponsorImageButton()
-                            : Padding(
-                                padding: const EdgeInsets.symmetric(
-                                    horizontal: 16.0),
-                                child: Stack(
-                                  children: [
-                                    Container(
-                                      height: 200,
-                                      width: double.infinity,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(10),
-                                        color: Colors.grey.shade200,
-                                      ),
-                                      clipBehavior: Clip.hardEdge,
-                                      child: Image.file(
-                                        File(state.image!.path),
-                                        fit: BoxFit.fitWidth,
-                                      ),
-                                    ),
-                                    Positioned(
-                                      top: 8,
-                                      right: 8,
-                                      child: GestureDetector(
-                                        onTap: () {
-                                          context.read<SponsorFormBloc>().add(
-                                              const SponsorFormEvent
-                                                  .removeImage());
-                                        },
-                                        child: Container(
-                                          decoration: const BoxDecoration(
-                                            color: Colors.black54,
-                                            shape: BoxShape.circle,
-                                          ),
-                                          child: const Icon(
-                                            Icons.close,
-                                            color: Colors.white,
-                                            size: 24,
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ],
+                    state.image == null
+                        ? const AddSponsorImageButton()
+                        : Padding(
+                            padding:
+                                const EdgeInsets.symmetric(horizontal: 16.0),
+                            child: Stack(
+                              children: [
+                                Container(
+                                  height: 200,
+                                  width: double.infinity,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10),
+                                    color: Colors.grey.shade200,
+                                  ),
+                                  clipBehavior: Clip.hardEdge,
+                                  child: Image.file(
+                                    File(state.image!.path),
+                                    fit: BoxFit.fitWidth,
+                                  ),
                                 ),
-                              );
-                      },
-                    ),
-                    BlocBuilder<SponsorFormBloc, SponsorFormState>(
-                      builder: (context, state) {
-                        return Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 24.0),
-                          child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: AppColors.primary,
-                              foregroundColor: AppColors.white,
-                              textStyle: AppTextStyle.button,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10),
-                              ),
+                                Positioned(
+                                  top: 8,
+                                  right: 8,
+                                  child: GestureDetector(
+                                    onTap: () {
+                                      context.read<SponsorFormBloc>().add(
+                                          const SponsorFormEvent.removeImage());
+                                    },
+                                    child: Container(
+                                      decoration: const BoxDecoration(
+                                        color: Colors.black54,
+                                        shape: BoxShape.circle,
+                                      ),
+                                      child: const Icon(
+                                        Icons.close,
+                                        color: Colors.white,
+                                        size: 24,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ),
-                            onPressed: () {
-                              state.status.isInProgress
-                                  ? null
-                                  : context
-                                      .read<SponsorFormBloc>()
-                                      .add(const SponsorFormEvent.addSponsor());
-                              context.read<SponsorManagmentBloc>().add(
-                                  const SponsorManagmentEvent.loadSponsors());
-                              Navigator.pop(context);
-                            },
-                            child: state.status.isInProgress
-                                ? const CircularProgressIndicator()
-                                : const Text('Add Sponsor'),
                           ),
-                        );
-                      },
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 24.0),
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: AppColors.primary,
+                          foregroundColor: AppColors.white,
+                          textStyle: AppTextStyle.button,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                        ),
+                        onPressed: () {
+                          state.status.isInProgress
+                              ? null
+                              : context
+                                  .read<SponsorFormBloc>()
+                                  .add(const SponsorFormEvent.addSponsor());
+                          context
+                              .read<SponsorManagmentBloc>()
+                              .add(const SponsorManagmentEvent.loadSponsors());
+                          Navigator.pop(context);
+                        },
+                        child: state.status.isInProgress
+                            ? const CircularProgressIndicator()
+                            : const Text('Add Sponsor'),
+                      ),
                     ),
                   ],
                 ),

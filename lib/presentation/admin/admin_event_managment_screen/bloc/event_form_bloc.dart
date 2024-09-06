@@ -8,7 +8,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:ieee_sst/data/repositories/event_repository.dart';
 import 'package:ieee_sst/domain/models/event.dart';
 import 'package:injectable/injectable.dart';
-import 'package:logger/logger.dart';
 
 part 'event_form_event.dart';
 part 'event_form_state.dart';
@@ -32,8 +31,7 @@ class EventFormBloc extends Bloc<EventFormEvent, EventFormState> {
   }
   final EventRepository _supabaseEventRepository;
 
-  void _onEventNameChanged(
-      _EventNameChanged event, Emitter<EventFormState> emit) {
+  _onEventNameChanged(_EventNameChanged event, Emitter<EventFormState> emit) {
     emit(state.copyWith(name: event.name));
   }
 
@@ -105,7 +103,6 @@ class EventFormBloc extends Bloc<EventFormEvent, EventFormState> {
         info: state.info,
         date: state.date,
       );
-      Logger().w(event);
       _supabaseEventRepository.updateEvent(event);
       emit(state.copyWith(status: FormzSubmissionStatus.success));
     } catch (e) {
@@ -119,8 +116,6 @@ class EventFormBloc extends Bloc<EventFormEvent, EventFormState> {
   }
 
   _onSetInitialValues(_SetInitialValues event, Emitter<EventFormState> emit) {
-    Logger().w(event.event);
-
     emit(
       state.copyWith(
         id: event.event.id,

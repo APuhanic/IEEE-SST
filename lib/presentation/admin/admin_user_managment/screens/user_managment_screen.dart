@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ieee_sst/data/constants/app_colors.dart';
-import 'package:ieee_sst/presentation/admin/admin_user_managment/widgets/user_managment_list.dart';
+import 'package:ieee_sst/presentation/admin/admin_user_managment/widgets/user_managment_tile.dart';
 import 'package:ieee_sst/presentation/common/bloc/attendees_bloc/attendees_bloc.dart';
+import 'package:ieee_sst/presentation/common/widgets/loading_indicator.dart';
 import 'package:ieee_sst/presentation/home/widgets/home_screen_drawer.dart';
 
 class UserManagmentScreen extends StatelessWidget {
@@ -27,25 +28,31 @@ class UserManagmentScreen extends StatelessWidget {
             ),
             BlocBuilder<AttendeesBloc, AttendeesState>(
               builder: (context, state) {
-                return SliverList(
-                  delegate: SliverChildListDelegate(
-                    [
-                      Padding(
-                        padding: const EdgeInsets.all(16.0),
-                        child: Column(
-                          children: [
-                            state.maybeWhen(
-                              orElse: () => const Center(
-                                  child: CircularProgressIndicator()),
-                              loaded: (profiles) => profiles.isEmpty
-                                  ? const Center(child: Text('No users found'))
-                                  : UserManagmentList(profiles: profiles),
-                            )
-                          ],
-                        ),
-                      ),
-                    ],
+                return state.maybeWhen(
+                  orElse: () => const SliverFillRemaining(
+                    child: Center(child: LoadingIndicator()),
                   ),
+                  loaded: (profiles) => profiles.isEmpty
+                      ? const SliverFillRemaining(
+                          child: Center(child: Text('No users found')),
+                        )
+                      : SliverPadding(
+                          padding: const EdgeInsets.only(
+                              bottom: 40.0, right: 16, left: 16),
+                          sliver: SliverList(
+                            delegate: SliverChildBuilderDelegate(
+                              (context, index) {
+                                return Padding(
+                                  padding:
+                                      const EdgeInsets.symmetric(vertical: 8.0),
+                                  child: UserManagmentTile(
+                                      profile: profiles[index]),
+                                );
+                              },
+                              childCount: profiles.length,
+                            ),
+                          ),
+                        ),
                 );
               },
             )

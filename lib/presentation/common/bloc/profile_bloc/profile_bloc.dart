@@ -18,7 +18,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
 
   final ProfileRepository supabaseProfileRepository;
 
-  Future<FutureOr<void>> _onLoadProfile(
+  Future<void> _onLoadProfile(
       _LoadProfile event, Emitter<ProfileState> emit) async {
     emit(const ProfileState.loading());
     try {
@@ -28,6 +28,4 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
       emit(ProfileState.error(e.toString()));
     }
   }
-
-
 }

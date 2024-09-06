@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ieee_sst/data/constants/app_colors.dart';
 import 'package:ieee_sst/data/constants/text_styles.dart';
 import 'package:ieee_sst/data/models/post_model/post_model.dart';
+import 'package:ieee_sst/presentation/common/widgets/loading_indicator.dart';
 import 'package:ieee_sst/presentation/info/question_posts/bloc/comment_form_bloc/comment_form_bloc.dart';
 import 'package:ieee_sst/presentation/info/question_posts/bloc/comment_managment_bloc/comment_managment_bloc.dart';
 import 'package:ieee_sst/presentation/info/question_posts/widgets/user_comments_list.dart';
@@ -18,17 +19,15 @@ class PostScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    context.read<CommentManagmentBloc>().add(
-          CommentManagmentEvent.loadComments(post.id!),
-        );
+    context
+        .read<CommentManagmentBloc>()
+        .add(CommentManagmentEvent.loadComments(post.id!));
     return Scaffold(
       backgroundColor: AppColors.background,
       body: RefreshIndicator(
-        onRefresh: () async {
-          context.read<CommentManagmentBloc>().add(
-                CommentManagmentEvent.loadComments(post.id!),
-              );
-        },
+        onRefresh: () async => context
+            .read<CommentManagmentBloc>()
+            .add(CommentManagmentEvent.loadComments(post.id!)),
         child: CustomScrollView(
           slivers: <Widget>[
             const SliverAppBar(
@@ -70,7 +69,7 @@ class PostScreen extends StatelessWidget {
                                 }
                               },
                               loading: () => const Center(
-                                child: CircularProgressIndicator(),
+                                child: LoadingIndicator(),
                               ),
                               //TODO: Fix this error message iterable null....
                               error: (message) => const Center(

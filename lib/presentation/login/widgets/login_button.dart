@@ -24,12 +24,10 @@ class LoginButton extends StatelessWidget {
             ),
             backgroundColor: AppColors.primary,
           ),
-          onPressed: () {
-            context.read<LoginBloc>().add(LoginEvent.submitted(
-                  state.email.value,
-                  state.password.value,
-                ));
-          },
+          onPressed: () => context.read<LoginBloc>().add(LoginEvent.submitted(
+                state.email.value,
+                state.password.value,
+              )),
           child: state.status.isInProgress
               ? const CircularProgressIndicator(color: AppColors.white)
               : Text('Log in', style: AppTextStyle.button)),

@@ -51,11 +51,8 @@ class UserCommentCard extends StatelessWidget {
                     itemBuilder: (context) {
                       return [
                         PopupMenuItem(
-                          onTap: () {
-                            context.read<CommentManagmentBloc>().add(
-                                CommentManagmentEvent.deleteComment(
-                                    comment.id!));
-                          },
+                          onTap: () => context.read<CommentManagmentBloc>().add(
+                              CommentManagmentEvent.deleteComment(comment.id!)),
                           child: const Text('Delete'),
                         ),
                       ];

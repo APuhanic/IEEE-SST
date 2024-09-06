@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ieee_sst/data/constants/app_colors.dart';
 import 'package:ieee_sst/data/constants/text_styles.dart';
-import 'package:ieee_sst/presentation/info/question_posts/bloc/post_form_bloc.dart';
+import 'package:ieee_sst/presentation/info/question_posts/bloc/post_form_bloc/post_form_bloc.dart';
 
 class PostTitleInput extends StatelessWidget {
   const PostTitleInput({

@@ -1,4 +1,3 @@
-import 'dart:async';
 import 'dart:io';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -24,15 +23,15 @@ class SponsorFormBloc extends Bloc<SponsorFormEvent, SponsorFormState> {
 
   final SponsorRepository _supabaseSponsorRepository;
 
-  _onNameChanged(_NameChanged event, Emitter<SponsorFormState> emit) {
+  void _onNameChanged(_NameChanged event, Emitter<SponsorFormState> emit) {
     emit(state.copyWith(name: event.name));
   }
 
-  _onImageChanged(_ImageChanged event, Emitter<SponsorFormState> emit) {
+  void _onImageChanged(_ImageChanged event, Emitter<SponsorFormState> emit) {
     emit(state.copyWith(image: event.image));
   }
 
-  _onAddSponsor(_AddSponsor event, Emitter<SponsorFormState> emit) async {
+  void _onAddSponsor(_AddSponsor event, Emitter<SponsorFormState> emit) async {
     emit(state.copyWith(status: FormzSubmissionStatus.inProgress));
     try {
       await _supabaseSponsorRepository.addSponsor(
@@ -49,8 +48,7 @@ class SponsorFormBloc extends Bloc<SponsorFormEvent, SponsorFormState> {
     }
   }
 
-  FutureOr<void> _onRemoveImage(
-      _RemoveImage event, Emitter<SponsorFormState> emit) {
+  void _onRemoveImage(_RemoveImage event, Emitter<SponsorFormState> emit) {
     emit(state.copyWith(image: null));
   }
 }

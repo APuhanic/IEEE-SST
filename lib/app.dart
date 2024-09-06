@@ -17,7 +17,7 @@ import 'package:ieee_sst/presentation/documents/bloc/document_form_bloc/document
 import 'package:ieee_sst/presentation/documents/bloc/document_managment_bloc/document_managment_bloc.dart';
 import 'package:ieee_sst/presentation/info/question_posts/bloc/comment_form_bloc/comment_form_bloc.dart';
 import 'package:ieee_sst/presentation/info/question_posts/bloc/comment_managment_bloc/comment_managment_bloc.dart';
-import 'package:ieee_sst/presentation/info/question_posts/bloc/post_form_bloc.dart';
+import 'package:ieee_sst/presentation/info/question_posts/bloc/post_form_bloc/post_form_bloc.dart';
 import 'package:ieee_sst/presentation/info/question_posts/bloc/post_managment_bloc/post_managment_bloc.dart';
 import 'package:ieee_sst/presentation/login/bloc/auth_bloc.dart';
 import 'package:ieee_sst/presentation/login/bloc/login/login_bloc.dart';

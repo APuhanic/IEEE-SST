@@ -5,17 +5,13 @@ import 'package:ieee_sst/data/models/conference_chair_model/conference_chair_mod
 import 'package:ieee_sst/data/models/keynote_speaker_model/keynote_speaker_model.dart';
 import 'package:ieee_sst/data/models/steering_committee_model/steering_committee_model.dart';
 
-//TODO: Refactor this function to use generics?
 Future<List<ConferenceChair>> loadConferenceChairs() async {
   try {
-    final jsonString =
-        await rootBundle.loadString('assets/json/conference_chairs.json');
-    final Map<String, dynamic> jsonMap = jsonDecode(jsonString);
-    final List<dynamic> jsonList =
-        jsonMap['conference_chairs'] as List<dynamic>;
-    return jsonList.map((e) {
-      return ConferenceChair.fromJson(e as Map<String, dynamic>);
-    }).toList();
+    final jsonList = await loadJson(
+        'assets/json/conference_chairs.json', 'conference_chairs');
+    return jsonList
+        .map((e) => ConferenceChair.fromJson(e as Map<String, dynamic>))
+        .toList();
   } catch (e) {
     debugPrint('Error loading conference chairs: $e');
     return [];
@@ -24,74 +20,50 @@ Future<List<ConferenceChair>> loadConferenceChairs() async {
 
 Future<List<SteeringCommittee>> loadSteeringCommittee() async {
   try {
-    // Load the JSON string from the assets
-    final jsonString =
-        await rootBundle.loadString('assets/json/steering_committee.json');
-
-    // Decode the JSON string into a Map
-    final Map<String, dynamic> jsonMap = jsonDecode(jsonString);
-
-    // Access the list of steering committee members from the Map
-    final List<dynamic> jsonList =
-        jsonMap['steering_committee'] as List<dynamic>;
-
-    debugPrint('Steering Committee: $jsonList');
-    // Convert the list of maps into a list of SteeringCommittee objects
-    return jsonList.map((e) {
-      return SteeringCommittee.fromJson(e as Map<String, dynamic>);
-    }).toList();
+    final jsonList = await loadJson(
+        'assets/json/steering_committee.json', 'steering_committee');
+    return jsonList
+        .map((e) => SteeringCommittee.fromJson(e as Map<String, dynamic>))
+        .toList();
   } catch (e) {
-    debugPrint(
-        'Error loading steering committee members: $e'); // Changed debugPrint to print
+    debugPrint('Error loading steering committee members: $e');
     return [];
   }
 }
 
 Future<List<SteeringCommittee>> loadProgramCommittee() async {
   try {
-    // Load the JSON string from the assets
-    final jsonString =
-        await rootBundle.loadString('assets/json/program_committee.json');
-
-    // Decode the JSON string into a Map
-    final Map<String, dynamic> jsonMap = jsonDecode(jsonString);
-
-    // Access the list of steering committee members from the Map
-    final List<dynamic> jsonList =
-        jsonMap['program_committee'] as List<dynamic>;
-
-    debugPrint('Steering Committee: $jsonList');
-    // Convert the list of maps into a list of SteeringCommittee objects
-    return jsonList.map((e) {
-      return SteeringCommittee.fromJson(e as Map<String, dynamic>);
-    }).toList();
+    final jsonList = await loadJson(
+        'assets/json/program_committee.json', 'program_committee');
+    return jsonList
+        .map((e) => SteeringCommittee.fromJson(e as Map<String, dynamic>))
+        .toList();
   } catch (e) {
-    debugPrint(
-        'Error loading steering committee members: $e'); // Changed debugPrint to print
+    debugPrint('Error loading steering committee members: $e');
     return [];
   }
 }
 
 Future<List<KeynoteSpeaker>> loadKeyNoteSpeakers() async {
   try {
-    // Load the JSON string from the assets
-    final jsonString =
-        await rootBundle.loadString('assets/json/keynote_speakers.json');
-
-    // Decode the JSON string into a Map
-    final Map<String, dynamic> jsonMap = jsonDecode(jsonString);
-
-    // Access the list of steering committee members from the Map
-    final List<dynamic> jsonList = jsonMap['keynote_speakers'] as List<dynamic>;
-
-    debugPrint('Steering Committee: $jsonList');
-    // Convert the list of maps into a list of SteeringCommittee objects
-    return jsonList.map((e) {
-      return KeynoteSpeaker.fromJson(e as Map<String, dynamic>);
-    }).toList();
+    final jsonList =
+        await loadJson('assets/json/keynote_speakers.json', 'keynote_speakers');
+    return jsonList
+        .map((e) => KeynoteSpeaker.fromJson(e as Map<String, dynamic>))
+        .toList();
   } catch (e) {
-    debugPrint(
-        'Error loading steering committee members: $e'); // Changed debugPrint to print
+    debugPrint('Error loading steering committee members: $e');
+    return [];
+  }
+}
+
+Future<List<dynamic>> loadJson(String path, String key) async {
+  try {
+    final jsonString = await rootBundle.loadString(path);
+    final Map<String, dynamic> jsonMap = jsonDecode(jsonString);
+    return jsonMap[key] as List<dynamic>;
+  } catch (e) {
+    debugPrint('Error loading json: $e');
     return [];
   }
 }

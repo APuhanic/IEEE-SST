@@ -23,7 +23,7 @@ class EventsManagmentBloc extends Bloc<EventsEvent, EventsState> {
 
   final EventRepository eventRepository;
 
-  Future<FutureOr<void>> _onLoadEvents(
+  Future<void> _onLoadEvents(
       _LoadEvents event, Emitter<EventsState> emit) async {
     emit(const _Loading());
     try {
@@ -48,8 +48,7 @@ class EventsManagmentBloc extends Bloc<EventsEvent, EventsState> {
     }
   }
 
-  Future<FutureOr<void>> _onMarkGoing(
-      _MarkGoing event, Emitter<EventsState> emit) async {
+  Future<void> _onMarkGoing(_MarkGoing event, Emitter<EventsState> emit) async {
     await eventRepository.markGoing(event.event);
     if (state is _Loaded) {
       final events = (state as _Loaded).events;
@@ -63,7 +62,7 @@ class EventsManagmentBloc extends Bloc<EventsEvent, EventsState> {
     }
   }
 
-  Future<FutureOr<void>> _onMarkNotGoing(
+  Future<void> _onMarkNotGoing(
       _MarkNotGoing event, Emitter<EventsState> emit) async {
     await eventRepository.markNotGoing(event.event);
     if (state is _Loaded) {
@@ -79,7 +78,7 @@ class EventsManagmentBloc extends Bloc<EventsEvent, EventsState> {
     }
   }
 
-  Future<FutureOr<void>> _onFilterEvents(
+  Future<void> _onFilterEvents(
       _FilterEvents event, Emitter<EventsState> emit) async {
     if (state is! _Loaded) return null;
 
@@ -104,6 +103,4 @@ class EventsManagmentBloc extends Bloc<EventsEvent, EventsState> {
     });
     return events;
   }
-
-  //TODO: Fix color change when re-clicking the same filter
 }

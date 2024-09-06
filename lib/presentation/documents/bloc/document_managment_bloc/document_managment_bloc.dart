@@ -20,7 +20,7 @@ class DocumentManagmentBloc
 
   final DocumentRepository _documentRepository;
 
-  Future<FutureOr<void>> _onLoadDocuments(
+  Future<void> _onLoadDocuments(
       _LoadDocuments event, Emitter<DocumentManagmentState> emit) async {
     emit(const DocumentManagmentState.loading());
     try {

@@ -10,21 +10,22 @@ class DocumentCard extends StatelessWidget {
   });
 
   final Document document;
+
   Future<void> _launchURL(BuildContext context) async {
     final Uri url = Uri.parse(document.url);
     try {
       if (await canLaunchUrl(url)) {
-        await launchUrl(url,
-            mode: LaunchMode
-                .externalApplication); // Opens the URL in the default browser
+        await launchUrl(url, mode: LaunchMode.externalApplication);
       } else {
         throw 'Could not launch $url';
       }
     } catch (e) {
-      // Handle the error if the URL cannot be launched
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(e.toString())),
-      );
+      // TODO: Replace context.mounted with a better solution
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(e.toString())),
+        );
+      }
     }
   }
 
@@ -43,7 +44,7 @@ class DocumentCard extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.all(16.0),
           child: IconButton(
-            onPressed: () => _launchURL(context), // Pass context to _launchURL
+            onPressed: () => _launchURL(context),
             icon: const Icon(Icons.download),
           ),
         ),
