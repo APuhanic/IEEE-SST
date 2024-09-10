@@ -8,4 +8,5 @@ abstract class AppColors {
   static const black = Color(0xFF1A1D1E);
   static const grayText = Color(0xFF6A6A6A);
   static const warning = Color(0xFFFF4141);
+  static const darkBlue = Color(0xFF1a517a);
 }

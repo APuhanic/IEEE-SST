@@ -103,7 +103,7 @@ extension GetItInjectableX on _i1.GetIt {
         () => _i9.ProfileClient(gh<_i10.SupabaseClient>()));
     gh.factory<_i11.AuthSessionCubit>(
         () => _i11.AuthSessionCubit(gh<_i10.SupabaseClient>()));
-    gh.factory<_i12.AppRouter>(() => _i12.AppRouter(
+    gh.singleton<_i12.AppRouter>(() => _i12.AppRouter(
           gh<_i7.NavigatorKeyManager>(),
           gh<_i3.SupabaseClient>(),
         ));

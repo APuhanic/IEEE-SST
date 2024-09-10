@@ -20,7 +20,7 @@ Future<void> main() async {
   configureDependencies(Environment.dev);
   Bloc.observer = getIt<GlobalBlocObserver>();
 
-  runApp(const MainApp());
+  runApp(MainApp());
 
   // Handle uncaught errors
   FlutterError.onError = (FlutterErrorDetails details) =>

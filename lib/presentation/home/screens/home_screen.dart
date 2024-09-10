@@ -106,11 +106,7 @@ class HomeScreen extends StatelessWidget {
 
                   return NewScreenButton(
                     title: titles[index],
-                    onPressed: () {
-                      context.go(
-                        routes[index],
-                      );
-                    },
+                    onPressed: () => context.go(routes[index]),
                     routePath: routes[index],
                   );
                 },
@@ -143,11 +139,7 @@ class HomeScreen extends StatelessWidget {
                           Expanded(
                             child: NewScreenButton(
                               title: 'Sponsors',
-                              onPressed: () {
-                                context.go(
-                                  '/home/sponsors',
-                                );
-                              },
+                              onPressed: () => context.go('/home/sponsors'),
                               routePath: RoutePaths.sponsors,
                             ),
                           ),
@@ -155,11 +147,7 @@ class HomeScreen extends StatelessWidget {
                           Expanded(
                             child: NewScreenButton(
                               title: 'Documents',
-                              onPressed: () {
-                                context.go(
-                                  '/home/documents',
-                                );
-                              },
+                              onPressed: () => context.go('/home/documents'),
                               routePath: RoutePaths.documents,
                             ),
                           ),

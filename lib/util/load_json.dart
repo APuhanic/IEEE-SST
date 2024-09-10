@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:ieee_sst/data/models/conference_chair_model/conference_chair_model.dart';
 import 'package:ieee_sst/data/models/keynote_speaker_model/keynote_speaker_model.dart';
+import 'package:ieee_sst/data/models/special_session_model/special_session_model.dart';
 import 'package:ieee_sst/data/models/steering_committee_model/steering_committee_model.dart';
 
 Future<List<ConferenceChair>> loadConferenceChairs() async {
@@ -53,6 +54,19 @@ Future<List<KeynoteSpeaker>> loadKeyNoteSpeakers() async {
         .toList();
   } catch (e) {
     debugPrint('Error loading steering committee members: $e');
+    return [];
+  }
+}
+
+Future<List<SpecialSession>> loadSpecialSessions() async {
+  try {
+    final jsonList =
+        await loadJson('assets/json/special_sessions.json', 'specialSessions');
+    return jsonList
+        .map((e) => SpecialSession.fromJson(e as Map<String, dynamic>))
+        .toList();
+  } catch (e) {
+    debugPrint('Error loading special sessions: $e');
     return [];
   }
 }

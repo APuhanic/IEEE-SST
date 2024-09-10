@@ -24,7 +24,9 @@ import 'package:ieee_sst/presentation/login/bloc/login/login_bloc.dart';
 import 'package:ieee_sst/presentation/register/bloc/registration_bloc.dart';
 
 class MainApp extends StatelessWidget {
-  const MainApp({super.key});
+  MainApp({super.key});
+
+  final _appRouter = getIt<AppRouter>().router;
 
   @override
   Widget build(BuildContext context) {
@@ -67,7 +69,7 @@ class MainApp extends StatelessWidget {
           scaffoldBackgroundColor: AppColors.background,
           fontFamily: 'Poppins',
         ),
-        routerConfig: getIt<AppRouter>().router,
+        routerConfig: _appRouter,
         builder: (context, child) => SafeArea(child: child!),
       ),
     );

@@ -62,6 +62,17 @@ class AdminHomeScreen extends StatelessWidget {
             delegate: SliverChildListDelegate([
               Column(
                 children: [
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 16.0, horizontal: 16.0),
+                      child: Text(
+                        'Admin panel',
+                        style: AppTextStyle.titleSmall,
+                      ),
+                    ),
+                  ),
                   const _IEEESSTHeader(),
                   Row(
                     children: [
@@ -69,13 +80,6 @@ class AdminHomeScreen extends StatelessWidget {
                       Expanded(child: Container()),
                       const _FacebookPageLink(),
                     ],
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 16.0),
-                    child: Text(
-                      'Admin ',
-                      style: AppTextStyle.titleSmall,
-                    ),
                   ),
                 ],
               ),
@@ -91,8 +95,8 @@ class AdminHomeScreen extends StatelessWidget {
                     'Steering Committee',
                     'Program Comittee',
                     'Keynote Speaker',
-                    /*'Special Sessions',
-                    'PhD Forum'*/
+                    'Special Sessions',
+                    'PhD Forum'
                   ];
                   // TODO: Extract these routes to a constants file
                   final routes = [
@@ -100,24 +104,20 @@ class AdminHomeScreen extends StatelessWidget {
                     '/home/steering_committee',
                     '/home/program_committee',
                     '/home/keynote_speaker',
-                    /*'/home/special_sessions',
-                    '/home/phd_forum'*/
+                    '/home/special_sessions',
+                    '/home/phd_forum'
                   ];
 
                   return NewScreenButton(
                     title: titles[index],
-                    onPressed: () {
-                      context.go(
-                        routes[index],
-                      );
-                    },
+                    onPressed: () => context.go(routes[index]),
                     routePath: routes[index],
                   );
                 },
-                childCount: 4, // Number of buttons
+                childCount: 6,
               ),
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2, // 2 buttons per row
+                crossAxisCount: 2,
                 mainAxisSpacing: 8.0,
                 crossAxisSpacing: 8.0,
                 childAspectRatio: 3,
@@ -143,15 +143,12 @@ class AdminHomeScreen extends StatelessWidget {
                     child: SizedBox(
                       height: 50,
                       child: Row(
+                        //TODO: Common widget
                         children: [
                           Expanded(
                             child: NewScreenButton(
                               title: 'Sponsors',
-                              onPressed: () {
-                                context.go(
-                                  '/home/sponsors',
-                                );
-                              },
+                              onPressed: () => context.go('/home/sponsors'),
                               routePath: RoutePaths.sponsors,
                             ),
                           ),
@@ -159,11 +156,7 @@ class AdminHomeScreen extends StatelessWidget {
                           Expanded(
                             child: NewScreenButton(
                               title: 'Documents',
-                              onPressed: () {
-                                context.go(
-                                  '/home/documents',
-                                );
-                              },
+                              onPressed: () => context.go('/home/documents'),
                               routePath: RoutePaths.documents,
                             ),
                           ),
@@ -172,6 +165,29 @@ class AdminHomeScreen extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 16.0),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 16.0),
+                    child: Row(
+                      children: [
+                        Text(
+                          'SST 2024',
+                          style: AppTextStyle.titleSmall,
+                        ),
+                        const Expanded(
+                          child: Divider(
+                            color: AppColors.black,
+                            thickness: 1,
+                            indent: 8,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Text(
+                    'International Conference on Smart Systems and Technologies (SST) is a conference organized and hosted by the Faculty of Electrical Engineering, Computer Science and Information Technology Osijek, Josip Juraj Strossmayer University of Osijek. The conference will provide a platform for researchers and practitioners interested in the theory and practice of smart systems and technologies related to electrical engineering, communications, computer science and engineering, control systems, robotics, as well as interdisciplinary research and applications.',
+                    style: AppTextStyle.lightText,
+                    textAlign: TextAlign.justify,
+                  ),
                 ],
               ),
             ),
@@ -199,17 +215,13 @@ class MenagmentPart extends StatelessWidget {
         const SizedBox(height: 16),
         NewScreenButton(
           title: 'Manage sponsors',
-          onPressed: () {
-            context.go(RoutePaths.adminSponsors);
-          },
+          onPressed: () => context.go(RoutePaths.adminSponsors),
           routePath: '',
         ),
         const SizedBox(height: 16),
         NewScreenButton(
           title: 'Manage users',
-          onPressed: () {
-            context.go(RoutePaths.adminUserManagment);
-          },
+          onPressed: () => context.go(RoutePaths.adminUserManagment),
           routePath: '',
         ),
       ],

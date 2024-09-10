@@ -21,7 +21,7 @@ class KeynoteSpeakerCard extends StatelessWidget {
             style: const TextStyle(
               fontSize: 20.0,
               fontWeight: FontWeight.w600,
-              color: Color.fromRGBO(26, 81, 122, 1),
+              color: AppColors.darkBlue,
             ),
           ),
           Text(

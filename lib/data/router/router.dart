@@ -24,6 +24,7 @@ import 'package:ieee_sst/presentation/documents/screens/documents_screen.dart';
 import 'package:ieee_sst/presentation/documents/screens/upload_document_screen.dart';
 import 'package:ieee_sst/presentation/home/conference_chairs_screen/screens/conference_chair_screen.dart';
 import 'package:ieee_sst/presentation/home/keynote_speakers_screen/screens/keynote_speakers_screen.dart';
+import 'package:ieee_sst/presentation/home/phd_forum/screens/phd_forum_screen.dart';
 import 'package:ieee_sst/presentation/home/program_committee_screen/screens/program_committee_screen.dart';
 import 'package:ieee_sst/presentation/home/screens/home_screen.dart';
 import 'package:ieee_sst/presentation/home/special_sessions/screens/special_sessions_screen.dart';
@@ -44,7 +45,7 @@ import 'package:ieee_sst/presentation/sponsors/screens/sponsors_screen.dart';
 import 'package:injectable/injectable.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
-@injectable
+@singleton
 class AppRouter {
   AppRouter(
     this._navigatorKeyManager,
@@ -254,6 +255,13 @@ class AppRouter {
                         pageBuilder: (context, state) => const MaterialPage(
                           key: ValueKey('SpecialSessionsScreen'),
                           child: SpecialSessionsScreen(),
+                        ),
+                      ),
+                      GoRoute(
+                        path: RoutePaths.phdForumSubRoute,
+                        pageBuilder: (context, state) => const MaterialPage(
+                          key: ValueKey('PhDForumScreen'),
+                          child: PhDForumScreen(),
                         ),
                       ),
                       GoRoute(

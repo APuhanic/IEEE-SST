@@ -7,6 +7,7 @@ import 'package:ieee_sst/presentation/admin/admin_event_managment_screen/widgets
 import 'package:ieee_sst/presentation/common/widgets/event_filter_chips.dart';
 import 'package:ieee_sst/presentation/common/bloc/events_bloc/events_bloc.dart';
 import 'package:ieee_sst/presentation/common/widgets/date_picker_filter.dart';
+import 'package:ieee_sst/presentation/common/widgets/loading_indicator.dart';
 import 'package:ieee_sst/presentation/home/widgets/home_screen_drawer.dart';
 
 class EventManagmentScreen extends StatelessWidget {
@@ -59,9 +60,7 @@ class EventManagmentScreen extends StatelessWidget {
                               state.maybeWhen(
                                 loading: () => const Center(
                                   // TODO: Add skeletonizer
-                                  child: CircularProgressIndicator(
-                                    color: AppColors.primary,
-                                  ),
+                                  child: LoadingIndicator(),
                                 ),
                                 loaded: (events) =>
                                     AdminEventCardList(events: events),

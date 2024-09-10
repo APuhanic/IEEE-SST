@@ -59,8 +59,9 @@ class AnnouncementsManagmentScreen extends StatelessWidget {
                                 announcements: announcements,
                                 isAdmin: true,
                               ),
-                              loading: () =>
-                                  const Center(child: LoadingIndicator()),
+                              loading: () => const Center(
+                                child: LoadingIndicator(),
+                              ),
                               error: (message) => Center(
                                 child: Text(message),
                               ),

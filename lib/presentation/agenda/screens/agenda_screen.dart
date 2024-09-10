@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ieee_sst/data/constants/app_colors.dart';
+import 'package:ieee_sst/presentation/common/widgets/event_card.dart';
 import 'package:ieee_sst/presentation/common/widgets/event_filter_chips.dart';
 import 'package:ieee_sst/presentation/common/bloc/events_bloc/events_bloc.dart';
 import 'package:ieee_sst/presentation/common/widgets/date_picker_filter.dart';
-import 'package:ieee_sst/presentation/common/widgets/event_card_list.dart';
 import 'package:ieee_sst/presentation/common/widgets/loading_indicator.dart';
 import 'package:ieee_sst/presentation/home/widgets/home_screen_drawer.dart';
 
@@ -22,11 +22,9 @@ class AgendaScreen extends StatelessWidget {
           return RefreshIndicator(
             backgroundColor: AppColors.white,
             color: AppColors.primary,
-            onRefresh: () async {
-              context
-                  .read<EventsManagmentBloc>()
-                  .add(const EventsEvent.loadEvents());
-            },
+            onRefresh: () async => context
+                .read<EventsManagmentBloc>()
+                .add(const EventsEvent.loadEvents()),
             child: CustomScrollView(
               slivers: <Widget>[
                 const SliverAppBar(
@@ -47,32 +45,39 @@ class AgendaScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                SliverPadding(
-                  padding: const EdgeInsets.only(bottom: 80.0),
-                  sliver: SliverList(
-                    delegate: SliverChildListDelegate(
-                      [
-                        Column(
-                          children: [
-                            const Padding(
-                              padding: EdgeInsets.all(16.0),
-                              child: FilterChips(),
-                            ),
-                            state.maybeWhen(
-                              loading: () => const Center(
-                                child: LoadingIndicator(),
-                              ),
-                              loaded: (events) => Column(
-                                children: [EventCardList(events: events)],
-                              ),
-                              orElse: () => const SizedBox.shrink(),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
+                const SliverToBoxAdapter(
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.all(16.0),
+                        child: FilterChips(),
+                      ),
+                    ],
                   ),
                 ),
+                state.maybeWhen(
+                  orElse: () => const SliverFillRemaining(
+                      child: Center(child: LoadingIndicator())),
+                  loading: () => const SliverFillRemaining(
+                      child: Center(child: LoadingIndicator())),
+                  loaded: (events) => events.isEmpty
+                      ? const SliverFillRemaining(
+                          child: Center(child: Text('No events found')))
+                      : SliverPadding(
+                          padding: const EdgeInsets.only(
+                              bottom: 60.0, right: 16, left: 16),
+                          sliver: SliverList(
+                            delegate: SliverChildBuilderDelegate(
+                              (context, index) => Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(vertical: 8.0),
+                                child: EventCard(event: events[index]),
+                              ),
+                              childCount: events.length,
+                            ),
+                          ),
+                        ),
+                )
               ],
             ),
           );

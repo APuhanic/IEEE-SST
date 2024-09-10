@@ -81,4 +81,10 @@ class AppTextStyle {
     color: AppColors.black,
     fontWeight: FontWeight.w600,
   );
+
+  static TextStyle darkBlueText = const TextStyle(
+    fontSize: 16,
+    color: AppColors.darkBlue,
+    fontWeight: FontWeight.w600,
+  );
 }
