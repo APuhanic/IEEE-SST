@@ -105,18 +105,12 @@ class AuthRepository implements AuthenticationRepository {
   }
 
   @override
-  Future<void> signInWithGoogle() async {
-    const webClientId =
-        '76206281014-25ljo7r9kmqctok3ird786ai3anc98kf.apps.googleusercontent.com';
-
-    final GoogleSignIn googleSignIn = GoogleSignIn(
-      serverClientId: webClientId,
-    );
+  Future<AuthResponse> signInWithGoogle() async {
+    final GoogleSignIn googleSignIn = GoogleSignIn();
     final googleUser = await googleSignIn.signIn();
     final googleAuth = await googleUser!.authentication;
     final accessToken = googleAuth.accessToken;
     final idToken = googleAuth.idToken;
-
     if (accessToken == null) {
       throw 'No Access Token found.';
     }
@@ -124,7 +118,7 @@ class AuthRepository implements AuthenticationRepository {
       throw 'No ID Token found.';
     }
 
-    await _supabaseClient.auth.signInWithIdToken(
+    return await _supabaseClient.auth.signInWithIdToken(
       provider: OAuthProvider.google,
       idToken: idToken,
       accessToken: accessToken,

@@ -46,6 +46,24 @@ class ProfileClient {
     });
   }
 
+  Future<void> addGoogleProfile(
+    String id,
+    String fullName,
+    String email,
+    String imageUrl,
+  ) async {
+    //check if user already exists
+    final user = await _supabaseClient.from('profiles').select().eq('id', id);
+    if (user.isNotEmpty) return;
+    return await _supabaseClient.from('profiles').insert({
+      'id': id,
+      'role': UserRoles.user,
+      'fullName': fullName,
+      'email': email,
+      'imageUrl': imageUrl,
+    });
+  }
+
   Future<List<User>> getAllRegisteredUsers() async =>
       await _supabaseClient.auth.admin.listUsers();
 
@@ -89,12 +107,11 @@ class ProfileClient {
 
   Future<void> deleteProfileImage(Profile profile) async {
     try {
-      debugPrint('Deleting image: ${profile.imagePath}');
+      if (profile.imagePath == null) return;
       try {
-        final response = await _supabaseClient.storage
+        await _supabaseClient.storage
             .from('images')
             .remove([profile.imagePath!]);
-        debugPrint('delte Response: $response');
       } on Exception catch (e) {
         debugPrint('Error deleting image: $e');
       }

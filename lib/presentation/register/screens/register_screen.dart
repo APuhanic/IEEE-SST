@@ -49,21 +49,6 @@ class RegisterScreen extends StatelessWidget {
               const SizedBox(height: 24),
               const RegisterWithEmailButton(),
               const SizedBox(height: 24),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text('- Or Continue With -', style: AppTextStyle.lightText),
-                ],
-              ),
-              const SizedBox(height: 24),
-              const Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  _GoogleSignUp(),
-                  //SizedBox(width: 24),
-                  //_FacebookSignUp(),
-                ],
-              ),
               const SizedBox(height: 24),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,

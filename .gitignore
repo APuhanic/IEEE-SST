@@ -45,3 +45,10 @@ app.*.map.json
 # Environment configuration
 /.env
 /.vscode
+
+# Node.js
+node_modules/
+npm-debug.log
+yarn-error.log
+
+supabase/functions/service-account.json

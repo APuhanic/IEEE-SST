@@ -16,7 +16,7 @@ abstract class AuthenticationRepository {
   Future<void> signOut();
   BaseUserModel? getCurrentUser();
   Stream<BaseUserModel?> getCurrentUserStream();
-  Future<void> signInWithGoogle();
+  Future<AuthResponse> signInWithGoogle();
   Future<void> resetPassword(String email);
   Future<void> updateUserInfo(
     String? organization,

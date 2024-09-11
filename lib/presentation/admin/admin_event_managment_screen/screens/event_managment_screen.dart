@@ -58,10 +58,8 @@ class EventManagmentScreen extends StatelessWidget {
                               const DatePickerFilter(),
                               const FilterChips(),
                               state.maybeWhen(
-                                loading: () => const Center(
-                                  // TODO: Add skeletonizer
-                                  child: LoadingIndicator(),
-                                ),
+                                loading: () =>
+                                    const Center(child: LoadingIndicator()),
                                 loaded: (events) =>
                                     AdminEventCardList(events: events),
                                 orElse: () => const SizedBox.shrink(),

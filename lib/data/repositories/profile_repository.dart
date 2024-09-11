@@ -40,6 +40,19 @@ class ProfileRepository {
     }
   }
 
+  Future<void> addGoogleProfile(
+    String id,
+    String email,
+    String fullName,
+    String imageUrl,
+  ) async {
+    try {
+      await _profileClient.addGoogleProfile(id, fullName, email, imageUrl);
+    } catch (e) {
+      throw Exception('Error adding google profile');
+    }
+  }
+
   Future<void> addProfileImage(Profile profile, File image) async {
     try {
       if (profile.imageUrl != null) {

@@ -4,6 +4,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:formz/formz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:ieee_sst/data/clients/profile_client.dart';
 import 'package:ieee_sst/data/models/input_models/email.dart';
 import 'package:ieee_sst/data/models/input_models/password.dart';
 import 'package:ieee_sst/domain/repositories/auth/auth_repository.dart';
@@ -16,7 +17,8 @@ part 'login_bloc.freezed.dart';
 
 @injectable
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
-  LoginBloc(this._authRepository) : super(const LoginState()) {
+  LoginBloc(this._authRepository, this._profileClient)
+      : super(const LoginState()) {
     on<_Submitted>(_onSubmitted);
     on<_EmailChanged>(_onEmailChanged);
     on<_PasswordChanged>(_onPasswordChanged);
@@ -25,6 +27,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
   }
 
   final AuthenticationRepository _authRepository;
+  final ProfileClient _profileClient;
 
   Future<void> _onSubmitted(
     _Submitted event,
@@ -84,10 +87,18 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     );
   }
 
-  FutureOr<void> _onLoginWithGoogle(
-      _LoginWithGoogle event, Emitter<LoginState> emit) {
+  Future<FutureOr<void>> _onLoginWithGoogle(
+      _LoginWithGoogle event, Emitter<LoginState> emit) async {
+    emit(state.copyWith(status: FormzSubmissionStatus.inProgress));
     try {
-      _authRepository.signInWithGoogle();
+      final AuthResponse res = await _authRepository.signInWithGoogle();
+      await _profileClient.addGoogleProfile(
+        res.user!.id,
+        res.user!.userMetadata!['full_name'] ?? '',
+        res.user!.email ?? '',
+        res.user!.userMetadata!['avatar_url'] ?? '',
+      );
+      emit(state.copyWith(status: FormzSubmissionStatus.success));
     } on AuthApiException catch (e) {
       throw AuthException(e.toString());
     }

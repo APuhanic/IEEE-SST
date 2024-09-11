@@ -428,6 +428,6 @@ class AppRouter {
     if (session.user.userMetadata!['role'] == UserRoles.admin) {
       return RoutePaths.adminHomeScreen;
     }
-    return RoutePaths.agenda;
+    return RoutePaths.home;
   }
 }

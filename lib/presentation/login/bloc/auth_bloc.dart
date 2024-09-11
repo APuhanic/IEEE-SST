@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:ieee_sst/domain/models/user_model.dart';
 import 'package:ieee_sst/domain/repositories/auth/auth_repository.dart';
 import 'package:injectable/injectable.dart';
@@ -12,20 +13,20 @@ part 'auth_bloc.freezed.dart';
 
 @injectable
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
-  AuthBloc(this._supabaseAuthRepository) : super(const _Unauthenticated()) {
+  AuthBloc(this._authRepository) : super(const _Unauthenticated()) {
     on<_InitialAuthEvent>(_onInitialAuthEvent);
     on<_SignOut>(_onSignOut);
     on<_OnCurrentUserChanged>(_onCurrentUserChanged);
     _startUserSubscription();
   }
-  final AuthenticationRepository _supabaseAuthRepository;
+  final AuthenticationRepository _authRepository;
   StreamSubscription<BaseUserModel?>? _authSubscription;
 
   void _onInitialAuthEvent(
     AuthEvent event,
     Emitter<AuthState> emit,
   ) async {
-    BaseUserModel? signedInUser = _supabaseAuthRepository.getCurrentUser();
+    BaseUserModel? signedInUser = _authRepository.getCurrentUser();
     if (signedInUser != null) {
       emit(AuthState.authenticated(signedInUser));
     } else {
@@ -37,12 +38,14 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     AuthEvent event,
     Emitter<AuthState> emit,
   ) async {
-    await _supabaseAuthRepository.signOut();
+    final GoogleSignIn googleSignIn = GoogleSignIn();
+
+    await _authRepository.signOut();
+    await googleSignIn.signOut();
   }
 
   void _startUserSubscription() {
-    _authSubscription =
-        _supabaseAuthRepository.getCurrentUserStream().listen((user) {
+    _authSubscription = _authRepository.getCurrentUserStream().listen((user) {
       add(AuthEvent.onCurrentUserChanged(user));
     });
   }
