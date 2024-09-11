@@ -1,0 +1,225 @@
+{
+    "program_committee": [
+      {
+        "name": "Mato Baotić",
+        "institution": "University of Zagreb",
+        "country": "Croatia"
+      },
+      {
+        "name": "Tin Benšić",
+        "institution": "J.J. Strossmayer University of Osijek",
+        "country": "Croatia"
+      },
+      {
+        "name": "Zlatko Čović",
+        "institution": "Subotica Tech – College of Applied Sciences",
+        "country": "Serbia"
+      },
+      {
+        "name": "Mario Dudjak",
+        "institution": "J.J. Strossmayer University of Osijek",
+        "country": "Croatia"
+      },
+      {
+        "name": "Damir Filko",
+        "institution": "J.J. Strossmayer University of Osijek",
+        "country": "Croatia"
+      },
+      {
+        "name": "Sergi Foix",
+        "institution": "Universitat Politècnica de Catalunya",
+        "country": "Spain"
+      },
+      {
+        "name": "Irena Galić",
+        "institution": "J.J. Strossmayer University of Osijek",
+        "country": "Croatia"
+      },
+      {
+        "name": "Ratko Grbić",
+        "institution": "J.J. Strossmayer University of Osijek",
+        "country": "Croatia"
+      },
+      {
+        "name": "Sonja Grgić",
+        "institution": "University of Zagreb",
+        "country": "Croatia"
+      },
+      {
+        "name": "Francesco Grimaccia",
+        "institution": "Politecnico di Milano",
+        "country": "Italy"
+      },
+      {
+        "name": "Marija Habijan",
+        "institution": "J.J. Strossmayer University of Osijek",
+        "country": "Croatia"
+      },
+      {
+        "name": "Daniel Hofman",
+        "institution": "University of Zagreb",
+        "country": "Croatia"
+      },
+      {
+        "name": "Damir Jakus",
+        "institution": "University of Split",
+        "country": "Croatia"
+      },
+      {
+        "name": "Tomislav Keser",
+        "institution": "J.J. Strossmayer University of Osijek",
+        "country": "Croatia"
+      },
+      {
+        "name": "Tatjana Konjić",
+        "institution": "University of Zagreb",
+        "country": "Croatia"
+      },
+      {
+        "name": "Dražan Kozak",
+        "institution": "University of Slavonski Brod",
+        "country": "Croatia"
+      },
+      {
+        "name": "Mario Kusek",
+        "institution": "University of Zagreb",
+        "country": "Croatia"
+      },
+      {
+        "name": "Edin Lakić",
+        "institution": "University of Ljubljana",
+        "country": "Slovenia"
+      },
+      {
+        "name": "Benjamin Lehmann",
+        "institution": "Hochschule Bremen",
+        "country": "Germany"
+      },
+      {
+        "name": "Ivan Magdalenić",
+        "institution": "University of Zagreb",
+        "country": "Croatia"
+      },
+      {
+        "name": "Vlado Majstorović",
+        "institution": "University of Mostar",
+        "country": "Bosnia and Herzegovina"
+      },
+      {
+        "name": "Ivan Marković",
+        "institution": "University of Zagreb",
+        "country": "Croatia"
+      },
+      {
+        "name": "Goran Martinović",
+        "institution": "J.J. Strossmayer University of Osijek",
+        "country": "Croatia"
+      },
+      {
+        "name": "Tomi Medved",
+        "institution": "University of Ljubljana",
+        "country": "Slovenia"
+      },
+      {
+        "name": "Branimir Novoselnik",
+        "institution": "University of Zagreb",
+        "country": "Croatia"
+      },
+      {
+        "name": "Gregor Papa",
+        "institution": "Jožef Stefan Institute",
+        "country": "Slovenia"
+      },
+      {
+        "name": "Marcin Paprzycki",
+        "institution": "Systems Research Institute of the Polish Academy of Sciences",
+        "country": "Poland"
+      },
+      {
+        "name": "Petra Pejić",
+        "institution": "J.J. Strossmayer University of Osijek",
+        "country": "Croatia"
+      },
+      {
+        "name": "Rene Prenc",
+        "institution": "University of Rijeka",
+        "country": "Croatia"
+      },
+      {
+        "name": "Snježana Rimac-Drlje",
+        "institution": "J.J. Strossmayer University of Osijek",
+        "country": "Croatia"
+      },
+      {
+        "name": "Slavko Rupčić",
+        "institution": "J.J. Strossmayer University of Osijek",
+        "country": "Croatia"
+      },
+      {
+        "name": "Vasilija Sarac",
+        "institution": "Goce Delčev University of Štip",
+        "country": "North Macedonia"
+      },
+      {
+        "name": "Sebastijan Seme",
+        "institution": "University of Maribor",
+        "country": "Slovenia"
+      },
+      {
+        "name": "Dejan Škvorc",
+        "institution": "University of Zagreb",
+        "country": "Croatia"
+      },
+      {
+        "name": "Vlado Sruk",
+        "institution": "University of Zagreb",
+        "country": "Croatia"
+      },
+      {
+        "name": "Marinko Stojkov",
+        "institution": "University of Slavonski Brod",
+        "country": "Croatia"
+      },
+      {
+        "name": "Domagoj Tolić",
+        "institution": "Rochester Institute of Technology",
+        "country": "Croatia"
+      },
+      {
+        "name": "Josip Vasilj",
+        "institution": "University of Zagreb",
+        "country": "Croatia"
+      },
+      {
+        "name": "Ivan Vidović",
+        "institution": "J.J. Strossmayer University of Osijek",
+        "country": "Croatia"
+      },
+      {
+        "name": "Tomislav Volarić",
+        "institution": "University of Mostar",
+        "country": "Bosnia and Herzegovina"
+      },
+      {
+        "name": "Denis Vranješ",
+        "institution": "J.J. Strossmayer University of Osijek",
+        "country": "Croatia"
+      },
+      {
+        "name": "Mario Vražić",
+        "institution": "University of Zagreb",
+        "country": "Croatia"
+      },
+      {
+        "name": "Bruno Zorić",
+        "institution": "J.J. Strossmayer University of Osijek",
+        "country": "Croatia"
+      },
+      {
+        "name": "Matej Žnidarec",
+        "institution": "J.J. Strossmayer University of Osijek",
+        "country": "Croatia"
+      }
+    ]
+  }
+  

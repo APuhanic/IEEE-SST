@@ -27,6 +27,7 @@ class AuthRepository implements AuthenticationRepository {
     String fullName,
     String? organization,
     String? position,
+    String? country,
   ) async {
     // TODO: Implement error handling for profile creation
     final response = await _supabaseClient.auth.signUp(
@@ -37,6 +38,7 @@ class AuthRepository implements AuthenticationRepository {
         'full_name': fullName,
         'organization': organization,
         'position': position,
+        'country': country,
       },
     );
     await _profileClient.addUserProfile(
@@ -45,6 +47,7 @@ class AuthRepository implements AuthenticationRepository {
       email,
       organization ?? '',
       position ?? '',
+      country ?? '',
     );
   }
 
@@ -131,5 +134,23 @@ class AuthRepository implements AuthenticationRepository {
   @override
   Future<void> resetPassword(String email) async {
     await _supabaseClient.auth.resetPasswordForEmail(email);
+  }
+
+  @override
+  Future<void> updateUserInfo(
+    String? organization,
+    String? position,
+    String? country,
+  ) async {
+    final user = _supabaseClient.auth.currentUser;
+    if (user == null) {
+      throw 'User is not signed in.';
+    }
+    await _profileClient.updateUserProfile(
+      user.id,
+      organization,
+      position,
+      country,
+    );
   }
 }

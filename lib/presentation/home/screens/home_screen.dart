@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:ieee_sst/data/constants/app_colors.dart';
 import 'package:ieee_sst/data/constants/route_paths.dart';
 import 'package:ieee_sst/data/constants/text_styles.dart';
+import 'package:ieee_sst/presentation/admin/admin_home_screen/widgets/my_profile_screen_button.dart';
 import 'package:ieee_sst/presentation/common/bloc/profile_bloc/profile_bloc.dart';
 import 'package:ieee_sst/presentation/common/widgets/loading_indicator.dart';
 import 'package:ieee_sst/presentation/home/widgets/home_screen_drawer.dart';
@@ -21,7 +22,7 @@ class HomeScreen extends StatelessWidget {
     context.read<ProfileBloc>().add(const ProfileEvent.loadProfile());
     return Scaffold(
       body: CustomScrollView(
-        physics: const BouncingScrollPhysics(),
+        physics: const ClampingScrollPhysics(),
         scrollBehavior: const MaterialScrollBehavior(),
         slivers: <Widget>[
           BlocBuilder<ProfileBloc, ProfileState>(
@@ -37,23 +38,12 @@ class HomeScreen extends StatelessWidget {
                 leading: const _BlueHomeScreenDrawer(),
                 actions: [
                   GestureDetector(
-                    onTap: () {
-                      context.push(RoutePaths.profile);
-                    },
+                    onTap: () => context.push(RoutePaths.profile),
                     child: Padding(
                       padding: const EdgeInsets.only(right: 8.0),
                       child: state.maybeWhen(
                         loadedProfile: (profile) {
-                          return GestureDetector(
-                            onTap: () {
-                              context.push(RoutePaths.profile);
-                            },
-                            child: const CircleAvatar(
-                              backgroundColor: AppColors.background,
-                              backgroundImage:
-                                  AssetImage('assets/images/user.png'),
-                            ),
-                          );
+                          return MyProfileScreenButton(profile: profile);
                         },
                         error: (message) => const Icon(Icons.error),
                         orElse: () => const LoadingIndicator(),
@@ -155,6 +145,8 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ),
                   ),
+
+                  //TODO: COMMON WIDGET
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 16.0),
                     child: Row(

@@ -60,7 +60,6 @@ class UploadDocumentScreen extends StatelessWidget {
                             child: AddDocumentFileButton(),
                           ),
 
-                          // Display selected file text underneath the button with a remove option
                           BlocBuilder<DocumentFormBloc, DocumentFormState>(
                             builder: (context, state) {
                               if (state.file != null) {
@@ -69,7 +68,6 @@ class UploadDocumentScreen extends StatelessWidget {
                                       const EdgeInsets.symmetric(vertical: 8.0),
                                   child: Column(
                                     children: [
-                                      // Remove Icon positioned above the file name
                                       Align(
                                         alignment: Alignment.topRight,
                                         child: GestureDetector(
@@ -99,7 +97,6 @@ class UploadDocumentScreen extends StatelessWidget {
                             },
                           ),
 
-                          // Upload Button with loading state
                           BlocBuilder<DocumentFormBloc, DocumentFormState>(
                             builder: (context, state) {
                               return Padding(

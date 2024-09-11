@@ -10,6 +10,7 @@ abstract class AuthenticationRepository {
     String fullName,
     String? organization,
     String? position,
+    String? country,
   );
   Future<void> signUpWithEmailAndPasswordAsAdmin(String email, String password);
   Future<void> signOut();
@@ -17,4 +18,9 @@ abstract class AuthenticationRepository {
   Stream<BaseUserModel?> getCurrentUserStream();
   Future<void> signInWithGoogle();
   Future<void> resetPassword(String email);
+  Future<void> updateUserInfo(
+    String? organization,
+    String? position,
+    String? country,
+  );
 }

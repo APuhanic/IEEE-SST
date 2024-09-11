@@ -19,8 +19,7 @@ part 'registration_bloc.freezed.dart';
 
 @injectable
 class RegistrationBloc extends Bloc<RegistrationEvent, RegistrationState> {
-  RegistrationBloc(this._supabaseAuthRepository)
-      : super(const _RegistrationState()) {
+  RegistrationBloc(this._authRepository) : super(const _RegistrationState()) {
     on<_Submitted>(_onSubmitted);
     on<_EmailChanged>(_onEmailChanged);
     on<_PasswordChanged>(_onPasswordChanged);
@@ -28,8 +27,13 @@ class RegistrationBloc extends Bloc<RegistrationEvent, RegistrationState> {
     on<_ConfirmPasswordChanged>(_onConfirmPasswordChanged);
     on<_OrganizationChanged>(_onOrganizationChanged);
     on<_PositionChanged>(_onPositionChanged);
+    on<_CountryChanged>(_onCountryChanged);
+    on<_UpdateUserInfo>(_onUpdateUserInfo);
+    on<_SetInitialValues>(_onSetInitialValues);
   }
-  final AuthenticationRepository _supabaseAuthRepository;
+  final AuthenticationRepository _authRepository;
+
+  //TODO: Separate user info and auth
 
   void _onSubmitted(
     _Submitted event,
@@ -37,12 +41,13 @@ class RegistrationBloc extends Bloc<RegistrationEvent, RegistrationState> {
   ) async {
     emit(state.copyWith(status: FormzSubmissionStatus.inProgress));
     try {
-      await _supabaseAuthRepository.signUpWithEmailAndPassword(
+      await _authRepository.signUpWithEmailAndPassword(
         state.email.value,
         state.password.value,
         state.fullName.value,
         state.organization.value,
         state.position.value,
+        state.country,
       );
       emit(state.copyWith(status: FormzSubmissionStatus.success));
     } on AuthException catch (e) {
@@ -125,7 +130,12 @@ class RegistrationBloc extends Bloc<RegistrationEvent, RegistrationState> {
     );
   }
 
-  FutureOr<void> _onPositionChanged(
+  void _onCountryChanged(
+      _CountryChanged event, Emitter<RegistrationState> emit) {
+    emit(state.copyWith(country: event.country));
+  }
+
+  void _onPositionChanged(
     _PositionChanged event,
     Emitter<RegistrationState> emit,
   ) {
@@ -135,6 +145,35 @@ class RegistrationBloc extends Bloc<RegistrationEvent, RegistrationState> {
         position: position,
         isValid: Formz.validate(
             [state.email, state.password, state.fullName, position]),
+      ),
+    );
+  }
+
+  Future<void> _onUpdateUserInfo(
+      _UpdateUserInfo event, Emitter<RegistrationState> emit) async {
+    emit(state.copyWith(status: FormzSubmissionStatus.inProgress));
+    try {
+      await _authRepository.updateUserInfo(
+        state.organization.value,
+        state.position.value,
+        state.country,
+      );
+      emit(state.copyWith(status: FormzSubmissionStatus.success));
+    } on AuthException catch (e) {
+      emit(state.copyWith(
+        status: FormzSubmissionStatus.failure,
+        errorMessage: e.message,
+      ));
+    }
+  }
+
+  void _onSetInitialValues(
+      _SetInitialValues event, Emitter<RegistrationState> emit) {
+    emit(
+      state.copyWith(
+        organization: Organization.dirty(event.organization),
+        position: Position.dirty(event.position),
+        country: event.country,
       ),
     );
   }

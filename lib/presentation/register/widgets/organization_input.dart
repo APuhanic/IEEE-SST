@@ -14,27 +14,32 @@ class OrganizationInput extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: 60,
-      child: TextFormField(
-        onChanged: (value) => context
-            .read<RegistrationBloc>()
-            .add(RegistrationEvent.organizationChanged(value)),
-        textInputAction: TextInputAction.next,
-        decoration: InputDecoration(
-          hintText: 'Organization name',
-          hintStyle: AppTextStyle.textForm,
-          filled: true,
-          fillColor: AppColors.white,
-          prefixIcon: const Icon(
-            FontAwesomeIcons.building,
-            color: AppColors.grayText,
-          ),
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10),
-            borderSide: BorderSide.none,
-          ),
-        ),
-        enableSuggestions: false,
-        autocorrect: false,
+      child: BlocBuilder<RegistrationBloc, RegistrationState>(
+        builder: (context, state) {
+          return TextFormField(
+            onChanged: (value) => context
+                .read<RegistrationBloc>()
+                .add(RegistrationEvent.organizationChanged(value)),
+            textInputAction: TextInputAction.next,
+            initialValue: state.organization.value,
+            decoration: InputDecoration(
+              hintText: 'Organization name',
+              hintStyle: AppTextStyle.textForm,
+              filled: true,
+              fillColor: AppColors.white,
+              prefixIcon: const Icon(
+                FontAwesomeIcons.building,
+                color: AppColors.grayText,
+              ),
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10),
+                borderSide: BorderSide.none,
+              ),
+            ),
+            enableSuggestions: false,
+            autocorrect: false,
+          );
+        },
       ),
     );
   }

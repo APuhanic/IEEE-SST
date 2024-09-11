@@ -23,13 +23,16 @@ class ProfileAdapter extends TypeAdapter<Profile> {
       position: fields[3] as String?,
       organization: fields[4] as String?,
       role: fields[5] as String?,
+      country: fields[6] as String?,
+      imageUrl: fields[7] as String?,
+      imagePath: fields[8] as String?,
     );
   }
 
   @override
   void write(BinaryWriter writer, Profile obj) {
     writer
-      ..writeByte(6)
+      ..writeByte(9)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
@@ -41,7 +44,13 @@ class ProfileAdapter extends TypeAdapter<Profile> {
       ..writeByte(4)
       ..write(obj.organization)
       ..writeByte(5)
-      ..write(obj.role);
+      ..write(obj.role)
+      ..writeByte(6)
+      ..write(obj.country)
+      ..writeByte(7)
+      ..write(obj.imageUrl)
+      ..writeByte(8)
+      ..write(obj.imagePath);
   }
 
   @override
@@ -67,6 +76,9 @@ _$ProfileImpl _$$ProfileImplFromJson(Map<String, dynamic> json) =>
       position: json['position'] as String?,
       organization: json['organization'] as String?,
       role: json['role'] as String?,
+      country: json['country'] as String?,
+      imageUrl: json['imageUrl'] as String?,
+      imagePath: json['imagePath'] as String?,
     );
 
 Map<String, dynamic> _$$ProfileImplToJson(_$ProfileImpl instance) =>
@@ -77,4 +89,7 @@ Map<String, dynamic> _$$ProfileImplToJson(_$ProfileImpl instance) =>
       'position': instance.position,
       'organization': instance.organization,
       'role': instance.role,
+      'country': instance.country,
+      'imageUrl': instance.imageUrl,
+      'imagePath': instance.imagePath,
     };

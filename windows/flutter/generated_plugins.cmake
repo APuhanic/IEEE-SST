@@ -4,8 +4,8 @@
 
 list(APPEND FLUTTER_PLUGIN_LIST
   app_links
-  irondash_engine_context
-  super_native_extensions
+  connectivity_plus
+  file_selector_windows
   url_launcher_windows
 )
 

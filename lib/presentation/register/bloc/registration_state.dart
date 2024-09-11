@@ -11,6 +11,7 @@ class RegistrationState with _$RegistrationState {
     @Default(Position.pure()) Position position,
     @Default(ConfirmPassowrd.pure('')) ConfirmPassowrd confirmPassword,
     @Default(false) bool isValid,
+    @Default('') String country,
     @Default('') String errorMessage,
   }) = _RegistrationState;
 }

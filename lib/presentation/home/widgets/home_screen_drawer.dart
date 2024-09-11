@@ -51,18 +51,6 @@ class HomeScreenDrawer extends StatelessWidget {
                   ),
                 ),
               ),
-              /*ListTile(
-                title: const Text('Sponsors'),
-                onTap: () {
-                  context.go(RoutePaths.sponsors);
-                },
-              ),
-              ListTile(
-                title: const Text('Documents'),
-                onTap: () {
-                  context.go(RoutePaths.documents);
-                },
-              ),*/
               BlocBuilder<AuthSessionCubit, AuthSessionState>(
                 builder: (context, state) {
                   return state.maybeWhen(
@@ -81,20 +69,17 @@ class HomeScreenDrawer extends StatelessWidget {
                         },
                       );
                     },
-                    orElse: () {
-                      return const SizedBox.shrink();
-                    },
+                    orElse: () => const SizedBox.shrink(),
                   );
                 },
               ),
               ListTile(
-                title: const Text('Log out',
-                    style: TextStyle(
-                      color: AppColors.primary,
-                    )),
-                onTap: () {
-                  context.read<AuthBloc>().add(const AuthEvent.signOut());
-                },
+                title: const Text(
+                  'Log out',
+                  style: TextStyle(color: AppColors.primary),
+                ),
+                onTap: () =>
+                    context.read<AuthBloc>().add(const AuthEvent.signOut()),
               ),
             ],
           ),

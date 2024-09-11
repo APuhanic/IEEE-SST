@@ -21,6 +21,7 @@ import 'package:ieee_sst/presentation/info/question_posts/bloc/post_form_bloc/po
 import 'package:ieee_sst/presentation/info/question_posts/bloc/post_managment_bloc/post_managment_bloc.dart';
 import 'package:ieee_sst/presentation/login/bloc/auth_bloc.dart';
 import 'package:ieee_sst/presentation/login/bloc/login/login_bloc.dart';
+import 'package:ieee_sst/presentation/profile/bloc/profile_image_bloc.dart';
 import 'package:ieee_sst/presentation/register/bloc/registration_bloc.dart';
 
 class MainApp extends StatelessWidget {
@@ -60,6 +61,7 @@ class MainApp extends StatelessWidget {
         BlocProvider(create: (context) => getIt<DocumentFormBloc>()),
         BlocProvider(create: (context) => getIt<DocumentManagmentBloc>()),
         BlocProvider(create: (context) => getIt<LoginBloc>()),
+        BlocProvider(create: (context) => getIt<ProfileImageBloc>()),
       ],
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,

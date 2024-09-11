@@ -1,0 +1,78 @@
+{
+    "conference_chairs": [
+      {
+        "role": "General Chair",
+        "name": "Emmanuel Karlo Nyarko",
+        "institution": "Faculty of Electrical Engineering, Computer Science and Information Technology Osijek",
+        "university": "Josip Juraj Strossmayer University of Osijek",
+        "address": "Kneza Trpimira 2b, Osijek, Croatia",
+        "phone": "+385 31 495 403",
+        "email": "karlo.nyarko@ferit.hr",
+        "imageUrl": "assets/images/cv_nyarko_karlo-200x257-1.jpg"
+      },
+      {
+        "role": "Program Chair",
+        "name": "Tomislav Matić",
+        "institution": "Faculty of Electrical Engineering, Computer Science and Information Technology Osijek",
+        "university": "Josip Juraj Strossmayer University of Osijek",
+        "address": "Kneza Trpimira 2b, Osijek, Croatia",
+        "phone": "+385 31 224 602",
+        "email": "tomislav.matic@ferit.hr",
+        "imageUrl": "assets/images/cv_matic_tomislav-st-200x257-1.jpg"
+      },
+      {
+        "role": "Program Chair",
+        "name": "Mario Vranješ",
+        "institution": "Faculty of Electrical Engineering, Computer Science and Information Technology Osijek",
+        "university": "Josip Juraj Strossmayer University of Osijek",
+        "address": "Kneza Trpimira 2b, Osijek, Croatia",
+        "phone": "+385 31 224 670",
+        "email": "mario.vranjes@ferit.hr",
+        "imageUrl": "assets/images/cv_vranjes_mario-200x257-1.jpg"
+      },
+      {
+        "role": "Registration Chair",
+        "name": "Marinko Barukčić",
+        "institution": "Faculty of Electrical Engineering, Computer Science and Information Technology Osijek",
+        "university": "Josip Juraj Strossmayer University of Osijek",
+        "address": "Kneza Trpimira 2b, Osijek, Croatia",
+        "phone": "+385 31 224 685",
+        "email": "marinko.barukcic@ferit.hr",
+        "imageUrl": "assets/images/cv_barukcic_marinko-200x257-1.jpg"
+
+      },
+      {
+        "role": "Publication Chair",
+        "name": "Robert Cupec",
+        "institution": "Faculty of Electrical Engineering, Computer Science and Information Technology Osijek",
+        "university": "Josip Juraj Strossmayer University of Osijek",
+        "address": "Kneza Trpimira 2b, Osijek, Croatia",
+        "phone": "+385 31 495 427",
+        "email": "robert.cupec@ferit.hr",
+        "imageUrl": "assets/images/cv_cupec_robert-200x257-1.jpg"
+
+      },
+      {
+        "role": "Publicity/Web Chair",
+        "name": "Danijel Topić",
+        "institution": "Faculty of Electrical Engineering, Computer Science and Information Technology Osijek",
+        "university": "Josip Juraj Strossmayer University of Osijek",
+        "address": "Kneza Trpimira 2b, Osijek, Croatia",
+        "phone": "+385 31 224 614",
+        "email": "danijel.topic@ferit.hr",
+        "imageUrl": "assets/images/cv_topic_danijel-200x257-1.jpg"
+
+      },
+      {
+        "role": "Publicity/Web Chair",
+        "name": "Josip Balen",
+        "institution": "Faculty of Electrical Engineering, Computer Science and Information Technology Osijek",
+        "university": "Josip Juraj Strossmayer University of Osijek",
+        "address": "Kneza Trpimira 2b, Osijek, Croatia",
+        "phone": "+385 31 224 759",
+        "email": "josip.balen@ferit.hr",
+        "imageUrl": "assets/images/Josip_Balen_profil-002.jpg"
+      }
+    ]
+  }
+  

@@ -13,10 +13,12 @@ class UserProfileTile extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Image.asset(
-            'assets/images/user.png',
-            height: 60,
-            width: 60,
+          // TODO: Global avatar
+          CircleAvatar(
+            radius: 30,
+            backgroundImage: profile.imageUrl != null
+                ? NetworkImage(profile.imageUrl!)
+                : const AssetImage('assets/images/user.png') as ImageProvider,
           ),
           const SizedBox(width: 16),
           Column(
@@ -31,6 +33,13 @@ class UserProfileTile extends StatelessWidget {
               ),
               Text(
                 profile.organization ?? '',
+                style: const TextStyle(
+                  fontSize: 16,
+                  color: Colors.grey,
+                ),
+              ),
+              Text(
+                profile.country ?? '',
                 style: const TextStyle(
                   fontSize: 16,
                   color: Colors.grey,

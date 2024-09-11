@@ -25,6 +25,11 @@ mixin _$RegistrationEvent {
     required TResult Function(String organization) organizationChanged,
     required TResult Function(String position) positionChanged,
     required TResult Function(String confirmPassword) confirmPasswordChanged,
+    required TResult Function(String country) countryChanged,
+    required TResult Function() updateUserInfo,
+    required TResult Function(
+            String organization, String position, String country)
+        setInitialValues,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -36,6 +41,10 @@ mixin _$RegistrationEvent {
     TResult? Function(String organization)? organizationChanged,
     TResult? Function(String position)? positionChanged,
     TResult? Function(String confirmPassword)? confirmPasswordChanged,
+    TResult? Function(String country)? countryChanged,
+    TResult? Function()? updateUserInfo,
+    TResult? Function(String organization, String position, String country)?
+        setInitialValues,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -47,6 +56,10 @@ mixin _$RegistrationEvent {
     TResult Function(String organization)? organizationChanged,
     TResult Function(String position)? positionChanged,
     TResult Function(String confirmPassword)? confirmPasswordChanged,
+    TResult Function(String country)? countryChanged,
+    TResult Function()? updateUserInfo,
+    TResult Function(String organization, String position, String country)?
+        setInitialValues,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -60,6 +73,9 @@ mixin _$RegistrationEvent {
     required TResult Function(_PositionChanged value) positionChanged,
     required TResult Function(_ConfirmPasswordChanged value)
         confirmPasswordChanged,
+    required TResult Function(_CountryChanged value) countryChanged,
+    required TResult Function(_UpdateUserInfo value) updateUserInfo,
+    required TResult Function(_SetInitialValues value) setInitialValues,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -71,6 +87,9 @@ mixin _$RegistrationEvent {
     TResult? Function(_OrganizationChanged value)? organizationChanged,
     TResult? Function(_PositionChanged value)? positionChanged,
     TResult? Function(_ConfirmPasswordChanged value)? confirmPasswordChanged,
+    TResult? Function(_CountryChanged value)? countryChanged,
+    TResult? Function(_UpdateUserInfo value)? updateUserInfo,
+    TResult? Function(_SetInitialValues value)? setInitialValues,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -82,6 +101,9 @@ mixin _$RegistrationEvent {
     TResult Function(_OrganizationChanged value)? organizationChanged,
     TResult Function(_PositionChanged value)? positionChanged,
     TResult Function(_ConfirmPasswordChanged value)? confirmPasswordChanged,
+    TResult Function(_CountryChanged value)? countryChanged,
+    TResult Function(_UpdateUserInfo value)? updateUserInfo,
+    TResult Function(_SetInitialValues value)? setInitialValues,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -150,6 +172,11 @@ class _$SubmittedImpl implements _Submitted {
     required TResult Function(String organization) organizationChanged,
     required TResult Function(String position) positionChanged,
     required TResult Function(String confirmPassword) confirmPasswordChanged,
+    required TResult Function(String country) countryChanged,
+    required TResult Function() updateUserInfo,
+    required TResult Function(
+            String organization, String position, String country)
+        setInitialValues,
   }) {
     return submitted();
   }
@@ -164,6 +191,10 @@ class _$SubmittedImpl implements _Submitted {
     TResult? Function(String organization)? organizationChanged,
     TResult? Function(String position)? positionChanged,
     TResult? Function(String confirmPassword)? confirmPasswordChanged,
+    TResult? Function(String country)? countryChanged,
+    TResult? Function()? updateUserInfo,
+    TResult? Function(String organization, String position, String country)?
+        setInitialValues,
   }) {
     return submitted?.call();
   }
@@ -178,6 +209,10 @@ class _$SubmittedImpl implements _Submitted {
     TResult Function(String organization)? organizationChanged,
     TResult Function(String position)? positionChanged,
     TResult Function(String confirmPassword)? confirmPasswordChanged,
+    TResult Function(String country)? countryChanged,
+    TResult Function()? updateUserInfo,
+    TResult Function(String organization, String position, String country)?
+        setInitialValues,
     required TResult orElse(),
   }) {
     if (submitted != null) {
@@ -197,6 +232,9 @@ class _$SubmittedImpl implements _Submitted {
     required TResult Function(_PositionChanged value) positionChanged,
     required TResult Function(_ConfirmPasswordChanged value)
         confirmPasswordChanged,
+    required TResult Function(_CountryChanged value) countryChanged,
+    required TResult Function(_UpdateUserInfo value) updateUserInfo,
+    required TResult Function(_SetInitialValues value) setInitialValues,
   }) {
     return submitted(this);
   }
@@ -211,6 +249,9 @@ class _$SubmittedImpl implements _Submitted {
     TResult? Function(_OrganizationChanged value)? organizationChanged,
     TResult? Function(_PositionChanged value)? positionChanged,
     TResult? Function(_ConfirmPasswordChanged value)? confirmPasswordChanged,
+    TResult? Function(_CountryChanged value)? countryChanged,
+    TResult? Function(_UpdateUserInfo value)? updateUserInfo,
+    TResult? Function(_SetInitialValues value)? setInitialValues,
   }) {
     return submitted?.call(this);
   }
@@ -225,6 +266,9 @@ class _$SubmittedImpl implements _Submitted {
     TResult Function(_OrganizationChanged value)? organizationChanged,
     TResult Function(_PositionChanged value)? positionChanged,
     TResult Function(_ConfirmPasswordChanged value)? confirmPasswordChanged,
+    TResult Function(_CountryChanged value)? countryChanged,
+    TResult Function(_UpdateUserInfo value)? updateUserInfo,
+    TResult Function(_SetInitialValues value)? setInitialValues,
     required TResult orElse(),
   }) {
     if (submitted != null) {
@@ -309,6 +353,11 @@ class _$EmailChangedImpl implements _EmailChanged {
     required TResult Function(String organization) organizationChanged,
     required TResult Function(String position) positionChanged,
     required TResult Function(String confirmPassword) confirmPasswordChanged,
+    required TResult Function(String country) countryChanged,
+    required TResult Function() updateUserInfo,
+    required TResult Function(
+            String organization, String position, String country)
+        setInitialValues,
   }) {
     return emailChanged(email);
   }
@@ -323,6 +372,10 @@ class _$EmailChangedImpl implements _EmailChanged {
     TResult? Function(String organization)? organizationChanged,
     TResult? Function(String position)? positionChanged,
     TResult? Function(String confirmPassword)? confirmPasswordChanged,
+    TResult? Function(String country)? countryChanged,
+    TResult? Function()? updateUserInfo,
+    TResult? Function(String organization, String position, String country)?
+        setInitialValues,
   }) {
     return emailChanged?.call(email);
   }
@@ -337,6 +390,10 @@ class _$EmailChangedImpl implements _EmailChanged {
     TResult Function(String organization)? organizationChanged,
     TResult Function(String position)? positionChanged,
     TResult Function(String confirmPassword)? confirmPasswordChanged,
+    TResult Function(String country)? countryChanged,
+    TResult Function()? updateUserInfo,
+    TResult Function(String organization, String position, String country)?
+        setInitialValues,
     required TResult orElse(),
   }) {
     if (emailChanged != null) {
@@ -356,6 +413,9 @@ class _$EmailChangedImpl implements _EmailChanged {
     required TResult Function(_PositionChanged value) positionChanged,
     required TResult Function(_ConfirmPasswordChanged value)
         confirmPasswordChanged,
+    required TResult Function(_CountryChanged value) countryChanged,
+    required TResult Function(_UpdateUserInfo value) updateUserInfo,
+    required TResult Function(_SetInitialValues value) setInitialValues,
   }) {
     return emailChanged(this);
   }
@@ -370,6 +430,9 @@ class _$EmailChangedImpl implements _EmailChanged {
     TResult? Function(_OrganizationChanged value)? organizationChanged,
     TResult? Function(_PositionChanged value)? positionChanged,
     TResult? Function(_ConfirmPasswordChanged value)? confirmPasswordChanged,
+    TResult? Function(_CountryChanged value)? countryChanged,
+    TResult? Function(_UpdateUserInfo value)? updateUserInfo,
+    TResult? Function(_SetInitialValues value)? setInitialValues,
   }) {
     return emailChanged?.call(this);
   }
@@ -384,6 +447,9 @@ class _$EmailChangedImpl implements _EmailChanged {
     TResult Function(_OrganizationChanged value)? organizationChanged,
     TResult Function(_PositionChanged value)? positionChanged,
     TResult Function(_ConfirmPasswordChanged value)? confirmPasswordChanged,
+    TResult Function(_CountryChanged value)? countryChanged,
+    TResult Function(_UpdateUserInfo value)? updateUserInfo,
+    TResult Function(_SetInitialValues value)? setInitialValues,
     required TResult orElse(),
   }) {
     if (emailChanged != null) {
@@ -475,6 +541,11 @@ class _$PasswordChangedImpl implements _PasswordChanged {
     required TResult Function(String organization) organizationChanged,
     required TResult Function(String position) positionChanged,
     required TResult Function(String confirmPassword) confirmPasswordChanged,
+    required TResult Function(String country) countryChanged,
+    required TResult Function() updateUserInfo,
+    required TResult Function(
+            String organization, String position, String country)
+        setInitialValues,
   }) {
     return passwordChanged(password);
   }
@@ -489,6 +560,10 @@ class _$PasswordChangedImpl implements _PasswordChanged {
     TResult? Function(String organization)? organizationChanged,
     TResult? Function(String position)? positionChanged,
     TResult? Function(String confirmPassword)? confirmPasswordChanged,
+    TResult? Function(String country)? countryChanged,
+    TResult? Function()? updateUserInfo,
+    TResult? Function(String organization, String position, String country)?
+        setInitialValues,
   }) {
     return passwordChanged?.call(password);
   }
@@ -503,6 +578,10 @@ class _$PasswordChangedImpl implements _PasswordChanged {
     TResult Function(String organization)? organizationChanged,
     TResult Function(String position)? positionChanged,
     TResult Function(String confirmPassword)? confirmPasswordChanged,
+    TResult Function(String country)? countryChanged,
+    TResult Function()? updateUserInfo,
+    TResult Function(String organization, String position, String country)?
+        setInitialValues,
     required TResult orElse(),
   }) {
     if (passwordChanged != null) {
@@ -522,6 +601,9 @@ class _$PasswordChangedImpl implements _PasswordChanged {
     required TResult Function(_PositionChanged value) positionChanged,
     required TResult Function(_ConfirmPasswordChanged value)
         confirmPasswordChanged,
+    required TResult Function(_CountryChanged value) countryChanged,
+    required TResult Function(_UpdateUserInfo value) updateUserInfo,
+    required TResult Function(_SetInitialValues value) setInitialValues,
   }) {
     return passwordChanged(this);
   }
@@ -536,6 +618,9 @@ class _$PasswordChangedImpl implements _PasswordChanged {
     TResult? Function(_OrganizationChanged value)? organizationChanged,
     TResult? Function(_PositionChanged value)? positionChanged,
     TResult? Function(_ConfirmPasswordChanged value)? confirmPasswordChanged,
+    TResult? Function(_CountryChanged value)? countryChanged,
+    TResult? Function(_UpdateUserInfo value)? updateUserInfo,
+    TResult? Function(_SetInitialValues value)? setInitialValues,
   }) {
     return passwordChanged?.call(this);
   }
@@ -550,6 +635,9 @@ class _$PasswordChangedImpl implements _PasswordChanged {
     TResult Function(_OrganizationChanged value)? organizationChanged,
     TResult Function(_PositionChanged value)? positionChanged,
     TResult Function(_ConfirmPasswordChanged value)? confirmPasswordChanged,
+    TResult Function(_CountryChanged value)? countryChanged,
+    TResult Function(_UpdateUserInfo value)? updateUserInfo,
+    TResult Function(_SetInitialValues value)? setInitialValues,
     required TResult orElse(),
   }) {
     if (passwordChanged != null) {
@@ -641,6 +729,11 @@ class _$UserNameChangedImpl implements _UserNameChanged {
     required TResult Function(String organization) organizationChanged,
     required TResult Function(String position) positionChanged,
     required TResult Function(String confirmPassword) confirmPasswordChanged,
+    required TResult Function(String country) countryChanged,
+    required TResult Function() updateUserInfo,
+    required TResult Function(
+            String organization, String position, String country)
+        setInitialValues,
   }) {
     return fullNameChanged(fullName);
   }
@@ -655,6 +748,10 @@ class _$UserNameChangedImpl implements _UserNameChanged {
     TResult? Function(String organization)? organizationChanged,
     TResult? Function(String position)? positionChanged,
     TResult? Function(String confirmPassword)? confirmPasswordChanged,
+    TResult? Function(String country)? countryChanged,
+    TResult? Function()? updateUserInfo,
+    TResult? Function(String organization, String position, String country)?
+        setInitialValues,
   }) {
     return fullNameChanged?.call(fullName);
   }
@@ -669,6 +766,10 @@ class _$UserNameChangedImpl implements _UserNameChanged {
     TResult Function(String organization)? organizationChanged,
     TResult Function(String position)? positionChanged,
     TResult Function(String confirmPassword)? confirmPasswordChanged,
+    TResult Function(String country)? countryChanged,
+    TResult Function()? updateUserInfo,
+    TResult Function(String organization, String position, String country)?
+        setInitialValues,
     required TResult orElse(),
   }) {
     if (fullNameChanged != null) {
@@ -688,6 +789,9 @@ class _$UserNameChangedImpl implements _UserNameChanged {
     required TResult Function(_PositionChanged value) positionChanged,
     required TResult Function(_ConfirmPasswordChanged value)
         confirmPasswordChanged,
+    required TResult Function(_CountryChanged value) countryChanged,
+    required TResult Function(_UpdateUserInfo value) updateUserInfo,
+    required TResult Function(_SetInitialValues value) setInitialValues,
   }) {
     return fullNameChanged(this);
   }
@@ -702,6 +806,9 @@ class _$UserNameChangedImpl implements _UserNameChanged {
     TResult? Function(_OrganizationChanged value)? organizationChanged,
     TResult? Function(_PositionChanged value)? positionChanged,
     TResult? Function(_ConfirmPasswordChanged value)? confirmPasswordChanged,
+    TResult? Function(_CountryChanged value)? countryChanged,
+    TResult? Function(_UpdateUserInfo value)? updateUserInfo,
+    TResult? Function(_SetInitialValues value)? setInitialValues,
   }) {
     return fullNameChanged?.call(this);
   }
@@ -716,6 +823,9 @@ class _$UserNameChangedImpl implements _UserNameChanged {
     TResult Function(_OrganizationChanged value)? organizationChanged,
     TResult Function(_PositionChanged value)? positionChanged,
     TResult Function(_ConfirmPasswordChanged value)? confirmPasswordChanged,
+    TResult Function(_CountryChanged value)? countryChanged,
+    TResult Function(_UpdateUserInfo value)? updateUserInfo,
+    TResult Function(_SetInitialValues value)? setInitialValues,
     required TResult orElse(),
   }) {
     if (fullNameChanged != null) {
@@ -807,6 +917,11 @@ class _$OrganizationChangedImpl implements _OrganizationChanged {
     required TResult Function(String organization) organizationChanged,
     required TResult Function(String position) positionChanged,
     required TResult Function(String confirmPassword) confirmPasswordChanged,
+    required TResult Function(String country) countryChanged,
+    required TResult Function() updateUserInfo,
+    required TResult Function(
+            String organization, String position, String country)
+        setInitialValues,
   }) {
     return organizationChanged(organization);
   }
@@ -821,6 +936,10 @@ class _$OrganizationChangedImpl implements _OrganizationChanged {
     TResult? Function(String organization)? organizationChanged,
     TResult? Function(String position)? positionChanged,
     TResult? Function(String confirmPassword)? confirmPasswordChanged,
+    TResult? Function(String country)? countryChanged,
+    TResult? Function()? updateUserInfo,
+    TResult? Function(String organization, String position, String country)?
+        setInitialValues,
   }) {
     return organizationChanged?.call(organization);
   }
@@ -835,6 +954,10 @@ class _$OrganizationChangedImpl implements _OrganizationChanged {
     TResult Function(String organization)? organizationChanged,
     TResult Function(String position)? positionChanged,
     TResult Function(String confirmPassword)? confirmPasswordChanged,
+    TResult Function(String country)? countryChanged,
+    TResult Function()? updateUserInfo,
+    TResult Function(String organization, String position, String country)?
+        setInitialValues,
     required TResult orElse(),
   }) {
     if (organizationChanged != null) {
@@ -854,6 +977,9 @@ class _$OrganizationChangedImpl implements _OrganizationChanged {
     required TResult Function(_PositionChanged value) positionChanged,
     required TResult Function(_ConfirmPasswordChanged value)
         confirmPasswordChanged,
+    required TResult Function(_CountryChanged value) countryChanged,
+    required TResult Function(_UpdateUserInfo value) updateUserInfo,
+    required TResult Function(_SetInitialValues value) setInitialValues,
   }) {
     return organizationChanged(this);
   }
@@ -868,6 +994,9 @@ class _$OrganizationChangedImpl implements _OrganizationChanged {
     TResult? Function(_OrganizationChanged value)? organizationChanged,
     TResult? Function(_PositionChanged value)? positionChanged,
     TResult? Function(_ConfirmPasswordChanged value)? confirmPasswordChanged,
+    TResult? Function(_CountryChanged value)? countryChanged,
+    TResult? Function(_UpdateUserInfo value)? updateUserInfo,
+    TResult? Function(_SetInitialValues value)? setInitialValues,
   }) {
     return organizationChanged?.call(this);
   }
@@ -882,6 +1011,9 @@ class _$OrganizationChangedImpl implements _OrganizationChanged {
     TResult Function(_OrganizationChanged value)? organizationChanged,
     TResult Function(_PositionChanged value)? positionChanged,
     TResult Function(_ConfirmPasswordChanged value)? confirmPasswordChanged,
+    TResult Function(_CountryChanged value)? countryChanged,
+    TResult Function(_UpdateUserInfo value)? updateUserInfo,
+    TResult Function(_SetInitialValues value)? setInitialValues,
     required TResult orElse(),
   }) {
     if (organizationChanged != null) {
@@ -974,6 +1106,11 @@ class _$PositionChangedImpl implements _PositionChanged {
     required TResult Function(String organization) organizationChanged,
     required TResult Function(String position) positionChanged,
     required TResult Function(String confirmPassword) confirmPasswordChanged,
+    required TResult Function(String country) countryChanged,
+    required TResult Function() updateUserInfo,
+    required TResult Function(
+            String organization, String position, String country)
+        setInitialValues,
   }) {
     return positionChanged(position);
   }
@@ -988,6 +1125,10 @@ class _$PositionChangedImpl implements _PositionChanged {
     TResult? Function(String organization)? organizationChanged,
     TResult? Function(String position)? positionChanged,
     TResult? Function(String confirmPassword)? confirmPasswordChanged,
+    TResult? Function(String country)? countryChanged,
+    TResult? Function()? updateUserInfo,
+    TResult? Function(String organization, String position, String country)?
+        setInitialValues,
   }) {
     return positionChanged?.call(position);
   }
@@ -1002,6 +1143,10 @@ class _$PositionChangedImpl implements _PositionChanged {
     TResult Function(String organization)? organizationChanged,
     TResult Function(String position)? positionChanged,
     TResult Function(String confirmPassword)? confirmPasswordChanged,
+    TResult Function(String country)? countryChanged,
+    TResult Function()? updateUserInfo,
+    TResult Function(String organization, String position, String country)?
+        setInitialValues,
     required TResult orElse(),
   }) {
     if (positionChanged != null) {
@@ -1021,6 +1166,9 @@ class _$PositionChangedImpl implements _PositionChanged {
     required TResult Function(_PositionChanged value) positionChanged,
     required TResult Function(_ConfirmPasswordChanged value)
         confirmPasswordChanged,
+    required TResult Function(_CountryChanged value) countryChanged,
+    required TResult Function(_UpdateUserInfo value) updateUserInfo,
+    required TResult Function(_SetInitialValues value) setInitialValues,
   }) {
     return positionChanged(this);
   }
@@ -1035,6 +1183,9 @@ class _$PositionChangedImpl implements _PositionChanged {
     TResult? Function(_OrganizationChanged value)? organizationChanged,
     TResult? Function(_PositionChanged value)? positionChanged,
     TResult? Function(_ConfirmPasswordChanged value)? confirmPasswordChanged,
+    TResult? Function(_CountryChanged value)? countryChanged,
+    TResult? Function(_UpdateUserInfo value)? updateUserInfo,
+    TResult? Function(_SetInitialValues value)? setInitialValues,
   }) {
     return positionChanged?.call(this);
   }
@@ -1049,6 +1200,9 @@ class _$PositionChangedImpl implements _PositionChanged {
     TResult Function(_OrganizationChanged value)? organizationChanged,
     TResult Function(_PositionChanged value)? positionChanged,
     TResult Function(_ConfirmPasswordChanged value)? confirmPasswordChanged,
+    TResult Function(_CountryChanged value)? countryChanged,
+    TResult Function(_UpdateUserInfo value)? updateUserInfo,
+    TResult Function(_SetInitialValues value)? setInitialValues,
     required TResult orElse(),
   }) {
     if (positionChanged != null) {
@@ -1142,6 +1296,11 @@ class _$ConfirmPasswordChangedImpl implements _ConfirmPasswordChanged {
     required TResult Function(String organization) organizationChanged,
     required TResult Function(String position) positionChanged,
     required TResult Function(String confirmPassword) confirmPasswordChanged,
+    required TResult Function(String country) countryChanged,
+    required TResult Function() updateUserInfo,
+    required TResult Function(
+            String organization, String position, String country)
+        setInitialValues,
   }) {
     return confirmPasswordChanged(confirmPassword);
   }
@@ -1156,6 +1315,10 @@ class _$ConfirmPasswordChangedImpl implements _ConfirmPasswordChanged {
     TResult? Function(String organization)? organizationChanged,
     TResult? Function(String position)? positionChanged,
     TResult? Function(String confirmPassword)? confirmPasswordChanged,
+    TResult? Function(String country)? countryChanged,
+    TResult? Function()? updateUserInfo,
+    TResult? Function(String organization, String position, String country)?
+        setInitialValues,
   }) {
     return confirmPasswordChanged?.call(confirmPassword);
   }
@@ -1170,6 +1333,10 @@ class _$ConfirmPasswordChangedImpl implements _ConfirmPasswordChanged {
     TResult Function(String organization)? organizationChanged,
     TResult Function(String position)? positionChanged,
     TResult Function(String confirmPassword)? confirmPasswordChanged,
+    TResult Function(String country)? countryChanged,
+    TResult Function()? updateUserInfo,
+    TResult Function(String organization, String position, String country)?
+        setInitialValues,
     required TResult orElse(),
   }) {
     if (confirmPasswordChanged != null) {
@@ -1189,6 +1356,9 @@ class _$ConfirmPasswordChangedImpl implements _ConfirmPasswordChanged {
     required TResult Function(_PositionChanged value) positionChanged,
     required TResult Function(_ConfirmPasswordChanged value)
         confirmPasswordChanged,
+    required TResult Function(_CountryChanged value) countryChanged,
+    required TResult Function(_UpdateUserInfo value) updateUserInfo,
+    required TResult Function(_SetInitialValues value) setInitialValues,
   }) {
     return confirmPasswordChanged(this);
   }
@@ -1203,6 +1373,9 @@ class _$ConfirmPasswordChangedImpl implements _ConfirmPasswordChanged {
     TResult? Function(_OrganizationChanged value)? organizationChanged,
     TResult? Function(_PositionChanged value)? positionChanged,
     TResult? Function(_ConfirmPasswordChanged value)? confirmPasswordChanged,
+    TResult? Function(_CountryChanged value)? countryChanged,
+    TResult? Function(_UpdateUserInfo value)? updateUserInfo,
+    TResult? Function(_SetInitialValues value)? setInitialValues,
   }) {
     return confirmPasswordChanged?.call(this);
   }
@@ -1217,6 +1390,9 @@ class _$ConfirmPasswordChangedImpl implements _ConfirmPasswordChanged {
     TResult Function(_OrganizationChanged value)? organizationChanged,
     TResult Function(_PositionChanged value)? positionChanged,
     TResult Function(_ConfirmPasswordChanged value)? confirmPasswordChanged,
+    TResult Function(_CountryChanged value)? countryChanged,
+    TResult Function(_UpdateUserInfo value)? updateUserInfo,
+    TResult Function(_SetInitialValues value)? setInitialValues,
     required TResult orElse(),
   }) {
     if (confirmPasswordChanged != null) {
@@ -1237,6 +1413,556 @@ abstract class _ConfirmPasswordChanged implements RegistrationEvent {
 }
 
 /// @nodoc
+abstract class _$$CountryChangedImplCopyWith<$Res> {
+  factory _$$CountryChangedImplCopyWith(_$CountryChangedImpl value,
+          $Res Function(_$CountryChangedImpl) then) =
+      __$$CountryChangedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String country});
+}
+
+/// @nodoc
+class __$$CountryChangedImplCopyWithImpl<$Res>
+    extends _$RegistrationEventCopyWithImpl<$Res, _$CountryChangedImpl>
+    implements _$$CountryChangedImplCopyWith<$Res> {
+  __$$CountryChangedImplCopyWithImpl(
+      _$CountryChangedImpl _value, $Res Function(_$CountryChangedImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? country = null,
+  }) {
+    return _then(_$CountryChangedImpl(
+      null == country
+          ? _value.country
+          : country // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$CountryChangedImpl implements _CountryChanged {
+  const _$CountryChangedImpl(this.country);
+
+  @override
+  final String country;
+
+  @override
+  String toString() {
+    return 'RegistrationEvent.countryChanged(country: $country)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$CountryChangedImpl &&
+            (identical(other.country, country) || other.country == country));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, country);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$CountryChangedImplCopyWith<_$CountryChangedImpl> get copyWith =>
+      __$$CountryChangedImplCopyWithImpl<_$CountryChangedImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() submitted,
+    required TResult Function(String email) emailChanged,
+    required TResult Function(String password) passwordChanged,
+    required TResult Function(String fullName) fullNameChanged,
+    required TResult Function(String organization) organizationChanged,
+    required TResult Function(String position) positionChanged,
+    required TResult Function(String confirmPassword) confirmPasswordChanged,
+    required TResult Function(String country) countryChanged,
+    required TResult Function() updateUserInfo,
+    required TResult Function(
+            String organization, String position, String country)
+        setInitialValues,
+  }) {
+    return countryChanged(country);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? submitted,
+    TResult? Function(String email)? emailChanged,
+    TResult? Function(String password)? passwordChanged,
+    TResult? Function(String fullName)? fullNameChanged,
+    TResult? Function(String organization)? organizationChanged,
+    TResult? Function(String position)? positionChanged,
+    TResult? Function(String confirmPassword)? confirmPasswordChanged,
+    TResult? Function(String country)? countryChanged,
+    TResult? Function()? updateUserInfo,
+    TResult? Function(String organization, String position, String country)?
+        setInitialValues,
+  }) {
+    return countryChanged?.call(country);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? submitted,
+    TResult Function(String email)? emailChanged,
+    TResult Function(String password)? passwordChanged,
+    TResult Function(String fullName)? fullNameChanged,
+    TResult Function(String organization)? organizationChanged,
+    TResult Function(String position)? positionChanged,
+    TResult Function(String confirmPassword)? confirmPasswordChanged,
+    TResult Function(String country)? countryChanged,
+    TResult Function()? updateUserInfo,
+    TResult Function(String organization, String position, String country)?
+        setInitialValues,
+    required TResult orElse(),
+  }) {
+    if (countryChanged != null) {
+      return countryChanged(country);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Submitted value) submitted,
+    required TResult Function(_EmailChanged value) emailChanged,
+    required TResult Function(_PasswordChanged value) passwordChanged,
+    required TResult Function(_UserNameChanged value) fullNameChanged,
+    required TResult Function(_OrganizationChanged value) organizationChanged,
+    required TResult Function(_PositionChanged value) positionChanged,
+    required TResult Function(_ConfirmPasswordChanged value)
+        confirmPasswordChanged,
+    required TResult Function(_CountryChanged value) countryChanged,
+    required TResult Function(_UpdateUserInfo value) updateUserInfo,
+    required TResult Function(_SetInitialValues value) setInitialValues,
+  }) {
+    return countryChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Submitted value)? submitted,
+    TResult? Function(_EmailChanged value)? emailChanged,
+    TResult? Function(_PasswordChanged value)? passwordChanged,
+    TResult? Function(_UserNameChanged value)? fullNameChanged,
+    TResult? Function(_OrganizationChanged value)? organizationChanged,
+    TResult? Function(_PositionChanged value)? positionChanged,
+    TResult? Function(_ConfirmPasswordChanged value)? confirmPasswordChanged,
+    TResult? Function(_CountryChanged value)? countryChanged,
+    TResult? Function(_UpdateUserInfo value)? updateUserInfo,
+    TResult? Function(_SetInitialValues value)? setInitialValues,
+  }) {
+    return countryChanged?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Submitted value)? submitted,
+    TResult Function(_EmailChanged value)? emailChanged,
+    TResult Function(_PasswordChanged value)? passwordChanged,
+    TResult Function(_UserNameChanged value)? fullNameChanged,
+    TResult Function(_OrganizationChanged value)? organizationChanged,
+    TResult Function(_PositionChanged value)? positionChanged,
+    TResult Function(_ConfirmPasswordChanged value)? confirmPasswordChanged,
+    TResult Function(_CountryChanged value)? countryChanged,
+    TResult Function(_UpdateUserInfo value)? updateUserInfo,
+    TResult Function(_SetInitialValues value)? setInitialValues,
+    required TResult orElse(),
+  }) {
+    if (countryChanged != null) {
+      return countryChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _CountryChanged implements RegistrationEvent {
+  const factory _CountryChanged(final String country) = _$CountryChangedImpl;
+
+  String get country;
+  @JsonKey(ignore: true)
+  _$$CountryChangedImplCopyWith<_$CountryChangedImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UpdateUserInfoImplCopyWith<$Res> {
+  factory _$$UpdateUserInfoImplCopyWith(_$UpdateUserInfoImpl value,
+          $Res Function(_$UpdateUserInfoImpl) then) =
+      __$$UpdateUserInfoImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$UpdateUserInfoImplCopyWithImpl<$Res>
+    extends _$RegistrationEventCopyWithImpl<$Res, _$UpdateUserInfoImpl>
+    implements _$$UpdateUserInfoImplCopyWith<$Res> {
+  __$$UpdateUserInfoImplCopyWithImpl(
+      _$UpdateUserInfoImpl _value, $Res Function(_$UpdateUserInfoImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$UpdateUserInfoImpl implements _UpdateUserInfo {
+  const _$UpdateUserInfoImpl();
+
+  @override
+  String toString() {
+    return 'RegistrationEvent.updateUserInfo()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$UpdateUserInfoImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() submitted,
+    required TResult Function(String email) emailChanged,
+    required TResult Function(String password) passwordChanged,
+    required TResult Function(String fullName) fullNameChanged,
+    required TResult Function(String organization) organizationChanged,
+    required TResult Function(String position) positionChanged,
+    required TResult Function(String confirmPassword) confirmPasswordChanged,
+    required TResult Function(String country) countryChanged,
+    required TResult Function() updateUserInfo,
+    required TResult Function(
+            String organization, String position, String country)
+        setInitialValues,
+  }) {
+    return updateUserInfo();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? submitted,
+    TResult? Function(String email)? emailChanged,
+    TResult? Function(String password)? passwordChanged,
+    TResult? Function(String fullName)? fullNameChanged,
+    TResult? Function(String organization)? organizationChanged,
+    TResult? Function(String position)? positionChanged,
+    TResult? Function(String confirmPassword)? confirmPasswordChanged,
+    TResult? Function(String country)? countryChanged,
+    TResult? Function()? updateUserInfo,
+    TResult? Function(String organization, String position, String country)?
+        setInitialValues,
+  }) {
+    return updateUserInfo?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? submitted,
+    TResult Function(String email)? emailChanged,
+    TResult Function(String password)? passwordChanged,
+    TResult Function(String fullName)? fullNameChanged,
+    TResult Function(String organization)? organizationChanged,
+    TResult Function(String position)? positionChanged,
+    TResult Function(String confirmPassword)? confirmPasswordChanged,
+    TResult Function(String country)? countryChanged,
+    TResult Function()? updateUserInfo,
+    TResult Function(String organization, String position, String country)?
+        setInitialValues,
+    required TResult orElse(),
+  }) {
+    if (updateUserInfo != null) {
+      return updateUserInfo();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Submitted value) submitted,
+    required TResult Function(_EmailChanged value) emailChanged,
+    required TResult Function(_PasswordChanged value) passwordChanged,
+    required TResult Function(_UserNameChanged value) fullNameChanged,
+    required TResult Function(_OrganizationChanged value) organizationChanged,
+    required TResult Function(_PositionChanged value) positionChanged,
+    required TResult Function(_ConfirmPasswordChanged value)
+        confirmPasswordChanged,
+    required TResult Function(_CountryChanged value) countryChanged,
+    required TResult Function(_UpdateUserInfo value) updateUserInfo,
+    required TResult Function(_SetInitialValues value) setInitialValues,
+  }) {
+    return updateUserInfo(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Submitted value)? submitted,
+    TResult? Function(_EmailChanged value)? emailChanged,
+    TResult? Function(_PasswordChanged value)? passwordChanged,
+    TResult? Function(_UserNameChanged value)? fullNameChanged,
+    TResult? Function(_OrganizationChanged value)? organizationChanged,
+    TResult? Function(_PositionChanged value)? positionChanged,
+    TResult? Function(_ConfirmPasswordChanged value)? confirmPasswordChanged,
+    TResult? Function(_CountryChanged value)? countryChanged,
+    TResult? Function(_UpdateUserInfo value)? updateUserInfo,
+    TResult? Function(_SetInitialValues value)? setInitialValues,
+  }) {
+    return updateUserInfo?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Submitted value)? submitted,
+    TResult Function(_EmailChanged value)? emailChanged,
+    TResult Function(_PasswordChanged value)? passwordChanged,
+    TResult Function(_UserNameChanged value)? fullNameChanged,
+    TResult Function(_OrganizationChanged value)? organizationChanged,
+    TResult Function(_PositionChanged value)? positionChanged,
+    TResult Function(_ConfirmPasswordChanged value)? confirmPasswordChanged,
+    TResult Function(_CountryChanged value)? countryChanged,
+    TResult Function(_UpdateUserInfo value)? updateUserInfo,
+    TResult Function(_SetInitialValues value)? setInitialValues,
+    required TResult orElse(),
+  }) {
+    if (updateUserInfo != null) {
+      return updateUserInfo(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UpdateUserInfo implements RegistrationEvent {
+  const factory _UpdateUserInfo() = _$UpdateUserInfoImpl;
+}
+
+/// @nodoc
+abstract class _$$SetInitialValuesImplCopyWith<$Res> {
+  factory _$$SetInitialValuesImplCopyWith(_$SetInitialValuesImpl value,
+          $Res Function(_$SetInitialValuesImpl) then) =
+      __$$SetInitialValuesImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String organization, String position, String country});
+}
+
+/// @nodoc
+class __$$SetInitialValuesImplCopyWithImpl<$Res>
+    extends _$RegistrationEventCopyWithImpl<$Res, _$SetInitialValuesImpl>
+    implements _$$SetInitialValuesImplCopyWith<$Res> {
+  __$$SetInitialValuesImplCopyWithImpl(_$SetInitialValuesImpl _value,
+      $Res Function(_$SetInitialValuesImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? organization = null,
+    Object? position = null,
+    Object? country = null,
+  }) {
+    return _then(_$SetInitialValuesImpl(
+      null == organization
+          ? _value.organization
+          : organization // ignore: cast_nullable_to_non_nullable
+              as String,
+      null == position
+          ? _value.position
+          : position // ignore: cast_nullable_to_non_nullable
+              as String,
+      null == country
+          ? _value.country
+          : country // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SetInitialValuesImpl implements _SetInitialValues {
+  const _$SetInitialValuesImpl(this.organization, this.position, this.country);
+
+  @override
+  final String organization;
+  @override
+  final String position;
+  @override
+  final String country;
+
+  @override
+  String toString() {
+    return 'RegistrationEvent.setInitialValues(organization: $organization, position: $position, country: $country)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SetInitialValuesImpl &&
+            (identical(other.organization, organization) ||
+                other.organization == organization) &&
+            (identical(other.position, position) ||
+                other.position == position) &&
+            (identical(other.country, country) || other.country == country));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, organization, position, country);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SetInitialValuesImplCopyWith<_$SetInitialValuesImpl> get copyWith =>
+      __$$SetInitialValuesImplCopyWithImpl<_$SetInitialValuesImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() submitted,
+    required TResult Function(String email) emailChanged,
+    required TResult Function(String password) passwordChanged,
+    required TResult Function(String fullName) fullNameChanged,
+    required TResult Function(String organization) organizationChanged,
+    required TResult Function(String position) positionChanged,
+    required TResult Function(String confirmPassword) confirmPasswordChanged,
+    required TResult Function(String country) countryChanged,
+    required TResult Function() updateUserInfo,
+    required TResult Function(
+            String organization, String position, String country)
+        setInitialValues,
+  }) {
+    return setInitialValues(organization, position, country);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? submitted,
+    TResult? Function(String email)? emailChanged,
+    TResult? Function(String password)? passwordChanged,
+    TResult? Function(String fullName)? fullNameChanged,
+    TResult? Function(String organization)? organizationChanged,
+    TResult? Function(String position)? positionChanged,
+    TResult? Function(String confirmPassword)? confirmPasswordChanged,
+    TResult? Function(String country)? countryChanged,
+    TResult? Function()? updateUserInfo,
+    TResult? Function(String organization, String position, String country)?
+        setInitialValues,
+  }) {
+    return setInitialValues?.call(organization, position, country);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? submitted,
+    TResult Function(String email)? emailChanged,
+    TResult Function(String password)? passwordChanged,
+    TResult Function(String fullName)? fullNameChanged,
+    TResult Function(String organization)? organizationChanged,
+    TResult Function(String position)? positionChanged,
+    TResult Function(String confirmPassword)? confirmPasswordChanged,
+    TResult Function(String country)? countryChanged,
+    TResult Function()? updateUserInfo,
+    TResult Function(String organization, String position, String country)?
+        setInitialValues,
+    required TResult orElse(),
+  }) {
+    if (setInitialValues != null) {
+      return setInitialValues(organization, position, country);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Submitted value) submitted,
+    required TResult Function(_EmailChanged value) emailChanged,
+    required TResult Function(_PasswordChanged value) passwordChanged,
+    required TResult Function(_UserNameChanged value) fullNameChanged,
+    required TResult Function(_OrganizationChanged value) organizationChanged,
+    required TResult Function(_PositionChanged value) positionChanged,
+    required TResult Function(_ConfirmPasswordChanged value)
+        confirmPasswordChanged,
+    required TResult Function(_CountryChanged value) countryChanged,
+    required TResult Function(_UpdateUserInfo value) updateUserInfo,
+    required TResult Function(_SetInitialValues value) setInitialValues,
+  }) {
+    return setInitialValues(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Submitted value)? submitted,
+    TResult? Function(_EmailChanged value)? emailChanged,
+    TResult? Function(_PasswordChanged value)? passwordChanged,
+    TResult? Function(_UserNameChanged value)? fullNameChanged,
+    TResult? Function(_OrganizationChanged value)? organizationChanged,
+    TResult? Function(_PositionChanged value)? positionChanged,
+    TResult? Function(_ConfirmPasswordChanged value)? confirmPasswordChanged,
+    TResult? Function(_CountryChanged value)? countryChanged,
+    TResult? Function(_UpdateUserInfo value)? updateUserInfo,
+    TResult? Function(_SetInitialValues value)? setInitialValues,
+  }) {
+    return setInitialValues?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Submitted value)? submitted,
+    TResult Function(_EmailChanged value)? emailChanged,
+    TResult Function(_PasswordChanged value)? passwordChanged,
+    TResult Function(_UserNameChanged value)? fullNameChanged,
+    TResult Function(_OrganizationChanged value)? organizationChanged,
+    TResult Function(_PositionChanged value)? positionChanged,
+    TResult Function(_ConfirmPasswordChanged value)? confirmPasswordChanged,
+    TResult Function(_CountryChanged value)? countryChanged,
+    TResult Function(_UpdateUserInfo value)? updateUserInfo,
+    TResult Function(_SetInitialValues value)? setInitialValues,
+    required TResult orElse(),
+  }) {
+    if (setInitialValues != null) {
+      return setInitialValues(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SetInitialValues implements RegistrationEvent {
+  const factory _SetInitialValues(final String organization,
+      final String position, final String country) = _$SetInitialValuesImpl;
+
+  String get organization;
+  String get position;
+  String get country;
+  @JsonKey(ignore: true)
+  _$$SetInitialValuesImplCopyWith<_$SetInitialValuesImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$RegistrationState {
   FormzSubmissionStatus get status => throw _privateConstructorUsedError;
   Email get email => throw _privateConstructorUsedError;
@@ -1246,6 +1972,7 @@ mixin _$RegistrationState {
   Position get position => throw _privateConstructorUsedError;
   ConfirmPassowrd get confirmPassword => throw _privateConstructorUsedError;
   bool get isValid => throw _privateConstructorUsedError;
+  String get country => throw _privateConstructorUsedError;
   String get errorMessage => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -1268,6 +1995,7 @@ abstract class $RegistrationStateCopyWith<$Res> {
       Position position,
       ConfirmPassowrd confirmPassword,
       bool isValid,
+      String country,
       String errorMessage});
 }
 
@@ -1292,6 +2020,7 @@ class _$RegistrationStateCopyWithImpl<$Res, $Val extends RegistrationState>
     Object? position = null,
     Object? confirmPassword = null,
     Object? isValid = null,
+    Object? country = null,
     Object? errorMessage = null,
   }) {
     return _then(_value.copyWith(
@@ -1327,6 +2056,10 @@ class _$RegistrationStateCopyWithImpl<$Res, $Val extends RegistrationState>
           ? _value.isValid
           : isValid // ignore: cast_nullable_to_non_nullable
               as bool,
+      country: null == country
+          ? _value.country
+          : country // ignore: cast_nullable_to_non_nullable
+              as String,
       errorMessage: null == errorMessage
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
@@ -1352,6 +2085,7 @@ abstract class _$$RegistrationStateImplCopyWith<$Res>
       Position position,
       ConfirmPassowrd confirmPassword,
       bool isValid,
+      String country,
       String errorMessage});
 }
 
@@ -1374,6 +2108,7 @@ class __$$RegistrationStateImplCopyWithImpl<$Res>
     Object? position = null,
     Object? confirmPassword = null,
     Object? isValid = null,
+    Object? country = null,
     Object? errorMessage = null,
   }) {
     return _then(_$RegistrationStateImpl(
@@ -1409,6 +2144,10 @@ class __$$RegistrationStateImplCopyWithImpl<$Res>
           ? _value.isValid
           : isValid // ignore: cast_nullable_to_non_nullable
               as bool,
+      country: null == country
+          ? _value.country
+          : country // ignore: cast_nullable_to_non_nullable
+              as String,
       errorMessage: null == errorMessage
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
@@ -1429,6 +2168,7 @@ class _$RegistrationStateImpl implements _RegistrationState {
       this.position = const Position.pure(),
       this.confirmPassword = const ConfirmPassowrd.pure(''),
       this.isValid = false,
+      this.country = '',
       this.errorMessage = ''});
 
   @override
@@ -1457,11 +2197,14 @@ class _$RegistrationStateImpl implements _RegistrationState {
   final bool isValid;
   @override
   @JsonKey()
+  final String country;
+  @override
+  @JsonKey()
   final String errorMessage;
 
   @override
   String toString() {
-    return 'RegistrationState(status: $status, email: $email, password: $password, fullName: $fullName, organization: $organization, position: $position, confirmPassword: $confirmPassword, isValid: $isValid, errorMessage: $errorMessage)';
+    return 'RegistrationState(status: $status, email: $email, password: $password, fullName: $fullName, organization: $organization, position: $position, confirmPassword: $confirmPassword, isValid: $isValid, country: $country, errorMessage: $errorMessage)';
   }
 
   @override
@@ -1482,13 +2225,24 @@ class _$RegistrationStateImpl implements _RegistrationState {
             (identical(other.confirmPassword, confirmPassword) ||
                 other.confirmPassword == confirmPassword) &&
             (identical(other.isValid, isValid) || other.isValid == isValid) &&
+            (identical(other.country, country) || other.country == country) &&
             (identical(other.errorMessage, errorMessage) ||
                 other.errorMessage == errorMessage));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, status, email, password,
-      fullName, organization, position, confirmPassword, isValid, errorMessage);
+  int get hashCode => Object.hash(
+      runtimeType,
+      status,
+      email,
+      password,
+      fullName,
+      organization,
+      position,
+      confirmPassword,
+      isValid,
+      country,
+      errorMessage);
 
   @JsonKey(ignore: true)
   @override
@@ -1508,6 +2262,7 @@ abstract class _RegistrationState implements RegistrationState {
       final Position position,
       final ConfirmPassowrd confirmPassword,
       final bool isValid,
+      final String country,
       final String errorMessage}) = _$RegistrationStateImpl;
 
   @override
@@ -1526,6 +2281,8 @@ abstract class _RegistrationState implements RegistrationState {
   ConfirmPassowrd get confirmPassword;
   @override
   bool get isValid;
+  @override
+  String get country;
   @override
   String get errorMessage;
   @override

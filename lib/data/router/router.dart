@@ -37,7 +37,7 @@ import 'package:ieee_sst/presentation/info/screens/info_screen.dart';
 import 'package:ieee_sst/presentation/info/announcements/screens/organizer_announcements.dart';
 import 'package:ieee_sst/presentation/login/screens/login_screen.dart';
 import 'package:ieee_sst/presentation/messages/screens/messages_screen.dart';
-import 'package:ieee_sst/presentation/profile/screens/profile_screen.dart';
+import 'package:ieee_sst/presentation/profile/screens/my_profile_screen.dart';
 import 'package:ieee_sst/presentation/register/screens/register_screen.dart';
 import 'package:ieee_sst/presentation/register/screens/register_user_data_screen.dart';
 import 'package:ieee_sst/presentation/register/screens/register_user_email_screen.dart';
@@ -407,7 +407,7 @@ class AppRouter {
                     path: RoutePaths.profile,
                     pageBuilder: (context, state) => const MaterialPage(
                       key: ValueKey('ProfileScreen'),
-                      child: ProfileScreen(),
+                      child: MyProfileScreen(),
                     ),
                   )
                 ],

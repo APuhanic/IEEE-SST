@@ -14,4 +14,12 @@ class RegistrationEvent with _$RegistrationEvent {
       _PositionChanged;
   const factory RegistrationEvent.confirmPasswordChanged(
       String confirmPassword) = _ConfirmPasswordChanged;
+  const factory RegistrationEvent.countryChanged(String country) =
+      _CountryChanged;
+  const factory RegistrationEvent.updateUserInfo() = _UpdateUserInfo;
+  const factory RegistrationEvent.setInitialValues(
+    String organization,
+    String position,
+    String country,
+  ) = _SetInitialValues;
 }

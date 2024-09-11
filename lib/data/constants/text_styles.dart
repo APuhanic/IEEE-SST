@@ -45,6 +45,11 @@ class AppTextStyle {
     fontWeight: FontWeight.normal,
   );
 
+  static TextStyle blueButtonText = const TextStyle(
+    fontSize: 15,
+    color: AppColors.primary,
+  );
+
   static TextStyle tagText = const TextStyle(
     fontSize: 12,
     color: AppColors.white,

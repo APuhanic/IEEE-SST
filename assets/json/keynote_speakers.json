@@ -1,0 +1,21 @@
+{
+    "keynote_speakers": [
+      {
+        "name": "Frederik De Belie",
+        "institution": "Electrical Energy Laboratory, Ghent University",
+        "title": "Supporting the Flemish Manufacturing Industry through the Research Centre “Flanders Make”: Experiences from an Academic Perspective",
+        "abstract": "The Flemish government wishes to actively support companies in the manufacturing industry with the aim to develop and optimize their products and production processes. Combining efforts with core labs at five Flemish universities, co-creation centers, a drone cluster and companies, Flanders Make constitutes a strategic research centre for the manufacturing industry, pursuing open innovation through excellent research. In this keynote, I will share my experiences as a member of Flanders Make in one of its core labs, and as an associate professor at Ghent University with a personal research background in electrical machines and drives.",
+        "cv": "Frederik De Belie was born in Belgium in 1979. He received the Ph.D. degree in electromechanical engineering from Ghent University, Belgium, in 2010 on self-sensing control of synchronous machines for which he was granted a patent and the Biennial Iwan Akerman Award. He’s currently with the Electrical Energy Laboratory of Ghent University as an associate professor, responsible for bachelor and master engineering courses on electrical machines and drives, and guides as scientific promotor several PhD students in related topics. He is a member of Flanders Make, a strategic research consortium supporting the Flemish make industry, serving as an academic research partner in motion control related projects. He has published more than 150 scientific articles of which 45 appear in international peer reviewed journals. His present research interests include online identification and modelling for the control-system theory applied to mechatronic systems powered by electric actuators, with his latest addition on the contra-rotating control of a single stator dual rotor switched reluctance machine.",
+        "image": "assets/images/Picture-De-Belie-Frederik.jpg"
+    },
+      {
+        "name": "Nikola Teslić",
+        "institution": "Faculty of Technical Sciences, University of Novi Sad",
+        "title": "Exploring Diverse Paths for running Android as In-Vehicle Infotainment OS",
+        "abstract": "In recent years, car manufacturers have been refining their in-vehicle infotainment systems to offer unique user experiences. Traditionally, these systems relied heavily on Linux. However, with the rise of Android’s popularity mostly because of its rich ecosystem of apps, there’s a growing interest in incorporating Android into these systems. There are three primary approaches to integrating Android into in-vehicle infotainment: Complete replacement of Linux with Android, Hypervisor solutions, and Containerized approach. The pros and cons of the approaches mentioned will be discussed along with the Company’s experiences with each of them. Some of the metrics would be time to market, resource consumption, architecture, etc. Additionally, the most common implementation technologies would be given.",
+        "cv": "Prof. Dr. Nikola Teslić is a full professor at the Faculty of Technical Sciences, University of Novi Sad. His expertise includes: design of complex digital systems, real-time software, digital TV and multimedia, as well as digital signal processing. He is also one of the founders of RT-RK and its general director. RT-RK is a regional company that develops dedicated (embedded) software for consumer and automotive electronics devices.",
+        "image": "assets/images/Nikola-Teslic.jpg"
+      }
+    ]
+  }
+  

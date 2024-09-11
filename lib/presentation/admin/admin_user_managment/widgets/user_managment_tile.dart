@@ -41,10 +41,11 @@ class _UserManagmentTileState extends State<UserManagmentTile> {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Image.asset(
-              'assets/images/user.png',
-              height: 60,
-              width: 60,
+            CircleAvatar(
+              radius: 30,
+              backgroundImage: widget.profile.imageUrl != null
+                  ? NetworkImage(widget.profile.imageUrl!)
+                  : const AssetImage('assets/images/user.png') as ImageProvider,
             ),
             const SizedBox(width: 16),
             Column(

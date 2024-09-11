@@ -1,0 +1,159 @@
+{
+  "steering_committee": [
+    {
+      "name": "Guillem Alenyà",
+      "institution": "Institut de Robòtica i Informàtica Industrial",
+      "country": "Spain"
+    },
+    {
+      "name": "Ertuğrul Başar",
+      "institution": "Koç University",
+      "country": "Turkey"
+    },
+    {
+      "name": "Nina Begičević-Ređep",
+      "institution": "University of Zagreb",
+      "country": "Croatia"
+    },
+    {
+      "name": "Frederik De Belie",
+      "institution": "Ghent University",
+      "country": "Belgium"
+    },
+    {
+      "name": "Vedran Bilas",
+      "institution": "University of Zagreb",
+      "country": "Croatia"
+    },
+    {
+      "name": "Matjaž Colnarič",
+      "institution": "University of Maribor",
+      "country": "Slovenia"
+    },
+    {
+      "name": "Božidar Filipović-Grčić",
+      "institution": "HRO-CIGRE",
+      "country": "Croatia"
+    },
+    {
+      "name": "Julius Georgiou",
+      "institution": "University of Cyprus",
+      "country": "Cyprus"
+    },
+    {
+      "name": "Gordan Gledec",
+      "institution": "University of Zagreb",
+      "country": "Croatia"
+    },
+    {
+      "name": "Mislav Grgić",
+      "institution": "University of Zagreb",
+      "country": "Croatia"
+    },
+    {
+      "name": "Andrej Gubina",
+      "institution": "University of Ljubljana",
+      "country": "Slovenia"
+    },
+    {
+      "name": "Francisco Gonzalez-Longatt",
+      "institution": "University of South-Eastern Norway",
+      "country": "Norway"
+    },
+    {
+      "name": "Norbert Herencsar",
+      "institution": "Brno University of Technology",
+      "country": "Czech Republic"
+    },
+    {
+      "name": "Željko Hocenski",
+      "institution": "J.J. Strossmayer University of Osijek",
+      "country": "Croatia"
+    },
+    {
+      "name": "Georges Kaddoum",
+      "institution": "University of Quebec",
+      "country": "Canada"
+    },
+    {
+      "name": "Marina Klačmer Čalopa",
+      "institution": "University of Zagreb",
+      "country": "Croatia"
+    },
+    {
+      "name": "Ignac Lovrek",
+      "institution": "University of Zagreb",
+      "country": "Croatia"
+    },
+    {
+      "name": "Francisco Martínez Álvarez",
+      "institution": "Universidad Pablo de Olavide",
+      "country": "Spain"
+    },
+    {
+      "name": "Ngoc Thanh Nguyen",
+      "institution": "Wroclaw University of Technology",
+      "country": "Poland"
+    },
+    {
+      "name": "Srete Nikolovski",
+      "institution": "J.J. Strossmayer University of Osijek",
+      "country": "Croatia"
+    },
+    {
+      "name": "Miloš Oravec",
+      "institution": "Slovak University of Technology",
+      "country": "Slovakia"
+    },
+    {
+      "name": "Hrvoje Pandžić",
+      "institution": "University of Zagreb",
+      "country": "Croatia"
+    },
+    {
+      "name": "Davor Pavuna",
+      "institution": "École Polytechnique Fédérale de Lausanne (EPFL)",
+      "country": "Switzerland"
+    },
+    {
+      "name": "Nedjeljko Perić",
+      "institution": "University of Zagreb",
+      "country": "Croatia"
+    },
+    {
+      "name": "Ivan Petrović",
+      "institution": "University of Zagreb",
+      "country": "Croatia"
+    },
+    {
+      "name": "Sasikumar Punnekkat",
+      "institution": "Mälardalen University",
+      "country": "Sweden"
+    },
+    {
+      "name": "Ivan Samardžić",
+      "institution": "University of Slavonski Brod",
+      "country": "Croatia"
+    },
+    {
+      "name": "Goran Slipac",
+      "institution": "HRO-CIGRE",
+      "country": "Croatia"
+    },
+    {
+      "name": "Andrea M. Tonello",
+      "institution": "Alpen-Adria-Universität Klagenfurt",
+      "country": "Austria"
+    },
+    {
+      "name": "Mladen Vouk",
+      "institution": "North Carolina State University",
+      "country": "USA"
+    },
+    {
+      "name": "Drago Žagar",
+      "institution": "J.J. Strossmayer University of Osijek",
+      "country": "Croatia"
+    }
+  ]
+}

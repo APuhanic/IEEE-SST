@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:ieee_sst/data/models/profile_model/profile_model.dart';
 import 'package:ieee_sst/data/clients/profile_client.dart';
 import 'package:injectable/injectable.dart';
@@ -36,5 +38,25 @@ class ProfileRepository {
     } catch (e) {
       throw Exception('Error updating profile role');
     }
+  }
+
+  Future<void> addProfileImage(Profile profile, File image) async {
+    try {
+      if (profile.imageUrl != null) {
+        await _profileClient.deleteProfileImage(profile);
+      }
+      final String imageUrl = await _profileClient.uploadUserImage(image);
+      await _profileClient.addProfileImage(
+        removeFirstSlash(image.path.toString()),
+        imageUrl,
+      );
+    } catch (e) {
+      throw Exception('Error updating profile');
+    }
+  }
+
+//TODO make extension
+  String removeFirstSlash(String path) {
+    return path.replaceFirst(RegExp(r'^/'), '');
   }
 }

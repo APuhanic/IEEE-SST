@@ -14,6 +14,9 @@ class Profile with _$Profile {
     @HiveField(3) String? position,
     @HiveField(4) String? organization,
     @HiveField(5) String? role,
+    @HiveField(6) String? country,
+    @HiveField(7) String? imageUrl,
+    @HiveField(8) String? imagePath,
   }) = _Profile;
 
   factory Profile.fromJson(Map<String, dynamic> json) =>

@@ -7,7 +7,7 @@ class LoadingIndicator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return LoadingAnimationWidget.staggeredDotsWave(
+    return LoadingAnimationWidget.inkDrop(
       color: AppColors.primary,
       size: 50,
     );

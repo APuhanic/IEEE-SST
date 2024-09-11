@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:ieee_sst/data/constants/app_colors.dart';
 import 'package:ieee_sst/data/constants/text_styles.dart';
 import 'package:ieee_sst/presentation/register/bloc/registration_bloc.dart';
+import 'package:ieee_sst/presentation/register/widgets/country_input.dart';
 import 'package:ieee_sst/presentation/register/widgets/full_name_input.dart';
 import 'package:ieee_sst/presentation/register/widgets/organization_input.dart';
 import 'package:ieee_sst/presentation/register/widgets/position_input.dart';
@@ -28,8 +29,7 @@ class RegisterUserDataScreen extends StatelessWidget {
             right: 32.0,
           ),
           child: const Column(
-            mainAxisSize: MainAxisSize
-                .min, // Ensure the column takes minimum height required
+            mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(height: 24),
@@ -37,13 +37,15 @@ class RegisterUserDataScreen extends StatelessWidget {
                 alignment: Alignment.centerLeft,
                 child: Text('Fill your details'),
               ),
-              SizedBox(height: 24),
-              FullNameInput(),
-              SizedBox(height: 24),
+              Padding(
+                padding: EdgeInsets.symmetric(vertical: 24.0),
+                child: FullNameInput(),
+              ),
               OrganizationInput(),
               SizedBox(height: 24),
               PositionInput(),
               SizedBox(height: 24),
+              CountryInput(),
               Align(
                 alignment: Alignment.centerRight,
                 child: _NextRegisterScreenButton(
