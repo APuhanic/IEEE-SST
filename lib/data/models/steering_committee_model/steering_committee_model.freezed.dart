@@ -14,35 +14,35 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-SteeringCommittee _$SteeringCommitteeFromJson(Map<String, dynamic> json) {
-  return _SteeringCommittee.fromJson(json);
+CommitteeMember _$CommitteeMemberFromJson(Map<String, dynamic> json) {
+  return _CommitteeMember.fromJson(json);
 }
 
 /// @nodoc
-mixin _$SteeringCommittee {
+mixin _$CommitteeMember {
   String get name => throw _privateConstructorUsedError;
   String get institution => throw _privateConstructorUsedError;
   String get country => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $SteeringCommitteeCopyWith<SteeringCommittee> get copyWith =>
+  $CommitteeMemberCopyWith<CommitteeMember> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $SteeringCommitteeCopyWith<$Res> {
-  factory $SteeringCommitteeCopyWith(
-          SteeringCommittee value, $Res Function(SteeringCommittee) then) =
-      _$SteeringCommitteeCopyWithImpl<$Res, SteeringCommittee>;
+abstract class $CommitteeMemberCopyWith<$Res> {
+  factory $CommitteeMemberCopyWith(
+          CommitteeMember value, $Res Function(CommitteeMember) then) =
+      _$CommitteeMemberCopyWithImpl<$Res, CommitteeMember>;
   @useResult
   $Res call({String name, String institution, String country});
 }
 
 /// @nodoc
-class _$SteeringCommitteeCopyWithImpl<$Res, $Val extends SteeringCommittee>
-    implements $SteeringCommitteeCopyWith<$Res> {
-  _$SteeringCommitteeCopyWithImpl(this._value, this._then);
+class _$CommitteeMemberCopyWithImpl<$Res, $Val extends CommitteeMember>
+    implements $CommitteeMemberCopyWith<$Res> {
+  _$CommitteeMemberCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -74,22 +74,22 @@ class _$SteeringCommitteeCopyWithImpl<$Res, $Val extends SteeringCommittee>
 }
 
 /// @nodoc
-abstract class _$$SteeringCommitteeImplCopyWith<$Res>
-    implements $SteeringCommitteeCopyWith<$Res> {
-  factory _$$SteeringCommitteeImplCopyWith(_$SteeringCommitteeImpl value,
-          $Res Function(_$SteeringCommitteeImpl) then) =
-      __$$SteeringCommitteeImplCopyWithImpl<$Res>;
+abstract class _$$CommitteeMemberImplCopyWith<$Res>
+    implements $CommitteeMemberCopyWith<$Res> {
+  factory _$$CommitteeMemberImplCopyWith(_$CommitteeMemberImpl value,
+          $Res Function(_$CommitteeMemberImpl) then) =
+      __$$CommitteeMemberImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String name, String institution, String country});
 }
 
 /// @nodoc
-class __$$SteeringCommitteeImplCopyWithImpl<$Res>
-    extends _$SteeringCommitteeCopyWithImpl<$Res, _$SteeringCommitteeImpl>
-    implements _$$SteeringCommitteeImplCopyWith<$Res> {
-  __$$SteeringCommitteeImplCopyWithImpl(_$SteeringCommitteeImpl _value,
-      $Res Function(_$SteeringCommitteeImpl) _then)
+class __$$CommitteeMemberImplCopyWithImpl<$Res>
+    extends _$CommitteeMemberCopyWithImpl<$Res, _$CommitteeMemberImpl>
+    implements _$$CommitteeMemberImplCopyWith<$Res> {
+  __$$CommitteeMemberImplCopyWithImpl(
+      _$CommitteeMemberImpl _value, $Res Function(_$CommitteeMemberImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -99,7 +99,7 @@ class __$$SteeringCommitteeImplCopyWithImpl<$Res>
     Object? institution = null,
     Object? country = null,
   }) {
-    return _then(_$SteeringCommitteeImpl(
+    return _then(_$CommitteeMemberImpl(
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -118,12 +118,12 @@ class __$$SteeringCommitteeImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$SteeringCommitteeImpl implements _SteeringCommittee {
-  const _$SteeringCommitteeImpl(
+class _$CommitteeMemberImpl implements _CommitteeMember {
+  const _$CommitteeMemberImpl(
       {required this.name, required this.institution, required this.country});
 
-  factory _$SteeringCommitteeImpl.fromJson(Map<String, dynamic> json) =>
-      _$$SteeringCommitteeImplFromJson(json);
+  factory _$CommitteeMemberImpl.fromJson(Map<String, dynamic> json) =>
+      _$$CommitteeMemberImplFromJson(json);
 
   @override
   final String name;
@@ -134,14 +134,14 @@ class _$SteeringCommitteeImpl implements _SteeringCommittee {
 
   @override
   String toString() {
-    return 'SteeringCommittee(name: $name, institution: $institution, country: $country)';
+    return 'CommitteeMember(name: $name, institution: $institution, country: $country)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SteeringCommitteeImpl &&
+            other is _$CommitteeMemberImpl &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.institution, institution) ||
                 other.institution == institution) &&
@@ -155,26 +155,26 @@ class _$SteeringCommitteeImpl implements _SteeringCommittee {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$SteeringCommitteeImplCopyWith<_$SteeringCommitteeImpl> get copyWith =>
-      __$$SteeringCommitteeImplCopyWithImpl<_$SteeringCommitteeImpl>(
+  _$$CommitteeMemberImplCopyWith<_$CommitteeMemberImpl> get copyWith =>
+      __$$CommitteeMemberImplCopyWithImpl<_$CommitteeMemberImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$SteeringCommitteeImplToJson(
+    return _$$CommitteeMemberImplToJson(
       this,
     );
   }
 }
 
-abstract class _SteeringCommittee implements SteeringCommittee {
-  const factory _SteeringCommittee(
+abstract class _CommitteeMember implements CommitteeMember {
+  const factory _CommitteeMember(
       {required final String name,
       required final String institution,
-      required final String country}) = _$SteeringCommitteeImpl;
+      required final String country}) = _$CommitteeMemberImpl;
 
-  factory _SteeringCommittee.fromJson(Map<String, dynamic> json) =
-      _$SteeringCommitteeImpl.fromJson;
+  factory _CommitteeMember.fromJson(Map<String, dynamic> json) =
+      _$CommitteeMemberImpl.fromJson;
 
   @override
   String get name;
@@ -184,6 +184,6 @@ abstract class _SteeringCommittee implements SteeringCommittee {
   String get country;
   @override
   @JsonKey(ignore: true)
-  _$$SteeringCommitteeImplCopyWith<_$SteeringCommitteeImpl> get copyWith =>
+  _$$CommitteeMemberImplCopyWith<_$CommitteeMemberImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

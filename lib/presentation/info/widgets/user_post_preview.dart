@@ -18,7 +18,7 @@ class UserPostPreview extends StatelessWidget {
   Widget build(BuildContext context) {
     return GlobalInkWell(
       onTap: () {
-        context.go('/community/ask_organizers/user_post', extra: post);
+        context.go('/info/ask_organizers/user_post', extra: post);
       },
       child: Row(
         children: [

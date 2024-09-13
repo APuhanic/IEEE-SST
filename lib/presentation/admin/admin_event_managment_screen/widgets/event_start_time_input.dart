@@ -22,8 +22,8 @@ class EventStartTimeInput extends StatelessWidget {
           readOnly: true,
           onTap: () => _selectTime(context),
           decoration: InputDecoration(
-            label: Text('Event start time', style: AppTextStyle.textForm),
-            hintText: 'Event  time',
+            label: Text('Start time', style: AppTextStyle.textForm),
+            hintText: 'Start time',
             hintStyle: AppTextStyle.textForm,
             prefixIcon:
                 const Icon(Icons.access_time, color: AppColors.grayText),
@@ -72,7 +72,7 @@ class EventStartTimeInput extends StatelessWidget {
         );
         context
             .read<EventFormBloc>()
-            .add(EventFormEvent.eventStartTimeChanged(dateTimeValue));
+            .add(EventFormEvent.startTimeChanged(dateTimeValue));
       },
     );
   }

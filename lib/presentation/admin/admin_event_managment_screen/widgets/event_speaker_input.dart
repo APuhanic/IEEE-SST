@@ -16,7 +16,7 @@ class EventSpeakerInput extends StatelessWidget {
         return TextFormField(
           onChanged: (eventName) => context
               .read<EventFormBloc>()
-              .add(EventFormEvent.eventSpeakerChanged(eventName)),
+              .add(EventFormEvent.speakerChanged(eventName)),
           initialValue: state.speaker,
           decoration: InputDecoration(
             label: Text('Event speaker', style: AppTextStyle.textForm),

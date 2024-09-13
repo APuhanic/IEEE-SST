@@ -21,12 +21,11 @@ EventAttendee _$EventAttendeeFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$EventAttendee {
   @HiveField(0)
-  int? get id =>
-      throw _privateConstructorUsedError; // TODO: change to eventId and userId
+  int? get id => throw _privateConstructorUsedError;
   @HiveField(1)
-  String get event_id => throw _privateConstructorUsedError;
+  String get eventId => throw _privateConstructorUsedError;
   @HiveField(2)
-  String get user_id => throw _privateConstructorUsedError;
+  String get userId => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -42,8 +41,8 @@ abstract class $EventAttendeeCopyWith<$Res> {
   @useResult
   $Res call(
       {@HiveField(0) int? id,
-      @HiveField(1) String event_id,
-      @HiveField(2) String user_id});
+      @HiveField(1) String eventId,
+      @HiveField(2) String userId});
 }
 
 /// @nodoc
@@ -60,21 +59,21 @@ class _$EventAttendeeCopyWithImpl<$Res, $Val extends EventAttendee>
   @override
   $Res call({
     Object? id = freezed,
-    Object? event_id = null,
-    Object? user_id = null,
+    Object? eventId = null,
+    Object? userId = null,
   }) {
     return _then(_value.copyWith(
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int?,
-      event_id: null == event_id
-          ? _value.event_id
-          : event_id // ignore: cast_nullable_to_non_nullable
+      eventId: null == eventId
+          ? _value.eventId
+          : eventId // ignore: cast_nullable_to_non_nullable
               as String,
-      user_id: null == user_id
-          ? _value.user_id
-          : user_id // ignore: cast_nullable_to_non_nullable
+      userId: null == userId
+          ? _value.userId
+          : userId // ignore: cast_nullable_to_non_nullable
               as String,
     ) as $Val);
   }
@@ -90,8 +89,8 @@ abstract class _$$EventAttendeeImplCopyWith<$Res>
   @useResult
   $Res call(
       {@HiveField(0) int? id,
-      @HiveField(1) String event_id,
-      @HiveField(2) String user_id});
+      @HiveField(1) String eventId,
+      @HiveField(2) String userId});
 }
 
 /// @nodoc
@@ -106,21 +105,21 @@ class __$$EventAttendeeImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = freezed,
-    Object? event_id = null,
-    Object? user_id = null,
+    Object? eventId = null,
+    Object? userId = null,
   }) {
     return _then(_$EventAttendeeImpl(
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int?,
-      event_id: null == event_id
-          ? _value.event_id
-          : event_id // ignore: cast_nullable_to_non_nullable
+      eventId: null == eventId
+          ? _value.eventId
+          : eventId // ignore: cast_nullable_to_non_nullable
               as String,
-      user_id: null == user_id
-          ? _value.user_id
-          : user_id // ignore: cast_nullable_to_non_nullable
+      userId: null == userId
+          ? _value.userId
+          : userId // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -131,8 +130,8 @@ class __$$EventAttendeeImplCopyWithImpl<$Res>
 class _$EventAttendeeImpl implements _EventAttendee {
   const _$EventAttendeeImpl(
       {@HiveField(0) this.id,
-      @HiveField(1) required this.event_id,
-      @HiveField(2) required this.user_id});
+      @HiveField(1) required this.eventId,
+      @HiveField(2) required this.userId});
 
   factory _$EventAttendeeImpl.fromJson(Map<String, dynamic> json) =>
       _$$EventAttendeeImplFromJson(json);
@@ -140,17 +139,16 @@ class _$EventAttendeeImpl implements _EventAttendee {
   @override
   @HiveField(0)
   final int? id;
-// TODO: change to eventId and userId
   @override
   @HiveField(1)
-  final String event_id;
+  final String eventId;
   @override
   @HiveField(2)
-  final String user_id;
+  final String userId;
 
   @override
   String toString() {
-    return 'EventAttendee(id: $id, event_id: $event_id, user_id: $user_id)';
+    return 'EventAttendee(id: $id, eventId: $eventId, userId: $userId)';
   }
 
   @override
@@ -159,14 +157,13 @@ class _$EventAttendeeImpl implements _EventAttendee {
         (other.runtimeType == runtimeType &&
             other is _$EventAttendeeImpl &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.event_id, event_id) ||
-                other.event_id == event_id) &&
-            (identical(other.user_id, user_id) || other.user_id == user_id));
+            (identical(other.eventId, eventId) || other.eventId == eventId) &&
+            (identical(other.userId, userId) || other.userId == userId));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, event_id, user_id);
+  int get hashCode => Object.hash(runtimeType, id, eventId, userId);
 
   @JsonKey(ignore: true)
   @override
@@ -185,8 +182,8 @@ class _$EventAttendeeImpl implements _EventAttendee {
 abstract class _EventAttendee implements EventAttendee {
   const factory _EventAttendee(
       {@HiveField(0) final int? id,
-      @HiveField(1) required final String event_id,
-      @HiveField(2) required final String user_id}) = _$EventAttendeeImpl;
+      @HiveField(1) required final String eventId,
+      @HiveField(2) required final String userId}) = _$EventAttendeeImpl;
 
   factory _EventAttendee.fromJson(Map<String, dynamic> json) =
       _$EventAttendeeImpl.fromJson;
@@ -194,12 +191,12 @@ abstract class _EventAttendee implements EventAttendee {
   @override
   @HiveField(0)
   int? get id;
-  @override // TODO: change to eventId and userId
+  @override
   @HiveField(1)
-  String get event_id;
+  String get eventId;
   @override
   @HiveField(2)
-  String get user_id;
+  String get userId;
   @override
   @JsonKey(ignore: true)
   _$$EventAttendeeImplCopyWith<_$EventAttendeeImpl> get copyWith =>

@@ -1,10 +1,10 @@
 part of 'announcement_bloc.dart';
 
 @freezed
-class AnnouncementState with _$AnnouncementState {
-  const factory AnnouncementState.initial() = _Initial;
-  const factory AnnouncementState.loading() = _Loading;
-  const factory AnnouncementState.loaded(List<Announcement> announcements) =
-      _Loaded;
-  const factory AnnouncementState.error(String message) = _Error;
+class AnnouncementManagmentState with _$AnnouncementManagmentState {
+  const factory AnnouncementManagmentState.initial() = _Initial;
+  const factory AnnouncementManagmentState.loading() = _Loading;
+  const factory AnnouncementManagmentState.loaded(
+      List<Announcement> announcements) = _Loaded;
+  const factory AnnouncementManagmentState.error(String message) = _Error;
 }

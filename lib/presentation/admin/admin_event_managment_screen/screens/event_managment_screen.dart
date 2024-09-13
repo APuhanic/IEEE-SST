@@ -8,6 +8,7 @@ import 'package:ieee_sst/presentation/common/widgets/event_filter_chips.dart';
 import 'package:ieee_sst/presentation/common/bloc/events_bloc/events_bloc.dart';
 import 'package:ieee_sst/presentation/common/widgets/date_picker_filter.dart';
 import 'package:ieee_sst/presentation/common/widgets/loading_indicator.dart';
+import 'package:ieee_sst/presentation/common/widgets/sliver_screen_header.dart';
 import 'package:ieee_sst/presentation/home/widgets/home_screen_drawer.dart';
 
 class EventManagmentScreen extends StatelessWidget {
@@ -40,14 +41,7 @@ class EventManagmentScreen extends StatelessWidget {
                 physics: const AlwaysScrollableScrollPhysics(),
                 slivers: <Widget>[
                   // TODO: Make a common sliver app bar?
-                  const SliverAppBar(
-                    floating: false,
-                    pinned: true,
-                    backgroundColor: AppColors.background,
-                    shadowColor: Colors.transparent,
-                    surfaceTintColor: AppColors.background,
-                    title: Text('Event Managment'),
-                  ),
+                  const SliverScreenHeader(title: 'Event Managment'),
                   SliverPersistentHeader(
                     pinned: true,
                     delegate: _DatePickerHeaderDelegate(

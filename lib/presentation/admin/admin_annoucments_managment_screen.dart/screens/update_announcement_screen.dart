@@ -16,7 +16,6 @@ class UpdateAnnouncementScreen extends StatelessWidget {
       body: BlocConsumer<AnnouncementFormBloc, AnnouncementFormState>(
         listener: (context, state) {
           if (state.status.isSuccess) {
-            debugPrint('Announcement updated successfully');
             Navigator.pop(context);
           }
           if (state.status.isFailure) {
@@ -33,6 +32,7 @@ class UpdateAnnouncementScreen extends StatelessWidget {
         },
         builder: (context, state) {
           return CustomScrollView(slivers: [
+            //TODO: Add sliver header everywhere?
             const SliverAppBar(
               expandedHeight: 40.0,
               backgroundColor: AppColors.background,

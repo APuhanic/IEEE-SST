@@ -13,16 +13,17 @@ class OrganizerAnnouncements extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     context
-        .read<AnnouncementBloc>()
-        .add(const AnnouncementEvent.loadAnnouncements());
+        .read<AnnouncementManagmentBloc>()
+        .add(const AnnouncementManagmentEvent.loadAnnouncements());
     return Scaffold(
       body: RefreshIndicator(
         backgroundColor: AppColors.white,
         color: AppColors.primary,
         onRefresh: () async => context
-            .read<AnnouncementBloc>()
-            .add(const AnnouncementEvent.loadAnnouncements()),
-        child: BlocBuilder<AnnouncementBloc, AnnouncementState>(
+            .read<AnnouncementManagmentBloc>()
+            .add(const AnnouncementManagmentEvent.loadAnnouncements()),
+        child:
+            BlocBuilder<AnnouncementManagmentBloc, AnnouncementManagmentState>(
           builder: (context, state) {
             return CustomScrollView(
               slivers: [

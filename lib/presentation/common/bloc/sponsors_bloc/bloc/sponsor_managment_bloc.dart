@@ -5,7 +5,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:ieee_sst/data/models/sponsor_model/sponsor_model.dart';
 import 'package:ieee_sst/data/repositories/sponsor_repository.dart';
 import 'package:injectable/injectable.dart';
-import 'package:logger/logger.dart';
 
 part 'sponsor_managment_event.dart';
 part 'sponsor_managment_state.dart';
@@ -27,7 +26,6 @@ class SponsorManagmentBloc
     emit(const _Loading());
     try {
       final sponsors = await supabaseSponsorRepository.fetchSponsors();
-      Logger().w(sponsors);
       emit(_Loaded(sponsors));
     } catch (e) {
       emit(_Error(e.toString()));

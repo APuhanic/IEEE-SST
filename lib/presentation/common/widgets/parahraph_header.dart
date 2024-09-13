@@ -14,7 +14,6 @@ class ParagraphHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        //TODO: Common widget for headers with divders
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 8.0),
           child: Text(text, style: AppTextStyle.darkBlueText),

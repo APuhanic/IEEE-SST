@@ -5,6 +5,7 @@ import 'package:ieee_sst/data/constants/app_colors.dart';
 import 'package:ieee_sst/presentation/common/bloc/announcement_bloc/announcement_bloc.dart';
 import 'package:ieee_sst/presentation/common/widgets/announcement_post.dart';
 import 'package:ieee_sst/presentation/common/widgets/loading_indicator.dart';
+import 'package:ieee_sst/presentation/common/widgets/sliver_screen_header.dart';
 import 'package:ieee_sst/presentation/home/widgets/home_screen_drawer.dart';
 
 class AnnouncementsManagmentScreen extends StatelessWidget {
@@ -15,8 +16,8 @@ class AnnouncementsManagmentScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     context
-        .read<AnnouncementBloc>()
-        .add(const AnnouncementEvent.loadAnnouncements());
+        .read<AnnouncementManagmentBloc>()
+        .add(const AnnouncementManagmentEvent.loadAnnouncements());
     return Scaffold(
         floatingActionButton: FloatingActionButton(
           onPressed: () {
@@ -30,25 +31,21 @@ class AnnouncementsManagmentScreen extends StatelessWidget {
           ),
         ),
         // 2 bloc builders, need to fix?
-        body: BlocBuilder<AnnouncementBloc, AnnouncementState>(
+        body:
+            BlocBuilder<AnnouncementManagmentBloc, AnnouncementManagmentState>(
           builder: (context, state) {
             return RefreshIndicator(
               backgroundColor: AppColors.white,
               color: AppColors.primary,
               onRefresh: () async {
                 context
-                    .read<AnnouncementBloc>()
-                    .add(const AnnouncementEvent.loadAnnouncements());
+                    .read<AnnouncementManagmentBloc>()
+                    .add(const AnnouncementManagmentEvent.loadAnnouncements());
               },
               child: CustomScrollView(
                 physics: const AlwaysScrollableScrollPhysics(),
                 slivers: [
-                  const SliverAppBar(
-                    backgroundColor: AppColors.background,
-                    shadowColor: Colors.transparent,
-                    surfaceTintColor: AppColors.background,
-                    title: Text('Announcements'),
-                  ),
+                  const SliverScreenHeader(title: 'Announcements'),
                   state.maybeWhen(
                     orElse: () => const SliverFillRemaining(
                       child: Center(

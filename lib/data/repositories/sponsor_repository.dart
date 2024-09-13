@@ -23,7 +23,6 @@ class SponsorRepository {
         name, imagePathResponse, image.path.toString());
   }
 
-  Future<void> deleteSponsor(Sponsor sponsor) async {
-    await _sponsorClient.deleteSponsor(sponsor);
-  }
+  Future<void> deleteSponsor(Sponsor sponsor) async =>
+      await _sponsorClient.deleteSponsor(sponsor);
 }

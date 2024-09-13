@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$AnnouncementEvent {
+mixin _$AnnouncementManagmentEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loadAnnouncements,
@@ -57,16 +57,18 @@ mixin _$AnnouncementEvent {
 }
 
 /// @nodoc
-abstract class $AnnouncementEventCopyWith<$Res> {
-  factory $AnnouncementEventCopyWith(
-          AnnouncementEvent value, $Res Function(AnnouncementEvent) then) =
-      _$AnnouncementEventCopyWithImpl<$Res, AnnouncementEvent>;
+abstract class $AnnouncementManagmentEventCopyWith<$Res> {
+  factory $AnnouncementManagmentEventCopyWith(AnnouncementManagmentEvent value,
+          $Res Function(AnnouncementManagmentEvent) then) =
+      _$AnnouncementManagmentEventCopyWithImpl<$Res,
+          AnnouncementManagmentEvent>;
 }
 
 /// @nodoc
-class _$AnnouncementEventCopyWithImpl<$Res, $Val extends AnnouncementEvent>
-    implements $AnnouncementEventCopyWith<$Res> {
-  _$AnnouncementEventCopyWithImpl(this._value, this._then);
+class _$AnnouncementManagmentEventCopyWithImpl<$Res,
+        $Val extends AnnouncementManagmentEvent>
+    implements $AnnouncementManagmentEventCopyWith<$Res> {
+  _$AnnouncementManagmentEventCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -83,7 +85,8 @@ abstract class _$$LoadAnnouncementsImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$LoadAnnouncementsImplCopyWithImpl<$Res>
-    extends _$AnnouncementEventCopyWithImpl<$Res, _$LoadAnnouncementsImpl>
+    extends _$AnnouncementManagmentEventCopyWithImpl<$Res,
+        _$LoadAnnouncementsImpl>
     implements _$$LoadAnnouncementsImplCopyWith<$Res> {
   __$$LoadAnnouncementsImplCopyWithImpl(_$LoadAnnouncementsImpl _value,
       $Res Function(_$LoadAnnouncementsImpl) _then)
@@ -97,7 +100,7 @@ class _$LoadAnnouncementsImpl implements _LoadAnnouncements {
 
   @override
   String toString() {
-    return 'AnnouncementEvent.loadAnnouncements()';
+    return 'AnnouncementManagmentEvent.loadAnnouncements()';
   }
 
   @override
@@ -172,7 +175,7 @@ class _$LoadAnnouncementsImpl implements _LoadAnnouncements {
   }
 }
 
-abstract class _LoadAnnouncements implements AnnouncementEvent {
+abstract class _LoadAnnouncements implements AnnouncementManagmentEvent {
   const factory _LoadAnnouncements() = _$LoadAnnouncementsImpl;
 }
 
@@ -187,7 +190,8 @@ abstract class _$$DeleteAnnouncementImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$DeleteAnnouncementImplCopyWithImpl<$Res>
-    extends _$AnnouncementEventCopyWithImpl<$Res, _$DeleteAnnouncementImpl>
+    extends _$AnnouncementManagmentEventCopyWithImpl<$Res,
+        _$DeleteAnnouncementImpl>
     implements _$$DeleteAnnouncementImplCopyWith<$Res> {
   __$$DeleteAnnouncementImplCopyWithImpl(_$DeleteAnnouncementImpl _value,
       $Res Function(_$DeleteAnnouncementImpl) _then)
@@ -217,7 +221,7 @@ class _$DeleteAnnouncementImpl implements _DeleteAnnouncement {
 
   @override
   String toString() {
-    return 'AnnouncementEvent.deleteAnnouncement(announcementId: $announcementId)';
+    return 'AnnouncementManagmentEvent.deleteAnnouncement(announcementId: $announcementId)';
   }
 
   @override
@@ -302,7 +306,7 @@ class _$DeleteAnnouncementImpl implements _DeleteAnnouncement {
   }
 }
 
-abstract class _DeleteAnnouncement implements AnnouncementEvent {
+abstract class _DeleteAnnouncement implements AnnouncementManagmentEvent {
   const factory _DeleteAnnouncement(final String announcementId) =
       _$DeleteAnnouncementImpl;
 
@@ -313,7 +317,7 @@ abstract class _DeleteAnnouncement implements AnnouncementEvent {
 }
 
 /// @nodoc
-mixin _$AnnouncementState {
+mixin _$AnnouncementManagmentState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
@@ -367,16 +371,18 @@ mixin _$AnnouncementState {
 }
 
 /// @nodoc
-abstract class $AnnouncementStateCopyWith<$Res> {
-  factory $AnnouncementStateCopyWith(
-          AnnouncementState value, $Res Function(AnnouncementState) then) =
-      _$AnnouncementStateCopyWithImpl<$Res, AnnouncementState>;
+abstract class $AnnouncementManagmentStateCopyWith<$Res> {
+  factory $AnnouncementManagmentStateCopyWith(AnnouncementManagmentState value,
+          $Res Function(AnnouncementManagmentState) then) =
+      _$AnnouncementManagmentStateCopyWithImpl<$Res,
+          AnnouncementManagmentState>;
 }
 
 /// @nodoc
-class _$AnnouncementStateCopyWithImpl<$Res, $Val extends AnnouncementState>
-    implements $AnnouncementStateCopyWith<$Res> {
-  _$AnnouncementStateCopyWithImpl(this._value, this._then);
+class _$AnnouncementManagmentStateCopyWithImpl<$Res,
+        $Val extends AnnouncementManagmentState>
+    implements $AnnouncementManagmentStateCopyWith<$Res> {
+  _$AnnouncementManagmentStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -393,7 +399,7 @@ abstract class _$$InitialImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$InitialImplCopyWithImpl<$Res>
-    extends _$AnnouncementStateCopyWithImpl<$Res, _$InitialImpl>
+    extends _$AnnouncementManagmentStateCopyWithImpl<$Res, _$InitialImpl>
     implements _$$InitialImplCopyWith<$Res> {
   __$$InitialImplCopyWithImpl(
       _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
@@ -407,7 +413,7 @@ class _$InitialImpl implements _Initial {
 
   @override
   String toString() {
-    return 'AnnouncementState.initial()';
+    return 'AnnouncementManagmentState.initial()';
   }
 
   @override
@@ -494,7 +500,7 @@ class _$InitialImpl implements _Initial {
   }
 }
 
-abstract class _Initial implements AnnouncementState {
+abstract class _Initial implements AnnouncementManagmentState {
   const factory _Initial() = _$InitialImpl;
 }
 
@@ -507,7 +513,7 @@ abstract class _$$LoadingImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$LoadingImplCopyWithImpl<$Res>
-    extends _$AnnouncementStateCopyWithImpl<$Res, _$LoadingImpl>
+    extends _$AnnouncementManagmentStateCopyWithImpl<$Res, _$LoadingImpl>
     implements _$$LoadingImplCopyWith<$Res> {
   __$$LoadingImplCopyWithImpl(
       _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
@@ -521,7 +527,7 @@ class _$LoadingImpl implements _Loading {
 
   @override
   String toString() {
-    return 'AnnouncementState.loading()';
+    return 'AnnouncementManagmentState.loading()';
   }
 
   @override
@@ -608,7 +614,7 @@ class _$LoadingImpl implements _Loading {
   }
 }
 
-abstract class _Loading implements AnnouncementState {
+abstract class _Loading implements AnnouncementManagmentState {
   const factory _Loading() = _$LoadingImpl;
 }
 
@@ -623,7 +629,7 @@ abstract class _$$LoadedImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$LoadedImplCopyWithImpl<$Res>
-    extends _$AnnouncementStateCopyWithImpl<$Res, _$LoadedImpl>
+    extends _$AnnouncementManagmentStateCopyWithImpl<$Res, _$LoadedImpl>
     implements _$$LoadedImplCopyWith<$Res> {
   __$$LoadedImplCopyWithImpl(
       _$LoadedImpl _value, $Res Function(_$LoadedImpl) _then)
@@ -659,7 +665,7 @@ class _$LoadedImpl implements _Loaded {
 
   @override
   String toString() {
-    return 'AnnouncementState.loaded(announcements: $announcements)';
+    return 'AnnouncementManagmentState.loaded(announcements: $announcements)';
   }
 
   @override
@@ -756,7 +762,7 @@ class _$LoadedImpl implements _Loaded {
   }
 }
 
-abstract class _Loaded implements AnnouncementState {
+abstract class _Loaded implements AnnouncementManagmentState {
   const factory _Loaded(final List<Announcement> announcements) = _$LoadedImpl;
 
   List<Announcement> get announcements;
@@ -776,7 +782,7 @@ abstract class _$$ErrorImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$ErrorImplCopyWithImpl<$Res>
-    extends _$AnnouncementStateCopyWithImpl<$Res, _$ErrorImpl>
+    extends _$AnnouncementManagmentStateCopyWithImpl<$Res, _$ErrorImpl>
     implements _$$ErrorImplCopyWith<$Res> {
   __$$ErrorImplCopyWithImpl(
       _$ErrorImpl _value, $Res Function(_$ErrorImpl) _then)
@@ -806,7 +812,7 @@ class _$ErrorImpl implements _Error {
 
   @override
   String toString() {
-    return 'AnnouncementState.error(message: $message)';
+    return 'AnnouncementManagmentState.error(message: $message)';
   }
 
   @override
@@ -901,7 +907,7 @@ class _$ErrorImpl implements _Error {
   }
 }
 
-abstract class _Error implements AnnouncementState {
+abstract class _Error implements AnnouncementManagmentState {
   const factory _Error(final String message) = _$ErrorImpl;
 
   String get message;

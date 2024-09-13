@@ -28,7 +28,11 @@ class PostFormBloc extends Bloc<PostFormEvent, PostFormState> {
         state.title,
         state.content,
       );
-      emit(state.copyWith(status: FormzSubmissionStatus.success));
+      emit(state.copyWith(
+        status: FormzSubmissionStatus.success,
+        title: '',
+        content: '',
+      ));
     } catch (e) {
       emit(state.copyWith(
           status: FormzSubmissionStatus.failure, errorMessage: e.toString()));

@@ -19,8 +19,7 @@ class UserPostsScreen extends StatelessWidget {
       floatingActionButton: Padding(
         padding: const EdgeInsets.only(bottom: 48),
         child: FloatingActionButton(
-          onPressed: () =>
-              context.go('/community/ask_organizers/create_question'),
+          onPressed: () => context.go('/info/ask_organizers/create_question'),
           backgroundColor: AppColors.primary,
           elevation: 0,
           child: const FaIcon(

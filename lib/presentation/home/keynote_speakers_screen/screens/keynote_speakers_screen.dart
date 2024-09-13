@@ -5,7 +5,7 @@ import 'package:ieee_sst/presentation/common/widgets/loading_indicator.dart';
 import 'package:ieee_sst/presentation/home/keynote_speakers_screen/widgets/keynote_speaker_card.dart';
 import 'package:ieee_sst/util/load_json.dart';
 
-//TODO: Refactor this screen to not be a duplicate of SteeringCommitteeScreen
+//TODO: Remake this with BLoC?
 class KeynoteSpeakersScreen extends StatelessWidget {
   const KeynoteSpeakersScreen({super.key});
 

@@ -7,6 +7,7 @@ import 'package:ieee_sst/presentation/admin/admin_annoucments_managment_screen.d
 import 'package:ieee_sst/presentation/admin/admin_annoucments_managment_screen.dart/widgets/announcement_description_input.dart';
 import 'package:ieee_sst/presentation/admin/admin_annoucments_managment_screen.dart/widgets/announcement_title_input.dart';
 import 'package:ieee_sst/presentation/common/bloc/announcement_bloc/announcement_bloc.dart';
+import 'package:ieee_sst/presentation/common/widgets/sliver_screen_header.dart';
 
 class CreateAnnouncementScreen extends StatelessWidget {
   const CreateAnnouncementScreen({super.key});
@@ -17,15 +18,13 @@ class CreateAnnouncementScreen extends StatelessWidget {
       body: BlocConsumer<AnnouncementFormBloc, AnnouncementFormState>(
         listener: (context, state) {
           if (state.status.isSuccess) {
-            debugPrint('Announcement created successfully');
             Navigator.pop(context);
-
             context
                 .read<AnnouncementFormBloc>()
                 .add(const AnnouncementFormEvent.resetFrom());
             context
-                .read<AnnouncementBloc>()
-                .add(const AnnouncementEvent.loadAnnouncements());
+                .read<AnnouncementManagmentBloc>()
+                .add(const AnnouncementManagmentEvent.loadAnnouncements());
           }
           if (state.status.isFailure) {
             ScaffoldMessenger.of(context).showSnackBar(
@@ -41,13 +40,7 @@ class CreateAnnouncementScreen extends StatelessWidget {
         },
         builder: (context, state) {
           return CustomScrollView(slivers: [
-            const SliverAppBar(
-              expandedHeight: 40.0,
-              backgroundColor: AppColors.background,
-              shadowColor: Colors.transparent,
-              surfaceTintColor: AppColors.background,
-              title: Text('Create announcement'),
-            ),
+            const SliverScreenHeader(title: 'Create announcement'),
             SliverList(
               delegate: SliverChildListDelegate([
                 Padding(

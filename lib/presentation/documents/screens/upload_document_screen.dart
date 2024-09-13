@@ -16,7 +16,6 @@ class UploadDocumentScreen extends StatelessWidget {
       body: BlocListener<DocumentFormBloc, DocumentFormState>(
         listener: (context, state) {
           if (state.status.isSuccess) {
-            debugPrint('Document uploaded successfully');
             Navigator.pop(context);
           }
           if (state.status.isFailure) {

@@ -11,15 +11,17 @@ part 'announcement_state.dart';
 part 'announcement_bloc.freezed.dart';
 
 @injectable
-class AnnouncementBloc extends Bloc<AnnouncementEvent, AnnouncementState> {
-  AnnouncementBloc(this.announcementRepository) : super(const _Initial()) {
+class AnnouncementManagmentBloc
+    extends Bloc<AnnouncementManagmentEvent, AnnouncementManagmentState> {
+  AnnouncementManagmentBloc(this.announcementRepository)
+      : super(const _Initial()) {
     on<_LoadAnnouncements>(_onLoadAnnouncements);
     on<_DeleteAnnouncement>(_onDeleteAnnouncement);
   }
 
   final AnnouncementRepository announcementRepository;
-  Future<void> _onLoadAnnouncements(
-      _LoadAnnouncements event, Emitter<AnnouncementState> emit) async {
+  Future<void> _onLoadAnnouncements(_LoadAnnouncements event,
+      Emitter<AnnouncementManagmentState> emit) async {
     emit(const _Loading());
     try {
       final announcementsResponse =
@@ -31,7 +33,7 @@ class AnnouncementBloc extends Bloc<AnnouncementEvent, AnnouncementState> {
   }
 
   void _onDeleteAnnouncement(
-      _DeleteAnnouncement event, Emitter<AnnouncementState> emit) {
+      _DeleteAnnouncement event, Emitter<AnnouncementManagmentState> emit) {
     try {
       announcementRepository.deleteAnnouncement(event.announcementId);
       if (state is _Loaded) {

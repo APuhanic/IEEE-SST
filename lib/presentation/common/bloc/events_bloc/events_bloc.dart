@@ -80,7 +80,7 @@ class EventsManagmentBloc extends Bloc<EventsEvent, EventsState> {
 
   Future<void> _onFilterEvents(
       _FilterEvents event, Emitter<EventsState> emit) async {
-    if (state is! _Loaded) return null;
+    if (state is! _Loaded) return;
 
     List<Event> filteredEvents =
         await eventRepository.getEventsByDateFromCache(event.date);

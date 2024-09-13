@@ -313,7 +313,7 @@ class AppRouter {
                 ],
               ),
               StatefulShellBranch(
-                navigatorKey: _navigatorKeyManager.shellNavigatorCommunityKey,
+                navigatorKey: _navigatorKeyManager.shellNavigatorInfoKey,
                 routes: [
                   GoRoute(
                     path: RoutePaths.info,
@@ -329,7 +329,6 @@ class AppRouter {
                                 child: OrganizerAnnouncements(),
                               ),
                           routes: [
-                            //TODO: Remove state.extra?
                             GoRoute(
                               path: RoutePaths.subRouteAnnouncementPost,
                               pageBuilder: (context, state) {
@@ -359,7 +358,6 @@ class AppRouter {
                               ),
                             ),
                             GoRoute(
-                              //TODO: Change so it fetches data on screen load
                               path: RoutePaths.subRouteUserPost,
                               parentNavigatorKey:
                                   _navigatorKeyManager.rootNavigatorKey,

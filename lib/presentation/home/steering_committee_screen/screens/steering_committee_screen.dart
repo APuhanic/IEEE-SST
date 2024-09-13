@@ -11,7 +11,7 @@ class SteeringCommitteeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: FutureBuilder<List<SteeringCommittee>>(
+      body: FutureBuilder<List<CommitteeMember>>(
         future: loadSteeringCommittee(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
@@ -22,7 +22,6 @@ class SteeringCommitteeScreen extends StatelessWidget {
             return const Center(child: Text('No Data Available'));
           } else {
             final steeringCommittee = snapshot.data!;
-            debugPrint('Conference Chairs: $steeringCommittee');
             return CustomScrollView(
               slivers: <Widget>[
                 const SliverAppBar(

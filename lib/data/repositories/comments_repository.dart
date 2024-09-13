@@ -12,6 +12,7 @@ class CommentsRepository {
 
   Future<List<Comment>> getAllComments(int postId) async {
     final commentsResponse = await _commentsClient.fetchComments(postId);
+
     return commentsResponse
         .map((comment) => Comment.fromJson(comment).copyWith(
               isOwner:
@@ -25,8 +26,4 @@ class CommentsRepository {
 
   Future<void> deleteComment(int announcementId) =>
       _commentsClient.deleteComments(announcementId);
-
-  /*Future<void> updateComment(Comment comment) {
-    return _commentsClient.updateComment(comment.toJson());
-  }*/
 }

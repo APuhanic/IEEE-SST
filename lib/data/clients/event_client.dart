@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
@@ -17,8 +16,7 @@ class EventClient {
     String location,
     String speaker,
     String info,
-  ) async {
-    try {
+  ) async =>
       await _supabaseClient.from('events').insert({
         'name': name,
         'description': description,
@@ -29,55 +27,29 @@ class EventClient {
         'speaker': speaker,
         'info': info,
       });
-    } catch (e) {
-      rethrow;
-    }
-  }
 
-  Future<List<Map<String, dynamic>>> fetchEvents() async {
-    return Supabase.instance.client.from('events').select();
-  }
+  Future<List<Map<String, dynamic>>> fetchEvents() async =>
+      Supabase.instance.client.from('events').select();
 
   Future<List<Map<String, dynamic>>> fetchEventAttendees() async {
     return Supabase.instance.client.from('event_attendees').select();
   }
 
-  Future<void> deleteEvent(String eventId) async {
-    try {
+  Future<void> deleteEvent(String eventId) async =>
       await _supabaseClient.from('events').delete().eq('id', eventId);
-    } catch (e) {
-      debugPrint(e.toString());
-    }
-  }
 
-  Future<void> updateEvent(Map<String, dynamic> event) async {
-    try {
+  Future<void> updateEvent(Map<String, dynamic> event) async =>
       await _supabaseClient.from('events').upsert(event);
-    } catch (e) {
-      debugPrint(e.toString());
-    }
-  }
 
-  Future<void> markGoing(String eventId) async {
-    try {
+  Future<void> markGoing(String eventId) async =>
       await _supabaseClient.from('event_attendees').insert({
         'event_id': eventId,
         'user_id': _supabaseClient.auth.currentUser!.id,
       });
-    } catch (e) {
-      debugPrint(e.toString());
-    }
-  }
 
-  Future<void> markNotGoing(String eventId) async {
-    try {
-      await _supabaseClient
-          .from('event_attendees')
-          .delete()
-          .eq('event_id', eventId)
-          .eq('user_id', _supabaseClient.auth.currentUser!.id);
-    } catch (e) {
-      debugPrint(e.toString());
-    }
-  }
+  Future<void> markNotGoing(String eventId) async => await _supabaseClient
+      .from('event_attendees')
+      .delete()
+      .eq('event_id', eventId)
+      .eq('user_id', _supabaseClient.auth.currentUser!.id);
 }

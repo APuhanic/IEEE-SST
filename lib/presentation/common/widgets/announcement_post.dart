@@ -24,7 +24,7 @@ class AnnouncementPost extends StatelessWidget {
       onTap: () {
         if (!isAdmin) {
           context.go(
-            '/community/organizer_announcements/announcement_post',
+            '/info/organizer_announcements/announcement_post',
             extra: announcement,
           );
         }
@@ -76,9 +76,10 @@ class AnnouncementPost extends StatelessWidget {
                             ),
                             PopupMenuItem(
                               child: const Text('Delete'),
-                              onTap: () => context.read<AnnouncementBloc>().add(
-                                  AnnouncementEvent.deleteAnnouncement(
-                                      announcement.id!)),
+                              onTap: () => context
+                                  .read<AnnouncementManagmentBloc>()
+                                  .add(AnnouncementManagmentEvent
+                                      .deleteAnnouncement(announcement.id!)),
                             )
                           ],
                         )

@@ -21,6 +21,4 @@ class PostLocalStorage {
     final box = await _keyValueStorage.commentsBox;
     await box.delete(post);
   }
-
-  // TODO: Add deleting posts
 }

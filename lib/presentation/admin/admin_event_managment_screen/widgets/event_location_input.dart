@@ -17,7 +17,7 @@ class EventLocationInput extends StatelessWidget {
           initialValue: state.location,
           onChanged: (eventLocation) => context
               .read<EventFormBloc>()
-              .add(EventFormEvent.eventLocationChanged(eventLocation)),
+              .add(EventFormEvent.locationChanged(eventLocation)),
           decoration: InputDecoration(
             label: Text('Event location', style: AppTextStyle.textForm),
             hintText: 'Event location',

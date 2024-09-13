@@ -8,6 +8,7 @@ import 'package:ieee_sst/data/constants/text_styles.dart';
 import 'package:ieee_sst/presentation/admin/admin_home_screen/widgets/my_profile_screen_button.dart';
 import 'package:ieee_sst/presentation/common/bloc/profile_bloc/profile_bloc.dart';
 import 'package:ieee_sst/presentation/common/widgets/loading_indicator.dart';
+import 'package:ieee_sst/presentation/common/widgets/parahraph_header.dart';
 import 'package:ieee_sst/presentation/home/widgets/home_screen_drawer.dart';
 import 'package:ieee_sst/presentation/home/widgets/new_screen_button.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -76,6 +77,7 @@ class HomeScreen extends StatelessWidget {
             sliver: SliverGrid(
               delegate: SliverChildBuilderDelegate(
                 (BuildContext context, int index) {
+                  // TODO: Extract these routes to a constants file
                   final titles = [
                     'Conference Chairs',
                     'Steering Committee',
@@ -84,14 +86,13 @@ class HomeScreen extends StatelessWidget {
                     'Special Sessions',
                     'PhD Forum'
                   ];
-                  // TODO: Extract these routes to a constants file
                   final routes = [
-                    '/home/conference_chairs',
-                    '/home/steering_committee',
-                    '/home/program_committee',
-                    '/home/keynote_speaker',
-                    '/home/special_sessions',
-                    '/home/phd_forum'
+                    '${RoutePaths.home}/${RoutePaths.conferenceChairsSubRoute}',
+                    '${RoutePaths.home}/${RoutePaths.steeringCommitteeSubRoute}',
+                    '${RoutePaths.home}/${RoutePaths.programCommitteeSubRoute}',
+                    '${RoutePaths.home}/${RoutePaths.keynoteSpeakerSubRoute}',
+                    '${RoutePaths.home}/${RoutePaths.specialSessionsSubRoute}',
+                    '${RoutePaths.home}/${RoutePaths.phdForumSubRoute}'
                   ];
 
                   return NewScreenButton(
@@ -116,10 +117,7 @@ class HomeScreen extends StatelessWidget {
             sliver: SliverList(
               delegate: SliverChildListDelegate(
                 [
-                  Text(
-                    'Additional resources',
-                    style: AppTextStyle.titleSmall,
-                  ),
+                  Text('Additional resources', style: AppTextStyle.titleSmall),
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 8.0),
                     child: SizedBox(
@@ -145,26 +143,7 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-
-                  //TODO: COMMON WIDGET
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 16.0),
-                    child: Row(
-                      children: [
-                        Text(
-                          'SST 2024',
-                          style: AppTextStyle.titleSmall,
-                        ),
-                        const Expanded(
-                          child: Divider(
-                            color: AppColors.black,
-                            thickness: 1,
-                            indent: 8,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
+                  const ParagraphHeader(text: 'SST 2024'),
                   Text(
                     'International Conference on Smart Systems and Technologies (SST) is a conference organized and hosted by the Faculty of Electrical Engineering, Computer Science and Information Technology Osijek, Josip Juraj Strossmayer University of Osijek. The conference will provide a platform for researchers and practitioners interested in the theory and practice of smart systems and technologies related to electrical engineering, communications, computer science and engineering, control systems, robotics, as well as interdisciplinary research and applications.',
                     style: AppTextStyle.lightText,
@@ -207,22 +186,10 @@ class _FacebookPageLink extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () async {
-        //TODO: Refactor this
         final facebookUrl = Uri.parse(
             'https://web.facebook.com/SSTInternationalConference/?_rdc=1&_rdr');
-        final facebookFallbackUrl = Uri.parse(
-            'https://web.facebook.com/SSTInternationalConference/?_rdc=1&_rdr');
-
-        // Attempt to open the Facebook app
         if (await canLaunchUrl(facebookUrl)) {
           await launchUrl(facebookUrl);
-        } else {
-          // If the Facebook app is not available, open in a web browser
-          if (await canLaunchUrl(facebookFallbackUrl)) {
-            await launchUrl(facebookFallbackUrl);
-          } else {
-            throw 'Could not launch $facebookFallbackUrl';
-          }
         }
       },
       child: Padding(

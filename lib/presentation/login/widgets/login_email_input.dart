@@ -12,32 +12,34 @@ class LoginEmailInput extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: add builder instead?
-    final state = context.watch<LoginBloc>().state;
-    return SizedBox(
-      height: 60,
-      child: TextFormField(
-        keyboardType: TextInputType.emailAddress,
-        textInputAction: TextInputAction.next,
-        onChanged: (value) =>
-            context.read<LoginBloc>().add(LoginEvent.emailChanged(value)),
-        decoration: InputDecoration(
-          hintText: 'Email Address',
-          hintStyle: AppTextStyle.textForm,
-          filled: true,
-          fillColor: state.status.isFailure
-              ? AppColors.warning.withOpacity(0.1)
-              : AppColors.white,
-          prefixIcon: const Icon(
-            Icons.mail_outline,
-            color: AppColors.grayText,
+    return BlocBuilder<LoginBloc, LoginState>(
+      builder: (context, state) {
+        return SizedBox(
+          height: 60,
+          child: TextFormField(
+            keyboardType: TextInputType.emailAddress,
+            textInputAction: TextInputAction.next,
+            onChanged: (value) =>
+                context.read<LoginBloc>().add(LoginEvent.emailChanged(value)),
+            decoration: InputDecoration(
+              hintText: 'Email Address',
+              hintStyle: AppTextStyle.textForm,
+              filled: true,
+              fillColor: state.status.isFailure
+                  ? AppColors.warning.withOpacity(0.1)
+                  : AppColors.white,
+              prefixIcon: const Icon(
+                Icons.mail_outline,
+                color: AppColors.grayText,
+              ),
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10),
+                borderSide: BorderSide.none,
+              ),
+            ),
           ),
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10),
-            borderSide: BorderSide.none,
-          ),
-        ),
-      ),
+        );
+      },
     );
   }
 }

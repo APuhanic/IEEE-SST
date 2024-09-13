@@ -22,7 +22,6 @@ class ConferenceChairScreen extends StatelessWidget {
             return const Center(child: Text('No Data Available'));
           } else {
             final conferenceChairs = snapshot.data!;
-            debugPrint('Conference Chairs: $conferenceChairs');
             return CustomScrollView(
               slivers: <Widget>[
                 const SliverAppBar(

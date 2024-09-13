@@ -18,8 +18,8 @@ class EventAttendeeAdapter extends TypeAdapter<EventAttendee> {
     };
     return EventAttendee(
       id: fields[0] as int?,
-      event_id: fields[1] as String,
-      user_id: fields[2] as String,
+      eventId: fields[1] as String,
+      userId: fields[2] as String,
     );
   }
 
@@ -30,9 +30,9 @@ class EventAttendeeAdapter extends TypeAdapter<EventAttendee> {
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
-      ..write(obj.event_id)
+      ..write(obj.eventId)
       ..writeByte(2)
-      ..write(obj.user_id);
+      ..write(obj.userId);
   }
 
   @override
@@ -53,13 +53,13 @@ class EventAttendeeAdapter extends TypeAdapter<EventAttendee> {
 _$EventAttendeeImpl _$$EventAttendeeImplFromJson(Map<String, dynamic> json) =>
     _$EventAttendeeImpl(
       id: (json['id'] as num?)?.toInt(),
-      event_id: json['event_id'] as String,
-      user_id: json['user_id'] as String,
+      eventId: json['eventId'] as String,
+      userId: json['userId'] as String,
     );
 
 Map<String, dynamic> _$$EventAttendeeImplToJson(_$EventAttendeeImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'event_id': instance.event_id,
-      'user_id': instance.user_id,
+      'eventId': instance.eventId,
+      'userId': instance.userId,
     };

@@ -76,23 +76,3 @@ class RegisterScreen extends StatelessWidget {
     );
   }
 }
-
-class _GoogleSignUp extends StatelessWidget {
-  const _GoogleSignUp();
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 60,
-      width: 60,
-      decoration: BoxDecoration(
-        color: AppColors.white,
-        borderRadius: BorderRadius.circular(20),
-      ),
-      child: IconButton(
-        onPressed: () {},
-        icon: Image.asset('assets/images/google-logo.png'),
-      ),
-    );
-  }
-}

@@ -21,14 +21,14 @@ mixin _$EventFormEvent {
     required TResult Function() createEvent,
     required TResult Function() updateEvent,
     required TResult Function(Event event) setInitialValues,
-    required TResult Function(String name) eventNameChanged,
-    required TResult Function(String eventDescription) eventDescriptionChanged,
-    required TResult Function(DateTime? startTime) eventStartTimeChanged,
-    required TResult Function(DateTime? endTime) eventEndTimeChanged,
-    required TResult Function(DateTime? date) eventDateChanged,
-    required TResult Function(String location) eventLocationChanged,
-    required TResult Function(String speaker) eventSpeakerChanged,
-    required TResult Function(String info) eventInfoChanged,
+    required TResult Function(String name) nameChanged,
+    required TResult Function(String eventDescription) descriptionChanged,
+    required TResult Function(DateTime? startTime) startTimeChanged,
+    required TResult Function(DateTime? endTime) endTimeChanged,
+    required TResult Function(DateTime? date) dateChanged,
+    required TResult Function(String location) locationChanged,
+    required TResult Function(String speaker) speakerChanged,
+    required TResult Function(String info) infoChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -36,14 +36,14 @@ mixin _$EventFormEvent {
     TResult? Function()? createEvent,
     TResult? Function()? updateEvent,
     TResult? Function(Event event)? setInitialValues,
-    TResult? Function(String name)? eventNameChanged,
-    TResult? Function(String eventDescription)? eventDescriptionChanged,
-    TResult? Function(DateTime? startTime)? eventStartTimeChanged,
-    TResult? Function(DateTime? endTime)? eventEndTimeChanged,
-    TResult? Function(DateTime? date)? eventDateChanged,
-    TResult? Function(String location)? eventLocationChanged,
-    TResult? Function(String speaker)? eventSpeakerChanged,
-    TResult? Function(String info)? eventInfoChanged,
+    TResult? Function(String name)? nameChanged,
+    TResult? Function(String eventDescription)? descriptionChanged,
+    TResult? Function(DateTime? startTime)? startTimeChanged,
+    TResult? Function(DateTime? endTime)? endTimeChanged,
+    TResult? Function(DateTime? date)? dateChanged,
+    TResult? Function(String location)? locationChanged,
+    TResult? Function(String speaker)? speakerChanged,
+    TResult? Function(String info)? infoChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -51,14 +51,14 @@ mixin _$EventFormEvent {
     TResult Function()? createEvent,
     TResult Function()? updateEvent,
     TResult Function(Event event)? setInitialValues,
-    TResult Function(String name)? eventNameChanged,
-    TResult Function(String eventDescription)? eventDescriptionChanged,
-    TResult Function(DateTime? startTime)? eventStartTimeChanged,
-    TResult Function(DateTime? endTime)? eventEndTimeChanged,
-    TResult Function(DateTime? date)? eventDateChanged,
-    TResult Function(String location)? eventLocationChanged,
-    TResult Function(String speaker)? eventSpeakerChanged,
-    TResult Function(String info)? eventInfoChanged,
+    TResult Function(String name)? nameChanged,
+    TResult Function(String eventDescription)? descriptionChanged,
+    TResult Function(DateTime? startTime)? startTimeChanged,
+    TResult Function(DateTime? endTime)? endTimeChanged,
+    TResult Function(DateTime? date)? dateChanged,
+    TResult Function(String location)? locationChanged,
+    TResult Function(String speaker)? speakerChanged,
+    TResult Function(String info)? infoChanged,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -67,16 +67,15 @@ mixin _$EventFormEvent {
     required TResult Function(_CreateEvent value) createEvent,
     required TResult Function(_UpdateEvent value) updateEvent,
     required TResult Function(_SetInitialValues value) setInitialValues,
-    required TResult Function(_EventNameChanged value) eventNameChanged,
+    required TResult Function(_EventNameChanged value) nameChanged,
     required TResult Function(_EventDescriptionChanged value)
-        eventDescriptionChanged,
-    required TResult Function(_EventStartTimeChanged value)
-        eventStartTimeChanged,
-    required TResult Function(_EventEndTimeChanged value) eventEndTimeChanged,
-    required TResult Function(_EventDateChanged value) eventDateChanged,
-    required TResult Function(_EventLocationChanged value) eventLocationChanged,
-    required TResult Function(_EventSpeakerChanged value) eventSpeakerChanged,
-    required TResult Function(_EventInfoChanged value) eventInfoChanged,
+        descriptionChanged,
+    required TResult Function(_EventStartTimeChanged value) startTimeChanged,
+    required TResult Function(_EventEndTimeChanged value) endTimeChanged,
+    required TResult Function(_EventDateChanged value) dateChanged,
+    required TResult Function(_EventLocationChanged value) locationChanged,
+    required TResult Function(_EventSpeakerChanged value) speakerChanged,
+    required TResult Function(_EventInfoChanged value) infoChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -84,14 +83,14 @@ mixin _$EventFormEvent {
     TResult? Function(_CreateEvent value)? createEvent,
     TResult? Function(_UpdateEvent value)? updateEvent,
     TResult? Function(_SetInitialValues value)? setInitialValues,
-    TResult? Function(_EventNameChanged value)? eventNameChanged,
-    TResult? Function(_EventDescriptionChanged value)? eventDescriptionChanged,
-    TResult? Function(_EventStartTimeChanged value)? eventStartTimeChanged,
-    TResult? Function(_EventEndTimeChanged value)? eventEndTimeChanged,
-    TResult? Function(_EventDateChanged value)? eventDateChanged,
-    TResult? Function(_EventLocationChanged value)? eventLocationChanged,
-    TResult? Function(_EventSpeakerChanged value)? eventSpeakerChanged,
-    TResult? Function(_EventInfoChanged value)? eventInfoChanged,
+    TResult? Function(_EventNameChanged value)? nameChanged,
+    TResult? Function(_EventDescriptionChanged value)? descriptionChanged,
+    TResult? Function(_EventStartTimeChanged value)? startTimeChanged,
+    TResult? Function(_EventEndTimeChanged value)? endTimeChanged,
+    TResult? Function(_EventDateChanged value)? dateChanged,
+    TResult? Function(_EventLocationChanged value)? locationChanged,
+    TResult? Function(_EventSpeakerChanged value)? speakerChanged,
+    TResult? Function(_EventInfoChanged value)? infoChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -99,14 +98,14 @@ mixin _$EventFormEvent {
     TResult Function(_CreateEvent value)? createEvent,
     TResult Function(_UpdateEvent value)? updateEvent,
     TResult Function(_SetInitialValues value)? setInitialValues,
-    TResult Function(_EventNameChanged value)? eventNameChanged,
-    TResult Function(_EventDescriptionChanged value)? eventDescriptionChanged,
-    TResult Function(_EventStartTimeChanged value)? eventStartTimeChanged,
-    TResult Function(_EventEndTimeChanged value)? eventEndTimeChanged,
-    TResult Function(_EventDateChanged value)? eventDateChanged,
-    TResult Function(_EventLocationChanged value)? eventLocationChanged,
-    TResult Function(_EventSpeakerChanged value)? eventSpeakerChanged,
-    TResult Function(_EventInfoChanged value)? eventInfoChanged,
+    TResult Function(_EventNameChanged value)? nameChanged,
+    TResult Function(_EventDescriptionChanged value)? descriptionChanged,
+    TResult Function(_EventStartTimeChanged value)? startTimeChanged,
+    TResult Function(_EventEndTimeChanged value)? endTimeChanged,
+    TResult Function(_EventDateChanged value)? dateChanged,
+    TResult Function(_EventLocationChanged value)? locationChanged,
+    TResult Function(_EventSpeakerChanged value)? speakerChanged,
+    TResult Function(_EventInfoChanged value)? infoChanged,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -171,14 +170,14 @@ class _$CreateEventImpl implements _CreateEvent {
     required TResult Function() createEvent,
     required TResult Function() updateEvent,
     required TResult Function(Event event) setInitialValues,
-    required TResult Function(String name) eventNameChanged,
-    required TResult Function(String eventDescription) eventDescriptionChanged,
-    required TResult Function(DateTime? startTime) eventStartTimeChanged,
-    required TResult Function(DateTime? endTime) eventEndTimeChanged,
-    required TResult Function(DateTime? date) eventDateChanged,
-    required TResult Function(String location) eventLocationChanged,
-    required TResult Function(String speaker) eventSpeakerChanged,
-    required TResult Function(String info) eventInfoChanged,
+    required TResult Function(String name) nameChanged,
+    required TResult Function(String eventDescription) descriptionChanged,
+    required TResult Function(DateTime? startTime) startTimeChanged,
+    required TResult Function(DateTime? endTime) endTimeChanged,
+    required TResult Function(DateTime? date) dateChanged,
+    required TResult Function(String location) locationChanged,
+    required TResult Function(String speaker) speakerChanged,
+    required TResult Function(String info) infoChanged,
   }) {
     return createEvent();
   }
@@ -189,14 +188,14 @@ class _$CreateEventImpl implements _CreateEvent {
     TResult? Function()? createEvent,
     TResult? Function()? updateEvent,
     TResult? Function(Event event)? setInitialValues,
-    TResult? Function(String name)? eventNameChanged,
-    TResult? Function(String eventDescription)? eventDescriptionChanged,
-    TResult? Function(DateTime? startTime)? eventStartTimeChanged,
-    TResult? Function(DateTime? endTime)? eventEndTimeChanged,
-    TResult? Function(DateTime? date)? eventDateChanged,
-    TResult? Function(String location)? eventLocationChanged,
-    TResult? Function(String speaker)? eventSpeakerChanged,
-    TResult? Function(String info)? eventInfoChanged,
+    TResult? Function(String name)? nameChanged,
+    TResult? Function(String eventDescription)? descriptionChanged,
+    TResult? Function(DateTime? startTime)? startTimeChanged,
+    TResult? Function(DateTime? endTime)? endTimeChanged,
+    TResult? Function(DateTime? date)? dateChanged,
+    TResult? Function(String location)? locationChanged,
+    TResult? Function(String speaker)? speakerChanged,
+    TResult? Function(String info)? infoChanged,
   }) {
     return createEvent?.call();
   }
@@ -207,14 +206,14 @@ class _$CreateEventImpl implements _CreateEvent {
     TResult Function()? createEvent,
     TResult Function()? updateEvent,
     TResult Function(Event event)? setInitialValues,
-    TResult Function(String name)? eventNameChanged,
-    TResult Function(String eventDescription)? eventDescriptionChanged,
-    TResult Function(DateTime? startTime)? eventStartTimeChanged,
-    TResult Function(DateTime? endTime)? eventEndTimeChanged,
-    TResult Function(DateTime? date)? eventDateChanged,
-    TResult Function(String location)? eventLocationChanged,
-    TResult Function(String speaker)? eventSpeakerChanged,
-    TResult Function(String info)? eventInfoChanged,
+    TResult Function(String name)? nameChanged,
+    TResult Function(String eventDescription)? descriptionChanged,
+    TResult Function(DateTime? startTime)? startTimeChanged,
+    TResult Function(DateTime? endTime)? endTimeChanged,
+    TResult Function(DateTime? date)? dateChanged,
+    TResult Function(String location)? locationChanged,
+    TResult Function(String speaker)? speakerChanged,
+    TResult Function(String info)? infoChanged,
     required TResult orElse(),
   }) {
     if (createEvent != null) {
@@ -229,16 +228,15 @@ class _$CreateEventImpl implements _CreateEvent {
     required TResult Function(_CreateEvent value) createEvent,
     required TResult Function(_UpdateEvent value) updateEvent,
     required TResult Function(_SetInitialValues value) setInitialValues,
-    required TResult Function(_EventNameChanged value) eventNameChanged,
+    required TResult Function(_EventNameChanged value) nameChanged,
     required TResult Function(_EventDescriptionChanged value)
-        eventDescriptionChanged,
-    required TResult Function(_EventStartTimeChanged value)
-        eventStartTimeChanged,
-    required TResult Function(_EventEndTimeChanged value) eventEndTimeChanged,
-    required TResult Function(_EventDateChanged value) eventDateChanged,
-    required TResult Function(_EventLocationChanged value) eventLocationChanged,
-    required TResult Function(_EventSpeakerChanged value) eventSpeakerChanged,
-    required TResult Function(_EventInfoChanged value) eventInfoChanged,
+        descriptionChanged,
+    required TResult Function(_EventStartTimeChanged value) startTimeChanged,
+    required TResult Function(_EventEndTimeChanged value) endTimeChanged,
+    required TResult Function(_EventDateChanged value) dateChanged,
+    required TResult Function(_EventLocationChanged value) locationChanged,
+    required TResult Function(_EventSpeakerChanged value) speakerChanged,
+    required TResult Function(_EventInfoChanged value) infoChanged,
   }) {
     return createEvent(this);
   }
@@ -249,14 +247,14 @@ class _$CreateEventImpl implements _CreateEvent {
     TResult? Function(_CreateEvent value)? createEvent,
     TResult? Function(_UpdateEvent value)? updateEvent,
     TResult? Function(_SetInitialValues value)? setInitialValues,
-    TResult? Function(_EventNameChanged value)? eventNameChanged,
-    TResult? Function(_EventDescriptionChanged value)? eventDescriptionChanged,
-    TResult? Function(_EventStartTimeChanged value)? eventStartTimeChanged,
-    TResult? Function(_EventEndTimeChanged value)? eventEndTimeChanged,
-    TResult? Function(_EventDateChanged value)? eventDateChanged,
-    TResult? Function(_EventLocationChanged value)? eventLocationChanged,
-    TResult? Function(_EventSpeakerChanged value)? eventSpeakerChanged,
-    TResult? Function(_EventInfoChanged value)? eventInfoChanged,
+    TResult? Function(_EventNameChanged value)? nameChanged,
+    TResult? Function(_EventDescriptionChanged value)? descriptionChanged,
+    TResult? Function(_EventStartTimeChanged value)? startTimeChanged,
+    TResult? Function(_EventEndTimeChanged value)? endTimeChanged,
+    TResult? Function(_EventDateChanged value)? dateChanged,
+    TResult? Function(_EventLocationChanged value)? locationChanged,
+    TResult? Function(_EventSpeakerChanged value)? speakerChanged,
+    TResult? Function(_EventInfoChanged value)? infoChanged,
   }) {
     return createEvent?.call(this);
   }
@@ -267,14 +265,14 @@ class _$CreateEventImpl implements _CreateEvent {
     TResult Function(_CreateEvent value)? createEvent,
     TResult Function(_UpdateEvent value)? updateEvent,
     TResult Function(_SetInitialValues value)? setInitialValues,
-    TResult Function(_EventNameChanged value)? eventNameChanged,
-    TResult Function(_EventDescriptionChanged value)? eventDescriptionChanged,
-    TResult Function(_EventStartTimeChanged value)? eventStartTimeChanged,
-    TResult Function(_EventEndTimeChanged value)? eventEndTimeChanged,
-    TResult Function(_EventDateChanged value)? eventDateChanged,
-    TResult Function(_EventLocationChanged value)? eventLocationChanged,
-    TResult Function(_EventSpeakerChanged value)? eventSpeakerChanged,
-    TResult Function(_EventInfoChanged value)? eventInfoChanged,
+    TResult Function(_EventNameChanged value)? nameChanged,
+    TResult Function(_EventDescriptionChanged value)? descriptionChanged,
+    TResult Function(_EventStartTimeChanged value)? startTimeChanged,
+    TResult Function(_EventEndTimeChanged value)? endTimeChanged,
+    TResult Function(_EventDateChanged value)? dateChanged,
+    TResult Function(_EventLocationChanged value)? locationChanged,
+    TResult Function(_EventSpeakerChanged value)? speakerChanged,
+    TResult Function(_EventInfoChanged value)? infoChanged,
     required TResult orElse(),
   }) {
     if (createEvent != null) {
@@ -329,14 +327,14 @@ class _$UpdateEventImpl implements _UpdateEvent {
     required TResult Function() createEvent,
     required TResult Function() updateEvent,
     required TResult Function(Event event) setInitialValues,
-    required TResult Function(String name) eventNameChanged,
-    required TResult Function(String eventDescription) eventDescriptionChanged,
-    required TResult Function(DateTime? startTime) eventStartTimeChanged,
-    required TResult Function(DateTime? endTime) eventEndTimeChanged,
-    required TResult Function(DateTime? date) eventDateChanged,
-    required TResult Function(String location) eventLocationChanged,
-    required TResult Function(String speaker) eventSpeakerChanged,
-    required TResult Function(String info) eventInfoChanged,
+    required TResult Function(String name) nameChanged,
+    required TResult Function(String eventDescription) descriptionChanged,
+    required TResult Function(DateTime? startTime) startTimeChanged,
+    required TResult Function(DateTime? endTime) endTimeChanged,
+    required TResult Function(DateTime? date) dateChanged,
+    required TResult Function(String location) locationChanged,
+    required TResult Function(String speaker) speakerChanged,
+    required TResult Function(String info) infoChanged,
   }) {
     return updateEvent();
   }
@@ -347,14 +345,14 @@ class _$UpdateEventImpl implements _UpdateEvent {
     TResult? Function()? createEvent,
     TResult? Function()? updateEvent,
     TResult? Function(Event event)? setInitialValues,
-    TResult? Function(String name)? eventNameChanged,
-    TResult? Function(String eventDescription)? eventDescriptionChanged,
-    TResult? Function(DateTime? startTime)? eventStartTimeChanged,
-    TResult? Function(DateTime? endTime)? eventEndTimeChanged,
-    TResult? Function(DateTime? date)? eventDateChanged,
-    TResult? Function(String location)? eventLocationChanged,
-    TResult? Function(String speaker)? eventSpeakerChanged,
-    TResult? Function(String info)? eventInfoChanged,
+    TResult? Function(String name)? nameChanged,
+    TResult? Function(String eventDescription)? descriptionChanged,
+    TResult? Function(DateTime? startTime)? startTimeChanged,
+    TResult? Function(DateTime? endTime)? endTimeChanged,
+    TResult? Function(DateTime? date)? dateChanged,
+    TResult? Function(String location)? locationChanged,
+    TResult? Function(String speaker)? speakerChanged,
+    TResult? Function(String info)? infoChanged,
   }) {
     return updateEvent?.call();
   }
@@ -365,14 +363,14 @@ class _$UpdateEventImpl implements _UpdateEvent {
     TResult Function()? createEvent,
     TResult Function()? updateEvent,
     TResult Function(Event event)? setInitialValues,
-    TResult Function(String name)? eventNameChanged,
-    TResult Function(String eventDescription)? eventDescriptionChanged,
-    TResult Function(DateTime? startTime)? eventStartTimeChanged,
-    TResult Function(DateTime? endTime)? eventEndTimeChanged,
-    TResult Function(DateTime? date)? eventDateChanged,
-    TResult Function(String location)? eventLocationChanged,
-    TResult Function(String speaker)? eventSpeakerChanged,
-    TResult Function(String info)? eventInfoChanged,
+    TResult Function(String name)? nameChanged,
+    TResult Function(String eventDescription)? descriptionChanged,
+    TResult Function(DateTime? startTime)? startTimeChanged,
+    TResult Function(DateTime? endTime)? endTimeChanged,
+    TResult Function(DateTime? date)? dateChanged,
+    TResult Function(String location)? locationChanged,
+    TResult Function(String speaker)? speakerChanged,
+    TResult Function(String info)? infoChanged,
     required TResult orElse(),
   }) {
     if (updateEvent != null) {
@@ -387,16 +385,15 @@ class _$UpdateEventImpl implements _UpdateEvent {
     required TResult Function(_CreateEvent value) createEvent,
     required TResult Function(_UpdateEvent value) updateEvent,
     required TResult Function(_SetInitialValues value) setInitialValues,
-    required TResult Function(_EventNameChanged value) eventNameChanged,
+    required TResult Function(_EventNameChanged value) nameChanged,
     required TResult Function(_EventDescriptionChanged value)
-        eventDescriptionChanged,
-    required TResult Function(_EventStartTimeChanged value)
-        eventStartTimeChanged,
-    required TResult Function(_EventEndTimeChanged value) eventEndTimeChanged,
-    required TResult Function(_EventDateChanged value) eventDateChanged,
-    required TResult Function(_EventLocationChanged value) eventLocationChanged,
-    required TResult Function(_EventSpeakerChanged value) eventSpeakerChanged,
-    required TResult Function(_EventInfoChanged value) eventInfoChanged,
+        descriptionChanged,
+    required TResult Function(_EventStartTimeChanged value) startTimeChanged,
+    required TResult Function(_EventEndTimeChanged value) endTimeChanged,
+    required TResult Function(_EventDateChanged value) dateChanged,
+    required TResult Function(_EventLocationChanged value) locationChanged,
+    required TResult Function(_EventSpeakerChanged value) speakerChanged,
+    required TResult Function(_EventInfoChanged value) infoChanged,
   }) {
     return updateEvent(this);
   }
@@ -407,14 +404,14 @@ class _$UpdateEventImpl implements _UpdateEvent {
     TResult? Function(_CreateEvent value)? createEvent,
     TResult? Function(_UpdateEvent value)? updateEvent,
     TResult? Function(_SetInitialValues value)? setInitialValues,
-    TResult? Function(_EventNameChanged value)? eventNameChanged,
-    TResult? Function(_EventDescriptionChanged value)? eventDescriptionChanged,
-    TResult? Function(_EventStartTimeChanged value)? eventStartTimeChanged,
-    TResult? Function(_EventEndTimeChanged value)? eventEndTimeChanged,
-    TResult? Function(_EventDateChanged value)? eventDateChanged,
-    TResult? Function(_EventLocationChanged value)? eventLocationChanged,
-    TResult? Function(_EventSpeakerChanged value)? eventSpeakerChanged,
-    TResult? Function(_EventInfoChanged value)? eventInfoChanged,
+    TResult? Function(_EventNameChanged value)? nameChanged,
+    TResult? Function(_EventDescriptionChanged value)? descriptionChanged,
+    TResult? Function(_EventStartTimeChanged value)? startTimeChanged,
+    TResult? Function(_EventEndTimeChanged value)? endTimeChanged,
+    TResult? Function(_EventDateChanged value)? dateChanged,
+    TResult? Function(_EventLocationChanged value)? locationChanged,
+    TResult? Function(_EventSpeakerChanged value)? speakerChanged,
+    TResult? Function(_EventInfoChanged value)? infoChanged,
   }) {
     return updateEvent?.call(this);
   }
@@ -425,14 +422,14 @@ class _$UpdateEventImpl implements _UpdateEvent {
     TResult Function(_CreateEvent value)? createEvent,
     TResult Function(_UpdateEvent value)? updateEvent,
     TResult Function(_SetInitialValues value)? setInitialValues,
-    TResult Function(_EventNameChanged value)? eventNameChanged,
-    TResult Function(_EventDescriptionChanged value)? eventDescriptionChanged,
-    TResult Function(_EventStartTimeChanged value)? eventStartTimeChanged,
-    TResult Function(_EventEndTimeChanged value)? eventEndTimeChanged,
-    TResult Function(_EventDateChanged value)? eventDateChanged,
-    TResult Function(_EventLocationChanged value)? eventLocationChanged,
-    TResult Function(_EventSpeakerChanged value)? eventSpeakerChanged,
-    TResult Function(_EventInfoChanged value)? eventInfoChanged,
+    TResult Function(_EventNameChanged value)? nameChanged,
+    TResult Function(_EventDescriptionChanged value)? descriptionChanged,
+    TResult Function(_EventStartTimeChanged value)? startTimeChanged,
+    TResult Function(_EventEndTimeChanged value)? endTimeChanged,
+    TResult Function(_EventDateChanged value)? dateChanged,
+    TResult Function(_EventLocationChanged value)? locationChanged,
+    TResult Function(_EventSpeakerChanged value)? speakerChanged,
+    TResult Function(_EventInfoChanged value)? infoChanged,
     required TResult orElse(),
   }) {
     if (updateEvent != null) {
@@ -524,14 +521,14 @@ class _$SetInitialValuesImpl implements _SetInitialValues {
     required TResult Function() createEvent,
     required TResult Function() updateEvent,
     required TResult Function(Event event) setInitialValues,
-    required TResult Function(String name) eventNameChanged,
-    required TResult Function(String eventDescription) eventDescriptionChanged,
-    required TResult Function(DateTime? startTime) eventStartTimeChanged,
-    required TResult Function(DateTime? endTime) eventEndTimeChanged,
-    required TResult Function(DateTime? date) eventDateChanged,
-    required TResult Function(String location) eventLocationChanged,
-    required TResult Function(String speaker) eventSpeakerChanged,
-    required TResult Function(String info) eventInfoChanged,
+    required TResult Function(String name) nameChanged,
+    required TResult Function(String eventDescription) descriptionChanged,
+    required TResult Function(DateTime? startTime) startTimeChanged,
+    required TResult Function(DateTime? endTime) endTimeChanged,
+    required TResult Function(DateTime? date) dateChanged,
+    required TResult Function(String location) locationChanged,
+    required TResult Function(String speaker) speakerChanged,
+    required TResult Function(String info) infoChanged,
   }) {
     return setInitialValues(event);
   }
@@ -542,14 +539,14 @@ class _$SetInitialValuesImpl implements _SetInitialValues {
     TResult? Function()? createEvent,
     TResult? Function()? updateEvent,
     TResult? Function(Event event)? setInitialValues,
-    TResult? Function(String name)? eventNameChanged,
-    TResult? Function(String eventDescription)? eventDescriptionChanged,
-    TResult? Function(DateTime? startTime)? eventStartTimeChanged,
-    TResult? Function(DateTime? endTime)? eventEndTimeChanged,
-    TResult? Function(DateTime? date)? eventDateChanged,
-    TResult? Function(String location)? eventLocationChanged,
-    TResult? Function(String speaker)? eventSpeakerChanged,
-    TResult? Function(String info)? eventInfoChanged,
+    TResult? Function(String name)? nameChanged,
+    TResult? Function(String eventDescription)? descriptionChanged,
+    TResult? Function(DateTime? startTime)? startTimeChanged,
+    TResult? Function(DateTime? endTime)? endTimeChanged,
+    TResult? Function(DateTime? date)? dateChanged,
+    TResult? Function(String location)? locationChanged,
+    TResult? Function(String speaker)? speakerChanged,
+    TResult? Function(String info)? infoChanged,
   }) {
     return setInitialValues?.call(event);
   }
@@ -560,14 +557,14 @@ class _$SetInitialValuesImpl implements _SetInitialValues {
     TResult Function()? createEvent,
     TResult Function()? updateEvent,
     TResult Function(Event event)? setInitialValues,
-    TResult Function(String name)? eventNameChanged,
-    TResult Function(String eventDescription)? eventDescriptionChanged,
-    TResult Function(DateTime? startTime)? eventStartTimeChanged,
-    TResult Function(DateTime? endTime)? eventEndTimeChanged,
-    TResult Function(DateTime? date)? eventDateChanged,
-    TResult Function(String location)? eventLocationChanged,
-    TResult Function(String speaker)? eventSpeakerChanged,
-    TResult Function(String info)? eventInfoChanged,
+    TResult Function(String name)? nameChanged,
+    TResult Function(String eventDescription)? descriptionChanged,
+    TResult Function(DateTime? startTime)? startTimeChanged,
+    TResult Function(DateTime? endTime)? endTimeChanged,
+    TResult Function(DateTime? date)? dateChanged,
+    TResult Function(String location)? locationChanged,
+    TResult Function(String speaker)? speakerChanged,
+    TResult Function(String info)? infoChanged,
     required TResult orElse(),
   }) {
     if (setInitialValues != null) {
@@ -582,16 +579,15 @@ class _$SetInitialValuesImpl implements _SetInitialValues {
     required TResult Function(_CreateEvent value) createEvent,
     required TResult Function(_UpdateEvent value) updateEvent,
     required TResult Function(_SetInitialValues value) setInitialValues,
-    required TResult Function(_EventNameChanged value) eventNameChanged,
+    required TResult Function(_EventNameChanged value) nameChanged,
     required TResult Function(_EventDescriptionChanged value)
-        eventDescriptionChanged,
-    required TResult Function(_EventStartTimeChanged value)
-        eventStartTimeChanged,
-    required TResult Function(_EventEndTimeChanged value) eventEndTimeChanged,
-    required TResult Function(_EventDateChanged value) eventDateChanged,
-    required TResult Function(_EventLocationChanged value) eventLocationChanged,
-    required TResult Function(_EventSpeakerChanged value) eventSpeakerChanged,
-    required TResult Function(_EventInfoChanged value) eventInfoChanged,
+        descriptionChanged,
+    required TResult Function(_EventStartTimeChanged value) startTimeChanged,
+    required TResult Function(_EventEndTimeChanged value) endTimeChanged,
+    required TResult Function(_EventDateChanged value) dateChanged,
+    required TResult Function(_EventLocationChanged value) locationChanged,
+    required TResult Function(_EventSpeakerChanged value) speakerChanged,
+    required TResult Function(_EventInfoChanged value) infoChanged,
   }) {
     return setInitialValues(this);
   }
@@ -602,14 +598,14 @@ class _$SetInitialValuesImpl implements _SetInitialValues {
     TResult? Function(_CreateEvent value)? createEvent,
     TResult? Function(_UpdateEvent value)? updateEvent,
     TResult? Function(_SetInitialValues value)? setInitialValues,
-    TResult? Function(_EventNameChanged value)? eventNameChanged,
-    TResult? Function(_EventDescriptionChanged value)? eventDescriptionChanged,
-    TResult? Function(_EventStartTimeChanged value)? eventStartTimeChanged,
-    TResult? Function(_EventEndTimeChanged value)? eventEndTimeChanged,
-    TResult? Function(_EventDateChanged value)? eventDateChanged,
-    TResult? Function(_EventLocationChanged value)? eventLocationChanged,
-    TResult? Function(_EventSpeakerChanged value)? eventSpeakerChanged,
-    TResult? Function(_EventInfoChanged value)? eventInfoChanged,
+    TResult? Function(_EventNameChanged value)? nameChanged,
+    TResult? Function(_EventDescriptionChanged value)? descriptionChanged,
+    TResult? Function(_EventStartTimeChanged value)? startTimeChanged,
+    TResult? Function(_EventEndTimeChanged value)? endTimeChanged,
+    TResult? Function(_EventDateChanged value)? dateChanged,
+    TResult? Function(_EventLocationChanged value)? locationChanged,
+    TResult? Function(_EventSpeakerChanged value)? speakerChanged,
+    TResult? Function(_EventInfoChanged value)? infoChanged,
   }) {
     return setInitialValues?.call(this);
   }
@@ -620,14 +616,14 @@ class _$SetInitialValuesImpl implements _SetInitialValues {
     TResult Function(_CreateEvent value)? createEvent,
     TResult Function(_UpdateEvent value)? updateEvent,
     TResult Function(_SetInitialValues value)? setInitialValues,
-    TResult Function(_EventNameChanged value)? eventNameChanged,
-    TResult Function(_EventDescriptionChanged value)? eventDescriptionChanged,
-    TResult Function(_EventStartTimeChanged value)? eventStartTimeChanged,
-    TResult Function(_EventEndTimeChanged value)? eventEndTimeChanged,
-    TResult Function(_EventDateChanged value)? eventDateChanged,
-    TResult Function(_EventLocationChanged value)? eventLocationChanged,
-    TResult Function(_EventSpeakerChanged value)? eventSpeakerChanged,
-    TResult Function(_EventInfoChanged value)? eventInfoChanged,
+    TResult Function(_EventNameChanged value)? nameChanged,
+    TResult Function(_EventDescriptionChanged value)? descriptionChanged,
+    TResult Function(_EventStartTimeChanged value)? startTimeChanged,
+    TResult Function(_EventEndTimeChanged value)? endTimeChanged,
+    TResult Function(_EventDateChanged value)? dateChanged,
+    TResult Function(_EventLocationChanged value)? locationChanged,
+    TResult Function(_EventSpeakerChanged value)? speakerChanged,
+    TResult Function(_EventInfoChanged value)? infoChanged,
     required TResult orElse(),
   }) {
     if (setInitialValues != null) {
@@ -687,7 +683,7 @@ class _$EventNameChangedImpl implements _EventNameChanged {
 
   @override
   String toString() {
-    return 'EventFormEvent.eventNameChanged(name: $name)';
+    return 'EventFormEvent.nameChanged(name: $name)';
   }
 
   @override
@@ -714,16 +710,16 @@ class _$EventNameChangedImpl implements _EventNameChanged {
     required TResult Function() createEvent,
     required TResult Function() updateEvent,
     required TResult Function(Event event) setInitialValues,
-    required TResult Function(String name) eventNameChanged,
-    required TResult Function(String eventDescription) eventDescriptionChanged,
-    required TResult Function(DateTime? startTime) eventStartTimeChanged,
-    required TResult Function(DateTime? endTime) eventEndTimeChanged,
-    required TResult Function(DateTime? date) eventDateChanged,
-    required TResult Function(String location) eventLocationChanged,
-    required TResult Function(String speaker) eventSpeakerChanged,
-    required TResult Function(String info) eventInfoChanged,
+    required TResult Function(String name) nameChanged,
+    required TResult Function(String eventDescription) descriptionChanged,
+    required TResult Function(DateTime? startTime) startTimeChanged,
+    required TResult Function(DateTime? endTime) endTimeChanged,
+    required TResult Function(DateTime? date) dateChanged,
+    required TResult Function(String location) locationChanged,
+    required TResult Function(String speaker) speakerChanged,
+    required TResult Function(String info) infoChanged,
   }) {
-    return eventNameChanged(name);
+    return nameChanged(name);
   }
 
   @override
@@ -732,16 +728,16 @@ class _$EventNameChangedImpl implements _EventNameChanged {
     TResult? Function()? createEvent,
     TResult? Function()? updateEvent,
     TResult? Function(Event event)? setInitialValues,
-    TResult? Function(String name)? eventNameChanged,
-    TResult? Function(String eventDescription)? eventDescriptionChanged,
-    TResult? Function(DateTime? startTime)? eventStartTimeChanged,
-    TResult? Function(DateTime? endTime)? eventEndTimeChanged,
-    TResult? Function(DateTime? date)? eventDateChanged,
-    TResult? Function(String location)? eventLocationChanged,
-    TResult? Function(String speaker)? eventSpeakerChanged,
-    TResult? Function(String info)? eventInfoChanged,
+    TResult? Function(String name)? nameChanged,
+    TResult? Function(String eventDescription)? descriptionChanged,
+    TResult? Function(DateTime? startTime)? startTimeChanged,
+    TResult? Function(DateTime? endTime)? endTimeChanged,
+    TResult? Function(DateTime? date)? dateChanged,
+    TResult? Function(String location)? locationChanged,
+    TResult? Function(String speaker)? speakerChanged,
+    TResult? Function(String info)? infoChanged,
   }) {
-    return eventNameChanged?.call(name);
+    return nameChanged?.call(name);
   }
 
   @override
@@ -750,18 +746,18 @@ class _$EventNameChangedImpl implements _EventNameChanged {
     TResult Function()? createEvent,
     TResult Function()? updateEvent,
     TResult Function(Event event)? setInitialValues,
-    TResult Function(String name)? eventNameChanged,
-    TResult Function(String eventDescription)? eventDescriptionChanged,
-    TResult Function(DateTime? startTime)? eventStartTimeChanged,
-    TResult Function(DateTime? endTime)? eventEndTimeChanged,
-    TResult Function(DateTime? date)? eventDateChanged,
-    TResult Function(String location)? eventLocationChanged,
-    TResult Function(String speaker)? eventSpeakerChanged,
-    TResult Function(String info)? eventInfoChanged,
+    TResult Function(String name)? nameChanged,
+    TResult Function(String eventDescription)? descriptionChanged,
+    TResult Function(DateTime? startTime)? startTimeChanged,
+    TResult Function(DateTime? endTime)? endTimeChanged,
+    TResult Function(DateTime? date)? dateChanged,
+    TResult Function(String location)? locationChanged,
+    TResult Function(String speaker)? speakerChanged,
+    TResult Function(String info)? infoChanged,
     required TResult orElse(),
   }) {
-    if (eventNameChanged != null) {
-      return eventNameChanged(name);
+    if (nameChanged != null) {
+      return nameChanged(name);
     }
     return orElse();
   }
@@ -772,18 +768,17 @@ class _$EventNameChangedImpl implements _EventNameChanged {
     required TResult Function(_CreateEvent value) createEvent,
     required TResult Function(_UpdateEvent value) updateEvent,
     required TResult Function(_SetInitialValues value) setInitialValues,
-    required TResult Function(_EventNameChanged value) eventNameChanged,
+    required TResult Function(_EventNameChanged value) nameChanged,
     required TResult Function(_EventDescriptionChanged value)
-        eventDescriptionChanged,
-    required TResult Function(_EventStartTimeChanged value)
-        eventStartTimeChanged,
-    required TResult Function(_EventEndTimeChanged value) eventEndTimeChanged,
-    required TResult Function(_EventDateChanged value) eventDateChanged,
-    required TResult Function(_EventLocationChanged value) eventLocationChanged,
-    required TResult Function(_EventSpeakerChanged value) eventSpeakerChanged,
-    required TResult Function(_EventInfoChanged value) eventInfoChanged,
+        descriptionChanged,
+    required TResult Function(_EventStartTimeChanged value) startTimeChanged,
+    required TResult Function(_EventEndTimeChanged value) endTimeChanged,
+    required TResult Function(_EventDateChanged value) dateChanged,
+    required TResult Function(_EventLocationChanged value) locationChanged,
+    required TResult Function(_EventSpeakerChanged value) speakerChanged,
+    required TResult Function(_EventInfoChanged value) infoChanged,
   }) {
-    return eventNameChanged(this);
+    return nameChanged(this);
   }
 
   @override
@@ -792,16 +787,16 @@ class _$EventNameChangedImpl implements _EventNameChanged {
     TResult? Function(_CreateEvent value)? createEvent,
     TResult? Function(_UpdateEvent value)? updateEvent,
     TResult? Function(_SetInitialValues value)? setInitialValues,
-    TResult? Function(_EventNameChanged value)? eventNameChanged,
-    TResult? Function(_EventDescriptionChanged value)? eventDescriptionChanged,
-    TResult? Function(_EventStartTimeChanged value)? eventStartTimeChanged,
-    TResult? Function(_EventEndTimeChanged value)? eventEndTimeChanged,
-    TResult? Function(_EventDateChanged value)? eventDateChanged,
-    TResult? Function(_EventLocationChanged value)? eventLocationChanged,
-    TResult? Function(_EventSpeakerChanged value)? eventSpeakerChanged,
-    TResult? Function(_EventInfoChanged value)? eventInfoChanged,
+    TResult? Function(_EventNameChanged value)? nameChanged,
+    TResult? Function(_EventDescriptionChanged value)? descriptionChanged,
+    TResult? Function(_EventStartTimeChanged value)? startTimeChanged,
+    TResult? Function(_EventEndTimeChanged value)? endTimeChanged,
+    TResult? Function(_EventDateChanged value)? dateChanged,
+    TResult? Function(_EventLocationChanged value)? locationChanged,
+    TResult? Function(_EventSpeakerChanged value)? speakerChanged,
+    TResult? Function(_EventInfoChanged value)? infoChanged,
   }) {
-    return eventNameChanged?.call(this);
+    return nameChanged?.call(this);
   }
 
   @override
@@ -810,18 +805,18 @@ class _$EventNameChangedImpl implements _EventNameChanged {
     TResult Function(_CreateEvent value)? createEvent,
     TResult Function(_UpdateEvent value)? updateEvent,
     TResult Function(_SetInitialValues value)? setInitialValues,
-    TResult Function(_EventNameChanged value)? eventNameChanged,
-    TResult Function(_EventDescriptionChanged value)? eventDescriptionChanged,
-    TResult Function(_EventStartTimeChanged value)? eventStartTimeChanged,
-    TResult Function(_EventEndTimeChanged value)? eventEndTimeChanged,
-    TResult Function(_EventDateChanged value)? eventDateChanged,
-    TResult Function(_EventLocationChanged value)? eventLocationChanged,
-    TResult Function(_EventSpeakerChanged value)? eventSpeakerChanged,
-    TResult Function(_EventInfoChanged value)? eventInfoChanged,
+    TResult Function(_EventNameChanged value)? nameChanged,
+    TResult Function(_EventDescriptionChanged value)? descriptionChanged,
+    TResult Function(_EventStartTimeChanged value)? startTimeChanged,
+    TResult Function(_EventEndTimeChanged value)? endTimeChanged,
+    TResult Function(_EventDateChanged value)? dateChanged,
+    TResult Function(_EventLocationChanged value)? locationChanged,
+    TResult Function(_EventSpeakerChanged value)? speakerChanged,
+    TResult Function(_EventInfoChanged value)? infoChanged,
     required TResult orElse(),
   }) {
-    if (eventNameChanged != null) {
-      return eventNameChanged(this);
+    if (nameChanged != null) {
+      return nameChanged(this);
     }
     return orElse();
   }
@@ -879,7 +874,7 @@ class _$EventDescriptionChangedImpl implements _EventDescriptionChanged {
 
   @override
   String toString() {
-    return 'EventFormEvent.eventDescriptionChanged(eventDescription: $eventDescription)';
+    return 'EventFormEvent.descriptionChanged(eventDescription: $eventDescription)';
   }
 
   @override
@@ -907,16 +902,16 @@ class _$EventDescriptionChangedImpl implements _EventDescriptionChanged {
     required TResult Function() createEvent,
     required TResult Function() updateEvent,
     required TResult Function(Event event) setInitialValues,
-    required TResult Function(String name) eventNameChanged,
-    required TResult Function(String eventDescription) eventDescriptionChanged,
-    required TResult Function(DateTime? startTime) eventStartTimeChanged,
-    required TResult Function(DateTime? endTime) eventEndTimeChanged,
-    required TResult Function(DateTime? date) eventDateChanged,
-    required TResult Function(String location) eventLocationChanged,
-    required TResult Function(String speaker) eventSpeakerChanged,
-    required TResult Function(String info) eventInfoChanged,
+    required TResult Function(String name) nameChanged,
+    required TResult Function(String eventDescription) descriptionChanged,
+    required TResult Function(DateTime? startTime) startTimeChanged,
+    required TResult Function(DateTime? endTime) endTimeChanged,
+    required TResult Function(DateTime? date) dateChanged,
+    required TResult Function(String location) locationChanged,
+    required TResult Function(String speaker) speakerChanged,
+    required TResult Function(String info) infoChanged,
   }) {
-    return eventDescriptionChanged(eventDescription);
+    return descriptionChanged(eventDescription);
   }
 
   @override
@@ -925,16 +920,16 @@ class _$EventDescriptionChangedImpl implements _EventDescriptionChanged {
     TResult? Function()? createEvent,
     TResult? Function()? updateEvent,
     TResult? Function(Event event)? setInitialValues,
-    TResult? Function(String name)? eventNameChanged,
-    TResult? Function(String eventDescription)? eventDescriptionChanged,
-    TResult? Function(DateTime? startTime)? eventStartTimeChanged,
-    TResult? Function(DateTime? endTime)? eventEndTimeChanged,
-    TResult? Function(DateTime? date)? eventDateChanged,
-    TResult? Function(String location)? eventLocationChanged,
-    TResult? Function(String speaker)? eventSpeakerChanged,
-    TResult? Function(String info)? eventInfoChanged,
+    TResult? Function(String name)? nameChanged,
+    TResult? Function(String eventDescription)? descriptionChanged,
+    TResult? Function(DateTime? startTime)? startTimeChanged,
+    TResult? Function(DateTime? endTime)? endTimeChanged,
+    TResult? Function(DateTime? date)? dateChanged,
+    TResult? Function(String location)? locationChanged,
+    TResult? Function(String speaker)? speakerChanged,
+    TResult? Function(String info)? infoChanged,
   }) {
-    return eventDescriptionChanged?.call(eventDescription);
+    return descriptionChanged?.call(eventDescription);
   }
 
   @override
@@ -943,18 +938,18 @@ class _$EventDescriptionChangedImpl implements _EventDescriptionChanged {
     TResult Function()? createEvent,
     TResult Function()? updateEvent,
     TResult Function(Event event)? setInitialValues,
-    TResult Function(String name)? eventNameChanged,
-    TResult Function(String eventDescription)? eventDescriptionChanged,
-    TResult Function(DateTime? startTime)? eventStartTimeChanged,
-    TResult Function(DateTime? endTime)? eventEndTimeChanged,
-    TResult Function(DateTime? date)? eventDateChanged,
-    TResult Function(String location)? eventLocationChanged,
-    TResult Function(String speaker)? eventSpeakerChanged,
-    TResult Function(String info)? eventInfoChanged,
+    TResult Function(String name)? nameChanged,
+    TResult Function(String eventDescription)? descriptionChanged,
+    TResult Function(DateTime? startTime)? startTimeChanged,
+    TResult Function(DateTime? endTime)? endTimeChanged,
+    TResult Function(DateTime? date)? dateChanged,
+    TResult Function(String location)? locationChanged,
+    TResult Function(String speaker)? speakerChanged,
+    TResult Function(String info)? infoChanged,
     required TResult orElse(),
   }) {
-    if (eventDescriptionChanged != null) {
-      return eventDescriptionChanged(eventDescription);
+    if (descriptionChanged != null) {
+      return descriptionChanged(eventDescription);
     }
     return orElse();
   }
@@ -965,18 +960,17 @@ class _$EventDescriptionChangedImpl implements _EventDescriptionChanged {
     required TResult Function(_CreateEvent value) createEvent,
     required TResult Function(_UpdateEvent value) updateEvent,
     required TResult Function(_SetInitialValues value) setInitialValues,
-    required TResult Function(_EventNameChanged value) eventNameChanged,
+    required TResult Function(_EventNameChanged value) nameChanged,
     required TResult Function(_EventDescriptionChanged value)
-        eventDescriptionChanged,
-    required TResult Function(_EventStartTimeChanged value)
-        eventStartTimeChanged,
-    required TResult Function(_EventEndTimeChanged value) eventEndTimeChanged,
-    required TResult Function(_EventDateChanged value) eventDateChanged,
-    required TResult Function(_EventLocationChanged value) eventLocationChanged,
-    required TResult Function(_EventSpeakerChanged value) eventSpeakerChanged,
-    required TResult Function(_EventInfoChanged value) eventInfoChanged,
+        descriptionChanged,
+    required TResult Function(_EventStartTimeChanged value) startTimeChanged,
+    required TResult Function(_EventEndTimeChanged value) endTimeChanged,
+    required TResult Function(_EventDateChanged value) dateChanged,
+    required TResult Function(_EventLocationChanged value) locationChanged,
+    required TResult Function(_EventSpeakerChanged value) speakerChanged,
+    required TResult Function(_EventInfoChanged value) infoChanged,
   }) {
-    return eventDescriptionChanged(this);
+    return descriptionChanged(this);
   }
 
   @override
@@ -985,16 +979,16 @@ class _$EventDescriptionChangedImpl implements _EventDescriptionChanged {
     TResult? Function(_CreateEvent value)? createEvent,
     TResult? Function(_UpdateEvent value)? updateEvent,
     TResult? Function(_SetInitialValues value)? setInitialValues,
-    TResult? Function(_EventNameChanged value)? eventNameChanged,
-    TResult? Function(_EventDescriptionChanged value)? eventDescriptionChanged,
-    TResult? Function(_EventStartTimeChanged value)? eventStartTimeChanged,
-    TResult? Function(_EventEndTimeChanged value)? eventEndTimeChanged,
-    TResult? Function(_EventDateChanged value)? eventDateChanged,
-    TResult? Function(_EventLocationChanged value)? eventLocationChanged,
-    TResult? Function(_EventSpeakerChanged value)? eventSpeakerChanged,
-    TResult? Function(_EventInfoChanged value)? eventInfoChanged,
+    TResult? Function(_EventNameChanged value)? nameChanged,
+    TResult? Function(_EventDescriptionChanged value)? descriptionChanged,
+    TResult? Function(_EventStartTimeChanged value)? startTimeChanged,
+    TResult? Function(_EventEndTimeChanged value)? endTimeChanged,
+    TResult? Function(_EventDateChanged value)? dateChanged,
+    TResult? Function(_EventLocationChanged value)? locationChanged,
+    TResult? Function(_EventSpeakerChanged value)? speakerChanged,
+    TResult? Function(_EventInfoChanged value)? infoChanged,
   }) {
-    return eventDescriptionChanged?.call(this);
+    return descriptionChanged?.call(this);
   }
 
   @override
@@ -1003,18 +997,18 @@ class _$EventDescriptionChangedImpl implements _EventDescriptionChanged {
     TResult Function(_CreateEvent value)? createEvent,
     TResult Function(_UpdateEvent value)? updateEvent,
     TResult Function(_SetInitialValues value)? setInitialValues,
-    TResult Function(_EventNameChanged value)? eventNameChanged,
-    TResult Function(_EventDescriptionChanged value)? eventDescriptionChanged,
-    TResult Function(_EventStartTimeChanged value)? eventStartTimeChanged,
-    TResult Function(_EventEndTimeChanged value)? eventEndTimeChanged,
-    TResult Function(_EventDateChanged value)? eventDateChanged,
-    TResult Function(_EventLocationChanged value)? eventLocationChanged,
-    TResult Function(_EventSpeakerChanged value)? eventSpeakerChanged,
-    TResult Function(_EventInfoChanged value)? eventInfoChanged,
+    TResult Function(_EventNameChanged value)? nameChanged,
+    TResult Function(_EventDescriptionChanged value)? descriptionChanged,
+    TResult Function(_EventStartTimeChanged value)? startTimeChanged,
+    TResult Function(_EventEndTimeChanged value)? endTimeChanged,
+    TResult Function(_EventDateChanged value)? dateChanged,
+    TResult Function(_EventLocationChanged value)? locationChanged,
+    TResult Function(_EventSpeakerChanged value)? speakerChanged,
+    TResult Function(_EventInfoChanged value)? infoChanged,
     required TResult orElse(),
   }) {
-    if (eventDescriptionChanged != null) {
-      return eventDescriptionChanged(this);
+    if (descriptionChanged != null) {
+      return descriptionChanged(this);
     }
     return orElse();
   }
@@ -1072,7 +1066,7 @@ class _$EventStartTimeChangedImpl implements _EventStartTimeChanged {
 
   @override
   String toString() {
-    return 'EventFormEvent.eventStartTimeChanged(startTime: $startTime)';
+    return 'EventFormEvent.startTimeChanged(startTime: $startTime)';
   }
 
   @override
@@ -1100,16 +1094,16 @@ class _$EventStartTimeChangedImpl implements _EventStartTimeChanged {
     required TResult Function() createEvent,
     required TResult Function() updateEvent,
     required TResult Function(Event event) setInitialValues,
-    required TResult Function(String name) eventNameChanged,
-    required TResult Function(String eventDescription) eventDescriptionChanged,
-    required TResult Function(DateTime? startTime) eventStartTimeChanged,
-    required TResult Function(DateTime? endTime) eventEndTimeChanged,
-    required TResult Function(DateTime? date) eventDateChanged,
-    required TResult Function(String location) eventLocationChanged,
-    required TResult Function(String speaker) eventSpeakerChanged,
-    required TResult Function(String info) eventInfoChanged,
+    required TResult Function(String name) nameChanged,
+    required TResult Function(String eventDescription) descriptionChanged,
+    required TResult Function(DateTime? startTime) startTimeChanged,
+    required TResult Function(DateTime? endTime) endTimeChanged,
+    required TResult Function(DateTime? date) dateChanged,
+    required TResult Function(String location) locationChanged,
+    required TResult Function(String speaker) speakerChanged,
+    required TResult Function(String info) infoChanged,
   }) {
-    return eventStartTimeChanged(startTime);
+    return startTimeChanged(startTime);
   }
 
   @override
@@ -1118,16 +1112,16 @@ class _$EventStartTimeChangedImpl implements _EventStartTimeChanged {
     TResult? Function()? createEvent,
     TResult? Function()? updateEvent,
     TResult? Function(Event event)? setInitialValues,
-    TResult? Function(String name)? eventNameChanged,
-    TResult? Function(String eventDescription)? eventDescriptionChanged,
-    TResult? Function(DateTime? startTime)? eventStartTimeChanged,
-    TResult? Function(DateTime? endTime)? eventEndTimeChanged,
-    TResult? Function(DateTime? date)? eventDateChanged,
-    TResult? Function(String location)? eventLocationChanged,
-    TResult? Function(String speaker)? eventSpeakerChanged,
-    TResult? Function(String info)? eventInfoChanged,
+    TResult? Function(String name)? nameChanged,
+    TResult? Function(String eventDescription)? descriptionChanged,
+    TResult? Function(DateTime? startTime)? startTimeChanged,
+    TResult? Function(DateTime? endTime)? endTimeChanged,
+    TResult? Function(DateTime? date)? dateChanged,
+    TResult? Function(String location)? locationChanged,
+    TResult? Function(String speaker)? speakerChanged,
+    TResult? Function(String info)? infoChanged,
   }) {
-    return eventStartTimeChanged?.call(startTime);
+    return startTimeChanged?.call(startTime);
   }
 
   @override
@@ -1136,18 +1130,18 @@ class _$EventStartTimeChangedImpl implements _EventStartTimeChanged {
     TResult Function()? createEvent,
     TResult Function()? updateEvent,
     TResult Function(Event event)? setInitialValues,
-    TResult Function(String name)? eventNameChanged,
-    TResult Function(String eventDescription)? eventDescriptionChanged,
-    TResult Function(DateTime? startTime)? eventStartTimeChanged,
-    TResult Function(DateTime? endTime)? eventEndTimeChanged,
-    TResult Function(DateTime? date)? eventDateChanged,
-    TResult Function(String location)? eventLocationChanged,
-    TResult Function(String speaker)? eventSpeakerChanged,
-    TResult Function(String info)? eventInfoChanged,
+    TResult Function(String name)? nameChanged,
+    TResult Function(String eventDescription)? descriptionChanged,
+    TResult Function(DateTime? startTime)? startTimeChanged,
+    TResult Function(DateTime? endTime)? endTimeChanged,
+    TResult Function(DateTime? date)? dateChanged,
+    TResult Function(String location)? locationChanged,
+    TResult Function(String speaker)? speakerChanged,
+    TResult Function(String info)? infoChanged,
     required TResult orElse(),
   }) {
-    if (eventStartTimeChanged != null) {
-      return eventStartTimeChanged(startTime);
+    if (startTimeChanged != null) {
+      return startTimeChanged(startTime);
     }
     return orElse();
   }
@@ -1158,18 +1152,17 @@ class _$EventStartTimeChangedImpl implements _EventStartTimeChanged {
     required TResult Function(_CreateEvent value) createEvent,
     required TResult Function(_UpdateEvent value) updateEvent,
     required TResult Function(_SetInitialValues value) setInitialValues,
-    required TResult Function(_EventNameChanged value) eventNameChanged,
+    required TResult Function(_EventNameChanged value) nameChanged,
     required TResult Function(_EventDescriptionChanged value)
-        eventDescriptionChanged,
-    required TResult Function(_EventStartTimeChanged value)
-        eventStartTimeChanged,
-    required TResult Function(_EventEndTimeChanged value) eventEndTimeChanged,
-    required TResult Function(_EventDateChanged value) eventDateChanged,
-    required TResult Function(_EventLocationChanged value) eventLocationChanged,
-    required TResult Function(_EventSpeakerChanged value) eventSpeakerChanged,
-    required TResult Function(_EventInfoChanged value) eventInfoChanged,
+        descriptionChanged,
+    required TResult Function(_EventStartTimeChanged value) startTimeChanged,
+    required TResult Function(_EventEndTimeChanged value) endTimeChanged,
+    required TResult Function(_EventDateChanged value) dateChanged,
+    required TResult Function(_EventLocationChanged value) locationChanged,
+    required TResult Function(_EventSpeakerChanged value) speakerChanged,
+    required TResult Function(_EventInfoChanged value) infoChanged,
   }) {
-    return eventStartTimeChanged(this);
+    return startTimeChanged(this);
   }
 
   @override
@@ -1178,16 +1171,16 @@ class _$EventStartTimeChangedImpl implements _EventStartTimeChanged {
     TResult? Function(_CreateEvent value)? createEvent,
     TResult? Function(_UpdateEvent value)? updateEvent,
     TResult? Function(_SetInitialValues value)? setInitialValues,
-    TResult? Function(_EventNameChanged value)? eventNameChanged,
-    TResult? Function(_EventDescriptionChanged value)? eventDescriptionChanged,
-    TResult? Function(_EventStartTimeChanged value)? eventStartTimeChanged,
-    TResult? Function(_EventEndTimeChanged value)? eventEndTimeChanged,
-    TResult? Function(_EventDateChanged value)? eventDateChanged,
-    TResult? Function(_EventLocationChanged value)? eventLocationChanged,
-    TResult? Function(_EventSpeakerChanged value)? eventSpeakerChanged,
-    TResult? Function(_EventInfoChanged value)? eventInfoChanged,
+    TResult? Function(_EventNameChanged value)? nameChanged,
+    TResult? Function(_EventDescriptionChanged value)? descriptionChanged,
+    TResult? Function(_EventStartTimeChanged value)? startTimeChanged,
+    TResult? Function(_EventEndTimeChanged value)? endTimeChanged,
+    TResult? Function(_EventDateChanged value)? dateChanged,
+    TResult? Function(_EventLocationChanged value)? locationChanged,
+    TResult? Function(_EventSpeakerChanged value)? speakerChanged,
+    TResult? Function(_EventInfoChanged value)? infoChanged,
   }) {
-    return eventStartTimeChanged?.call(this);
+    return startTimeChanged?.call(this);
   }
 
   @override
@@ -1196,18 +1189,18 @@ class _$EventStartTimeChangedImpl implements _EventStartTimeChanged {
     TResult Function(_CreateEvent value)? createEvent,
     TResult Function(_UpdateEvent value)? updateEvent,
     TResult Function(_SetInitialValues value)? setInitialValues,
-    TResult Function(_EventNameChanged value)? eventNameChanged,
-    TResult Function(_EventDescriptionChanged value)? eventDescriptionChanged,
-    TResult Function(_EventStartTimeChanged value)? eventStartTimeChanged,
-    TResult Function(_EventEndTimeChanged value)? eventEndTimeChanged,
-    TResult Function(_EventDateChanged value)? eventDateChanged,
-    TResult Function(_EventLocationChanged value)? eventLocationChanged,
-    TResult Function(_EventSpeakerChanged value)? eventSpeakerChanged,
-    TResult Function(_EventInfoChanged value)? eventInfoChanged,
+    TResult Function(_EventNameChanged value)? nameChanged,
+    TResult Function(_EventDescriptionChanged value)? descriptionChanged,
+    TResult Function(_EventStartTimeChanged value)? startTimeChanged,
+    TResult Function(_EventEndTimeChanged value)? endTimeChanged,
+    TResult Function(_EventDateChanged value)? dateChanged,
+    TResult Function(_EventLocationChanged value)? locationChanged,
+    TResult Function(_EventSpeakerChanged value)? speakerChanged,
+    TResult Function(_EventInfoChanged value)? infoChanged,
     required TResult orElse(),
   }) {
-    if (eventStartTimeChanged != null) {
-      return eventStartTimeChanged(this);
+    if (startTimeChanged != null) {
+      return startTimeChanged(this);
     }
     return orElse();
   }
@@ -1264,7 +1257,7 @@ class _$EventEndTimeChangedImpl implements _EventEndTimeChanged {
 
   @override
   String toString() {
-    return 'EventFormEvent.eventEndTimeChanged(endTime: $endTime)';
+    return 'EventFormEvent.endTimeChanged(endTime: $endTime)';
   }
 
   @override
@@ -1291,16 +1284,16 @@ class _$EventEndTimeChangedImpl implements _EventEndTimeChanged {
     required TResult Function() createEvent,
     required TResult Function() updateEvent,
     required TResult Function(Event event) setInitialValues,
-    required TResult Function(String name) eventNameChanged,
-    required TResult Function(String eventDescription) eventDescriptionChanged,
-    required TResult Function(DateTime? startTime) eventStartTimeChanged,
-    required TResult Function(DateTime? endTime) eventEndTimeChanged,
-    required TResult Function(DateTime? date) eventDateChanged,
-    required TResult Function(String location) eventLocationChanged,
-    required TResult Function(String speaker) eventSpeakerChanged,
-    required TResult Function(String info) eventInfoChanged,
+    required TResult Function(String name) nameChanged,
+    required TResult Function(String eventDescription) descriptionChanged,
+    required TResult Function(DateTime? startTime) startTimeChanged,
+    required TResult Function(DateTime? endTime) endTimeChanged,
+    required TResult Function(DateTime? date) dateChanged,
+    required TResult Function(String location) locationChanged,
+    required TResult Function(String speaker) speakerChanged,
+    required TResult Function(String info) infoChanged,
   }) {
-    return eventEndTimeChanged(endTime);
+    return endTimeChanged(endTime);
   }
 
   @override
@@ -1309,16 +1302,16 @@ class _$EventEndTimeChangedImpl implements _EventEndTimeChanged {
     TResult? Function()? createEvent,
     TResult? Function()? updateEvent,
     TResult? Function(Event event)? setInitialValues,
-    TResult? Function(String name)? eventNameChanged,
-    TResult? Function(String eventDescription)? eventDescriptionChanged,
-    TResult? Function(DateTime? startTime)? eventStartTimeChanged,
-    TResult? Function(DateTime? endTime)? eventEndTimeChanged,
-    TResult? Function(DateTime? date)? eventDateChanged,
-    TResult? Function(String location)? eventLocationChanged,
-    TResult? Function(String speaker)? eventSpeakerChanged,
-    TResult? Function(String info)? eventInfoChanged,
+    TResult? Function(String name)? nameChanged,
+    TResult? Function(String eventDescription)? descriptionChanged,
+    TResult? Function(DateTime? startTime)? startTimeChanged,
+    TResult? Function(DateTime? endTime)? endTimeChanged,
+    TResult? Function(DateTime? date)? dateChanged,
+    TResult? Function(String location)? locationChanged,
+    TResult? Function(String speaker)? speakerChanged,
+    TResult? Function(String info)? infoChanged,
   }) {
-    return eventEndTimeChanged?.call(endTime);
+    return endTimeChanged?.call(endTime);
   }
 
   @override
@@ -1327,18 +1320,18 @@ class _$EventEndTimeChangedImpl implements _EventEndTimeChanged {
     TResult Function()? createEvent,
     TResult Function()? updateEvent,
     TResult Function(Event event)? setInitialValues,
-    TResult Function(String name)? eventNameChanged,
-    TResult Function(String eventDescription)? eventDescriptionChanged,
-    TResult Function(DateTime? startTime)? eventStartTimeChanged,
-    TResult Function(DateTime? endTime)? eventEndTimeChanged,
-    TResult Function(DateTime? date)? eventDateChanged,
-    TResult Function(String location)? eventLocationChanged,
-    TResult Function(String speaker)? eventSpeakerChanged,
-    TResult Function(String info)? eventInfoChanged,
+    TResult Function(String name)? nameChanged,
+    TResult Function(String eventDescription)? descriptionChanged,
+    TResult Function(DateTime? startTime)? startTimeChanged,
+    TResult Function(DateTime? endTime)? endTimeChanged,
+    TResult Function(DateTime? date)? dateChanged,
+    TResult Function(String location)? locationChanged,
+    TResult Function(String speaker)? speakerChanged,
+    TResult Function(String info)? infoChanged,
     required TResult orElse(),
   }) {
-    if (eventEndTimeChanged != null) {
-      return eventEndTimeChanged(endTime);
+    if (endTimeChanged != null) {
+      return endTimeChanged(endTime);
     }
     return orElse();
   }
@@ -1349,18 +1342,17 @@ class _$EventEndTimeChangedImpl implements _EventEndTimeChanged {
     required TResult Function(_CreateEvent value) createEvent,
     required TResult Function(_UpdateEvent value) updateEvent,
     required TResult Function(_SetInitialValues value) setInitialValues,
-    required TResult Function(_EventNameChanged value) eventNameChanged,
+    required TResult Function(_EventNameChanged value) nameChanged,
     required TResult Function(_EventDescriptionChanged value)
-        eventDescriptionChanged,
-    required TResult Function(_EventStartTimeChanged value)
-        eventStartTimeChanged,
-    required TResult Function(_EventEndTimeChanged value) eventEndTimeChanged,
-    required TResult Function(_EventDateChanged value) eventDateChanged,
-    required TResult Function(_EventLocationChanged value) eventLocationChanged,
-    required TResult Function(_EventSpeakerChanged value) eventSpeakerChanged,
-    required TResult Function(_EventInfoChanged value) eventInfoChanged,
+        descriptionChanged,
+    required TResult Function(_EventStartTimeChanged value) startTimeChanged,
+    required TResult Function(_EventEndTimeChanged value) endTimeChanged,
+    required TResult Function(_EventDateChanged value) dateChanged,
+    required TResult Function(_EventLocationChanged value) locationChanged,
+    required TResult Function(_EventSpeakerChanged value) speakerChanged,
+    required TResult Function(_EventInfoChanged value) infoChanged,
   }) {
-    return eventEndTimeChanged(this);
+    return endTimeChanged(this);
   }
 
   @override
@@ -1369,16 +1361,16 @@ class _$EventEndTimeChangedImpl implements _EventEndTimeChanged {
     TResult? Function(_CreateEvent value)? createEvent,
     TResult? Function(_UpdateEvent value)? updateEvent,
     TResult? Function(_SetInitialValues value)? setInitialValues,
-    TResult? Function(_EventNameChanged value)? eventNameChanged,
-    TResult? Function(_EventDescriptionChanged value)? eventDescriptionChanged,
-    TResult? Function(_EventStartTimeChanged value)? eventStartTimeChanged,
-    TResult? Function(_EventEndTimeChanged value)? eventEndTimeChanged,
-    TResult? Function(_EventDateChanged value)? eventDateChanged,
-    TResult? Function(_EventLocationChanged value)? eventLocationChanged,
-    TResult? Function(_EventSpeakerChanged value)? eventSpeakerChanged,
-    TResult? Function(_EventInfoChanged value)? eventInfoChanged,
+    TResult? Function(_EventNameChanged value)? nameChanged,
+    TResult? Function(_EventDescriptionChanged value)? descriptionChanged,
+    TResult? Function(_EventStartTimeChanged value)? startTimeChanged,
+    TResult? Function(_EventEndTimeChanged value)? endTimeChanged,
+    TResult? Function(_EventDateChanged value)? dateChanged,
+    TResult? Function(_EventLocationChanged value)? locationChanged,
+    TResult? Function(_EventSpeakerChanged value)? speakerChanged,
+    TResult? Function(_EventInfoChanged value)? infoChanged,
   }) {
-    return eventEndTimeChanged?.call(this);
+    return endTimeChanged?.call(this);
   }
 
   @override
@@ -1387,18 +1379,18 @@ class _$EventEndTimeChangedImpl implements _EventEndTimeChanged {
     TResult Function(_CreateEvent value)? createEvent,
     TResult Function(_UpdateEvent value)? updateEvent,
     TResult Function(_SetInitialValues value)? setInitialValues,
-    TResult Function(_EventNameChanged value)? eventNameChanged,
-    TResult Function(_EventDescriptionChanged value)? eventDescriptionChanged,
-    TResult Function(_EventStartTimeChanged value)? eventStartTimeChanged,
-    TResult Function(_EventEndTimeChanged value)? eventEndTimeChanged,
-    TResult Function(_EventDateChanged value)? eventDateChanged,
-    TResult Function(_EventLocationChanged value)? eventLocationChanged,
-    TResult Function(_EventSpeakerChanged value)? eventSpeakerChanged,
-    TResult Function(_EventInfoChanged value)? eventInfoChanged,
+    TResult Function(_EventNameChanged value)? nameChanged,
+    TResult Function(_EventDescriptionChanged value)? descriptionChanged,
+    TResult Function(_EventStartTimeChanged value)? startTimeChanged,
+    TResult Function(_EventEndTimeChanged value)? endTimeChanged,
+    TResult Function(_EventDateChanged value)? dateChanged,
+    TResult Function(_EventLocationChanged value)? locationChanged,
+    TResult Function(_EventSpeakerChanged value)? speakerChanged,
+    TResult Function(_EventInfoChanged value)? infoChanged,
     required TResult orElse(),
   }) {
-    if (eventEndTimeChanged != null) {
-      return eventEndTimeChanged(this);
+    if (endTimeChanged != null) {
+      return endTimeChanged(this);
     }
     return orElse();
   }
@@ -1455,7 +1447,7 @@ class _$EventDateChangedImpl implements _EventDateChanged {
 
   @override
   String toString() {
-    return 'EventFormEvent.eventDateChanged(date: $date)';
+    return 'EventFormEvent.dateChanged(date: $date)';
   }
 
   @override
@@ -1482,16 +1474,16 @@ class _$EventDateChangedImpl implements _EventDateChanged {
     required TResult Function() createEvent,
     required TResult Function() updateEvent,
     required TResult Function(Event event) setInitialValues,
-    required TResult Function(String name) eventNameChanged,
-    required TResult Function(String eventDescription) eventDescriptionChanged,
-    required TResult Function(DateTime? startTime) eventStartTimeChanged,
-    required TResult Function(DateTime? endTime) eventEndTimeChanged,
-    required TResult Function(DateTime? date) eventDateChanged,
-    required TResult Function(String location) eventLocationChanged,
-    required TResult Function(String speaker) eventSpeakerChanged,
-    required TResult Function(String info) eventInfoChanged,
+    required TResult Function(String name) nameChanged,
+    required TResult Function(String eventDescription) descriptionChanged,
+    required TResult Function(DateTime? startTime) startTimeChanged,
+    required TResult Function(DateTime? endTime) endTimeChanged,
+    required TResult Function(DateTime? date) dateChanged,
+    required TResult Function(String location) locationChanged,
+    required TResult Function(String speaker) speakerChanged,
+    required TResult Function(String info) infoChanged,
   }) {
-    return eventDateChanged(date);
+    return dateChanged(date);
   }
 
   @override
@@ -1500,16 +1492,16 @@ class _$EventDateChangedImpl implements _EventDateChanged {
     TResult? Function()? createEvent,
     TResult? Function()? updateEvent,
     TResult? Function(Event event)? setInitialValues,
-    TResult? Function(String name)? eventNameChanged,
-    TResult? Function(String eventDescription)? eventDescriptionChanged,
-    TResult? Function(DateTime? startTime)? eventStartTimeChanged,
-    TResult? Function(DateTime? endTime)? eventEndTimeChanged,
-    TResult? Function(DateTime? date)? eventDateChanged,
-    TResult? Function(String location)? eventLocationChanged,
-    TResult? Function(String speaker)? eventSpeakerChanged,
-    TResult? Function(String info)? eventInfoChanged,
+    TResult? Function(String name)? nameChanged,
+    TResult? Function(String eventDescription)? descriptionChanged,
+    TResult? Function(DateTime? startTime)? startTimeChanged,
+    TResult? Function(DateTime? endTime)? endTimeChanged,
+    TResult? Function(DateTime? date)? dateChanged,
+    TResult? Function(String location)? locationChanged,
+    TResult? Function(String speaker)? speakerChanged,
+    TResult? Function(String info)? infoChanged,
   }) {
-    return eventDateChanged?.call(date);
+    return dateChanged?.call(date);
   }
 
   @override
@@ -1518,18 +1510,18 @@ class _$EventDateChangedImpl implements _EventDateChanged {
     TResult Function()? createEvent,
     TResult Function()? updateEvent,
     TResult Function(Event event)? setInitialValues,
-    TResult Function(String name)? eventNameChanged,
-    TResult Function(String eventDescription)? eventDescriptionChanged,
-    TResult Function(DateTime? startTime)? eventStartTimeChanged,
-    TResult Function(DateTime? endTime)? eventEndTimeChanged,
-    TResult Function(DateTime? date)? eventDateChanged,
-    TResult Function(String location)? eventLocationChanged,
-    TResult Function(String speaker)? eventSpeakerChanged,
-    TResult Function(String info)? eventInfoChanged,
+    TResult Function(String name)? nameChanged,
+    TResult Function(String eventDescription)? descriptionChanged,
+    TResult Function(DateTime? startTime)? startTimeChanged,
+    TResult Function(DateTime? endTime)? endTimeChanged,
+    TResult Function(DateTime? date)? dateChanged,
+    TResult Function(String location)? locationChanged,
+    TResult Function(String speaker)? speakerChanged,
+    TResult Function(String info)? infoChanged,
     required TResult orElse(),
   }) {
-    if (eventDateChanged != null) {
-      return eventDateChanged(date);
+    if (dateChanged != null) {
+      return dateChanged(date);
     }
     return orElse();
   }
@@ -1540,18 +1532,17 @@ class _$EventDateChangedImpl implements _EventDateChanged {
     required TResult Function(_CreateEvent value) createEvent,
     required TResult Function(_UpdateEvent value) updateEvent,
     required TResult Function(_SetInitialValues value) setInitialValues,
-    required TResult Function(_EventNameChanged value) eventNameChanged,
+    required TResult Function(_EventNameChanged value) nameChanged,
     required TResult Function(_EventDescriptionChanged value)
-        eventDescriptionChanged,
-    required TResult Function(_EventStartTimeChanged value)
-        eventStartTimeChanged,
-    required TResult Function(_EventEndTimeChanged value) eventEndTimeChanged,
-    required TResult Function(_EventDateChanged value) eventDateChanged,
-    required TResult Function(_EventLocationChanged value) eventLocationChanged,
-    required TResult Function(_EventSpeakerChanged value) eventSpeakerChanged,
-    required TResult Function(_EventInfoChanged value) eventInfoChanged,
+        descriptionChanged,
+    required TResult Function(_EventStartTimeChanged value) startTimeChanged,
+    required TResult Function(_EventEndTimeChanged value) endTimeChanged,
+    required TResult Function(_EventDateChanged value) dateChanged,
+    required TResult Function(_EventLocationChanged value) locationChanged,
+    required TResult Function(_EventSpeakerChanged value) speakerChanged,
+    required TResult Function(_EventInfoChanged value) infoChanged,
   }) {
-    return eventDateChanged(this);
+    return dateChanged(this);
   }
 
   @override
@@ -1560,16 +1551,16 @@ class _$EventDateChangedImpl implements _EventDateChanged {
     TResult? Function(_CreateEvent value)? createEvent,
     TResult? Function(_UpdateEvent value)? updateEvent,
     TResult? Function(_SetInitialValues value)? setInitialValues,
-    TResult? Function(_EventNameChanged value)? eventNameChanged,
-    TResult? Function(_EventDescriptionChanged value)? eventDescriptionChanged,
-    TResult? Function(_EventStartTimeChanged value)? eventStartTimeChanged,
-    TResult? Function(_EventEndTimeChanged value)? eventEndTimeChanged,
-    TResult? Function(_EventDateChanged value)? eventDateChanged,
-    TResult? Function(_EventLocationChanged value)? eventLocationChanged,
-    TResult? Function(_EventSpeakerChanged value)? eventSpeakerChanged,
-    TResult? Function(_EventInfoChanged value)? eventInfoChanged,
+    TResult? Function(_EventNameChanged value)? nameChanged,
+    TResult? Function(_EventDescriptionChanged value)? descriptionChanged,
+    TResult? Function(_EventStartTimeChanged value)? startTimeChanged,
+    TResult? Function(_EventEndTimeChanged value)? endTimeChanged,
+    TResult? Function(_EventDateChanged value)? dateChanged,
+    TResult? Function(_EventLocationChanged value)? locationChanged,
+    TResult? Function(_EventSpeakerChanged value)? speakerChanged,
+    TResult? Function(_EventInfoChanged value)? infoChanged,
   }) {
-    return eventDateChanged?.call(this);
+    return dateChanged?.call(this);
   }
 
   @override
@@ -1578,18 +1569,18 @@ class _$EventDateChangedImpl implements _EventDateChanged {
     TResult Function(_CreateEvent value)? createEvent,
     TResult Function(_UpdateEvent value)? updateEvent,
     TResult Function(_SetInitialValues value)? setInitialValues,
-    TResult Function(_EventNameChanged value)? eventNameChanged,
-    TResult Function(_EventDescriptionChanged value)? eventDescriptionChanged,
-    TResult Function(_EventStartTimeChanged value)? eventStartTimeChanged,
-    TResult Function(_EventEndTimeChanged value)? eventEndTimeChanged,
-    TResult Function(_EventDateChanged value)? eventDateChanged,
-    TResult Function(_EventLocationChanged value)? eventLocationChanged,
-    TResult Function(_EventSpeakerChanged value)? eventSpeakerChanged,
-    TResult Function(_EventInfoChanged value)? eventInfoChanged,
+    TResult Function(_EventNameChanged value)? nameChanged,
+    TResult Function(_EventDescriptionChanged value)? descriptionChanged,
+    TResult Function(_EventStartTimeChanged value)? startTimeChanged,
+    TResult Function(_EventEndTimeChanged value)? endTimeChanged,
+    TResult Function(_EventDateChanged value)? dateChanged,
+    TResult Function(_EventLocationChanged value)? locationChanged,
+    TResult Function(_EventSpeakerChanged value)? speakerChanged,
+    TResult Function(_EventInfoChanged value)? infoChanged,
     required TResult orElse(),
   }) {
-    if (eventDateChanged != null) {
-      return eventDateChanged(this);
+    if (dateChanged != null) {
+      return dateChanged(this);
     }
     return orElse();
   }
@@ -1646,7 +1637,7 @@ class _$EventLocationChangedImpl implements _EventLocationChanged {
 
   @override
   String toString() {
-    return 'EventFormEvent.eventLocationChanged(location: $location)';
+    return 'EventFormEvent.locationChanged(location: $location)';
   }
 
   @override
@@ -1675,16 +1666,16 @@ class _$EventLocationChangedImpl implements _EventLocationChanged {
     required TResult Function() createEvent,
     required TResult Function() updateEvent,
     required TResult Function(Event event) setInitialValues,
-    required TResult Function(String name) eventNameChanged,
-    required TResult Function(String eventDescription) eventDescriptionChanged,
-    required TResult Function(DateTime? startTime) eventStartTimeChanged,
-    required TResult Function(DateTime? endTime) eventEndTimeChanged,
-    required TResult Function(DateTime? date) eventDateChanged,
-    required TResult Function(String location) eventLocationChanged,
-    required TResult Function(String speaker) eventSpeakerChanged,
-    required TResult Function(String info) eventInfoChanged,
+    required TResult Function(String name) nameChanged,
+    required TResult Function(String eventDescription) descriptionChanged,
+    required TResult Function(DateTime? startTime) startTimeChanged,
+    required TResult Function(DateTime? endTime) endTimeChanged,
+    required TResult Function(DateTime? date) dateChanged,
+    required TResult Function(String location) locationChanged,
+    required TResult Function(String speaker) speakerChanged,
+    required TResult Function(String info) infoChanged,
   }) {
-    return eventLocationChanged(location);
+    return locationChanged(location);
   }
 
   @override
@@ -1693,16 +1684,16 @@ class _$EventLocationChangedImpl implements _EventLocationChanged {
     TResult? Function()? createEvent,
     TResult? Function()? updateEvent,
     TResult? Function(Event event)? setInitialValues,
-    TResult? Function(String name)? eventNameChanged,
-    TResult? Function(String eventDescription)? eventDescriptionChanged,
-    TResult? Function(DateTime? startTime)? eventStartTimeChanged,
-    TResult? Function(DateTime? endTime)? eventEndTimeChanged,
-    TResult? Function(DateTime? date)? eventDateChanged,
-    TResult? Function(String location)? eventLocationChanged,
-    TResult? Function(String speaker)? eventSpeakerChanged,
-    TResult? Function(String info)? eventInfoChanged,
+    TResult? Function(String name)? nameChanged,
+    TResult? Function(String eventDescription)? descriptionChanged,
+    TResult? Function(DateTime? startTime)? startTimeChanged,
+    TResult? Function(DateTime? endTime)? endTimeChanged,
+    TResult? Function(DateTime? date)? dateChanged,
+    TResult? Function(String location)? locationChanged,
+    TResult? Function(String speaker)? speakerChanged,
+    TResult? Function(String info)? infoChanged,
   }) {
-    return eventLocationChanged?.call(location);
+    return locationChanged?.call(location);
   }
 
   @override
@@ -1711,18 +1702,18 @@ class _$EventLocationChangedImpl implements _EventLocationChanged {
     TResult Function()? createEvent,
     TResult Function()? updateEvent,
     TResult Function(Event event)? setInitialValues,
-    TResult Function(String name)? eventNameChanged,
-    TResult Function(String eventDescription)? eventDescriptionChanged,
-    TResult Function(DateTime? startTime)? eventStartTimeChanged,
-    TResult Function(DateTime? endTime)? eventEndTimeChanged,
-    TResult Function(DateTime? date)? eventDateChanged,
-    TResult Function(String location)? eventLocationChanged,
-    TResult Function(String speaker)? eventSpeakerChanged,
-    TResult Function(String info)? eventInfoChanged,
+    TResult Function(String name)? nameChanged,
+    TResult Function(String eventDescription)? descriptionChanged,
+    TResult Function(DateTime? startTime)? startTimeChanged,
+    TResult Function(DateTime? endTime)? endTimeChanged,
+    TResult Function(DateTime? date)? dateChanged,
+    TResult Function(String location)? locationChanged,
+    TResult Function(String speaker)? speakerChanged,
+    TResult Function(String info)? infoChanged,
     required TResult orElse(),
   }) {
-    if (eventLocationChanged != null) {
-      return eventLocationChanged(location);
+    if (locationChanged != null) {
+      return locationChanged(location);
     }
     return orElse();
   }
@@ -1733,18 +1724,17 @@ class _$EventLocationChangedImpl implements _EventLocationChanged {
     required TResult Function(_CreateEvent value) createEvent,
     required TResult Function(_UpdateEvent value) updateEvent,
     required TResult Function(_SetInitialValues value) setInitialValues,
-    required TResult Function(_EventNameChanged value) eventNameChanged,
+    required TResult Function(_EventNameChanged value) nameChanged,
     required TResult Function(_EventDescriptionChanged value)
-        eventDescriptionChanged,
-    required TResult Function(_EventStartTimeChanged value)
-        eventStartTimeChanged,
-    required TResult Function(_EventEndTimeChanged value) eventEndTimeChanged,
-    required TResult Function(_EventDateChanged value) eventDateChanged,
-    required TResult Function(_EventLocationChanged value) eventLocationChanged,
-    required TResult Function(_EventSpeakerChanged value) eventSpeakerChanged,
-    required TResult Function(_EventInfoChanged value) eventInfoChanged,
+        descriptionChanged,
+    required TResult Function(_EventStartTimeChanged value) startTimeChanged,
+    required TResult Function(_EventEndTimeChanged value) endTimeChanged,
+    required TResult Function(_EventDateChanged value) dateChanged,
+    required TResult Function(_EventLocationChanged value) locationChanged,
+    required TResult Function(_EventSpeakerChanged value) speakerChanged,
+    required TResult Function(_EventInfoChanged value) infoChanged,
   }) {
-    return eventLocationChanged(this);
+    return locationChanged(this);
   }
 
   @override
@@ -1753,16 +1743,16 @@ class _$EventLocationChangedImpl implements _EventLocationChanged {
     TResult? Function(_CreateEvent value)? createEvent,
     TResult? Function(_UpdateEvent value)? updateEvent,
     TResult? Function(_SetInitialValues value)? setInitialValues,
-    TResult? Function(_EventNameChanged value)? eventNameChanged,
-    TResult? Function(_EventDescriptionChanged value)? eventDescriptionChanged,
-    TResult? Function(_EventStartTimeChanged value)? eventStartTimeChanged,
-    TResult? Function(_EventEndTimeChanged value)? eventEndTimeChanged,
-    TResult? Function(_EventDateChanged value)? eventDateChanged,
-    TResult? Function(_EventLocationChanged value)? eventLocationChanged,
-    TResult? Function(_EventSpeakerChanged value)? eventSpeakerChanged,
-    TResult? Function(_EventInfoChanged value)? eventInfoChanged,
+    TResult? Function(_EventNameChanged value)? nameChanged,
+    TResult? Function(_EventDescriptionChanged value)? descriptionChanged,
+    TResult? Function(_EventStartTimeChanged value)? startTimeChanged,
+    TResult? Function(_EventEndTimeChanged value)? endTimeChanged,
+    TResult? Function(_EventDateChanged value)? dateChanged,
+    TResult? Function(_EventLocationChanged value)? locationChanged,
+    TResult? Function(_EventSpeakerChanged value)? speakerChanged,
+    TResult? Function(_EventInfoChanged value)? infoChanged,
   }) {
-    return eventLocationChanged?.call(this);
+    return locationChanged?.call(this);
   }
 
   @override
@@ -1771,18 +1761,18 @@ class _$EventLocationChangedImpl implements _EventLocationChanged {
     TResult Function(_CreateEvent value)? createEvent,
     TResult Function(_UpdateEvent value)? updateEvent,
     TResult Function(_SetInitialValues value)? setInitialValues,
-    TResult Function(_EventNameChanged value)? eventNameChanged,
-    TResult Function(_EventDescriptionChanged value)? eventDescriptionChanged,
-    TResult Function(_EventStartTimeChanged value)? eventStartTimeChanged,
-    TResult Function(_EventEndTimeChanged value)? eventEndTimeChanged,
-    TResult Function(_EventDateChanged value)? eventDateChanged,
-    TResult Function(_EventLocationChanged value)? eventLocationChanged,
-    TResult Function(_EventSpeakerChanged value)? eventSpeakerChanged,
-    TResult Function(_EventInfoChanged value)? eventInfoChanged,
+    TResult Function(_EventNameChanged value)? nameChanged,
+    TResult Function(_EventDescriptionChanged value)? descriptionChanged,
+    TResult Function(_EventStartTimeChanged value)? startTimeChanged,
+    TResult Function(_EventEndTimeChanged value)? endTimeChanged,
+    TResult Function(_EventDateChanged value)? dateChanged,
+    TResult Function(_EventLocationChanged value)? locationChanged,
+    TResult Function(_EventSpeakerChanged value)? speakerChanged,
+    TResult Function(_EventInfoChanged value)? infoChanged,
     required TResult orElse(),
   }) {
-    if (eventLocationChanged != null) {
-      return eventLocationChanged(this);
+    if (locationChanged != null) {
+      return locationChanged(this);
     }
     return orElse();
   }
@@ -1839,7 +1829,7 @@ class _$EventSpeakerChangedImpl implements _EventSpeakerChanged {
 
   @override
   String toString() {
-    return 'EventFormEvent.eventSpeakerChanged(speaker: $speaker)';
+    return 'EventFormEvent.speakerChanged(speaker: $speaker)';
   }
 
   @override
@@ -1866,16 +1856,16 @@ class _$EventSpeakerChangedImpl implements _EventSpeakerChanged {
     required TResult Function() createEvent,
     required TResult Function() updateEvent,
     required TResult Function(Event event) setInitialValues,
-    required TResult Function(String name) eventNameChanged,
-    required TResult Function(String eventDescription) eventDescriptionChanged,
-    required TResult Function(DateTime? startTime) eventStartTimeChanged,
-    required TResult Function(DateTime? endTime) eventEndTimeChanged,
-    required TResult Function(DateTime? date) eventDateChanged,
-    required TResult Function(String location) eventLocationChanged,
-    required TResult Function(String speaker) eventSpeakerChanged,
-    required TResult Function(String info) eventInfoChanged,
+    required TResult Function(String name) nameChanged,
+    required TResult Function(String eventDescription) descriptionChanged,
+    required TResult Function(DateTime? startTime) startTimeChanged,
+    required TResult Function(DateTime? endTime) endTimeChanged,
+    required TResult Function(DateTime? date) dateChanged,
+    required TResult Function(String location) locationChanged,
+    required TResult Function(String speaker) speakerChanged,
+    required TResult Function(String info) infoChanged,
   }) {
-    return eventSpeakerChanged(speaker);
+    return speakerChanged(speaker);
   }
 
   @override
@@ -1884,16 +1874,16 @@ class _$EventSpeakerChangedImpl implements _EventSpeakerChanged {
     TResult? Function()? createEvent,
     TResult? Function()? updateEvent,
     TResult? Function(Event event)? setInitialValues,
-    TResult? Function(String name)? eventNameChanged,
-    TResult? Function(String eventDescription)? eventDescriptionChanged,
-    TResult? Function(DateTime? startTime)? eventStartTimeChanged,
-    TResult? Function(DateTime? endTime)? eventEndTimeChanged,
-    TResult? Function(DateTime? date)? eventDateChanged,
-    TResult? Function(String location)? eventLocationChanged,
-    TResult? Function(String speaker)? eventSpeakerChanged,
-    TResult? Function(String info)? eventInfoChanged,
+    TResult? Function(String name)? nameChanged,
+    TResult? Function(String eventDescription)? descriptionChanged,
+    TResult? Function(DateTime? startTime)? startTimeChanged,
+    TResult? Function(DateTime? endTime)? endTimeChanged,
+    TResult? Function(DateTime? date)? dateChanged,
+    TResult? Function(String location)? locationChanged,
+    TResult? Function(String speaker)? speakerChanged,
+    TResult? Function(String info)? infoChanged,
   }) {
-    return eventSpeakerChanged?.call(speaker);
+    return speakerChanged?.call(speaker);
   }
 
   @override
@@ -1902,18 +1892,18 @@ class _$EventSpeakerChangedImpl implements _EventSpeakerChanged {
     TResult Function()? createEvent,
     TResult Function()? updateEvent,
     TResult Function(Event event)? setInitialValues,
-    TResult Function(String name)? eventNameChanged,
-    TResult Function(String eventDescription)? eventDescriptionChanged,
-    TResult Function(DateTime? startTime)? eventStartTimeChanged,
-    TResult Function(DateTime? endTime)? eventEndTimeChanged,
-    TResult Function(DateTime? date)? eventDateChanged,
-    TResult Function(String location)? eventLocationChanged,
-    TResult Function(String speaker)? eventSpeakerChanged,
-    TResult Function(String info)? eventInfoChanged,
+    TResult Function(String name)? nameChanged,
+    TResult Function(String eventDescription)? descriptionChanged,
+    TResult Function(DateTime? startTime)? startTimeChanged,
+    TResult Function(DateTime? endTime)? endTimeChanged,
+    TResult Function(DateTime? date)? dateChanged,
+    TResult Function(String location)? locationChanged,
+    TResult Function(String speaker)? speakerChanged,
+    TResult Function(String info)? infoChanged,
     required TResult orElse(),
   }) {
-    if (eventSpeakerChanged != null) {
-      return eventSpeakerChanged(speaker);
+    if (speakerChanged != null) {
+      return speakerChanged(speaker);
     }
     return orElse();
   }
@@ -1924,18 +1914,17 @@ class _$EventSpeakerChangedImpl implements _EventSpeakerChanged {
     required TResult Function(_CreateEvent value) createEvent,
     required TResult Function(_UpdateEvent value) updateEvent,
     required TResult Function(_SetInitialValues value) setInitialValues,
-    required TResult Function(_EventNameChanged value) eventNameChanged,
+    required TResult Function(_EventNameChanged value) nameChanged,
     required TResult Function(_EventDescriptionChanged value)
-        eventDescriptionChanged,
-    required TResult Function(_EventStartTimeChanged value)
-        eventStartTimeChanged,
-    required TResult Function(_EventEndTimeChanged value) eventEndTimeChanged,
-    required TResult Function(_EventDateChanged value) eventDateChanged,
-    required TResult Function(_EventLocationChanged value) eventLocationChanged,
-    required TResult Function(_EventSpeakerChanged value) eventSpeakerChanged,
-    required TResult Function(_EventInfoChanged value) eventInfoChanged,
+        descriptionChanged,
+    required TResult Function(_EventStartTimeChanged value) startTimeChanged,
+    required TResult Function(_EventEndTimeChanged value) endTimeChanged,
+    required TResult Function(_EventDateChanged value) dateChanged,
+    required TResult Function(_EventLocationChanged value) locationChanged,
+    required TResult Function(_EventSpeakerChanged value) speakerChanged,
+    required TResult Function(_EventInfoChanged value) infoChanged,
   }) {
-    return eventSpeakerChanged(this);
+    return speakerChanged(this);
   }
 
   @override
@@ -1944,16 +1933,16 @@ class _$EventSpeakerChangedImpl implements _EventSpeakerChanged {
     TResult? Function(_CreateEvent value)? createEvent,
     TResult? Function(_UpdateEvent value)? updateEvent,
     TResult? Function(_SetInitialValues value)? setInitialValues,
-    TResult? Function(_EventNameChanged value)? eventNameChanged,
-    TResult? Function(_EventDescriptionChanged value)? eventDescriptionChanged,
-    TResult? Function(_EventStartTimeChanged value)? eventStartTimeChanged,
-    TResult? Function(_EventEndTimeChanged value)? eventEndTimeChanged,
-    TResult? Function(_EventDateChanged value)? eventDateChanged,
-    TResult? Function(_EventLocationChanged value)? eventLocationChanged,
-    TResult? Function(_EventSpeakerChanged value)? eventSpeakerChanged,
-    TResult? Function(_EventInfoChanged value)? eventInfoChanged,
+    TResult? Function(_EventNameChanged value)? nameChanged,
+    TResult? Function(_EventDescriptionChanged value)? descriptionChanged,
+    TResult? Function(_EventStartTimeChanged value)? startTimeChanged,
+    TResult? Function(_EventEndTimeChanged value)? endTimeChanged,
+    TResult? Function(_EventDateChanged value)? dateChanged,
+    TResult? Function(_EventLocationChanged value)? locationChanged,
+    TResult? Function(_EventSpeakerChanged value)? speakerChanged,
+    TResult? Function(_EventInfoChanged value)? infoChanged,
   }) {
-    return eventSpeakerChanged?.call(this);
+    return speakerChanged?.call(this);
   }
 
   @override
@@ -1962,18 +1951,18 @@ class _$EventSpeakerChangedImpl implements _EventSpeakerChanged {
     TResult Function(_CreateEvent value)? createEvent,
     TResult Function(_UpdateEvent value)? updateEvent,
     TResult Function(_SetInitialValues value)? setInitialValues,
-    TResult Function(_EventNameChanged value)? eventNameChanged,
-    TResult Function(_EventDescriptionChanged value)? eventDescriptionChanged,
-    TResult Function(_EventStartTimeChanged value)? eventStartTimeChanged,
-    TResult Function(_EventEndTimeChanged value)? eventEndTimeChanged,
-    TResult Function(_EventDateChanged value)? eventDateChanged,
-    TResult Function(_EventLocationChanged value)? eventLocationChanged,
-    TResult Function(_EventSpeakerChanged value)? eventSpeakerChanged,
-    TResult Function(_EventInfoChanged value)? eventInfoChanged,
+    TResult Function(_EventNameChanged value)? nameChanged,
+    TResult Function(_EventDescriptionChanged value)? descriptionChanged,
+    TResult Function(_EventStartTimeChanged value)? startTimeChanged,
+    TResult Function(_EventEndTimeChanged value)? endTimeChanged,
+    TResult Function(_EventDateChanged value)? dateChanged,
+    TResult Function(_EventLocationChanged value)? locationChanged,
+    TResult Function(_EventSpeakerChanged value)? speakerChanged,
+    TResult Function(_EventInfoChanged value)? infoChanged,
     required TResult orElse(),
   }) {
-    if (eventSpeakerChanged != null) {
-      return eventSpeakerChanged(this);
+    if (speakerChanged != null) {
+      return speakerChanged(this);
     }
     return orElse();
   }
@@ -2030,7 +2019,7 @@ class _$EventInfoChangedImpl implements _EventInfoChanged {
 
   @override
   String toString() {
-    return 'EventFormEvent.eventInfoChanged(info: $info)';
+    return 'EventFormEvent.infoChanged(info: $info)';
   }
 
   @override
@@ -2057,16 +2046,16 @@ class _$EventInfoChangedImpl implements _EventInfoChanged {
     required TResult Function() createEvent,
     required TResult Function() updateEvent,
     required TResult Function(Event event) setInitialValues,
-    required TResult Function(String name) eventNameChanged,
-    required TResult Function(String eventDescription) eventDescriptionChanged,
-    required TResult Function(DateTime? startTime) eventStartTimeChanged,
-    required TResult Function(DateTime? endTime) eventEndTimeChanged,
-    required TResult Function(DateTime? date) eventDateChanged,
-    required TResult Function(String location) eventLocationChanged,
-    required TResult Function(String speaker) eventSpeakerChanged,
-    required TResult Function(String info) eventInfoChanged,
+    required TResult Function(String name) nameChanged,
+    required TResult Function(String eventDescription) descriptionChanged,
+    required TResult Function(DateTime? startTime) startTimeChanged,
+    required TResult Function(DateTime? endTime) endTimeChanged,
+    required TResult Function(DateTime? date) dateChanged,
+    required TResult Function(String location) locationChanged,
+    required TResult Function(String speaker) speakerChanged,
+    required TResult Function(String info) infoChanged,
   }) {
-    return eventInfoChanged(info);
+    return infoChanged(info);
   }
 
   @override
@@ -2075,16 +2064,16 @@ class _$EventInfoChangedImpl implements _EventInfoChanged {
     TResult? Function()? createEvent,
     TResult? Function()? updateEvent,
     TResult? Function(Event event)? setInitialValues,
-    TResult? Function(String name)? eventNameChanged,
-    TResult? Function(String eventDescription)? eventDescriptionChanged,
-    TResult? Function(DateTime? startTime)? eventStartTimeChanged,
-    TResult? Function(DateTime? endTime)? eventEndTimeChanged,
-    TResult? Function(DateTime? date)? eventDateChanged,
-    TResult? Function(String location)? eventLocationChanged,
-    TResult? Function(String speaker)? eventSpeakerChanged,
-    TResult? Function(String info)? eventInfoChanged,
+    TResult? Function(String name)? nameChanged,
+    TResult? Function(String eventDescription)? descriptionChanged,
+    TResult? Function(DateTime? startTime)? startTimeChanged,
+    TResult? Function(DateTime? endTime)? endTimeChanged,
+    TResult? Function(DateTime? date)? dateChanged,
+    TResult? Function(String location)? locationChanged,
+    TResult? Function(String speaker)? speakerChanged,
+    TResult? Function(String info)? infoChanged,
   }) {
-    return eventInfoChanged?.call(info);
+    return infoChanged?.call(info);
   }
 
   @override
@@ -2093,18 +2082,18 @@ class _$EventInfoChangedImpl implements _EventInfoChanged {
     TResult Function()? createEvent,
     TResult Function()? updateEvent,
     TResult Function(Event event)? setInitialValues,
-    TResult Function(String name)? eventNameChanged,
-    TResult Function(String eventDescription)? eventDescriptionChanged,
-    TResult Function(DateTime? startTime)? eventStartTimeChanged,
-    TResult Function(DateTime? endTime)? eventEndTimeChanged,
-    TResult Function(DateTime? date)? eventDateChanged,
-    TResult Function(String location)? eventLocationChanged,
-    TResult Function(String speaker)? eventSpeakerChanged,
-    TResult Function(String info)? eventInfoChanged,
+    TResult Function(String name)? nameChanged,
+    TResult Function(String eventDescription)? descriptionChanged,
+    TResult Function(DateTime? startTime)? startTimeChanged,
+    TResult Function(DateTime? endTime)? endTimeChanged,
+    TResult Function(DateTime? date)? dateChanged,
+    TResult Function(String location)? locationChanged,
+    TResult Function(String speaker)? speakerChanged,
+    TResult Function(String info)? infoChanged,
     required TResult orElse(),
   }) {
-    if (eventInfoChanged != null) {
-      return eventInfoChanged(info);
+    if (infoChanged != null) {
+      return infoChanged(info);
     }
     return orElse();
   }
@@ -2115,18 +2104,17 @@ class _$EventInfoChangedImpl implements _EventInfoChanged {
     required TResult Function(_CreateEvent value) createEvent,
     required TResult Function(_UpdateEvent value) updateEvent,
     required TResult Function(_SetInitialValues value) setInitialValues,
-    required TResult Function(_EventNameChanged value) eventNameChanged,
+    required TResult Function(_EventNameChanged value) nameChanged,
     required TResult Function(_EventDescriptionChanged value)
-        eventDescriptionChanged,
-    required TResult Function(_EventStartTimeChanged value)
-        eventStartTimeChanged,
-    required TResult Function(_EventEndTimeChanged value) eventEndTimeChanged,
-    required TResult Function(_EventDateChanged value) eventDateChanged,
-    required TResult Function(_EventLocationChanged value) eventLocationChanged,
-    required TResult Function(_EventSpeakerChanged value) eventSpeakerChanged,
-    required TResult Function(_EventInfoChanged value) eventInfoChanged,
+        descriptionChanged,
+    required TResult Function(_EventStartTimeChanged value) startTimeChanged,
+    required TResult Function(_EventEndTimeChanged value) endTimeChanged,
+    required TResult Function(_EventDateChanged value) dateChanged,
+    required TResult Function(_EventLocationChanged value) locationChanged,
+    required TResult Function(_EventSpeakerChanged value) speakerChanged,
+    required TResult Function(_EventInfoChanged value) infoChanged,
   }) {
-    return eventInfoChanged(this);
+    return infoChanged(this);
   }
 
   @override
@@ -2135,16 +2123,16 @@ class _$EventInfoChangedImpl implements _EventInfoChanged {
     TResult? Function(_CreateEvent value)? createEvent,
     TResult? Function(_UpdateEvent value)? updateEvent,
     TResult? Function(_SetInitialValues value)? setInitialValues,
-    TResult? Function(_EventNameChanged value)? eventNameChanged,
-    TResult? Function(_EventDescriptionChanged value)? eventDescriptionChanged,
-    TResult? Function(_EventStartTimeChanged value)? eventStartTimeChanged,
-    TResult? Function(_EventEndTimeChanged value)? eventEndTimeChanged,
-    TResult? Function(_EventDateChanged value)? eventDateChanged,
-    TResult? Function(_EventLocationChanged value)? eventLocationChanged,
-    TResult? Function(_EventSpeakerChanged value)? eventSpeakerChanged,
-    TResult? Function(_EventInfoChanged value)? eventInfoChanged,
+    TResult? Function(_EventNameChanged value)? nameChanged,
+    TResult? Function(_EventDescriptionChanged value)? descriptionChanged,
+    TResult? Function(_EventStartTimeChanged value)? startTimeChanged,
+    TResult? Function(_EventEndTimeChanged value)? endTimeChanged,
+    TResult? Function(_EventDateChanged value)? dateChanged,
+    TResult? Function(_EventLocationChanged value)? locationChanged,
+    TResult? Function(_EventSpeakerChanged value)? speakerChanged,
+    TResult? Function(_EventInfoChanged value)? infoChanged,
   }) {
-    return eventInfoChanged?.call(this);
+    return infoChanged?.call(this);
   }
 
   @override
@@ -2153,18 +2141,18 @@ class _$EventInfoChangedImpl implements _EventInfoChanged {
     TResult Function(_CreateEvent value)? createEvent,
     TResult Function(_UpdateEvent value)? updateEvent,
     TResult Function(_SetInitialValues value)? setInitialValues,
-    TResult Function(_EventNameChanged value)? eventNameChanged,
-    TResult Function(_EventDescriptionChanged value)? eventDescriptionChanged,
-    TResult Function(_EventStartTimeChanged value)? eventStartTimeChanged,
-    TResult Function(_EventEndTimeChanged value)? eventEndTimeChanged,
-    TResult Function(_EventDateChanged value)? eventDateChanged,
-    TResult Function(_EventLocationChanged value)? eventLocationChanged,
-    TResult Function(_EventSpeakerChanged value)? eventSpeakerChanged,
-    TResult Function(_EventInfoChanged value)? eventInfoChanged,
+    TResult Function(_EventNameChanged value)? nameChanged,
+    TResult Function(_EventDescriptionChanged value)? descriptionChanged,
+    TResult Function(_EventStartTimeChanged value)? startTimeChanged,
+    TResult Function(_EventEndTimeChanged value)? endTimeChanged,
+    TResult Function(_EventDateChanged value)? dateChanged,
+    TResult Function(_EventLocationChanged value)? locationChanged,
+    TResult Function(_EventSpeakerChanged value)? speakerChanged,
+    TResult Function(_EventInfoChanged value)? infoChanged,
     required TResult orElse(),
   }) {
-    if (eventInfoChanged != null) {
-      return eventInfoChanged(this);
+    if (infoChanged != null) {
+      return infoChanged(this);
     }
     return orElse();
   }

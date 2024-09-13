@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ieee_sst/data/constants/app_colors.dart';
 import 'package:ieee_sst/data/constants/text_styles.dart';
 import 'package:ieee_sst/presentation/admin/admin_event_managment_screen/bloc/event_form_bloc.dart';
-import 'package:logger/logger.dart';
 
 class EventDateInput extends StatelessWidget {
   const EventDateInput({super.key});
@@ -54,12 +53,8 @@ class EventDateInput extends StatelessWidget {
         );
       },
     ).then(
-      (value) {
-        Logger().w(value);
-        context
-            .read<EventFormBloc>()
-            .add(EventFormEvent.eventDateChanged(value));
-      },
+      (value) =>
+          context.read<EventFormBloc>().add(EventFormEvent.dateChanged(value)),
     );
   }
 }

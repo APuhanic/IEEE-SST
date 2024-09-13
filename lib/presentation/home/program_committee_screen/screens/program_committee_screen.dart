@@ -5,14 +5,13 @@ import 'package:ieee_sst/presentation/common/widgets/loading_indicator.dart';
 import 'package:ieee_sst/presentation/home/steering_committee_screen/widgets/steering_committee_card.dart';
 import 'package:ieee_sst/util/load_json.dart';
 
-//TODO: Refactor this screen to not be a duplicate of SteeringCommitteeScreen
 class ProgramCommitteeScreen extends StatelessWidget {
   const ProgramCommitteeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: FutureBuilder<List<SteeringCommittee>>(
+      body: FutureBuilder<List<CommitteeMember>>(
         future: loadProgramCommittee(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {

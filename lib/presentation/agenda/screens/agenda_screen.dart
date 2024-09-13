@@ -5,6 +5,7 @@ import 'package:ieee_sst/presentation/common/widgets/event_card.dart';
 import 'package:ieee_sst/presentation/common/widgets/event_filter_chips.dart';
 import 'package:ieee_sst/presentation/common/bloc/events_bloc/events_bloc.dart';
 import 'package:ieee_sst/presentation/common/widgets/date_picker_filter.dart';
+import 'package:ieee_sst/presentation/common/widgets/global_refresh_indicator.dart';
 import 'package:ieee_sst/presentation/common/widgets/loading_indicator.dart';
 import 'package:ieee_sst/presentation/home/widgets/home_screen_drawer.dart';
 
@@ -19,9 +20,7 @@ class AgendaScreen extends StatelessWidget {
       body: BlocBuilder<EventsManagmentBloc, EventsState>(
         builder: (context, state) {
           // TODO: Global refresh indicator
-          return RefreshIndicator(
-            backgroundColor: AppColors.white,
-            color: AppColors.primary,
+          return GlobalRefreshIndicator(
             onRefresh: () async => context
                 .read<EventsManagmentBloc>()
                 .add(const EventsEvent.loadEvents()),

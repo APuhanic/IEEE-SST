@@ -12,49 +12,30 @@ class DocumentClient {
   final SupabaseClient _supabaseClient;
 
   Future<List<Map<String, dynamic>>> fetchDocuments() async {
-    try {
-      return await _supabaseClient.from('documents').select();
-    } on AuthException catch (e) {
-      throw Exception(e.message);
-    }
+    return await _supabaseClient.from('documents').select();
   }
 
   Future<void> addDocument(String name, String url, String path) async {
-    try {
-      await _supabaseClient.from('documents').insert({
-        'name': name,
-        'url': url,
-        'path': path,
-      });
-    } catch (e) {
-      throw Exception(e);
-    }
+    await _supabaseClient.from('documents').insert({
+      'name': name,
+      'url': url,
+      'path': path,
+    });
   }
 
   Future<void> deleteDocument(Document document) async {
-    try {
-      await _supabaseClient.storage.from('documents').remove([document.path]);
-      await _supabaseClient
-          .from('documents')
-          .delete()
-          .eq('path', document.path);
-    } catch (e) {
-      throw Exception(e);
-    }
+    await _supabaseClient.storage.from('documents').remove([document.path]);
+    await _supabaseClient.from('documents').delete().eq('path', document.path);
   }
 
   uploadDocument(FilePickerResult file) async {
-    try {
-      final PlatformFile platformFile = file.files.single;
-      final File dartFile = File(platformFile.path!);
-      await _supabaseClient.storage
-          .from('documents')
-          .upload(file.files.single.path!, dartFile);
-      return _supabaseClient.storage
-          .from('documents')
-          .getPublicUrl(file.files.single.path!);
-    } catch (e) {
-      throw Exception(e);
-    }
+    final PlatformFile platformFile = file.files.single;
+    final File dartFile = File(platformFile.path!);
+    await _supabaseClient.storage
+        .from('documents')
+        .upload(file.files.single.path!, dartFile);
+    return _supabaseClient.storage
+        .from('documents')
+        .getPublicUrl(file.files.single.path!);
   }
 }

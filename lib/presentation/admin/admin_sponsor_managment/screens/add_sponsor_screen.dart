@@ -20,9 +20,6 @@ class AddSponsorScreen extends StatelessWidget {
     return Scaffold(
       body: BlocConsumer<SponsorFormBloc, SponsorFormState>(
         listener: (context, state) {
-          if (state.status.isSuccess) {
-            debugPrint('Sponsor added successfully');
-          }
           if (state.status.isFailure) {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(

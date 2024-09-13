@@ -76,7 +76,6 @@ class EventRepository {
       'endTime': event.endTime!.toIso8601String(),
       'date': event.date!.toIso8601String(),
       'info': event.info,
-      // Exclude 'isGoing' and 'attendeeCount'
     };
     await _eventClient.updateEvent(eventData);
   }
@@ -104,21 +103,19 @@ class EventRepository {
     final eventList = eventsResponse
         .map((event) => Event.fromJson(event).copyWith(
             isGoing: eventAttendResponse.any((eventAttendee) =>
-                eventAttendee.event_id == event['id'] &&
-                eventAttendee.user_id == _supabaseClient.auth.currentUser!.id),
+                eventAttendee.eventId == event['id'] &&
+                eventAttendee.userId == _supabaseClient.auth.currentUser!.id),
             attendeeCount: eventAttendResponse
-                .where((eventAttendee) => eventAttendee.event_id == event['id'])
+                .where((eventAttendee) => eventAttendee.eventId == event['id'])
                 .length))
         .toList();
     await _eventLocalStorage.saveEvents(eventList);
     return eventList;
   }
 
-  Future<List<Event>> _getAllEventsFromCache() async {
-    return await _eventLocalStorage.getEvents();
-  }
+  Future<List<Event>> _getAllEventsFromCache() async =>
+      await _eventLocalStorage.getEvents();
 
-  //TODO: Extrat to another class?
   bool isEventUpcoming(event) => event.date!.isAfter(DateTime.now());
 
   bool hasEventPassed(event) => event.date!.isBefore(DateTime.now());

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:ieee_sst/data/constants/app_colors.dart';
 import 'package:ieee_sst/presentation/admin/admin_user_managment/widgets/user_managment_tile.dart';
 import 'package:ieee_sst/presentation/common/bloc/attendees_bloc/attendees_bloc.dart';
 import 'package:ieee_sst/presentation/common/widgets/loading_indicator.dart';
+import 'package:ieee_sst/presentation/common/widgets/sliver_screen_header.dart';
 import 'package:ieee_sst/presentation/home/widgets/home_screen_drawer.dart';
 
 class UserManagmentScreen extends StatelessWidget {
@@ -20,12 +20,7 @@ class UserManagmentScreen extends StatelessWidget {
             .add(const AttendeesEvent.loadAttendees()),
         child: CustomScrollView(
           slivers: <Widget>[
-            const SliverAppBar(
-              backgroundColor: AppColors.background,
-              shadowColor: Colors.transparent,
-              surfaceTintColor: AppColors.background,
-              title: Text('User managment'),
-            ),
+            const SliverScreenHeader(title: 'User Managment'),
             BlocBuilder<AttendeesBloc, AttendeesState>(
               builder: (context, state) {
                 return state.maybeWhen(

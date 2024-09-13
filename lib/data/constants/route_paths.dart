@@ -20,9 +20,8 @@ abstract class RoutePaths {
   static const String searchEvents = 'search_events';
   static const String messages = '/messages';
 
-  // Community
-  //TODO: change to info
-  static const String info = '/community';
+  // Info
+  static const String info = '/info';
   static const String subRouteOrganizerAnnouncments = 'organizer_announcements';
   static const String subRouteAnnouncementPost = 'announcement_post';
 

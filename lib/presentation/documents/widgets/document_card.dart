@@ -20,12 +20,10 @@ class DocumentCard extends StatelessWidget {
         throw 'Could not launch $url';
       }
     } catch (e) {
-      // TODO: Replace context.mounted with a better solution
-      if (context.mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(e.toString())),
-        );
-      }
+      if (!context.mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(e.toString())),
+      );
     }
   }
 

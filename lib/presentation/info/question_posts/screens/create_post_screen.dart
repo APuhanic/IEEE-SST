@@ -16,10 +16,6 @@ class CreatePostScreen extends StatelessWidget {
     return Scaffold(
       body: BlocConsumer<PostFormBloc, PostFormState>(
         listener: (context, state) {
-          if (state.status.isSuccess) {
-            debugPrint('Post created successfully');
-            Navigator.pop(context);
-          }
           if (state.status.isFailure) {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
@@ -80,11 +76,11 @@ class CreatePostButton extends StatelessWidget {
           foregroundColor: AppColors.white,
           textStyle: AppTextStyle.button),
       onPressed: () {
-        // TODO: Refactor this to not use 2 blocs
         context.read<PostFormBloc>().add(const PostFormEvent.createPost());
         context
             .read<PostManagmentBloc>()
             .add(const PostManagmentEvent.loadPosts());
+        Navigator.pop(context);
       },
       child: const Text('Post'),
     );

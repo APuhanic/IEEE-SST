@@ -107,9 +107,8 @@ class PostScreen extends StatelessWidget {
                               loading: () => const Center(
                                 child: LoadingIndicator(),
                               ),
-                              //TODO: Fix this error message iterable null....
-                              error: (message) => const Center(
-                                child: Text('No comments yet'),
+                              error: (message) => Center(
+                                child: Text(message),
                               ),
                               orElse: () => const SizedBox.shrink(),
                             );

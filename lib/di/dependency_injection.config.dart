@@ -162,8 +162,8 @@ extension GetItInjectableX on _i1.GetIt {
         () => _i37.AnnouncementFormBloc(gh<_i33.AnnouncementRepository>()));
     gh.lazySingleton<_i38.ProfileRepository>(
         () => _i38.ProfileRepository(gh<_i9.ProfileClient>()));
-    gh.factory<_i39.AnnouncementBloc>(
-        () => _i39.AnnouncementBloc(gh<_i33.AnnouncementRepository>()));
+    gh.factory<_i39.AnnouncementManagmentBloc>(() =>
+        _i39.AnnouncementManagmentBloc(gh<_i33.AnnouncementRepository>()));
     gh.lazySingleton<_i40.DocumentRepository>(
         () => _i40.DocumentRepository(gh<_i17.DocumentClient>()));
     gh.factory<_i41.DocumentFormBloc>(

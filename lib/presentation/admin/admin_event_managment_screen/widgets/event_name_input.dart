@@ -16,7 +16,7 @@ class EventNameInput extends StatelessWidget {
         return TextFormField(
           onChanged: (eventName) => context
               .read<EventFormBloc>()
-              .add(EventFormEvent.eventNameChanged(eventName)),
+              .add(EventFormEvent.nameChanged(eventName)),
           initialValue: state.name,
           decoration: InputDecoration(
             label: Text('Event name', style: AppTextStyle.textForm),

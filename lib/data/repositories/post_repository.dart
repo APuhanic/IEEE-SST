@@ -18,15 +18,10 @@ class PostRepository {
         .toList();
   }
 
-  Future<void> uploadPost(String title, String content) async {
-    await _postClient.uploadPost(title, content);
-  }
+  Future<void> uploadPost(String title, String content) async =>
+      await _postClient.uploadPost(title, content);
 
-  Future<void> deletePost(int postId) {
-    return _postClient.deletePost(postId);
-  }
+  Future<void> deletePost(int postId) => _postClient.deletePost(postId);
 
-  Future<void> updatePost(Post post) {
-    return _postClient.updatePost(post.toJson());
-  }
+  Future<void> updatePost(Post post) => _postClient.updatePost(post.toJson());
 }

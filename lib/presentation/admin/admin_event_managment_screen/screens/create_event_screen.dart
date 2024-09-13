@@ -22,9 +22,6 @@ class CreateEventScreen extends StatelessWidget {
     return Scaffold(
       body: BlocConsumer<EventFormBloc, EventFormState>(
         listener: (context, state) {
-          if (state.status.isSuccess) {
-            debugPrint('Event created successfully');
-          }
           if (state.status.isFailure) {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(

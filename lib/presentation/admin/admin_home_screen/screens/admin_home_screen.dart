@@ -139,7 +139,6 @@ class AdminHomeScreen extends StatelessWidget {
                     child: SizedBox(
                       height: 50,
                       child: Row(
-                        //TODO: Common widget
                         children: [
                           Expanded(
                             child: NewScreenButton(
@@ -251,23 +250,9 @@ class _FacebookPageLink extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () async {
-        //TODO: Refactor this
         final facebookUrl = Uri.parse(
             'https://web.facebook.com/SSTInternationalConference/?_rdc=1&_rdr');
-        final facebookFallbackUrl = Uri.parse(
-            'https://web.facebook.com/SSTInternationalConference/?_rdc=1&_rdr');
-
-        // Attempt to open the Facebook app
-        if (await canLaunchUrl(facebookUrl)) {
-          await launchUrl(facebookUrl);
-        } else {
-          // If the Facebook app is not available, open in a web browser
-          if (await canLaunchUrl(facebookFallbackUrl)) {
-            await launchUrl(facebookFallbackUrl);
-          } else {
-            throw 'Could not launch $facebookFallbackUrl';
-          }
-        }
+        await launchUrl(facebookUrl);
       },
       child: Padding(
         padding: const EdgeInsets.only(right: 8.0),

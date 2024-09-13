@@ -4,7 +4,6 @@ import 'package:ieee_sst/data/constants/app_colors.dart';
 import 'package:ieee_sst/data/constants/text_styles.dart';
 import 'package:ieee_sst/presentation/admin/admin_annoucments_managment_screen.dart/bloc/announcement_form_bloc.dart';
 
-//TODO: Find why this doesnt print transition and change but event input does
 class AnnouncementDescriptionInput extends StatelessWidget {
   const AnnouncementDescriptionInput({super.key});
 
@@ -13,11 +12,9 @@ class AnnouncementDescriptionInput extends StatelessWidget {
     return BlocBuilder<AnnouncementFormBloc, AnnouncementFormState>(
       builder: (context, state) {
         return TextFormField(
-          onChanged: (description) {
-            context
-                .read<AnnouncementFormBloc>()
-                .add(AnnouncementFormEvent.descriptionChanged(description));
-          },
+          onChanged: (description) => context
+              .read<AnnouncementFormBloc>()
+              .add(AnnouncementFormEvent.descriptionChanged(description)),
           initialValue: state.description,
           minLines: 1,
           maxLines: 10,

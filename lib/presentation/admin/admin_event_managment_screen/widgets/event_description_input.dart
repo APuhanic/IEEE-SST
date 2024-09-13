@@ -15,7 +15,7 @@ class EventDescriptionInput extends StatelessWidget {
           onChanged: (eventDescription) {
             context
                 .read<EventFormBloc>()
-                .add(EventFormEvent.eventDescriptionChanged(eventDescription));
+                .add(EventFormEvent.descriptionChanged(eventDescription));
           },
           initialValue: state.description,
           decoration: InputDecoration(

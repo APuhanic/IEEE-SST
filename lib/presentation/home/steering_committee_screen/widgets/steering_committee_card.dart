@@ -7,7 +7,7 @@ class SteeringCommitteeCard extends StatelessWidget {
     required this.committee,
   });
 
-  final SteeringCommittee committee;
+  final CommitteeMember committee;
 
   @override
   Widget build(BuildContext context) {

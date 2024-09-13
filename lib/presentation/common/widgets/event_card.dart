@@ -81,7 +81,6 @@ class EventCard extends StatelessWidget {
     return Column(
       children: [
         EventData(
-          // TODO: Make an extansion on string for formating?
           eventInfo: DateFormat('d.M.yyyy').format(event.date!),
           icon: FontAwesomeIcons.calendar,
         ),

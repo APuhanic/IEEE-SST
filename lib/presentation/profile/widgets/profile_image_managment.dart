@@ -65,12 +65,9 @@ class ProfileImageManagment extends StatelessWidget {
                 !state.isChoosing
                     ? const SizedBox(height: 16)
                     : TextButton(
-                        onPressed: () {
-                          debugPrint('Save');
-                          context
-                              .read<ProfileImageBloc>()
-                              .add(ProfileImageEvent.addProfileImage(profile));
-                        },
+                        onPressed: () => context
+                            .read<ProfileImageBloc>()
+                            .add(ProfileImageEvent.addProfileImage(profile)),
                         child: Text(
                           'Save',
                           style: AppTextStyle.blueButtonText,

@@ -1,6 +1,5 @@
 import 'dart:io';
 
-import 'package:flutter/foundation.dart';
 import 'package:ieee_sst/data/constants/user_roles.dart';
 import 'package:ieee_sst/data/models/profile_model/profile_model.dart';
 import 'package:injectable/injectable.dart';
@@ -73,55 +72,35 @@ class ProfileClient {
           .update({'role': role}).eq('id', id);
 
   Future<void> updateUserProfile(String id, String? organization,
-      String? position, String? country) async {
-    return await _supabaseClient.from('profiles').update({
-      'organization': organization,
-      'position': position,
-      'country': country,
-    }).eq('id', id);
-  }
+          String? position, String? country) async =>
+      await _supabaseClient.from('profiles').update({
+        'organization': organization,
+        'position': position,
+        'country': country,
+      }).eq('id', id);
 
-  Future<void> addFcmTOken(String id, String? fcmToken) async {
-    return await _supabaseClient.from('profiles').update({
-      'fcmToken': fcmToken,
-    }).eq('id', id);
-  }
+  Future<void> addFcmTOken(String id, String? fcmToken) async =>
+      await _supabaseClient.from('profiles').update({
+        'fcmToken': fcmToken,
+      }).eq('id', id);
 
   Future<String> uploadUserImage(File image) async {
-    try {
-      await _supabaseClient.storage.from('images').upload(image.path, image);
-      return _supabaseClient.storage.from('images').getPublicUrl(image.path);
-    } catch (e) {
-      throw Exception(e);
-    }
+    await _supabaseClient.storage.from('images').upload(image.path, image);
+    return _supabaseClient.storage.from('images').getPublicUrl(image.path);
   }
 
-  Future<void> addProfileImage(String imagePath, String imageUrl) async {
-    try {
+  Future<void> addProfileImage(String imagePath, String imageUrl) async =>
       await _supabaseClient.from('profiles').update({
         'imagePath': imagePath,
         'imageUrl': imageUrl,
       }).eq('id', _supabaseClient.auth.currentUser!.id);
-    } catch (e) {
-      throw Exception(e);
-    }
-  }
 
   Future<void> deleteProfileImage(Profile profile) async {
-    try {
-      if (profile.imagePath == null) return;
-      try {
-        await _supabaseClient.storage
-            .from('images')
-            .remove([profile.imagePath!]);
-      } on Exception catch (e) {
-        debugPrint('Error deleting image: $e');
-      }
-      await _supabaseClient
-          .from('profiles')
-          .update({'imageUrl': null, 'imagePath': null}).eq('id', profile.id);
-    } catch (e) {
-      throw Exception(e);
-    }
+    if (profile.imagePath == null) return;
+    await _supabaseClient.storage.from('images').remove([profile.imagePath!]);
+
+    await _supabaseClient
+        .from('profiles')
+        .update({'imageUrl': null, 'imagePath': null}).eq('id', profile.id);
   }
 }

@@ -22,8 +22,8 @@ class EventEndTimeInput extends StatelessWidget {
           readOnly: true,
           onTap: () => _selectTime(context),
           decoration: InputDecoration(
-            label: Text('Event end time', style: AppTextStyle.textForm),
-            hintText: 'Event end time',
+            label: Text('End time', style: AppTextStyle.textForm),
+            hintText: 'End time',
             hintStyle: AppTextStyle.textForm,
             prefixIcon:
                 const Icon(Icons.access_time, color: AppColors.grayText),
@@ -52,7 +52,10 @@ class EventEndTimeInput extends StatelessWidget {
           data: ThemeData.light().copyWith(
             colorScheme: const ColorScheme.light(primary: AppColors.primary),
           ),
-          child: child!,
+          child: MediaQuery(
+            data: MediaQuery.of(context).copyWith(alwaysUse24HourFormat: true),
+            child: child!,
+          ),
         );
       },
       initialEntryMode: TimePickerEntryMode.input,
@@ -69,7 +72,7 @@ class EventEndTimeInput extends StatelessWidget {
         );
         context
             .read<EventFormBloc>()
-            .add(EventFormEvent.eventEndTimeChanged(dateTimeValue));
+            .add(EventFormEvent.endTimeChanged(dateTimeValue));
       },
     );
   }

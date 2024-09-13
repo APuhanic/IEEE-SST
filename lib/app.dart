@@ -45,8 +45,7 @@ class MainApp extends StatelessWidget {
         BlocProvider(create: (context) => getIt<EventsManagmentBloc>()),
         BlocProvider(create: (context) => getIt<ProfileBloc>()),
         BlocProvider(create: (context) => getIt<AnnouncementFormBloc>()),
-        //TODO: Rename to AnnouncementManagmentBloc?
-        BlocProvider(create: (context) => getIt<AnnouncementBloc>()),
+        BlocProvider(create: (context) => getIt<AnnouncementManagmentBloc>()),
         BlocProvider(create: (context) => getIt<SponsorFormBloc>()),
         BlocProvider(create: (context) => getIt<SponsorManagmentBloc>()),
         BlocProvider(create: (context) => getIt<PostFormBloc>()),
