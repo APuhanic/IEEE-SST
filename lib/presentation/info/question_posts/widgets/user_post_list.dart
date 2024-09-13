@@ -15,6 +15,7 @@ class UserPostsList extends StatelessWidget {
     return ListView.separated(
       itemCount: posts.length,
       shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
       separatorBuilder: (context, index) => const Divider(),
       itemBuilder: (context, index) => UserPostPreview(
         post: posts[index],

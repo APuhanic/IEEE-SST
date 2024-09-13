@@ -24,6 +24,7 @@ mixin _$AnnouncementFormEvent {
     required TResult Function() updateAnnouncement,
     required TResult Function(String announcementId) deleteAnnouncement,
     required TResult Function(Announcement announcement) setInitialValues,
+    required TResult Function() resetFrom,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -34,6 +35,7 @@ mixin _$AnnouncementFormEvent {
     TResult? Function()? updateAnnouncement,
     TResult? Function(String announcementId)? deleteAnnouncement,
     TResult? Function(Announcement announcement)? setInitialValues,
+    TResult? Function()? resetFrom,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -44,6 +46,7 @@ mixin _$AnnouncementFormEvent {
     TResult Function()? updateAnnouncement,
     TResult Function(String announcementId)? deleteAnnouncement,
     TResult Function(Announcement announcement)? setInitialValues,
+    TResult Function()? resetFrom,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -55,6 +58,7 @@ mixin _$AnnouncementFormEvent {
     required TResult Function(_UpdateAnnouncement value) updateAnnouncement,
     required TResult Function(_DeleteAnnouncement value) deleteAnnouncement,
     required TResult Function(_SetInitialValues value) setInitialValues,
+    required TResult Function(_ResetFrom value) resetFrom,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -65,6 +69,7 @@ mixin _$AnnouncementFormEvent {
     TResult? Function(_UpdateAnnouncement value)? updateAnnouncement,
     TResult? Function(_DeleteAnnouncement value)? deleteAnnouncement,
     TResult? Function(_SetInitialValues value)? setInitialValues,
+    TResult? Function(_ResetFrom value)? resetFrom,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -75,6 +80,7 @@ mixin _$AnnouncementFormEvent {
     TResult Function(_UpdateAnnouncement value)? updateAnnouncement,
     TResult Function(_DeleteAnnouncement value)? deleteAnnouncement,
     TResult Function(_SetInitialValues value)? setInitialValues,
+    TResult Function(_ResetFrom value)? resetFrom,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -143,6 +149,7 @@ class _$CreateAnnouncementImpl implements _CreateAnnouncement {
     required TResult Function() updateAnnouncement,
     required TResult Function(String announcementId) deleteAnnouncement,
     required TResult Function(Announcement announcement) setInitialValues,
+    required TResult Function() resetFrom,
   }) {
     return createAnnouncement();
   }
@@ -156,6 +163,7 @@ class _$CreateAnnouncementImpl implements _CreateAnnouncement {
     TResult? Function()? updateAnnouncement,
     TResult? Function(String announcementId)? deleteAnnouncement,
     TResult? Function(Announcement announcement)? setInitialValues,
+    TResult? Function()? resetFrom,
   }) {
     return createAnnouncement?.call();
   }
@@ -169,6 +177,7 @@ class _$CreateAnnouncementImpl implements _CreateAnnouncement {
     TResult Function()? updateAnnouncement,
     TResult Function(String announcementId)? deleteAnnouncement,
     TResult Function(Announcement announcement)? setInitialValues,
+    TResult Function()? resetFrom,
     required TResult orElse(),
   }) {
     if (createAnnouncement != null) {
@@ -186,6 +195,7 @@ class _$CreateAnnouncementImpl implements _CreateAnnouncement {
     required TResult Function(_UpdateAnnouncement value) updateAnnouncement,
     required TResult Function(_DeleteAnnouncement value) deleteAnnouncement,
     required TResult Function(_SetInitialValues value) setInitialValues,
+    required TResult Function(_ResetFrom value) resetFrom,
   }) {
     return createAnnouncement(this);
   }
@@ -199,6 +209,7 @@ class _$CreateAnnouncementImpl implements _CreateAnnouncement {
     TResult? Function(_UpdateAnnouncement value)? updateAnnouncement,
     TResult? Function(_DeleteAnnouncement value)? deleteAnnouncement,
     TResult? Function(_SetInitialValues value)? setInitialValues,
+    TResult? Function(_ResetFrom value)? resetFrom,
   }) {
     return createAnnouncement?.call(this);
   }
@@ -212,6 +223,7 @@ class _$CreateAnnouncementImpl implements _CreateAnnouncement {
     TResult Function(_UpdateAnnouncement value)? updateAnnouncement,
     TResult Function(_DeleteAnnouncement value)? deleteAnnouncement,
     TResult Function(_SetInitialValues value)? setInitialValues,
+    TResult Function(_ResetFrom value)? resetFrom,
     required TResult orElse(),
   }) {
     if (createAnnouncement != null) {
@@ -295,6 +307,7 @@ class _$TitleChangedImpl implements _TitleChanged {
     required TResult Function() updateAnnouncement,
     required TResult Function(String announcementId) deleteAnnouncement,
     required TResult Function(Announcement announcement) setInitialValues,
+    required TResult Function() resetFrom,
   }) {
     return titleChanged(title);
   }
@@ -308,6 +321,7 @@ class _$TitleChangedImpl implements _TitleChanged {
     TResult? Function()? updateAnnouncement,
     TResult? Function(String announcementId)? deleteAnnouncement,
     TResult? Function(Announcement announcement)? setInitialValues,
+    TResult? Function()? resetFrom,
   }) {
     return titleChanged?.call(title);
   }
@@ -321,6 +335,7 @@ class _$TitleChangedImpl implements _TitleChanged {
     TResult Function()? updateAnnouncement,
     TResult Function(String announcementId)? deleteAnnouncement,
     TResult Function(Announcement announcement)? setInitialValues,
+    TResult Function()? resetFrom,
     required TResult orElse(),
   }) {
     if (titleChanged != null) {
@@ -338,6 +353,7 @@ class _$TitleChangedImpl implements _TitleChanged {
     required TResult Function(_UpdateAnnouncement value) updateAnnouncement,
     required TResult Function(_DeleteAnnouncement value) deleteAnnouncement,
     required TResult Function(_SetInitialValues value) setInitialValues,
+    required TResult Function(_ResetFrom value) resetFrom,
   }) {
     return titleChanged(this);
   }
@@ -351,6 +367,7 @@ class _$TitleChangedImpl implements _TitleChanged {
     TResult? Function(_UpdateAnnouncement value)? updateAnnouncement,
     TResult? Function(_DeleteAnnouncement value)? deleteAnnouncement,
     TResult? Function(_SetInitialValues value)? setInitialValues,
+    TResult? Function(_ResetFrom value)? resetFrom,
   }) {
     return titleChanged?.call(this);
   }
@@ -364,6 +381,7 @@ class _$TitleChangedImpl implements _TitleChanged {
     TResult Function(_UpdateAnnouncement value)? updateAnnouncement,
     TResult Function(_DeleteAnnouncement value)? deleteAnnouncement,
     TResult Function(_SetInitialValues value)? setInitialValues,
+    TResult Function(_ResetFrom value)? resetFrom,
     required TResult orElse(),
   }) {
     if (titleChanged != null) {
@@ -454,6 +472,7 @@ class _$DescriptionChangedImpl implements _DescriptionChanged {
     required TResult Function() updateAnnouncement,
     required TResult Function(String announcementId) deleteAnnouncement,
     required TResult Function(Announcement announcement) setInitialValues,
+    required TResult Function() resetFrom,
   }) {
     return descriptionChanged(description);
   }
@@ -467,6 +486,7 @@ class _$DescriptionChangedImpl implements _DescriptionChanged {
     TResult? Function()? updateAnnouncement,
     TResult? Function(String announcementId)? deleteAnnouncement,
     TResult? Function(Announcement announcement)? setInitialValues,
+    TResult? Function()? resetFrom,
   }) {
     return descriptionChanged?.call(description);
   }
@@ -480,6 +500,7 @@ class _$DescriptionChangedImpl implements _DescriptionChanged {
     TResult Function()? updateAnnouncement,
     TResult Function(String announcementId)? deleteAnnouncement,
     TResult Function(Announcement announcement)? setInitialValues,
+    TResult Function()? resetFrom,
     required TResult orElse(),
   }) {
     if (descriptionChanged != null) {
@@ -497,6 +518,7 @@ class _$DescriptionChangedImpl implements _DescriptionChanged {
     required TResult Function(_UpdateAnnouncement value) updateAnnouncement,
     required TResult Function(_DeleteAnnouncement value) deleteAnnouncement,
     required TResult Function(_SetInitialValues value) setInitialValues,
+    required TResult Function(_ResetFrom value) resetFrom,
   }) {
     return descriptionChanged(this);
   }
@@ -510,6 +532,7 @@ class _$DescriptionChangedImpl implements _DescriptionChanged {
     TResult? Function(_UpdateAnnouncement value)? updateAnnouncement,
     TResult? Function(_DeleteAnnouncement value)? deleteAnnouncement,
     TResult? Function(_SetInitialValues value)? setInitialValues,
+    TResult? Function(_ResetFrom value)? resetFrom,
   }) {
     return descriptionChanged?.call(this);
   }
@@ -523,6 +546,7 @@ class _$DescriptionChangedImpl implements _DescriptionChanged {
     TResult Function(_UpdateAnnouncement value)? updateAnnouncement,
     TResult Function(_DeleteAnnouncement value)? deleteAnnouncement,
     TResult Function(_SetInitialValues value)? setInitialValues,
+    TResult Function(_ResetFrom value)? resetFrom,
     required TResult orElse(),
   }) {
     if (descriptionChanged != null) {
@@ -586,6 +610,7 @@ class _$UpdateAnnouncementImpl implements _UpdateAnnouncement {
     required TResult Function() updateAnnouncement,
     required TResult Function(String announcementId) deleteAnnouncement,
     required TResult Function(Announcement announcement) setInitialValues,
+    required TResult Function() resetFrom,
   }) {
     return updateAnnouncement();
   }
@@ -599,6 +624,7 @@ class _$UpdateAnnouncementImpl implements _UpdateAnnouncement {
     TResult? Function()? updateAnnouncement,
     TResult? Function(String announcementId)? deleteAnnouncement,
     TResult? Function(Announcement announcement)? setInitialValues,
+    TResult? Function()? resetFrom,
   }) {
     return updateAnnouncement?.call();
   }
@@ -612,6 +638,7 @@ class _$UpdateAnnouncementImpl implements _UpdateAnnouncement {
     TResult Function()? updateAnnouncement,
     TResult Function(String announcementId)? deleteAnnouncement,
     TResult Function(Announcement announcement)? setInitialValues,
+    TResult Function()? resetFrom,
     required TResult orElse(),
   }) {
     if (updateAnnouncement != null) {
@@ -629,6 +656,7 @@ class _$UpdateAnnouncementImpl implements _UpdateAnnouncement {
     required TResult Function(_UpdateAnnouncement value) updateAnnouncement,
     required TResult Function(_DeleteAnnouncement value) deleteAnnouncement,
     required TResult Function(_SetInitialValues value) setInitialValues,
+    required TResult Function(_ResetFrom value) resetFrom,
   }) {
     return updateAnnouncement(this);
   }
@@ -642,6 +670,7 @@ class _$UpdateAnnouncementImpl implements _UpdateAnnouncement {
     TResult? Function(_UpdateAnnouncement value)? updateAnnouncement,
     TResult? Function(_DeleteAnnouncement value)? deleteAnnouncement,
     TResult? Function(_SetInitialValues value)? setInitialValues,
+    TResult? Function(_ResetFrom value)? resetFrom,
   }) {
     return updateAnnouncement?.call(this);
   }
@@ -655,6 +684,7 @@ class _$UpdateAnnouncementImpl implements _UpdateAnnouncement {
     TResult Function(_UpdateAnnouncement value)? updateAnnouncement,
     TResult Function(_DeleteAnnouncement value)? deleteAnnouncement,
     TResult Function(_SetInitialValues value)? setInitialValues,
+    TResult Function(_ResetFrom value)? resetFrom,
     required TResult orElse(),
   }) {
     if (updateAnnouncement != null) {
@@ -740,6 +770,7 @@ class _$DeleteAnnouncementImpl implements _DeleteAnnouncement {
     required TResult Function() updateAnnouncement,
     required TResult Function(String announcementId) deleteAnnouncement,
     required TResult Function(Announcement announcement) setInitialValues,
+    required TResult Function() resetFrom,
   }) {
     return deleteAnnouncement(announcementId);
   }
@@ -753,6 +784,7 @@ class _$DeleteAnnouncementImpl implements _DeleteAnnouncement {
     TResult? Function()? updateAnnouncement,
     TResult? Function(String announcementId)? deleteAnnouncement,
     TResult? Function(Announcement announcement)? setInitialValues,
+    TResult? Function()? resetFrom,
   }) {
     return deleteAnnouncement?.call(announcementId);
   }
@@ -766,6 +798,7 @@ class _$DeleteAnnouncementImpl implements _DeleteAnnouncement {
     TResult Function()? updateAnnouncement,
     TResult Function(String announcementId)? deleteAnnouncement,
     TResult Function(Announcement announcement)? setInitialValues,
+    TResult Function()? resetFrom,
     required TResult orElse(),
   }) {
     if (deleteAnnouncement != null) {
@@ -783,6 +816,7 @@ class _$DeleteAnnouncementImpl implements _DeleteAnnouncement {
     required TResult Function(_UpdateAnnouncement value) updateAnnouncement,
     required TResult Function(_DeleteAnnouncement value) deleteAnnouncement,
     required TResult Function(_SetInitialValues value) setInitialValues,
+    required TResult Function(_ResetFrom value) resetFrom,
   }) {
     return deleteAnnouncement(this);
   }
@@ -796,6 +830,7 @@ class _$DeleteAnnouncementImpl implements _DeleteAnnouncement {
     TResult? Function(_UpdateAnnouncement value)? updateAnnouncement,
     TResult? Function(_DeleteAnnouncement value)? deleteAnnouncement,
     TResult? Function(_SetInitialValues value)? setInitialValues,
+    TResult? Function(_ResetFrom value)? resetFrom,
   }) {
     return deleteAnnouncement?.call(this);
   }
@@ -809,6 +844,7 @@ class _$DeleteAnnouncementImpl implements _DeleteAnnouncement {
     TResult Function(_UpdateAnnouncement value)? updateAnnouncement,
     TResult Function(_DeleteAnnouncement value)? deleteAnnouncement,
     TResult Function(_SetInitialValues value)? setInitialValues,
+    TResult Function(_ResetFrom value)? resetFrom,
     required TResult orElse(),
   }) {
     if (deleteAnnouncement != null) {
@@ -910,6 +946,7 @@ class _$SetInitialValuesImpl implements _SetInitialValues {
     required TResult Function() updateAnnouncement,
     required TResult Function(String announcementId) deleteAnnouncement,
     required TResult Function(Announcement announcement) setInitialValues,
+    required TResult Function() resetFrom,
   }) {
     return setInitialValues(announcement);
   }
@@ -923,6 +960,7 @@ class _$SetInitialValuesImpl implements _SetInitialValues {
     TResult? Function()? updateAnnouncement,
     TResult? Function(String announcementId)? deleteAnnouncement,
     TResult? Function(Announcement announcement)? setInitialValues,
+    TResult? Function()? resetFrom,
   }) {
     return setInitialValues?.call(announcement);
   }
@@ -936,6 +974,7 @@ class _$SetInitialValuesImpl implements _SetInitialValues {
     TResult Function()? updateAnnouncement,
     TResult Function(String announcementId)? deleteAnnouncement,
     TResult Function(Announcement announcement)? setInitialValues,
+    TResult Function()? resetFrom,
     required TResult orElse(),
   }) {
     if (setInitialValues != null) {
@@ -953,6 +992,7 @@ class _$SetInitialValuesImpl implements _SetInitialValues {
     required TResult Function(_UpdateAnnouncement value) updateAnnouncement,
     required TResult Function(_DeleteAnnouncement value) deleteAnnouncement,
     required TResult Function(_SetInitialValues value) setInitialValues,
+    required TResult Function(_ResetFrom value) resetFrom,
   }) {
     return setInitialValues(this);
   }
@@ -966,6 +1006,7 @@ class _$SetInitialValuesImpl implements _SetInitialValues {
     TResult? Function(_UpdateAnnouncement value)? updateAnnouncement,
     TResult? Function(_DeleteAnnouncement value)? deleteAnnouncement,
     TResult? Function(_SetInitialValues value)? setInitialValues,
+    TResult? Function(_ResetFrom value)? resetFrom,
   }) {
     return setInitialValues?.call(this);
   }
@@ -979,6 +1020,7 @@ class _$SetInitialValuesImpl implements _SetInitialValues {
     TResult Function(_UpdateAnnouncement value)? updateAnnouncement,
     TResult Function(_DeleteAnnouncement value)? deleteAnnouncement,
     TResult Function(_SetInitialValues value)? setInitialValues,
+    TResult Function(_ResetFrom value)? resetFrom,
     required TResult orElse(),
   }) {
     if (setInitialValues != null) {
@@ -996,6 +1038,138 @@ abstract class _SetInitialValues implements AnnouncementFormEvent {
   @JsonKey(ignore: true)
   _$$SetInitialValuesImplCopyWith<_$SetInitialValuesImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ResetFromImplCopyWith<$Res> {
+  factory _$$ResetFromImplCopyWith(
+          _$ResetFromImpl value, $Res Function(_$ResetFromImpl) then) =
+      __$$ResetFromImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ResetFromImplCopyWithImpl<$Res>
+    extends _$AnnouncementFormEventCopyWithImpl<$Res, _$ResetFromImpl>
+    implements _$$ResetFromImplCopyWith<$Res> {
+  __$$ResetFromImplCopyWithImpl(
+      _$ResetFromImpl _value, $Res Function(_$ResetFromImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$ResetFromImpl implements _ResetFrom {
+  const _$ResetFromImpl();
+
+  @override
+  String toString() {
+    return 'AnnouncementFormEvent.resetFrom()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$ResetFromImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() createAnnouncement,
+    required TResult Function(String title) titleChanged,
+    required TResult Function(String description) descriptionChanged,
+    required TResult Function() updateAnnouncement,
+    required TResult Function(String announcementId) deleteAnnouncement,
+    required TResult Function(Announcement announcement) setInitialValues,
+    required TResult Function() resetFrom,
+  }) {
+    return resetFrom();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? createAnnouncement,
+    TResult? Function(String title)? titleChanged,
+    TResult? Function(String description)? descriptionChanged,
+    TResult? Function()? updateAnnouncement,
+    TResult? Function(String announcementId)? deleteAnnouncement,
+    TResult? Function(Announcement announcement)? setInitialValues,
+    TResult? Function()? resetFrom,
+  }) {
+    return resetFrom?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? createAnnouncement,
+    TResult Function(String title)? titleChanged,
+    TResult Function(String description)? descriptionChanged,
+    TResult Function()? updateAnnouncement,
+    TResult Function(String announcementId)? deleteAnnouncement,
+    TResult Function(Announcement announcement)? setInitialValues,
+    TResult Function()? resetFrom,
+    required TResult orElse(),
+  }) {
+    if (resetFrom != null) {
+      return resetFrom();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_CreateAnnouncement value) createAnnouncement,
+    required TResult Function(_TitleChanged value) titleChanged,
+    required TResult Function(_DescriptionChanged value) descriptionChanged,
+    required TResult Function(_UpdateAnnouncement value) updateAnnouncement,
+    required TResult Function(_DeleteAnnouncement value) deleteAnnouncement,
+    required TResult Function(_SetInitialValues value) setInitialValues,
+    required TResult Function(_ResetFrom value) resetFrom,
+  }) {
+    return resetFrom(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_CreateAnnouncement value)? createAnnouncement,
+    TResult? Function(_TitleChanged value)? titleChanged,
+    TResult? Function(_DescriptionChanged value)? descriptionChanged,
+    TResult? Function(_UpdateAnnouncement value)? updateAnnouncement,
+    TResult? Function(_DeleteAnnouncement value)? deleteAnnouncement,
+    TResult? Function(_SetInitialValues value)? setInitialValues,
+    TResult? Function(_ResetFrom value)? resetFrom,
+  }) {
+    return resetFrom?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_CreateAnnouncement value)? createAnnouncement,
+    TResult Function(_TitleChanged value)? titleChanged,
+    TResult Function(_DescriptionChanged value)? descriptionChanged,
+    TResult Function(_UpdateAnnouncement value)? updateAnnouncement,
+    TResult Function(_DeleteAnnouncement value)? deleteAnnouncement,
+    TResult Function(_SetInitialValues value)? setInitialValues,
+    TResult Function(_ResetFrom value)? resetFrom,
+    required TResult orElse(),
+  }) {
+    if (resetFrom != null) {
+      return resetFrom(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ResetFrom implements AnnouncementFormEvent {
+  const factory _ResetFrom() = _$ResetFromImpl;
 }
 
 /// @nodoc

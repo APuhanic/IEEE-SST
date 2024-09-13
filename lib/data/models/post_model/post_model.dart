@@ -13,6 +13,9 @@ class Post with _$Post {
     @HiveField(2) required String content,
     @HiveField(3) required String timePosted,
     @HiveField(4) required String fullName,
+    @HiveField(5) required int commentcount,
+    @HiveField(6) required String postedBy,
+    @HiveField(7) bool? isOwner,
   }) = _Post;
 
   factory Post.fromJson(Map<String, dynamic> json) => _$PostFromJson(json);

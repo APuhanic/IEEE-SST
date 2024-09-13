@@ -43,6 +43,7 @@ class _UserManagmentTileState extends State<UserManagmentTile> {
           children: [
             CircleAvatar(
               radius: 30,
+              backgroundColor: AppColors.white,
               backgroundImage: widget.profile.imageUrl != null
                   ? NetworkImage(widget.profile.imageUrl!)
                   : const AssetImage('assets/images/user.png') as ImageProvider,

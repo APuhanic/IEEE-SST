@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 import 'package:ieee_sst/data/constants/app_colors.dart';
-import 'package:ieee_sst/presentation/admin/admin_event_managment_screen/widgets/admin_event_card_list.dart';
+import 'package:ieee_sst/presentation/admin/admin_event_managment_screen/widgets/admin_event_card.dart';
 import 'package:ieee_sst/presentation/common/widgets/event_filter_chips.dart';
 import 'package:ieee_sst/presentation/common/bloc/events_bloc/events_bloc.dart';
 import 'package:ieee_sst/presentation/common/widgets/date_picker_filter.dart';
@@ -48,34 +48,75 @@ class EventManagmentScreen extends StatelessWidget {
                     surfaceTintColor: AppColors.background,
                     title: Text('Event Managment'),
                   ),
-                  SliverList(
-                    delegate: SliverChildListDelegate(
-                      [
+                  SliverPersistentHeader(
+                    pinned: true,
+                    delegate: _DatePickerHeaderDelegate(
+                      child: Container(
+                        color: AppColors.background,
+                        child: const DatePickerFilter(),
+                      ),
+                    ),
+                  ),
+                  const SliverToBoxAdapter(
+                    child: Column(
+                      children: [
                         Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                          child: Column(
-                            children: [
-                              const DatePickerFilter(),
-                              const FilterChips(),
-                              state.maybeWhen(
-                                loading: () =>
-                                    const Center(child: LoadingIndicator()),
-                                loaded: (events) =>
-                                    AdminEventCardList(events: events),
-                                orElse: () => const SizedBox.shrink(),
-                              ),
-                              const SizedBox(height: 24),
-                            ],
-                          ),
+                          padding: EdgeInsets.all(16.0),
+                          child: FilterChips(),
                         ),
                       ],
                     ),
-                  )
+                  ),
+                  state.maybeWhen(
+                    loading: () => const SliverFillRemaining(
+                        child: Center(child: LoadingIndicator())),
+                    loaded: (events) => events.isEmpty
+                        ? const SliverFillRemaining(
+                            child: Center(child: Text('No events found')))
+                        : SliverPadding(
+                            padding: const EdgeInsets.only(
+                                bottom: 60.0, right: 16, left: 16),
+                            sliver: SliverList(
+                              delegate: SliverChildBuilderDelegate(
+                                (context, index) => Padding(
+                                  padding:
+                                      const EdgeInsets.symmetric(vertical: 8.0),
+                                  child: AdminEventCard(event: events[index]),
+                                ),
+                                childCount: events.length,
+                              ),
+                            ),
+                          ),
+                    orElse: () =>
+                        const SliverFillRemaining(child: LoadingIndicator()),
+                  ),
                 ],
               ),
             );
           },
         ),
         drawer: const HomeScreenDrawer());
+  }
+}
+
+class _DatePickerHeaderDelegate extends SliverPersistentHeaderDelegate {
+  _DatePickerHeaderDelegate({required this.child});
+  final Widget child;
+
+  @override
+  Widget build(
+      BuildContext context, double shrinkOffset, bool overlapsContent) {
+    return child;
+  }
+
+  @override
+  double get maxExtent => 90.0;
+
+  @override
+  double get minExtent => 90.0;
+
+  @override
+  bool shouldRebuild(covariant SliverPersistentHeaderDelegate oldDelegate) {
+    return false;
   }
 }

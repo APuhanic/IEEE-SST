@@ -69,7 +69,5 @@ class ProfileRepository {
   }
 
 //TODO make extension
-  String removeFirstSlash(String path) {
-    return path.replaceFirst(RegExp(r'^/'), '');
-  }
+  String removeFirstSlash(String path) => path.replaceFirst(RegExp(r'^/'), '');
 }

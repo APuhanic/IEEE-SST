@@ -14,6 +14,7 @@ class UserProfileTileList extends StatelessWidget {
     return ListView.separated(
       itemCount: profiles.length,
       shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
       itemBuilder: (context, index) =>
           UserProfileTile(profile: profiles[index]),
       separatorBuilder: (context, index) => const SizedBox(height: 8),

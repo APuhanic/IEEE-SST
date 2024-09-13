@@ -5,6 +5,7 @@ import 'package:ieee_sst/domain/models/user_model.dart';
 import 'package:ieee_sst/domain/repositories/auth/auth_repository.dart';
 import 'package:injectable/injectable.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 
 @LazySingleton(as: AuthenticationRepository)
 class AuthRepository implements AuthenticationRepository {
@@ -16,9 +17,12 @@ class AuthRepository implements AuthenticationRepository {
   Future<AuthResponse> signInWithEmailAndPassword(
     String email,
     String password,
-  ) async =>
-      await _supabaseClient.auth
-          .signInWithPassword(email: email, password: password);
+  ) async {
+    final AuthResponse authResponse = await _supabaseClient.auth
+        .signInWithPassword(email: email, password: password);
+    await _setFcmToken();
+    return authResponse;
+  }
 
   @override
   Future<void> signUpWithEmailAndPassword(
@@ -118,11 +122,14 @@ class AuthRepository implements AuthenticationRepository {
       throw 'No ID Token found.';
     }
 
-    return await _supabaseClient.auth.signInWithIdToken(
+    final AuthResponse authResponse =
+        await _supabaseClient.auth.signInWithIdToken(
       provider: OAuthProvider.google,
       idToken: idToken,
       accessToken: accessToken,
     );
+    await _setFcmToken();
+    return authResponse;
   }
 
   @override
@@ -132,19 +139,34 @@ class AuthRepository implements AuthenticationRepository {
 
   @override
   Future<void> updateUserInfo(
-    String? organization,
-    String? position,
-    String? country,
-  ) async {
+      String? organization, String? position, String? country) async {
     final user = _supabaseClient.auth.currentUser;
     if (user == null) {
       throw 'User is not signed in.';
     }
+
     await _profileClient.updateUserProfile(
       user.id,
       organization,
       position,
       country,
+    );
+  }
+
+  Future<void> _setFcmToken() async {
+    final user = _supabaseClient.auth.currentUser;
+    if (user == null) {
+      throw 'User is not signed in.';
+    }
+
+    final fcmToken = await FirebaseMessaging.instance.getToken();
+
+    if (fcmToken == null) {
+      throw 'FCM token is null.';
+    }
+    await _profileClient.addFcmTOken(
+      user.id,
+      fcmToken,
     );
   }
 }

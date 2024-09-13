@@ -13,69 +13,74 @@ class AttendeesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => getIt<AttendeesBloc>()
-        ..add(
-          const AttendeesEvent.loadAttendees(),
-        ),
+      create: (context) =>
+          getIt<AttendeesBloc>()..add(const AttendeesEvent.loadAttendees()),
       child: Scaffold(
         drawer: const HomeScreenDrawer(),
-        body: CustomScrollView(slivers: <Widget>[
-          const SliverAppBar(
-            backgroundColor: AppColors.background,
-            shadowColor: Colors.transparent,
-            surfaceTintColor: AppColors.background,
-            title: Text('Attendees'),
-          ),
-          BlocBuilder<AttendeesBloc, AttendeesState>(
-            builder: (context, state) {
-              return SliverList(
-                delegate: SliverChildListDelegate(
-                  [
-                    Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: Column(
-                        children: [
-                          /*Row(
-                            children: [
-                              const AttendeesSearchBar(),
-                              Container(
-                                height: 50,
-                                width: 50,
-                                decoration: BoxDecoration(
-                                  color: AppColors.primary,
-                                  borderRadius: BorderRadius.circular(15),
-                                ),
-                                child: IconButton(
-                                  onPressed: () {},
-                                  icon: const Icon(
-                                    Icons.filter_list,
-                                    color: AppColors.white,
+        body: RefreshIndicator(
+          onRefresh: () async => context.read<AttendeesBloc>().add(
+                const AttendeesEvent.loadAttendees(),
+              ),
+          backgroundColor: AppColors.white,
+          color: AppColors.primary,
+          child: CustomScrollView(slivers: <Widget>[
+            const SliverAppBar(
+              backgroundColor: AppColors.background,
+              shadowColor: Colors.transparent,
+              surfaceTintColor: AppColors.background,
+              title: Text('Attendees'),
+            ),
+            BlocBuilder<AttendeesBloc, AttendeesState>(
+              builder: (context, state) {
+                return SliverList(
+                  delegate: SliverChildListDelegate(
+                    [
+                      Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: Column(
+                          children: [
+                            /*Row(
+                              children: [
+                                const AttendeesSearchBar(),
+                                Container(
+                                  height: 50,
+                                  width: 50,
+                                  decoration: BoxDecoration(
+                                    color: AppColors.primary,
+                                    borderRadius: BorderRadius.circular(15),
+                                  ),
+                                  child: IconButton(
+                                    onPressed: () {},
+                                    icon: const Icon(
+                                      Icons.filter_list,
+                                      color: AppColors.white,
+                                    ),
                                   ),
                                 ),
-                              ),
-                            ],
-                          ),*/
-                          const SizedBox(height: 16),
-                          state.maybeWhen(
-                            orElse: () {
-                              return const Center(
-                                child: LoadingIndicator(),
-                              );
-                            },
-                            loaded: (profiles) => profiles.isEmpty
-                                ? const Center(
-                                    child: Text('No attendees found'))
-                                : UserProfileTileList(profiles: profiles),
-                          )
-                        ],
+                              ],
+                            ),*/
+                            const SizedBox(height: 16),
+                            state.maybeWhen(
+                              orElse: () {
+                                return const Center(
+                                  child: LoadingIndicator(),
+                                );
+                              },
+                              loaded: (profiles) => profiles.isEmpty
+                                  ? const Center(
+                                      child: Text('No attendees found'))
+                                  : UserProfileTileList(profiles: profiles),
+                            )
+                          ],
+                        ),
                       ),
-                    ),
-                  ],
-                ),
-              );
-            },
-          )
-        ]),
+                    ],
+                  ),
+                );
+              },
+            )
+          ]),
+        ),
       ),
     );
   }

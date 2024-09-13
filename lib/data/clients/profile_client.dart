@@ -72,16 +72,18 @@ class ProfileClient {
           .from('profiles')
           .update({'role': role}).eq('id', id);
 
-  Future<void> updateUserProfile(
-    String id,
-    String? organization,
-    String? position,
-    String? country,
-  ) async {
+  Future<void> updateUserProfile(String id, String? organization,
+      String? position, String? country) async {
     return await _supabaseClient.from('profiles').update({
       'organization': organization,
       'position': position,
       'country': country,
+    }).eq('id', id);
+  }
+
+  Future<void> addFcmTOken(String id, String? fcmToken) async {
+    return await _supabaseClient.from('profiles').update({
+      'fcmToken': fcmToken,
     }).eq('id', id);
   }
 
@@ -117,10 +119,7 @@ class ProfileClient {
       }
       await _supabaseClient
           .from('profiles')
-          .update({'imageUrl': null}).eq('id', profile.id);
-      await _supabaseClient
-          .from('profiles')
-          .update({'imagePath': null}).eq('id', profile.id);
+          .update({'imageUrl': null, 'imagePath': null}).eq('id', profile.id);
     } catch (e) {
       throw Exception(e);
     }

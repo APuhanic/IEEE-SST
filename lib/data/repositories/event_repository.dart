@@ -38,16 +38,11 @@ class EventRepository {
   Future<List<Event>> getEventsByFilterFromCache(
       FilterType? filter, List<Event> events) async {
     if (filter == null) return events;
-    switch (filter) {
-      case FilterType.going:
-        return events.where((element) => element.isGoing).toList();
-      case FilterType.past:
-        return events.where(hasEventPassed).toList();
-      case FilterType.upcoming:
-        return events.where(isEventUpcoming).toList();
-      default:
-        return events;
-    }
+    return switch (filter) {
+      FilterType.going => events.where((element) => element.isGoing).toList(),
+      FilterType.past => events.where(hasEventPassed).toList(),
+      FilterType.upcoming => events.where(isEventUpcoming).toList(),
+    };
   }
 
   /// For now it doesn't user toJson because it converts id to a null which

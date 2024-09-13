@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:ieee_sst/data/constants/app_colors.dart';
+import 'package:ieee_sst/data/constants/route_paths.dart';
 import 'package:ieee_sst/data/constants/text_styles.dart';
 import 'package:ieee_sst/data/models/profile_model/profile_model.dart';
 import 'package:ieee_sst/presentation/common/bloc/profile_bloc/profile_bloc.dart';
@@ -53,6 +55,8 @@ class MyProfileScreen extends StatelessWidget {
                               context
                                   .read<AuthBloc>()
                                   .add(const AuthEvent.signOut());
+                              if (!context.mounted) return;
+                              context.go(RoutePaths.login);
                             },
                             child: Text(
                               'Log Out',

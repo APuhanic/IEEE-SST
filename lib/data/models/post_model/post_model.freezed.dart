@@ -30,6 +30,12 @@ mixin _$Post {
   String get timePosted => throw _privateConstructorUsedError;
   @HiveField(4)
   String get fullName => throw _privateConstructorUsedError;
+  @HiveField(5)
+  int get commentcount => throw _privateConstructorUsedError;
+  @HiveField(6)
+  String get postedBy => throw _privateConstructorUsedError;
+  @HiveField(7)
+  bool? get isOwner => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -46,7 +52,10 @@ abstract class $PostCopyWith<$Res> {
       @HiveField(1) String title,
       @HiveField(2) String content,
       @HiveField(3) String timePosted,
-      @HiveField(4) String fullName});
+      @HiveField(4) String fullName,
+      @HiveField(5) int commentcount,
+      @HiveField(6) String postedBy,
+      @HiveField(7) bool? isOwner});
 }
 
 /// @nodoc
@@ -67,6 +76,9 @@ class _$PostCopyWithImpl<$Res, $Val extends Post>
     Object? content = null,
     Object? timePosted = null,
     Object? fullName = null,
+    Object? commentcount = null,
+    Object? postedBy = null,
+    Object? isOwner = freezed,
   }) {
     return _then(_value.copyWith(
       id: freezed == id
@@ -89,6 +101,18 @@ class _$PostCopyWithImpl<$Res, $Val extends Post>
           ? _value.fullName
           : fullName // ignore: cast_nullable_to_non_nullable
               as String,
+      commentcount: null == commentcount
+          ? _value.commentcount
+          : commentcount // ignore: cast_nullable_to_non_nullable
+              as int,
+      postedBy: null == postedBy
+          ? _value.postedBy
+          : postedBy // ignore: cast_nullable_to_non_nullable
+              as String,
+      isOwner: freezed == isOwner
+          ? _value.isOwner
+          : isOwner // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ) as $Val);
   }
 }
@@ -105,7 +129,10 @@ abstract class _$$PostImplCopyWith<$Res> implements $PostCopyWith<$Res> {
       @HiveField(1) String title,
       @HiveField(2) String content,
       @HiveField(3) String timePosted,
-      @HiveField(4) String fullName});
+      @HiveField(4) String fullName,
+      @HiveField(5) int commentcount,
+      @HiveField(6) String postedBy,
+      @HiveField(7) bool? isOwner});
 }
 
 /// @nodoc
@@ -123,6 +150,9 @@ class __$$PostImplCopyWithImpl<$Res>
     Object? content = null,
     Object? timePosted = null,
     Object? fullName = null,
+    Object? commentcount = null,
+    Object? postedBy = null,
+    Object? isOwner = freezed,
   }) {
     return _then(_$PostImpl(
       id: freezed == id
@@ -145,6 +175,18 @@ class __$$PostImplCopyWithImpl<$Res>
           ? _value.fullName
           : fullName // ignore: cast_nullable_to_non_nullable
               as String,
+      commentcount: null == commentcount
+          ? _value.commentcount
+          : commentcount // ignore: cast_nullable_to_non_nullable
+              as int,
+      postedBy: null == postedBy
+          ? _value.postedBy
+          : postedBy // ignore: cast_nullable_to_non_nullable
+              as String,
+      isOwner: freezed == isOwner
+          ? _value.isOwner
+          : isOwner // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -157,7 +199,10 @@ class _$PostImpl implements _Post {
       @HiveField(1) required this.title,
       @HiveField(2) required this.content,
       @HiveField(3) required this.timePosted,
-      @HiveField(4) required this.fullName});
+      @HiveField(4) required this.fullName,
+      @HiveField(5) required this.commentcount,
+      @HiveField(6) required this.postedBy,
+      @HiveField(7) this.isOwner});
 
   factory _$PostImpl.fromJson(Map<String, dynamic> json) =>
       _$$PostImplFromJson(json);
@@ -177,10 +222,19 @@ class _$PostImpl implements _Post {
   @override
   @HiveField(4)
   final String fullName;
+  @override
+  @HiveField(5)
+  final int commentcount;
+  @override
+  @HiveField(6)
+  final String postedBy;
+  @override
+  @HiveField(7)
+  final bool? isOwner;
 
   @override
   String toString() {
-    return 'Post(id: $id, title: $title, content: $content, timePosted: $timePosted, fullName: $fullName)';
+    return 'Post(id: $id, title: $title, content: $content, timePosted: $timePosted, fullName: $fullName, commentcount: $commentcount, postedBy: $postedBy, isOwner: $isOwner)';
   }
 
   @override
@@ -194,13 +248,18 @@ class _$PostImpl implements _Post {
             (identical(other.timePosted, timePosted) ||
                 other.timePosted == timePosted) &&
             (identical(other.fullName, fullName) ||
-                other.fullName == fullName));
+                other.fullName == fullName) &&
+            (identical(other.commentcount, commentcount) ||
+                other.commentcount == commentcount) &&
+            (identical(other.postedBy, postedBy) ||
+                other.postedBy == postedBy) &&
+            (identical(other.isOwner, isOwner) || other.isOwner == isOwner));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, title, content, timePosted, fullName);
+  int get hashCode => Object.hash(runtimeType, id, title, content, timePosted,
+      fullName, commentcount, postedBy, isOwner);
 
   @JsonKey(ignore: true)
   @override
@@ -222,7 +281,10 @@ abstract class _Post implements Post {
       @HiveField(1) required final String title,
       @HiveField(2) required final String content,
       @HiveField(3) required final String timePosted,
-      @HiveField(4) required final String fullName}) = _$PostImpl;
+      @HiveField(4) required final String fullName,
+      @HiveField(5) required final int commentcount,
+      @HiveField(6) required final String postedBy,
+      @HiveField(7) final bool? isOwner}) = _$PostImpl;
 
   factory _Post.fromJson(Map<String, dynamic> json) = _$PostImpl.fromJson;
 
@@ -241,6 +303,15 @@ abstract class _Post implements Post {
   @override
   @HiveField(4)
   String get fullName;
+  @override
+  @HiveField(5)
+  int get commentcount;
+  @override
+  @HiveField(6)
+  String get postedBy;
+  @override
+  @HiveField(7)
+  bool? get isOwner;
   @override
   @JsonKey(ignore: true)
   _$$PostImplCopyWith<_$PostImpl> get copyWith =>

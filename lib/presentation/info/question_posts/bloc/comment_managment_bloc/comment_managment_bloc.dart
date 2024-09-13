@@ -29,7 +29,7 @@ class CommentManagmentBloc
     try {
       final commentsResponse =
           await _commentsRepository.getAllComments(event.postId);
-      emit(_Loaded(commentsResponse));
+      emit(_Loaded(sortComments(commentsResponse)));
     } catch (e) {
       emit(_Error(e.toString()));
     }
@@ -43,10 +43,13 @@ class CommentManagmentBloc
         final comments = (state as _Loaded).comments;
         final updatedComments =
             comments.where((e) => e.id != event.commentId).toList();
-        emit(_Loaded(updatedComments));
+        emit(_Loaded(sortComments(updatedComments)));
       }
     } catch (e) {
       emit(_Error(e.toString()));
     }
   }
+
+  List<Comment> sortComments(List<Comment> comments) =>
+      comments..sort((a, b) => b.createdAt.compareTo(a.createdAt));
 }

@@ -4,8 +4,9 @@ import 'package:ieee_sst/data/constants/app_colors.dart';
 import 'package:ieee_sst/data/constants/text_styles.dart';
 import 'package:ieee_sst/data/models/post_model/post_model.dart';
 import 'package:ieee_sst/presentation/common/widgets/loading_indicator.dart';
-import 'package:ieee_sst/presentation/info/question_posts/bloc/comment_form_bloc/comment_form_bloc.dart';
 import 'package:ieee_sst/presentation/info/question_posts/bloc/comment_managment_bloc/comment_managment_bloc.dart';
+import 'package:ieee_sst/presentation/info/question_posts/bloc/post_managment_bloc/post_managment_bloc.dart';
+import 'package:ieee_sst/presentation/info/question_posts/widgets/comment_input.dart';
 import 'package:ieee_sst/presentation/info/question_posts/widgets/user_comments_list.dart';
 import 'package:ieee_sst/util/time_ago_util.dart';
 
@@ -48,12 +49,47 @@ class PostScreen extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          '${post.fullName} • ${formatTimeAgo(post.timePosted)}',
-                          style: AppTextStyle.lightText,
+                        Row(
+                          children: [
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  '${post.fullName} • ${formatTimeAgo(post.timePosted)}',
+                                  style: AppTextStyle.lightText,
+                                ),
+                                Text(post.title,
+                                    style: AppTextStyle.titleLarge),
+                                Text(post.content,
+                                    style: AppTextStyle.lightText),
+                              ],
+                            ),
+                            Expanded(child: Container()),
+                            post.isOwner!
+                                ? PopupMenuButton(
+                                    color: AppColors.white,
+                                    icon: const Icon(
+                                      Icons.more_vert,
+                                      color: AppColors.gray,
+                                    ),
+                                    itemBuilder: (context) {
+                                      return [
+                                        PopupMenuItem(
+                                          onTap: () {
+                                            context
+                                                .read<PostManagmentBloc>()
+                                                .add(PostManagmentEvent
+                                                    .deletePost(post.id!));
+                                            Navigator.of(context).pop();
+                                          },
+                                          child: const Text('Delete'),
+                                        ),
+                                      ];
+                                    },
+                                  )
+                                : const SizedBox(),
+                          ],
                         ),
-                        Text(post.title, style: AppTextStyle.titleLarge),
-                        Text(post.content, style: AppTextStyle.lightText),
                         const Divider(),
                         BlocBuilder<CommentManagmentBloc,
                             CommentManagmentState>(
@@ -89,75 +125,6 @@ class PostScreen extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: CommentInput(post: post),
-    );
-  }
-}
-
-class CommentInput extends StatefulWidget {
-  const CommentInput({
-    super.key,
-    required this.post,
-  });
-
-  final Post post;
-
-  @override
-  State<CommentInput> createState() => _CommentInputState();
-}
-
-class _CommentInputState extends State<CommentInput> {
-  final TextEditingController _controller = TextEditingController();
-  final FocusNode _focusNode = FocusNode();
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    _focusNode.dispose();
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return BlocBuilder<CommentFormBloc, CommentFormState>(
-      builder: (context, state) {
-        return Padding(
-          padding: EdgeInsets.only(
-            bottom: MediaQuery.of(context).viewInsets.bottom,
-          ),
-          child: Container(
-            color: AppColors.white,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: TextField(
-                onChanged: (value) {
-                  context.read<CommentFormBloc>().add(
-                        CommentFormEvent.commentChanged(value),
-                      );
-                },
-                controller: _controller,
-                focusNode: _focusNode,
-                decoration: InputDecoration(
-                  hintText: 'Add a comment',
-                  hintStyle: AppTextStyle.textForm,
-                  suffixIcon: IconButton(
-                    icon: const Icon(Icons.send),
-                    onPressed: () async {
-                      context.read<CommentFormBloc>().add(
-                            CommentFormEvent.postComment(widget.post.id!),
-                          );
-                      context.read<CommentManagmentBloc>().add(
-                            CommentManagmentEvent.loadComments(widget.post.id!),
-                          );
-                      _controller.clear();
-                      _focusNode.unfocus();
-                    },
-                  ),
-                ),
-              ),
-            ),
-          ),
-        );
-      },
     );
   }
 }

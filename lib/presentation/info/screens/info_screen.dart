@@ -33,7 +33,7 @@ class InfoScreen extends StatelessWidget {
                   InfoScreenButton(
                     icon: Icons.question_answer,
                     title: 'Ask anything',
-                    description: 'Ask questions to the organizers',
+                    description: 'Ask questions for anyone to answer',
                     routePath: '/community/ask_organizers',
                   ),
                 ],

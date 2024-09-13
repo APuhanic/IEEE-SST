@@ -22,64 +22,73 @@ class AnnouncementPost extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        context.go(
-          '/community/organizer_announcements/announcement_post',
-          extra: announcement,
-        );
+        if (!isAdmin) {
+          context.go(
+            '/community/organizer_announcements/announcement_post',
+            extra: announcement,
+          );
+        }
       },
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
-        child: SizedBox(
-          height: 120,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                        '${announcement.fullName} • ${formatTimeAgo(announcement.timeposted)} ',
-                        style: AppTextStyle.lightText),
-                    Text(announcement.title, style: AppTextStyle.titleSmall),
-                    Text(
-                      announcement.description,
-                      maxLines: 3,
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                  ],
-                ),
-              ),
-              isAdmin
-                  ? PopupMenuButton(
-                      color: AppColors.white,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      itemBuilder: (context) => [
-                        PopupMenuItem(
-                          child: const Text('Edit'),
-                          onTap: () {
-                            context.read<AnnouncementFormBloc>().add(
-                                AnnouncementFormEvent.setInitialValues(
-                                    announcement));
-                            context
-                                .go('/admin_announcements/update_announcement');
-                          },
+      child: Column(
+        children: [
+          Padding(
+            padding:
+                const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
+            child: SizedBox(
+              height: 120,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                            '${announcement.fullName} • ${formatTimeAgo(announcement.timeposted)} ',
+                            style: AppTextStyle.lightText),
+                        Text(announcement.title,
+                            style: AppTextStyle.titleSmall),
+                        Text(
+                          announcement.description,
+                          maxLines: 3,
+                          overflow: TextOverflow.ellipsis,
                         ),
-                        PopupMenuItem(
-                          child: const Text('Delete'),
-                          onTap: () => context.read<AnnouncementBloc>().add(
-                              AnnouncementEvent.deleteAnnouncement(
-                                  announcement.id!)),
-                        )
                       ],
-                    )
-                  : const SizedBox.shrink(),
-            ],
+                    ),
+                  ),
+                  isAdmin
+                      ? PopupMenuButton(
+                          color: AppColors.white,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          itemBuilder: (context) => [
+                            PopupMenuItem(
+                              child: const Text('Edit'),
+                              onTap: () {
+                                context.read<AnnouncementFormBloc>().add(
+                                    AnnouncementFormEvent.setInitialValues(
+                                        announcement));
+                                context.go(
+                                    '/admin_announcements/update_announcement');
+                              },
+                            ),
+                            PopupMenuItem(
+                              child: const Text('Delete'),
+                              onTap: () => context.read<AnnouncementBloc>().add(
+                                  AnnouncementEvent.deleteAnnouncement(
+                                      announcement.id!)),
+                            )
+                          ],
+                        )
+                      : const SizedBox.shrink(),
+                ],
+              ),
+            ),
           ),
-        ),
+          const Divider(),
+        ],
       ),
     );
   }

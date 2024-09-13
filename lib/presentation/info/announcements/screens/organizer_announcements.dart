@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ieee_sst/data/constants/app_colors.dart';
 import 'package:ieee_sst/presentation/common/bloc/announcement_bloc/announcement_bloc.dart';
-import 'package:ieee_sst/presentation/common/widgets/announcements_list.dart';
+import 'package:ieee_sst/presentation/common/widgets/announcement_post.dart';
 import 'package:ieee_sst/presentation/common/widgets/loading_indicator.dart';
 
 class OrganizerAnnouncements extends StatelessWidget {
@@ -22,34 +22,39 @@ class OrganizerAnnouncements extends StatelessWidget {
         onRefresh: () async => context
             .read<AnnouncementBloc>()
             .add(const AnnouncementEvent.loadAnnouncements()),
-        child: CustomScrollView(
-          slivers: [
-            const SliverAppBar(
-              backgroundColor: AppColors.background,
-              shadowColor: Colors.transparent,
-              surfaceTintColor: AppColors.background,
-              title: Text('Announcements'),
-            ),
-            SliverList(
-              delegate: SliverChildListDelegate(
-                [
-                  BlocBuilder<AnnouncementBloc, AnnouncementState>(
-                    builder: (context, state) {
-                      return state.maybeWhen(
-                        loaded: (announcements) => AnnouncemetsList(
-                          announcements: announcements,
-                          isAdmin: false,
-                        ),
-                        loading: () => const Center(child: LoadingIndicator()),
-                        error: (message) => Center(child: Text(message)),
-                        orElse: () => const SizedBox.shrink(),
-                      );
-                    },
+        child: BlocBuilder<AnnouncementBloc, AnnouncementState>(
+          builder: (context, state) {
+            return CustomScrollView(
+              slivers: [
+                const SliverAppBar(
+                  backgroundColor: AppColors.background,
+                  shadowColor: Colors.transparent,
+                  surfaceTintColor: AppColors.background,
+                  title: Text('Announcements'),
+                ),
+                state.maybeWhen(
+                  orElse: () => const SliverFillRemaining(
+                    child: Center(
+                      child: LoadingIndicator(),
+                    ),
                   ),
-                ],
-              ),
-            ),
-          ],
+                  loaded: (announcements) {
+                    return SliverList(
+                      delegate: SliverChildBuilderDelegate(
+                        (context, index) {
+                          return AnnouncementPost(
+                            announcement: announcements[index],
+                            isAdmin: false,
+                          );
+                        },
+                        childCount: announcements.length,
+                      ),
+                    );
+                  },
+                ),
+              ],
+            );
+          },
         ),
       ),
     );

@@ -31,35 +31,44 @@ class UserPostsScreen extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
-        child: CustomScrollView(
-          slivers: <Widget>[
-            const SliverAppBar(
-              expandedHeight: 50,
-              pinned: true,
-              backgroundColor: AppColors.background,
-              shadowColor: Colors.transparent,
-              surfaceTintColor: AppColors.background,
-              title: Text('Ask Organizers'),
-            ),
-            SliverList(
-              delegate: SliverChildListDelegate(
-                [
-                  BlocBuilder<PostManagmentBloc, PostManagmentState>(
-                    builder: (context, state) {
-                      return state.maybeWhen(
-                          loaded: (posts) => UserPostsList(posts: posts),
-                          loading: () =>
-                              const Center(child: LoadingIndicator()),
-                          error: (message) => Center(
-                                child: Text(message),
-                              ),
-                          orElse: () => const SizedBox.shrink());
-                    },
-                  ),
-                ],
+        child: RefreshIndicator(
+          backgroundColor: AppColors.white,
+          color: AppColors.primary,
+          onRefresh: () async {
+            context
+                .read<PostManagmentBloc>()
+                .add(const PostManagmentEvent.loadPosts());
+          },
+          child: CustomScrollView(
+            slivers: <Widget>[
+              const SliverAppBar(
+                expandedHeight: 50,
+                pinned: true,
+                backgroundColor: AppColors.background,
+                shadowColor: Colors.transparent,
+                surfaceTintColor: AppColors.background,
+                title: Text('Ask Organizers'),
               ),
-            )
-          ],
+              SliverList(
+                delegate: SliverChildListDelegate(
+                  [
+                    BlocBuilder<PostManagmentBloc, PostManagmentState>(
+                      builder: (context, state) {
+                        return state.maybeWhen(
+                            loaded: (posts) => UserPostsList(posts: posts),
+                            loading: () =>
+                                const Center(child: LoadingIndicator()),
+                            error: (message) => Center(
+                                  child: Text(message),
+                                ),
+                            orElse: () => const SizedBox.shrink());
+                      },
+                    ),
+                  ],
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );

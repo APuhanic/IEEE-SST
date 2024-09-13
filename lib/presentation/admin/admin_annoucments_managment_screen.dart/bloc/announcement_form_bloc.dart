@@ -21,11 +21,12 @@ class AnnouncementFormBloc
     on<_DescriptionChanged>(_onDescriptionChanged);
     on<_SetInitialValues>(_onSetInitialValues);
     on<_UpdateAnnouncement>(_onUpdateAnnouncement);
+    on<_ResetFrom>(_onResetForm);
   }
 
   final AnnouncementRepository _supabaseAnnouncementRepository;
 
-  Future<FutureOr<void>> _onCreateAnnouncement(
+  Future<void> _onCreateAnnouncement(
       _CreateAnnouncement event, Emitter<AnnouncementFormState> emit) async {
     emit(state.copyWith(status: FormzSubmissionStatus.inProgress));
     try {
@@ -75,5 +76,14 @@ class AnnouncementFormBloc
       emit(state.copyWith(
           status: FormzSubmissionStatus.failure, errorMessage: e.toString()));
     }
+  }
+
+  void _onResetForm(_ResetFrom event, Emitter<AnnouncementFormState> emit) {
+    emit(state.copyWith(
+        title: '',
+        description: '',
+        status: FormzSubmissionStatus.initial,
+        timeposted: '',
+        errorMessage: ''));
   }
 }

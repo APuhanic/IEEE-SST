@@ -54,8 +54,7 @@ class MainApp extends StatelessWidget {
         BlocProvider(create: (context) => getIt<CommentFormBloc>()),
         BlocProvider(create: (context) => getIt<CommentManagmentBloc>()),
         BlocProvider(
-          create: (context) => getIt<AuthSessionCubit>()..checkUserRole(),
-        ),
+            create: (context) => getIt<AuthSessionCubit>()..checkUserRole()),
         BlocProvider(create: (context) => getIt<AttendeesBloc>()),
         BlocProvider(create: (context) => getIt<UserManagmentBloc>()),
         BlocProvider(create: (context) => getIt<DocumentFormBloc>()),
@@ -72,7 +71,16 @@ class MainApp extends StatelessWidget {
           fontFamily: 'Poppins',
         ),
         routerConfig: _appRouter,
-        builder: (context, child) => SafeArea(child: child!),
+        builder: (context, child) {
+          final mediaQueryData = MediaQuery.of(context);
+          final scale = mediaQueryData.textScaler
+              .clamp(maxScaleFactor: 1, minScaleFactor: 1);
+          return MediaQuery(
+              data: MediaQuery.of(context).copyWith(
+                textScaler: scale,
+              ),
+              child: SafeArea(child: child!));
+        },
       ),
     );
   }

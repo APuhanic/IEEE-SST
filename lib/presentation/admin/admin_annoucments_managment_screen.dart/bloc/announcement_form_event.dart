@@ -11,7 +11,10 @@ class AnnouncementFormEvent with _$AnnouncementFormEvent {
   const factory AnnouncementFormEvent.updateAnnouncement() =
       _UpdateAnnouncement;
   const factory AnnouncementFormEvent.deleteAnnouncement(
-      String announcementId) = _DeleteAnnouncement;
+    String announcementId,
+  ) = _DeleteAnnouncement;
   const factory AnnouncementFormEvent.setInitialValues(
-      Announcement announcement) = _SetInitialValues;
+    Announcement announcement,
+  ) = _SetInitialValues;
+  const factory AnnouncementFormEvent.resetFrom() = _ResetFrom;
 }

@@ -6,6 +6,7 @@ import 'package:ieee_sst/data/constants/text_styles.dart';
 import 'package:ieee_sst/presentation/admin/admin_annoucments_managment_screen.dart/bloc/announcement_form_bloc.dart';
 import 'package:ieee_sst/presentation/admin/admin_annoucments_managment_screen.dart/widgets/announcement_description_input.dart';
 import 'package:ieee_sst/presentation/admin/admin_annoucments_managment_screen.dart/widgets/announcement_title_input.dart';
+import 'package:ieee_sst/presentation/common/bloc/announcement_bloc/announcement_bloc.dart';
 
 class CreateAnnouncementScreen extends StatelessWidget {
   const CreateAnnouncementScreen({super.key});
@@ -18,6 +19,13 @@ class CreateAnnouncementScreen extends StatelessWidget {
           if (state.status.isSuccess) {
             debugPrint('Announcement created successfully');
             Navigator.pop(context);
+
+            context
+                .read<AnnouncementFormBloc>()
+                .add(const AnnouncementFormEvent.resetFrom());
+            context
+                .read<AnnouncementBloc>()
+                .add(const AnnouncementEvent.loadAnnouncements());
           }
           if (state.status.isFailure) {
             ScaffoldMessenger.of(context).showSnackBar(

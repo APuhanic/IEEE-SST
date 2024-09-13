@@ -18,14 +18,13 @@ class AnnouncementBloc extends Bloc<AnnouncementEvent, AnnouncementState> {
   }
 
   final AnnouncementRepository announcementRepository;
-
   Future<void> _onLoadAnnouncements(
       _LoadAnnouncements event, Emitter<AnnouncementState> emit) async {
     emit(const _Loading());
     try {
       final announcementsResponse =
           await announcementRepository.getAllAnnouncements();
-      emit(_Loaded(announcementsResponse));
+      emit(_Loaded(sortAnnouncements(announcementsResponse)));
     } catch (e) {
       emit(_Error(e.toString()));
     }
@@ -44,5 +43,10 @@ class AnnouncementBloc extends Bloc<AnnouncementEvent, AnnouncementState> {
     } catch (e) {
       emit(_Error(e.toString()));
     }
+  }
+
+  List<Announcement> sortAnnouncements(List<Announcement> announcements) {
+    announcements.sort((a, b) => b.timeposted.compareTo(a.timeposted));
+    return announcements;
   }
 }

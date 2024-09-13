@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
+import 'package:logger/logger.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 @injectable
@@ -24,8 +25,11 @@ class PostsClient {
     }
   }
 
-  Future<List<Map<String, dynamic>>> fetchPosts() async =>
-      await _supabaseClient.rpc('get_posts_with_profiles').select();
+  Future<List<Map<String, dynamic>>> fetchPosts() async {
+    final res = await _supabaseClient.rpc('get_posts_with_profiles').select();
+    Logger().w(res);
+    return res;
+  }
 
   Future<void> updatePost(Map<String, dynamic> post) async {
     try {
@@ -35,12 +39,19 @@ class PostsClient {
     }
   }
 
-  Future<void> deletePost(String postId) async {
+  Future<void> deletePost(int postId) async {
     try {
       await _supabaseClient.from('user_posts').delete().eq('id', postId);
     } catch (e) {
       throw Exception(e);
     }
+  }
+
+  Future<int> getCommentCount(int id) async {
+    return await _supabaseClient
+        .rpc('get_comment_count', params: {'post_id': id})
+        .select()
+        .then((value) => value[0]['count']);
   }
 
   //TODO: Remove this method if not needed

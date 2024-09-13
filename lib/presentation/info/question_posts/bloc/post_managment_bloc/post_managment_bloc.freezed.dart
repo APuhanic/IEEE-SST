@@ -19,19 +19,19 @@ mixin _$PostManagmentEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loadPosts,
-    required TResult Function(String postId) deletePost,
+    required TResult Function(int postId) deletePost,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loadPosts,
-    TResult? Function(String postId)? deletePost,
+    TResult? Function(int postId)? deletePost,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loadPosts,
-    TResult Function(String postId)? deletePost,
+    TResult Function(int postId)? deletePost,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -113,7 +113,7 @@ class _$LoadPostsImpl implements _LoadPosts {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loadPosts,
-    required TResult Function(String postId) deletePost,
+    required TResult Function(int postId) deletePost,
   }) {
     return loadPosts();
   }
@@ -122,7 +122,7 @@ class _$LoadPostsImpl implements _LoadPosts {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loadPosts,
-    TResult? Function(String postId)? deletePost,
+    TResult? Function(int postId)? deletePost,
   }) {
     return loadPosts?.call();
   }
@@ -131,7 +131,7 @@ class _$LoadPostsImpl implements _LoadPosts {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loadPosts,
-    TResult Function(String postId)? deletePost,
+    TResult Function(int postId)? deletePost,
     required TResult orElse(),
   }) {
     if (loadPosts != null) {
@@ -182,7 +182,7 @@ abstract class _$$DeletePostImplCopyWith<$Res> {
           _$DeletePostImpl value, $Res Function(_$DeletePostImpl) then) =
       __$$DeletePostImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String postId});
+  $Res call({int postId});
 }
 
 /// @nodoc
@@ -202,7 +202,7 @@ class __$$DeletePostImplCopyWithImpl<$Res>
       null == postId
           ? _value.postId
           : postId // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
     ));
   }
 }
@@ -213,7 +213,7 @@ class _$DeletePostImpl implements _DeletePost {
   const _$DeletePostImpl(this.postId);
 
   @override
-  final String postId;
+  final int postId;
 
   @override
   String toString() {
@@ -241,7 +241,7 @@ class _$DeletePostImpl implements _DeletePost {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loadPosts,
-    required TResult Function(String postId) deletePost,
+    required TResult Function(int postId) deletePost,
   }) {
     return deletePost(postId);
   }
@@ -250,7 +250,7 @@ class _$DeletePostImpl implements _DeletePost {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loadPosts,
-    TResult? Function(String postId)? deletePost,
+    TResult? Function(int postId)? deletePost,
   }) {
     return deletePost?.call(postId);
   }
@@ -259,7 +259,7 @@ class _$DeletePostImpl implements _DeletePost {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loadPosts,
-    TResult Function(String postId)? deletePost,
+    TResult Function(int postId)? deletePost,
     required TResult orElse(),
   }) {
     if (deletePost != null) {
@@ -301,9 +301,9 @@ class _$DeletePostImpl implements _DeletePost {
 }
 
 abstract class _DeletePost implements PostManagmentEvent {
-  const factory _DeletePost(final String postId) = _$DeletePostImpl;
+  const factory _DeletePost(final int postId) = _$DeletePostImpl;
 
-  String get postId;
+  int get postId;
   @JsonKey(ignore: true)
   _$$DeletePostImplCopyWith<_$DeletePostImpl> get copyWith =>
       throw _privateConstructorUsedError;

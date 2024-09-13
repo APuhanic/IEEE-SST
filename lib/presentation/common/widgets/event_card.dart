@@ -8,7 +8,6 @@ import 'package:ieee_sst/presentation/common/bloc/events_bloc/events_bloc.dart';
 import 'package:ieee_sst/presentation/common/cubit/is_going_cubit.dart';
 import 'package:ieee_sst/presentation/common/widgets/bottom_sheet_event_info.dart';
 import 'package:ieee_sst/presentation/common/widgets/event_data.dart';
-import 'package:ieee_sst/presentation/common/widgets/loading_indicator.dart';
 import 'package:ieee_sst/util/debouncer.dart';
 import 'package:intl/intl.dart';
 
@@ -99,12 +98,17 @@ class EventCard extends StatelessWidget {
     );
   }
 
-  Widget _buildAttendeeInfo() {
-    return Text(
-      '${event.attendeeCount}+ People are going to this event',
-      style: AppTextStyle.blueText,
-    );
-  }
+  Widget _buildAttendeeInfo() => Row(
+        children: [
+          const Icon(Icons.info, size: 18),
+          const SizedBox(width: 4),
+          Text(event.info ?? 'No info'),
+          Expanded(child: Container()),
+          Text('${event.attendeeCount} '),
+          const Icon(Icons.people_alt_outlined, size: 18),
+          const SizedBox(width: 8),
+        ],
+      );
 }
 
 class _IsGoingButton extends StatefulWidget {
@@ -127,7 +131,8 @@ class _IsGoingButtonState extends State<_IsGoingButton> {
         return IconButton(
           onPressed: _onPressed,
           icon: isLoading
-              ? const SizedBox(width: 24, height: 24, child: LoadingIndicator())
+              ? const SizedBox(
+                  width: 24, height: 24, child: CircularProgressIndicator())
               : _buildIcon(),
           color: AppColors.primary,
         );

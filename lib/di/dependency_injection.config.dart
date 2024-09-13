@@ -31,50 +31,50 @@ import '../data/local_storage/event_local_storage.dart' as _i23;
 import '../data/local_storage/key_value_storage.dart' as _i13;
 import '../data/local_storage/profile_local_storage.dart' as _i24;
 import '../data/providers/global_bloc_observer.dart' as _i8;
-import '../data/repositories/announcement_repository.dart' as _i32;
+import '../data/repositories/announcement_repository.dart' as _i33;
 import '../data/repositories/auth_repository.dart' as _i28;
 import '../data/repositories/comments_repository.dart' as _i26;
-import '../data/repositories/document_repository.dart' as _i38;
-import '../data/repositories/event_repository.dart' as _i42;
-import '../data/repositories/post_repository.dart' as _i37;
-import '../data/repositories/profile_repository.dart' as _i35;
-import '../data/repositories/sponsor_repository.dart' as _i31;
+import '../data/repositories/document_repository.dart' as _i40;
+import '../data/repositories/event_repository.dart' as _i44;
+import '../data/repositories/post_repository.dart' as _i31;
+import '../data/repositories/profile_repository.dart' as _i38;
+import '../data/repositories/sponsor_repository.dart' as _i32;
 import '../data/router/navigator_key_manager.dart' as _i7;
 import '../data/router/router.dart' as _i12;
 import '../domain/modules/app_module.dart' as _i54;
 import '../domain/modules/navigator_key_manager_module.dart' as _i55;
 import '../domain/repositories/auth/auth_repository.dart' as _i27;
 import '../presentation/admin/admin_annoucments_managment_screen.dart/bloc/announcement_form_bloc.dart'
-    as _i34;
+    as _i37;
 import '../presentation/admin/admin_event_managment_screen/bloc/event_form_bloc.dart'
-    as _i49;
+    as _i51;
 import '../presentation/admin/admin_sponsor_managment/bloc/sponsor_form_bloc.dart'
-    as _i45;
+    as _i47;
 import '../presentation/admin/admin_user_managment/bloc/user_managment_bloc.dart'
-    as _i46;
+    as _i48;
 import '../presentation/common/bloc/announcement_bloc/announcement_bloc.dart'
-    as _i36;
-import '../presentation/common/bloc/attendees_bloc/attendees_bloc.dart' as _i50;
-import '../presentation/common/bloc/events_bloc/events_bloc.dart' as _i48;
-import '../presentation/common/bloc/profile_bloc/profile_bloc.dart' as _i51;
+    as _i39;
+import '../presentation/common/bloc/attendees_bloc/attendees_bloc.dart' as _i52;
+import '../presentation/common/bloc/events_bloc/events_bloc.dart' as _i50;
+import '../presentation/common/bloc/profile_bloc/profile_bloc.dart' as _i53;
 import '../presentation/common/bloc/sponsors_bloc/bloc/sponsor_managment_bloc.dart'
-    as _i33;
+    as _i34;
 import '../presentation/common/cubit/cubit/auth_session_cubit.dart' as _i11;
 import '../presentation/documents/bloc/document_form_bloc/document_form_bloc.dart'
-    as _i39;
+    as _i41;
 import '../presentation/documents/bloc/document_managment_bloc/document_managment_bloc.dart'
-    as _i40;
+    as _i42;
 import '../presentation/info/question_posts/bloc/comment_form_bloc/comment_form_bloc.dart'
-    as _i43;
+    as _i45;
 import '../presentation/info/question_posts/bloc/comment_managment_bloc/comment_managment_bloc.dart'
-    as _i44;
+    as _i46;
 import '../presentation/info/question_posts/bloc/post_form_bloc/post_form_bloc.dart'
-    as _i52;
+    as _i35;
 import '../presentation/info/question_posts/bloc/post_managment_bloc/post_managment_bloc.dart'
-    as _i53;
+    as _i36;
 import '../presentation/login/bloc/auth_bloc.dart' as _i29;
-import '../presentation/login/bloc/login/login_bloc.dart' as _i41;
-import '../presentation/profile/bloc/profile_image_bloc.dart' as _i47;
+import '../presentation/login/bloc/login/login_bloc.dart' as _i43;
+import '../presentation/profile/bloc/profile_image_bloc.dart' as _i49;
 import '../presentation/register/bloc/registration_bloc.dart' as _i30;
 import '../util/connection_checker.dart' as _i25;
 
@@ -144,58 +144,60 @@ extension GetItInjectableX on _i1.GetIt {
         () => _i29.AuthBloc(gh<_i27.AuthenticationRepository>()));
     gh.factory<_i30.RegistrationBloc>(
         () => _i30.RegistrationBloc(gh<_i27.AuthenticationRepository>()));
-    gh.lazySingleton<_i31.SponsorRepository>(
-        () => _i31.SponsorRepository(gh<_i20.SponsorClient>()));
-    gh.lazySingleton<_i32.AnnouncementRepository>(
-        () => _i32.AnnouncementRepository(gh<_i15.AnnouncementClient>()));
-    gh.factory<_i33.SponsorManagmentBloc>(
-        () => _i33.SponsorManagmentBloc(gh<_i31.SponsorRepository>()));
-    gh.factory<_i34.AnnouncementFormBloc>(
-        () => _i34.AnnouncementFormBloc(gh<_i32.AnnouncementRepository>()));
-    gh.lazySingleton<_i35.ProfileRepository>(
-        () => _i35.ProfileRepository(gh<_i9.ProfileClient>()));
-    gh.factory<_i36.AnnouncementBloc>(
-        () => _i36.AnnouncementBloc(gh<_i32.AnnouncementRepository>()));
-    gh.lazySingleton<_i37.PostRepository>(
-        () => _i37.PostRepository(gh<_i19.PostsClient>()));
-    gh.lazySingleton<_i38.DocumentRepository>(
-        () => _i38.DocumentRepository(gh<_i17.DocumentClient>()));
-    gh.factory<_i39.DocumentFormBloc>(
-        () => _i39.DocumentFormBloc(gh<_i38.DocumentRepository>()));
-    gh.factory<_i40.DocumentManagmentBloc>(
-        () => _i40.DocumentManagmentBloc(gh<_i38.DocumentRepository>()));
-    gh.factory<_i41.LoginBloc>(() => _i41.LoginBloc(
+    gh.lazySingleton<_i31.PostRepository>(() => _i31.PostRepository(
+          gh<_i19.PostsClient>(),
+          gh<_i3.SupabaseClient>(),
+        ));
+    gh.lazySingleton<_i32.SponsorRepository>(
+        () => _i32.SponsorRepository(gh<_i20.SponsorClient>()));
+    gh.lazySingleton<_i33.AnnouncementRepository>(
+        () => _i33.AnnouncementRepository(gh<_i15.AnnouncementClient>()));
+    gh.factory<_i34.SponsorManagmentBloc>(
+        () => _i34.SponsorManagmentBloc(gh<_i32.SponsorRepository>()));
+    gh.factory<_i35.PostFormBloc>(
+        () => _i35.PostFormBloc(gh<_i31.PostRepository>()));
+    gh.factory<_i36.PostManagmentBloc>(
+        () => _i36.PostManagmentBloc(gh<_i31.PostRepository>()));
+    gh.factory<_i37.AnnouncementFormBloc>(
+        () => _i37.AnnouncementFormBloc(gh<_i33.AnnouncementRepository>()));
+    gh.lazySingleton<_i38.ProfileRepository>(
+        () => _i38.ProfileRepository(gh<_i9.ProfileClient>()));
+    gh.factory<_i39.AnnouncementBloc>(
+        () => _i39.AnnouncementBloc(gh<_i33.AnnouncementRepository>()));
+    gh.lazySingleton<_i40.DocumentRepository>(
+        () => _i40.DocumentRepository(gh<_i17.DocumentClient>()));
+    gh.factory<_i41.DocumentFormBloc>(
+        () => _i41.DocumentFormBloc(gh<_i40.DocumentRepository>()));
+    gh.factory<_i42.DocumentManagmentBloc>(
+        () => _i42.DocumentManagmentBloc(gh<_i40.DocumentRepository>()));
+    gh.factory<_i43.LoginBloc>(() => _i43.LoginBloc(
           gh<_i27.AuthenticationRepository>(),
           gh<_i9.ProfileClient>(),
         ));
-    gh.lazySingleton<_i42.EventRepository>(() => _i42.EventRepository(
+    gh.lazySingleton<_i44.EventRepository>(() => _i44.EventRepository(
           gh<_i18.EventClient>(),
           gh<_i10.SupabaseClient>(),
           gh<_i23.EventLocalStorage>(),
           gh<_i25.ConnectionChecker>(),
         ));
-    gh.factory<_i43.CommentFormBloc>(
-        () => _i43.CommentFormBloc(gh<_i26.CommentsRepository>()));
-    gh.factory<_i44.CommentManagmentBloc>(
-        () => _i44.CommentManagmentBloc(gh<_i26.CommentsRepository>()));
-    gh.factory<_i45.SponsorFormBloc>(
-        () => _i45.SponsorFormBloc(gh<_i31.SponsorRepository>()));
-    gh.factory<_i46.UserManagmentBloc>(
-        () => _i46.UserManagmentBloc(gh<_i35.ProfileRepository>()));
-    gh.factory<_i47.ProfileImageBloc>(
-        () => _i47.ProfileImageBloc(gh<_i35.ProfileRepository>()));
-    gh.factory<_i48.EventsManagmentBloc>(
-        () => _i48.EventsManagmentBloc(gh<_i42.EventRepository>()));
-    gh.factory<_i49.EventFormBloc>(
-        () => _i49.EventFormBloc(gh<_i42.EventRepository>()));
-    gh.factory<_i50.AttendeesBloc>(
-        () => _i50.AttendeesBloc(gh<_i35.ProfileRepository>()));
-    gh.factory<_i51.ProfileBloc>(
-        () => _i51.ProfileBloc(gh<_i35.ProfileRepository>()));
-    gh.factory<_i52.PostFormBloc>(
-        () => _i52.PostFormBloc(gh<_i37.PostRepository>()));
-    gh.factory<_i53.PostManagmentBloc>(
-        () => _i53.PostManagmentBloc(gh<_i37.PostRepository>()));
+    gh.factory<_i45.CommentFormBloc>(
+        () => _i45.CommentFormBloc(gh<_i26.CommentsRepository>()));
+    gh.factory<_i46.CommentManagmentBloc>(
+        () => _i46.CommentManagmentBloc(gh<_i26.CommentsRepository>()));
+    gh.factory<_i47.SponsorFormBloc>(
+        () => _i47.SponsorFormBloc(gh<_i32.SponsorRepository>()));
+    gh.factory<_i48.UserManagmentBloc>(
+        () => _i48.UserManagmentBloc(gh<_i38.ProfileRepository>()));
+    gh.factory<_i49.ProfileImageBloc>(
+        () => _i49.ProfileImageBloc(gh<_i38.ProfileRepository>()));
+    gh.factory<_i50.EventsManagmentBloc>(
+        () => _i50.EventsManagmentBloc(gh<_i44.EventRepository>()));
+    gh.factory<_i51.EventFormBloc>(
+        () => _i51.EventFormBloc(gh<_i44.EventRepository>()));
+    gh.factory<_i52.AttendeesBloc>(
+        () => _i52.AttendeesBloc(gh<_i38.ProfileRepository>()));
+    gh.factory<_i53.ProfileBloc>(
+        () => _i53.ProfileBloc(gh<_i38.ProfileRepository>()));
     return this;
   }
 }

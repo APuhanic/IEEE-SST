@@ -14,6 +14,7 @@ part 'post_managment_bloc.freezed.dart';
 class PostManagmentBloc extends Bloc<PostManagmentEvent, PostManagmentState> {
   PostManagmentBloc(this._postRepository) : super(const _Initial()) {
     on<_LoadPosts>(_onLoadPosts);
+    on<_DeletePost>(_onDeletePost);
   }
 
   final PostRepository _postRepository;
@@ -23,7 +24,24 @@ class PostManagmentBloc extends Bloc<PostManagmentEvent, PostManagmentState> {
     emit(const _Loading());
     try {
       final postsResponse = await _postRepository.getAllPosts();
-      emit(_Loaded(postsResponse));
+      emit(_Loaded(sortPosts(postsResponse)));
+    } catch (e) {
+      emit(_Error(e.toString()));
+    }
+  }
+
+  List<Post> sortPosts(List<Post> posts) =>
+      posts..sort((a, b) => b.timePosted.compareTo(a.timePosted));
+
+  Future<void> _onDeletePost(
+      _DeletePost event, Emitter<PostManagmentState> emit) async {
+    try {
+      await _postRepository.deletePost(event.postId);
+      if (state is _Loaded) {
+        final posts = (state as _Loaded).posts;
+        final updatedPosts = posts.where((e) => e.id != event.postId).toList();
+        emit(_Loaded(updatedPosts));
+      }
     } catch (e) {
       emit(_Error(e.toString()));
     }

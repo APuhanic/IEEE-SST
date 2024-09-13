@@ -23,9 +23,18 @@ class AttendeesBloc extends Bloc<AttendeesEvent, AttendeesState> {
     emit(const AttendeesState.loading());
     try {
       final attendees = await supabaseProfileRepository.getProfiles();
-      emit(AttendeesState.loaded(attendees));
+      emit(AttendeesState.loaded(sortAttendees(attendees)));
     } catch (e) {
       emit(AttendeesState.error(e.toString()));
     }
+  }
+
+  List<Profile> sortAttendees(List<Profile> attendees) {
+    attendees.sort((a, b) {
+      String nameA = (a.fullName).toLowerCase().trim();
+      String nameB = (b.fullName).toLowerCase().trim();
+      return nameA.compareTo(nameB);
+    });
+    return attendees;
   }
 }

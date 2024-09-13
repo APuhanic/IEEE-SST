@@ -22,13 +22,16 @@ class PostAdapter extends TypeAdapter<Post> {
       content: fields[2] as String,
       timePosted: fields[3] as String,
       fullName: fields[4] as String,
+      commentcount: fields[5] as int,
+      postedBy: fields[6] as String,
+      isOwner: fields[7] as bool?,
     );
   }
 
   @override
   void write(BinaryWriter writer, Post obj) {
     writer
-      ..writeByte(5)
+      ..writeByte(8)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
@@ -38,7 +41,13 @@ class PostAdapter extends TypeAdapter<Post> {
       ..writeByte(3)
       ..write(obj.timePosted)
       ..writeByte(4)
-      ..write(obj.fullName);
+      ..write(obj.fullName)
+      ..writeByte(5)
+      ..write(obj.commentcount)
+      ..writeByte(6)
+      ..write(obj.postedBy)
+      ..writeByte(7)
+      ..write(obj.isOwner);
   }
 
   @override
@@ -62,6 +71,9 @@ _$PostImpl _$$PostImplFromJson(Map<String, dynamic> json) => _$PostImpl(
       content: json['content'] as String,
       timePosted: json['timePosted'] as String,
       fullName: json['fullName'] as String,
+      commentcount: (json['commentcount'] as num).toInt(),
+      postedBy: json['postedBy'] as String,
+      isOwner: json['isOwner'] as bool?,
     );
 
 Map<String, dynamic> _$$PostImplToJson(_$PostImpl instance) =>
@@ -71,4 +83,7 @@ Map<String, dynamic> _$$PostImplToJson(_$PostImpl instance) =>
       'content': instance.content,
       'timePosted': instance.timePosted,
       'fullName': instance.fullName,
+      'commentcount': instance.commentcount,
+      'postedBy': instance.postedBy,
+      'isOwner': instance.isOwner,
     };

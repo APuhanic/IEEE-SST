@@ -32,12 +32,14 @@ class UserPostPreview extends StatelessWidget {
             ],
           ),
           Expanded(child: Container()),
-          const Column(
+          Column(
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Icon(Icons.comment_outlined, color: AppColors.grayText),
+                  Text(post.commentcount.toString()),
+                  const SizedBox(width: 4),
+                  const Icon(Icons.comment_outlined, color: AppColors.grayText),
                 ],
               ),
             ],

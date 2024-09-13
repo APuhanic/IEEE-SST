@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:ieee_sst/data/constants/app_colors.dart';
 import 'package:ieee_sst/presentation/common/bloc/announcement_bloc/announcement_bloc.dart';
-import 'package:ieee_sst/presentation/common/widgets/announcements_list.dart';
+import 'package:ieee_sst/presentation/common/widgets/announcement_post.dart';
 import 'package:ieee_sst/presentation/common/widgets/loading_indicator.dart';
 import 'package:ieee_sst/presentation/home/widgets/home_screen_drawer.dart';
 
@@ -49,29 +49,26 @@ class AnnouncementsManagmentScreen extends StatelessWidget {
                     surfaceTintColor: AppColors.background,
                     title: Text('Announcements'),
                   ),
-                  SliverList(
-                    delegate: SliverChildListDelegate(
-                      [
-                        BlocBuilder<AnnouncementBloc, AnnouncementState>(
-                          builder: (context, state) {
-                            return state.maybeWhen(
-                              loaded: (announcements) => AnnouncemetsList(
-                                announcements: announcements,
-                                isAdmin: true,
-                              ),
-                              loading: () => const Center(
-                                child: LoadingIndicator(),
-                              ),
-                              error: (message) => Center(
-                                child: Text(message),
-                              ),
-                              orElse: () => const SizedBox.shrink(),
+                  state.maybeWhen(
+                    orElse: () => const SliverFillRemaining(
+                      child: Center(
+                        child: LoadingIndicator(),
+                      ),
+                    ),
+                    loaded: (announcements) {
+                      return SliverList(
+                        delegate: SliverChildBuilderDelegate(
+                          (context, index) {
+                            return AnnouncementPost(
+                              announcement: announcements[index],
+                              isAdmin: true,
                             );
                           },
+                          childCount: announcements.length,
                         ),
-                      ],
-                    ),
-                  )
+                      );
+                    },
+                  ),
                 ],
               ),
             );

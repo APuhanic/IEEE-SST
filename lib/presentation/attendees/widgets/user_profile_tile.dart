@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ieee_sst/data/constants/app_colors.dart';
 import 'package:ieee_sst/data/models/profile_model/profile_model.dart';
 
 class UserProfileTile extends StatelessWidget {
@@ -16,9 +17,12 @@ class UserProfileTile extends StatelessWidget {
           // TODO: Global avatar
           CircleAvatar(
             radius: 30,
+            backgroundColor: AppColors.white,
             backgroundImage: profile.imageUrl != null
                 ? NetworkImage(profile.imageUrl!)
-                : const AssetImage('assets/images/user.png') as ImageProvider,
+                : const AssetImage(
+                    'assets/images/user.png',
+                  ) as ImageProvider,
           ),
           const SizedBox(width: 16),
           Column(
