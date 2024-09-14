@@ -53,6 +53,7 @@ class AuthRepository implements AuthenticationRepository {
       position ?? '',
       country ?? '',
     );
+    _setFcmToken();
   }
 
   @override

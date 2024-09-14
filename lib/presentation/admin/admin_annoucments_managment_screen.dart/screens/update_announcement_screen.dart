@@ -58,10 +58,10 @@ class UpdateAnnouncementScreen extends StatelessWidget {
                             backgroundColor: AppColors.primary,
                             foregroundColor: AppColors.white,
                             textStyle: AppTextStyle.button),
-                        onPressed: () {
-                          context.read<AnnouncementFormBloc>().add(
-                              const AnnouncementFormEvent.createAnnouncement());
-                        },
+                        onPressed: () => context
+                            .read<AnnouncementFormBloc>()
+                            .add(const AnnouncementFormEvent
+                                .createAnnouncement()),
                         child: const Text('Update Announcement'),
                       ),
                     ],

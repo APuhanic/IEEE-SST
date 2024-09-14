@@ -18,9 +18,9 @@ class AttendeesScreen extends StatelessWidget {
       child: Scaffold(
         drawer: const HomeScreenDrawer(),
         body: RefreshIndicator(
-          onRefresh: () async => context.read<AttendeesBloc>().add(
-                const AttendeesEvent.loadAttendees(),
-              ),
+          onRefresh: () async => context
+              .read<AttendeesBloc>()
+              .add(const AttendeesEvent.loadAttendees()),
           backgroundColor: AppColors.white,
           color: AppColors.primary,
           child: CustomScrollView(slivers: <Widget>[
