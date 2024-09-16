@@ -5,6 +5,7 @@ abstract class RoutePaths {
 
   static const String registerEmail = 'email';
   static const String registerUserData = 'user_data';
+  static const String resetPassword = '/reset-password';
 
   // User
   static const String home = '/home';

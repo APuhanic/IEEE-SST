@@ -42,10 +42,12 @@ class EventClient {
       await _supabaseClient.from('events').upsert(event);
 
   Future<void> markGoing(String eventId) async =>
-      await _supabaseClient.from('event_attendees').insert({
-        'event_id': eventId,
-        'user_id': _supabaseClient.auth.currentUser!.id,
-      });
+      await _supabaseClient.from('event_attendees').insert(
+        {
+          'event_id': eventId,
+          'user_id': _supabaseClient.auth.currentUser!.id,
+        },
+      );
 
   Future<void> markNotGoing(String eventId) async => await _supabaseClient
       .from('event_attendees')

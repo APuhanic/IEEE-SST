@@ -6,6 +6,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:ieee_sst/data/models/announcement_model/announcement_model.dart';
 import 'package:ieee_sst/data/repositories/announcement_repository.dart';
 import 'package:injectable/injectable.dart';
+import 'package:logger/logger.dart';
 
 part 'announcement_form_event.dart';
 part 'announcement_form_state.dart';
@@ -41,36 +42,41 @@ class AnnouncementFormBloc
     }
   }
 
-  FutureOr<void> _onTitleChanged(
+  void _onTitleChanged(
       _TitleChanged event, Emitter<AnnouncementFormState> emit) {
     emit(state.copyWith(title: event.title));
   }
 
-  FutureOr<void> _onDescriptionChanged(
+  void _onDescriptionChanged(
       _DescriptionChanged event, Emitter<AnnouncementFormState> emit) {
     emit(state.copyWith(description: event.description));
   }
 
-  FutureOr<void> _onSetInitialValues(
+  void _onSetInitialValues(
       _SetInitialValues event, Emitter<AnnouncementFormState> emit) {
     emit(
       state.copyWith(
-          title: event.announcement.title,
-          description: event.announcement.description),
+        id: event.announcement.id,
+        title: event.announcement.title,
+        description: event.announcement.description,
+        timeposted: event.announcement.timeposted,
+      ),
     );
+    Logger().w(event.announcement.id);
   }
 
-  FutureOr<void> _onUpdateAnnouncement(
-      _UpdateAnnouncement event, Emitter<AnnouncementFormState> emit) {
+  Future<void> _onUpdateAnnouncement(
+      _UpdateAnnouncement event, Emitter<AnnouncementFormState> emit) async {
     emit(state.copyWith(status: FormzSubmissionStatus.inProgress));
     try {
       final announcement = Announcement(
-          id: state.id,
-          title: state.title,
-          description: state.description,
-          timeposted: state.timeposted,
-          fullName: state.fullName);
-      _supabaseAnnouncementRepository.updateAnnouncement(announcement);
+        id: state.id,
+        title: state.title,
+        description: state.description,
+        timeposted: state.timeposted,
+        fullName: state.fullName,
+      );
+      await _supabaseAnnouncementRepository.updateAnnouncement(announcement);
       emit(state.copyWith(status: FormzSubmissionStatus.success));
     } catch (e) {
       emit(state.copyWith(
@@ -78,12 +84,14 @@ class AnnouncementFormBloc
     }
   }
 
-  void _onResetForm(_ResetFrom event, Emitter<AnnouncementFormState> emit) {
-    emit(state.copyWith(
-        title: '',
-        description: '',
-        status: FormzSubmissionStatus.initial,
-        timeposted: '',
-        errorMessage: ''));
-  }
+  void _onResetForm(_ResetFrom event, Emitter<AnnouncementFormState> emit) =>
+      emit(
+        state.copyWith(
+          title: '',
+          description: '',
+          status: FormzSubmissionStatus.initial,
+          timeposted: '',
+          errorMessage: '',
+        ),
+      );
 }

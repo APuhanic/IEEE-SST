@@ -30,6 +30,7 @@ mixin _$RegistrationEvent {
     required TResult Function(
             String organization, String position, String country)
         setInitialValues,
+    required TResult Function() updatePassword,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -45,6 +46,7 @@ mixin _$RegistrationEvent {
     TResult? Function()? updateUserInfo,
     TResult? Function(String organization, String position, String country)?
         setInitialValues,
+    TResult? Function()? updatePassword,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -60,6 +62,7 @@ mixin _$RegistrationEvent {
     TResult Function()? updateUserInfo,
     TResult Function(String organization, String position, String country)?
         setInitialValues,
+    TResult Function()? updatePassword,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -76,6 +79,7 @@ mixin _$RegistrationEvent {
     required TResult Function(_CountryChanged value) countryChanged,
     required TResult Function(_UpdateUserInfo value) updateUserInfo,
     required TResult Function(_SetInitialValues value) setInitialValues,
+    required TResult Function(_UpdatePassword value) updatePassword,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -90,6 +94,7 @@ mixin _$RegistrationEvent {
     TResult? Function(_CountryChanged value)? countryChanged,
     TResult? Function(_UpdateUserInfo value)? updateUserInfo,
     TResult? Function(_SetInitialValues value)? setInitialValues,
+    TResult? Function(_UpdatePassword value)? updatePassword,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -104,6 +109,7 @@ mixin _$RegistrationEvent {
     TResult Function(_CountryChanged value)? countryChanged,
     TResult Function(_UpdateUserInfo value)? updateUserInfo,
     TResult Function(_SetInitialValues value)? setInitialValues,
+    TResult Function(_UpdatePassword value)? updatePassword,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -177,6 +183,7 @@ class _$SubmittedImpl implements _Submitted {
     required TResult Function(
             String organization, String position, String country)
         setInitialValues,
+    required TResult Function() updatePassword,
   }) {
     return submitted();
   }
@@ -195,6 +202,7 @@ class _$SubmittedImpl implements _Submitted {
     TResult? Function()? updateUserInfo,
     TResult? Function(String organization, String position, String country)?
         setInitialValues,
+    TResult? Function()? updatePassword,
   }) {
     return submitted?.call();
   }
@@ -213,6 +221,7 @@ class _$SubmittedImpl implements _Submitted {
     TResult Function()? updateUserInfo,
     TResult Function(String organization, String position, String country)?
         setInitialValues,
+    TResult Function()? updatePassword,
     required TResult orElse(),
   }) {
     if (submitted != null) {
@@ -235,6 +244,7 @@ class _$SubmittedImpl implements _Submitted {
     required TResult Function(_CountryChanged value) countryChanged,
     required TResult Function(_UpdateUserInfo value) updateUserInfo,
     required TResult Function(_SetInitialValues value) setInitialValues,
+    required TResult Function(_UpdatePassword value) updatePassword,
   }) {
     return submitted(this);
   }
@@ -252,6 +262,7 @@ class _$SubmittedImpl implements _Submitted {
     TResult? Function(_CountryChanged value)? countryChanged,
     TResult? Function(_UpdateUserInfo value)? updateUserInfo,
     TResult? Function(_SetInitialValues value)? setInitialValues,
+    TResult? Function(_UpdatePassword value)? updatePassword,
   }) {
     return submitted?.call(this);
   }
@@ -269,6 +280,7 @@ class _$SubmittedImpl implements _Submitted {
     TResult Function(_CountryChanged value)? countryChanged,
     TResult Function(_UpdateUserInfo value)? updateUserInfo,
     TResult Function(_SetInitialValues value)? setInitialValues,
+    TResult Function(_UpdatePassword value)? updatePassword,
     required TResult orElse(),
   }) {
     if (submitted != null) {
@@ -358,6 +370,7 @@ class _$EmailChangedImpl implements _EmailChanged {
     required TResult Function(
             String organization, String position, String country)
         setInitialValues,
+    required TResult Function() updatePassword,
   }) {
     return emailChanged(email);
   }
@@ -376,6 +389,7 @@ class _$EmailChangedImpl implements _EmailChanged {
     TResult? Function()? updateUserInfo,
     TResult? Function(String organization, String position, String country)?
         setInitialValues,
+    TResult? Function()? updatePassword,
   }) {
     return emailChanged?.call(email);
   }
@@ -394,6 +408,7 @@ class _$EmailChangedImpl implements _EmailChanged {
     TResult Function()? updateUserInfo,
     TResult Function(String organization, String position, String country)?
         setInitialValues,
+    TResult Function()? updatePassword,
     required TResult orElse(),
   }) {
     if (emailChanged != null) {
@@ -416,6 +431,7 @@ class _$EmailChangedImpl implements _EmailChanged {
     required TResult Function(_CountryChanged value) countryChanged,
     required TResult Function(_UpdateUserInfo value) updateUserInfo,
     required TResult Function(_SetInitialValues value) setInitialValues,
+    required TResult Function(_UpdatePassword value) updatePassword,
   }) {
     return emailChanged(this);
   }
@@ -433,6 +449,7 @@ class _$EmailChangedImpl implements _EmailChanged {
     TResult? Function(_CountryChanged value)? countryChanged,
     TResult? Function(_UpdateUserInfo value)? updateUserInfo,
     TResult? Function(_SetInitialValues value)? setInitialValues,
+    TResult? Function(_UpdatePassword value)? updatePassword,
   }) {
     return emailChanged?.call(this);
   }
@@ -450,6 +467,7 @@ class _$EmailChangedImpl implements _EmailChanged {
     TResult Function(_CountryChanged value)? countryChanged,
     TResult Function(_UpdateUserInfo value)? updateUserInfo,
     TResult Function(_SetInitialValues value)? setInitialValues,
+    TResult Function(_UpdatePassword value)? updatePassword,
     required TResult orElse(),
   }) {
     if (emailChanged != null) {
@@ -546,6 +564,7 @@ class _$PasswordChangedImpl implements _PasswordChanged {
     required TResult Function(
             String organization, String position, String country)
         setInitialValues,
+    required TResult Function() updatePassword,
   }) {
     return passwordChanged(password);
   }
@@ -564,6 +583,7 @@ class _$PasswordChangedImpl implements _PasswordChanged {
     TResult? Function()? updateUserInfo,
     TResult? Function(String organization, String position, String country)?
         setInitialValues,
+    TResult? Function()? updatePassword,
   }) {
     return passwordChanged?.call(password);
   }
@@ -582,6 +602,7 @@ class _$PasswordChangedImpl implements _PasswordChanged {
     TResult Function()? updateUserInfo,
     TResult Function(String organization, String position, String country)?
         setInitialValues,
+    TResult Function()? updatePassword,
     required TResult orElse(),
   }) {
     if (passwordChanged != null) {
@@ -604,6 +625,7 @@ class _$PasswordChangedImpl implements _PasswordChanged {
     required TResult Function(_CountryChanged value) countryChanged,
     required TResult Function(_UpdateUserInfo value) updateUserInfo,
     required TResult Function(_SetInitialValues value) setInitialValues,
+    required TResult Function(_UpdatePassword value) updatePassword,
   }) {
     return passwordChanged(this);
   }
@@ -621,6 +643,7 @@ class _$PasswordChangedImpl implements _PasswordChanged {
     TResult? Function(_CountryChanged value)? countryChanged,
     TResult? Function(_UpdateUserInfo value)? updateUserInfo,
     TResult? Function(_SetInitialValues value)? setInitialValues,
+    TResult? Function(_UpdatePassword value)? updatePassword,
   }) {
     return passwordChanged?.call(this);
   }
@@ -638,6 +661,7 @@ class _$PasswordChangedImpl implements _PasswordChanged {
     TResult Function(_CountryChanged value)? countryChanged,
     TResult Function(_UpdateUserInfo value)? updateUserInfo,
     TResult Function(_SetInitialValues value)? setInitialValues,
+    TResult Function(_UpdatePassword value)? updatePassword,
     required TResult orElse(),
   }) {
     if (passwordChanged != null) {
@@ -734,6 +758,7 @@ class _$UserNameChangedImpl implements _UserNameChanged {
     required TResult Function(
             String organization, String position, String country)
         setInitialValues,
+    required TResult Function() updatePassword,
   }) {
     return fullNameChanged(fullName);
   }
@@ -752,6 +777,7 @@ class _$UserNameChangedImpl implements _UserNameChanged {
     TResult? Function()? updateUserInfo,
     TResult? Function(String organization, String position, String country)?
         setInitialValues,
+    TResult? Function()? updatePassword,
   }) {
     return fullNameChanged?.call(fullName);
   }
@@ -770,6 +796,7 @@ class _$UserNameChangedImpl implements _UserNameChanged {
     TResult Function()? updateUserInfo,
     TResult Function(String organization, String position, String country)?
         setInitialValues,
+    TResult Function()? updatePassword,
     required TResult orElse(),
   }) {
     if (fullNameChanged != null) {
@@ -792,6 +819,7 @@ class _$UserNameChangedImpl implements _UserNameChanged {
     required TResult Function(_CountryChanged value) countryChanged,
     required TResult Function(_UpdateUserInfo value) updateUserInfo,
     required TResult Function(_SetInitialValues value) setInitialValues,
+    required TResult Function(_UpdatePassword value) updatePassword,
   }) {
     return fullNameChanged(this);
   }
@@ -809,6 +837,7 @@ class _$UserNameChangedImpl implements _UserNameChanged {
     TResult? Function(_CountryChanged value)? countryChanged,
     TResult? Function(_UpdateUserInfo value)? updateUserInfo,
     TResult? Function(_SetInitialValues value)? setInitialValues,
+    TResult? Function(_UpdatePassword value)? updatePassword,
   }) {
     return fullNameChanged?.call(this);
   }
@@ -826,6 +855,7 @@ class _$UserNameChangedImpl implements _UserNameChanged {
     TResult Function(_CountryChanged value)? countryChanged,
     TResult Function(_UpdateUserInfo value)? updateUserInfo,
     TResult Function(_SetInitialValues value)? setInitialValues,
+    TResult Function(_UpdatePassword value)? updatePassword,
     required TResult orElse(),
   }) {
     if (fullNameChanged != null) {
@@ -922,6 +952,7 @@ class _$OrganizationChangedImpl implements _OrganizationChanged {
     required TResult Function(
             String organization, String position, String country)
         setInitialValues,
+    required TResult Function() updatePassword,
   }) {
     return organizationChanged(organization);
   }
@@ -940,6 +971,7 @@ class _$OrganizationChangedImpl implements _OrganizationChanged {
     TResult? Function()? updateUserInfo,
     TResult? Function(String organization, String position, String country)?
         setInitialValues,
+    TResult? Function()? updatePassword,
   }) {
     return organizationChanged?.call(organization);
   }
@@ -958,6 +990,7 @@ class _$OrganizationChangedImpl implements _OrganizationChanged {
     TResult Function()? updateUserInfo,
     TResult Function(String organization, String position, String country)?
         setInitialValues,
+    TResult Function()? updatePassword,
     required TResult orElse(),
   }) {
     if (organizationChanged != null) {
@@ -980,6 +1013,7 @@ class _$OrganizationChangedImpl implements _OrganizationChanged {
     required TResult Function(_CountryChanged value) countryChanged,
     required TResult Function(_UpdateUserInfo value) updateUserInfo,
     required TResult Function(_SetInitialValues value) setInitialValues,
+    required TResult Function(_UpdatePassword value) updatePassword,
   }) {
     return organizationChanged(this);
   }
@@ -997,6 +1031,7 @@ class _$OrganizationChangedImpl implements _OrganizationChanged {
     TResult? Function(_CountryChanged value)? countryChanged,
     TResult? Function(_UpdateUserInfo value)? updateUserInfo,
     TResult? Function(_SetInitialValues value)? setInitialValues,
+    TResult? Function(_UpdatePassword value)? updatePassword,
   }) {
     return organizationChanged?.call(this);
   }
@@ -1014,6 +1049,7 @@ class _$OrganizationChangedImpl implements _OrganizationChanged {
     TResult Function(_CountryChanged value)? countryChanged,
     TResult Function(_UpdateUserInfo value)? updateUserInfo,
     TResult Function(_SetInitialValues value)? setInitialValues,
+    TResult Function(_UpdatePassword value)? updatePassword,
     required TResult orElse(),
   }) {
     if (organizationChanged != null) {
@@ -1111,6 +1147,7 @@ class _$PositionChangedImpl implements _PositionChanged {
     required TResult Function(
             String organization, String position, String country)
         setInitialValues,
+    required TResult Function() updatePassword,
   }) {
     return positionChanged(position);
   }
@@ -1129,6 +1166,7 @@ class _$PositionChangedImpl implements _PositionChanged {
     TResult? Function()? updateUserInfo,
     TResult? Function(String organization, String position, String country)?
         setInitialValues,
+    TResult? Function()? updatePassword,
   }) {
     return positionChanged?.call(position);
   }
@@ -1147,6 +1185,7 @@ class _$PositionChangedImpl implements _PositionChanged {
     TResult Function()? updateUserInfo,
     TResult Function(String organization, String position, String country)?
         setInitialValues,
+    TResult Function()? updatePassword,
     required TResult orElse(),
   }) {
     if (positionChanged != null) {
@@ -1169,6 +1208,7 @@ class _$PositionChangedImpl implements _PositionChanged {
     required TResult Function(_CountryChanged value) countryChanged,
     required TResult Function(_UpdateUserInfo value) updateUserInfo,
     required TResult Function(_SetInitialValues value) setInitialValues,
+    required TResult Function(_UpdatePassword value) updatePassword,
   }) {
     return positionChanged(this);
   }
@@ -1186,6 +1226,7 @@ class _$PositionChangedImpl implements _PositionChanged {
     TResult? Function(_CountryChanged value)? countryChanged,
     TResult? Function(_UpdateUserInfo value)? updateUserInfo,
     TResult? Function(_SetInitialValues value)? setInitialValues,
+    TResult? Function(_UpdatePassword value)? updatePassword,
   }) {
     return positionChanged?.call(this);
   }
@@ -1203,6 +1244,7 @@ class _$PositionChangedImpl implements _PositionChanged {
     TResult Function(_CountryChanged value)? countryChanged,
     TResult Function(_UpdateUserInfo value)? updateUserInfo,
     TResult Function(_SetInitialValues value)? setInitialValues,
+    TResult Function(_UpdatePassword value)? updatePassword,
     required TResult orElse(),
   }) {
     if (positionChanged != null) {
@@ -1301,6 +1343,7 @@ class _$ConfirmPasswordChangedImpl implements _ConfirmPasswordChanged {
     required TResult Function(
             String organization, String position, String country)
         setInitialValues,
+    required TResult Function() updatePassword,
   }) {
     return confirmPasswordChanged(confirmPassword);
   }
@@ -1319,6 +1362,7 @@ class _$ConfirmPasswordChangedImpl implements _ConfirmPasswordChanged {
     TResult? Function()? updateUserInfo,
     TResult? Function(String organization, String position, String country)?
         setInitialValues,
+    TResult? Function()? updatePassword,
   }) {
     return confirmPasswordChanged?.call(confirmPassword);
   }
@@ -1337,6 +1381,7 @@ class _$ConfirmPasswordChangedImpl implements _ConfirmPasswordChanged {
     TResult Function()? updateUserInfo,
     TResult Function(String organization, String position, String country)?
         setInitialValues,
+    TResult Function()? updatePassword,
     required TResult orElse(),
   }) {
     if (confirmPasswordChanged != null) {
@@ -1359,6 +1404,7 @@ class _$ConfirmPasswordChangedImpl implements _ConfirmPasswordChanged {
     required TResult Function(_CountryChanged value) countryChanged,
     required TResult Function(_UpdateUserInfo value) updateUserInfo,
     required TResult Function(_SetInitialValues value) setInitialValues,
+    required TResult Function(_UpdatePassword value) updatePassword,
   }) {
     return confirmPasswordChanged(this);
   }
@@ -1376,6 +1422,7 @@ class _$ConfirmPasswordChangedImpl implements _ConfirmPasswordChanged {
     TResult? Function(_CountryChanged value)? countryChanged,
     TResult? Function(_UpdateUserInfo value)? updateUserInfo,
     TResult? Function(_SetInitialValues value)? setInitialValues,
+    TResult? Function(_UpdatePassword value)? updatePassword,
   }) {
     return confirmPasswordChanged?.call(this);
   }
@@ -1393,6 +1440,7 @@ class _$ConfirmPasswordChangedImpl implements _ConfirmPasswordChanged {
     TResult Function(_CountryChanged value)? countryChanged,
     TResult Function(_UpdateUserInfo value)? updateUserInfo,
     TResult Function(_SetInitialValues value)? setInitialValues,
+    TResult Function(_UpdatePassword value)? updatePassword,
     required TResult orElse(),
   }) {
     if (confirmPasswordChanged != null) {
@@ -1489,6 +1537,7 @@ class _$CountryChangedImpl implements _CountryChanged {
     required TResult Function(
             String organization, String position, String country)
         setInitialValues,
+    required TResult Function() updatePassword,
   }) {
     return countryChanged(country);
   }
@@ -1507,6 +1556,7 @@ class _$CountryChangedImpl implements _CountryChanged {
     TResult? Function()? updateUserInfo,
     TResult? Function(String organization, String position, String country)?
         setInitialValues,
+    TResult? Function()? updatePassword,
   }) {
     return countryChanged?.call(country);
   }
@@ -1525,6 +1575,7 @@ class _$CountryChangedImpl implements _CountryChanged {
     TResult Function()? updateUserInfo,
     TResult Function(String organization, String position, String country)?
         setInitialValues,
+    TResult Function()? updatePassword,
     required TResult orElse(),
   }) {
     if (countryChanged != null) {
@@ -1547,6 +1598,7 @@ class _$CountryChangedImpl implements _CountryChanged {
     required TResult Function(_CountryChanged value) countryChanged,
     required TResult Function(_UpdateUserInfo value) updateUserInfo,
     required TResult Function(_SetInitialValues value) setInitialValues,
+    required TResult Function(_UpdatePassword value) updatePassword,
   }) {
     return countryChanged(this);
   }
@@ -1564,6 +1616,7 @@ class _$CountryChangedImpl implements _CountryChanged {
     TResult? Function(_CountryChanged value)? countryChanged,
     TResult? Function(_UpdateUserInfo value)? updateUserInfo,
     TResult? Function(_SetInitialValues value)? setInitialValues,
+    TResult? Function(_UpdatePassword value)? updatePassword,
   }) {
     return countryChanged?.call(this);
   }
@@ -1581,6 +1634,7 @@ class _$CountryChangedImpl implements _CountryChanged {
     TResult Function(_CountryChanged value)? countryChanged,
     TResult Function(_UpdateUserInfo value)? updateUserInfo,
     TResult Function(_SetInitialValues value)? setInitialValues,
+    TResult Function(_UpdatePassword value)? updatePassword,
     required TResult orElse(),
   }) {
     if (countryChanged != null) {
@@ -1649,6 +1703,7 @@ class _$UpdateUserInfoImpl implements _UpdateUserInfo {
     required TResult Function(
             String organization, String position, String country)
         setInitialValues,
+    required TResult Function() updatePassword,
   }) {
     return updateUserInfo();
   }
@@ -1667,6 +1722,7 @@ class _$UpdateUserInfoImpl implements _UpdateUserInfo {
     TResult? Function()? updateUserInfo,
     TResult? Function(String organization, String position, String country)?
         setInitialValues,
+    TResult? Function()? updatePassword,
   }) {
     return updateUserInfo?.call();
   }
@@ -1685,6 +1741,7 @@ class _$UpdateUserInfoImpl implements _UpdateUserInfo {
     TResult Function()? updateUserInfo,
     TResult Function(String organization, String position, String country)?
         setInitialValues,
+    TResult Function()? updatePassword,
     required TResult orElse(),
   }) {
     if (updateUserInfo != null) {
@@ -1707,6 +1764,7 @@ class _$UpdateUserInfoImpl implements _UpdateUserInfo {
     required TResult Function(_CountryChanged value) countryChanged,
     required TResult Function(_UpdateUserInfo value) updateUserInfo,
     required TResult Function(_SetInitialValues value) setInitialValues,
+    required TResult Function(_UpdatePassword value) updatePassword,
   }) {
     return updateUserInfo(this);
   }
@@ -1724,6 +1782,7 @@ class _$UpdateUserInfoImpl implements _UpdateUserInfo {
     TResult? Function(_CountryChanged value)? countryChanged,
     TResult? Function(_UpdateUserInfo value)? updateUserInfo,
     TResult? Function(_SetInitialValues value)? setInitialValues,
+    TResult? Function(_UpdatePassword value)? updatePassword,
   }) {
     return updateUserInfo?.call(this);
   }
@@ -1741,6 +1800,7 @@ class _$UpdateUserInfoImpl implements _UpdateUserInfo {
     TResult Function(_CountryChanged value)? countryChanged,
     TResult Function(_UpdateUserInfo value)? updateUserInfo,
     TResult Function(_SetInitialValues value)? setInitialValues,
+    TResult Function(_UpdatePassword value)? updatePassword,
     required TResult orElse(),
   }) {
     if (updateUserInfo != null) {
@@ -1849,6 +1909,7 @@ class _$SetInitialValuesImpl implements _SetInitialValues {
     required TResult Function(
             String organization, String position, String country)
         setInitialValues,
+    required TResult Function() updatePassword,
   }) {
     return setInitialValues(organization, position, country);
   }
@@ -1867,6 +1928,7 @@ class _$SetInitialValuesImpl implements _SetInitialValues {
     TResult? Function()? updateUserInfo,
     TResult? Function(String organization, String position, String country)?
         setInitialValues,
+    TResult? Function()? updatePassword,
   }) {
     return setInitialValues?.call(organization, position, country);
   }
@@ -1885,6 +1947,7 @@ class _$SetInitialValuesImpl implements _SetInitialValues {
     TResult Function()? updateUserInfo,
     TResult Function(String organization, String position, String country)?
         setInitialValues,
+    TResult Function()? updatePassword,
     required TResult orElse(),
   }) {
     if (setInitialValues != null) {
@@ -1907,6 +1970,7 @@ class _$SetInitialValuesImpl implements _SetInitialValues {
     required TResult Function(_CountryChanged value) countryChanged,
     required TResult Function(_UpdateUserInfo value) updateUserInfo,
     required TResult Function(_SetInitialValues value) setInitialValues,
+    required TResult Function(_UpdatePassword value) updatePassword,
   }) {
     return setInitialValues(this);
   }
@@ -1924,6 +1988,7 @@ class _$SetInitialValuesImpl implements _SetInitialValues {
     TResult? Function(_CountryChanged value)? countryChanged,
     TResult? Function(_UpdateUserInfo value)? updateUserInfo,
     TResult? Function(_SetInitialValues value)? setInitialValues,
+    TResult? Function(_UpdatePassword value)? updatePassword,
   }) {
     return setInitialValues?.call(this);
   }
@@ -1941,6 +2006,7 @@ class _$SetInitialValuesImpl implements _SetInitialValues {
     TResult Function(_CountryChanged value)? countryChanged,
     TResult Function(_UpdateUserInfo value)? updateUserInfo,
     TResult Function(_SetInitialValues value)? setInitialValues,
+    TResult Function(_UpdatePassword value)? updatePassword,
     required TResult orElse(),
   }) {
     if (setInitialValues != null) {
@@ -1960,6 +2026,167 @@ abstract class _SetInitialValues implements RegistrationEvent {
   @JsonKey(ignore: true)
   _$$SetInitialValuesImplCopyWith<_$SetInitialValuesImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UpdatePasswordImplCopyWith<$Res> {
+  factory _$$UpdatePasswordImplCopyWith(_$UpdatePasswordImpl value,
+          $Res Function(_$UpdatePasswordImpl) then) =
+      __$$UpdatePasswordImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$UpdatePasswordImplCopyWithImpl<$Res>
+    extends _$RegistrationEventCopyWithImpl<$Res, _$UpdatePasswordImpl>
+    implements _$$UpdatePasswordImplCopyWith<$Res> {
+  __$$UpdatePasswordImplCopyWithImpl(
+      _$UpdatePasswordImpl _value, $Res Function(_$UpdatePasswordImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$UpdatePasswordImpl implements _UpdatePassword {
+  const _$UpdatePasswordImpl();
+
+  @override
+  String toString() {
+    return 'RegistrationEvent.updatePassword()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$UpdatePasswordImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() submitted,
+    required TResult Function(String email) emailChanged,
+    required TResult Function(String password) passwordChanged,
+    required TResult Function(String fullName) fullNameChanged,
+    required TResult Function(String organization) organizationChanged,
+    required TResult Function(String position) positionChanged,
+    required TResult Function(String confirmPassword) confirmPasswordChanged,
+    required TResult Function(String country) countryChanged,
+    required TResult Function() updateUserInfo,
+    required TResult Function(
+            String organization, String position, String country)
+        setInitialValues,
+    required TResult Function() updatePassword,
+  }) {
+    return updatePassword();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? submitted,
+    TResult? Function(String email)? emailChanged,
+    TResult? Function(String password)? passwordChanged,
+    TResult? Function(String fullName)? fullNameChanged,
+    TResult? Function(String organization)? organizationChanged,
+    TResult? Function(String position)? positionChanged,
+    TResult? Function(String confirmPassword)? confirmPasswordChanged,
+    TResult? Function(String country)? countryChanged,
+    TResult? Function()? updateUserInfo,
+    TResult? Function(String organization, String position, String country)?
+        setInitialValues,
+    TResult? Function()? updatePassword,
+  }) {
+    return updatePassword?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? submitted,
+    TResult Function(String email)? emailChanged,
+    TResult Function(String password)? passwordChanged,
+    TResult Function(String fullName)? fullNameChanged,
+    TResult Function(String organization)? organizationChanged,
+    TResult Function(String position)? positionChanged,
+    TResult Function(String confirmPassword)? confirmPasswordChanged,
+    TResult Function(String country)? countryChanged,
+    TResult Function()? updateUserInfo,
+    TResult Function(String organization, String position, String country)?
+        setInitialValues,
+    TResult Function()? updatePassword,
+    required TResult orElse(),
+  }) {
+    if (updatePassword != null) {
+      return updatePassword();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Submitted value) submitted,
+    required TResult Function(_EmailChanged value) emailChanged,
+    required TResult Function(_PasswordChanged value) passwordChanged,
+    required TResult Function(_UserNameChanged value) fullNameChanged,
+    required TResult Function(_OrganizationChanged value) organizationChanged,
+    required TResult Function(_PositionChanged value) positionChanged,
+    required TResult Function(_ConfirmPasswordChanged value)
+        confirmPasswordChanged,
+    required TResult Function(_CountryChanged value) countryChanged,
+    required TResult Function(_UpdateUserInfo value) updateUserInfo,
+    required TResult Function(_SetInitialValues value) setInitialValues,
+    required TResult Function(_UpdatePassword value) updatePassword,
+  }) {
+    return updatePassword(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Submitted value)? submitted,
+    TResult? Function(_EmailChanged value)? emailChanged,
+    TResult? Function(_PasswordChanged value)? passwordChanged,
+    TResult? Function(_UserNameChanged value)? fullNameChanged,
+    TResult? Function(_OrganizationChanged value)? organizationChanged,
+    TResult? Function(_PositionChanged value)? positionChanged,
+    TResult? Function(_ConfirmPasswordChanged value)? confirmPasswordChanged,
+    TResult? Function(_CountryChanged value)? countryChanged,
+    TResult? Function(_UpdateUserInfo value)? updateUserInfo,
+    TResult? Function(_SetInitialValues value)? setInitialValues,
+    TResult? Function(_UpdatePassword value)? updatePassword,
+  }) {
+    return updatePassword?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Submitted value)? submitted,
+    TResult Function(_EmailChanged value)? emailChanged,
+    TResult Function(_PasswordChanged value)? passwordChanged,
+    TResult Function(_UserNameChanged value)? fullNameChanged,
+    TResult Function(_OrganizationChanged value)? organizationChanged,
+    TResult Function(_PositionChanged value)? positionChanged,
+    TResult Function(_ConfirmPasswordChanged value)? confirmPasswordChanged,
+    TResult Function(_CountryChanged value)? countryChanged,
+    TResult Function(_UpdateUserInfo value)? updateUserInfo,
+    TResult Function(_SetInitialValues value)? setInitialValues,
+    TResult Function(_UpdatePassword value)? updatePassword,
+    required TResult orElse(),
+  }) {
+    if (updatePassword != null) {
+      return updatePassword(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UpdatePassword implements RegistrationEvent {
+  const factory _UpdatePassword() = _$UpdatePasswordImpl;
 }
 
 /// @nodoc

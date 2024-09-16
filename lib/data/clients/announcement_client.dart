@@ -1,3 +1,4 @@
+import 'package:ieee_sst/data/models/announcement_model/announcement_model.dart';
 import 'package:injectable/injectable.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
@@ -30,6 +31,11 @@ class AnnouncementClient {
           .delete()
           .eq('id', announcementId);
 
-  Future<void> updateAnnouncement(Map<String, dynamic> announcement) async =>
-      await _supabaseClient.from('announcements').upsert(announcement);
+  Future<void> updateAnnouncement(Announcement announcement) async =>
+      await _supabaseClient.from('announcements').update(
+        {
+          'title': announcement.title,
+          'description': announcement.description,
+        },
+      ).eq('id', announcement.id!);
 }

@@ -17,7 +17,6 @@ Future<void> main() async {
   await dotenv.load();
 
   await Firebase.initializeApp();
-
   await FirebaseMessaging.instance.requestPermission();
 
   // Notifcation handling

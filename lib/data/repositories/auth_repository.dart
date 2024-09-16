@@ -135,7 +135,10 @@ class AuthRepository implements AuthenticationRepository {
 
   @override
   Future<void> resetPassword(String email) async {
-    await _supabaseClient.auth.resetPasswordForEmail(email);
+    await _supabaseClient.auth.resetPasswordForEmail(
+      email,
+      redirectTo: 'supabase://ieeesst/reset-password',
+    );
   }
 
   @override
@@ -152,6 +155,16 @@ class AuthRepository implements AuthenticationRepository {
       position,
       country,
     );
+  }
+
+  @override
+  Future<void> updatePassword(String password) async {
+    final user = _supabaseClient.auth.currentUser;
+    if (user == null) {
+      throw 'User is not signed in.';
+    }
+
+    await _supabaseClient.auth.updateUser(UserAttributes(password: password));
   }
 
   Future<void> _setFcmToken() async {

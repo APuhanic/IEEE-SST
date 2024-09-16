@@ -6,6 +6,7 @@ import 'package:ieee_sst/data/constants/text_styles.dart';
 import 'package:ieee_sst/presentation/admin/admin_annoucments_managment_screen.dart/bloc/announcement_form_bloc.dart';
 import 'package:ieee_sst/presentation/admin/admin_annoucments_managment_screen.dart/widgets/announcement_description_input.dart';
 import 'package:ieee_sst/presentation/admin/admin_annoucments_managment_screen.dart/widgets/announcement_title_input.dart';
+import 'package:ieee_sst/presentation/common/bloc/announcement_bloc/announcement_bloc.dart';
 
 class UpdateAnnouncementScreen extends StatelessWidget {
   const UpdateAnnouncementScreen({super.key});
@@ -15,9 +16,6 @@ class UpdateAnnouncementScreen extends StatelessWidget {
     return Scaffold(
       body: BlocConsumer<AnnouncementFormBloc, AnnouncementFormState>(
         listener: (context, state) {
-          if (state.status.isSuccess) {
-            Navigator.pop(context);
-          }
           if (state.status.isFailure) {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
@@ -58,10 +56,14 @@ class UpdateAnnouncementScreen extends StatelessWidget {
                             backgroundColor: AppColors.primary,
                             foregroundColor: AppColors.white,
                             textStyle: AppTextStyle.button),
-                        onPressed: () => context
-                            .read<AnnouncementFormBloc>()
-                            .add(const AnnouncementFormEvent
-                                .createAnnouncement()),
+                        onPressed: () async {
+                          context.read<AnnouncementFormBloc>().add(
+                              const AnnouncementFormEvent.updateAnnouncement());
+                          context.read<AnnouncementManagmentBloc>().add(
+                              const AnnouncementManagmentEvent
+                                  .loadAnnouncements());
+                          Navigator.pop(context);
+                        },
                         child: const Text('Update Announcement'),
                       ),
                     ],

@@ -22,4 +22,5 @@ class RegistrationEvent with _$RegistrationEvent {
     String position,
     String country,
   ) = _SetInitialValues;
+  const factory RegistrationEvent.updatePassword() = _UpdatePassword;
 }

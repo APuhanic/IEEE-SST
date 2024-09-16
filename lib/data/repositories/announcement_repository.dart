@@ -18,9 +18,9 @@ class AnnouncementRepository {
   Future<void> postAnnouncement(String title, String description) async =>
       await _announcementClient.postAnnouncement(title, description);
 
-  Future<void> deleteAnnouncement(String announcementId) =>
-      _announcementClient.deleteAnnouncement(announcementId);
+  Future<void> deleteAnnouncement(String announcementId) async =>
+      await _announcementClient.deleteAnnouncement(announcementId);
 
-  Future<void> updateAnnouncement(Announcement announcement) =>
-      _announcementClient.updateAnnouncement(announcement.toJson());
+  Future<void> updateAnnouncement(Announcement announcement) async =>
+      await _announcementClient.updateAnnouncement(announcement);
 }

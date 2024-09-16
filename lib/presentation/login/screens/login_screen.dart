@@ -105,18 +105,27 @@ class LoginScreen extends StatelessWidget {
   void _showForgotPasswordBottomSheet(BuildContext context) {
     showModalBottomSheet(
       context: context,
+      isScrollControlled: true, // Allow for custom height
       builder: (context) {
+        final mediaQuery = MediaQuery.of(context);
+        final bottomInset = mediaQuery.viewInsets.bottom;
+
         return Container(
-          height: 1000,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             color: AppColors.background,
-            borderRadius: BorderRadius.circular(24),
+            borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
           ),
           child: Padding(
-            padding:
-                const EdgeInsets.symmetric(vertical: 16.0, horizontal: 32.0),
-            child: Center(
+            padding: EdgeInsets.only(
+              left: 32.0,
+              right: 32.0,
+              top: 16.0,
+              bottom:
+                  bottomInset + 16.0, // Adjust bottom padding to avoid overlap
+            ),
+            child: SingleChildScrollView(
               child: Column(
+                mainAxisSize: MainAxisSize.min, // Allow height to be dynamic
                 children: [
                   Text(
                     'Forgot Password',

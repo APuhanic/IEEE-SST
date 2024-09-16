@@ -30,6 +30,7 @@ class RegistrationBloc extends Bloc<RegistrationEvent, RegistrationState> {
     on<_CountryChanged>(_onCountryChanged);
     on<_UpdateUserInfo>(_onUpdateUserInfo);
     on<_SetInitialValues>(_onSetInitialValues);
+    on<_UpdatePassword>(_onUpdatePassword);
   }
   final AuthenticationRepository _authRepository;
 
@@ -176,5 +177,23 @@ class RegistrationBloc extends Bloc<RegistrationEvent, RegistrationState> {
         country: event.country,
       ),
     );
+  }
+
+  Future<void> _onUpdatePassword(
+      _UpdatePassword event, Emitter<RegistrationState> emit) async {
+    emit(state.copyWith(status: FormzSubmissionStatus.inProgress));
+    try {
+      await _authRepository.updatePassword(state.password.value);
+      emit(state.copyWith(
+        status: FormzSubmissionStatus.success,
+        password: const Password.pure(),
+        confirmPassword: const ConfirmPassowrd.dirty(''),
+      ));
+    } on AuthException catch (e) {
+      emit(state.copyWith(
+        status: FormzSubmissionStatus.failure,
+        errorMessage: e.message,
+      ));
+    }
   }
 }

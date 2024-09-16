@@ -41,6 +41,7 @@ import 'package:ieee_sst/presentation/profile/screens/my_profile_screen.dart';
 import 'package:ieee_sst/presentation/register/screens/register_screen.dart';
 import 'package:ieee_sst/presentation/register/screens/register_user_data_screen.dart';
 import 'package:ieee_sst/presentation/register/screens/register_user_email_screen.dart';
+import 'package:ieee_sst/presentation/reset_password/screens/reset_password_screen.dart';
 import 'package:ieee_sst/presentation/sponsors/screens/sponsors_screen.dart';
 import 'package:injectable/injectable.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -65,6 +66,16 @@ class AppRouter {
               child: LoginScreen(),
             ),
           ),
+          GoRoute(
+            path: '/reset-password',
+            pageBuilder: (context, state) {
+              return MaterialPage(
+                key: const ValueKey('ResetPasswordCallbackScreen'),
+                child: ResetPasswordScreen(),
+              );
+            },
+          ),
+
           // Register routes -  Nested so the info can be preserved when going back
           GoRoute(
             path: RoutePaths.register,
@@ -419,6 +430,15 @@ class AppRouter {
 
   String getInitialRoute() {
     final Session? session = _supabaseClient.auth.currentSession;
+    // If auth state change is passwordrecovery go to reset password screen
+    _supabaseClient.auth.onAuthStateChange.listen((data) {
+      if (data.event == AuthChangeEvent.passwordRecovery) {
+        final token = data.session!.accessToken;
+        _navigatorKeyManager.rootNavigatorKey.currentState!.context
+            .go(RoutePaths.resetPassword, extra: token);
+        return;
+      }
+    });
 
     if (session == null || session.isExpired) {
       return RoutePaths.login;

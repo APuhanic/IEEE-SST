@@ -23,4 +23,5 @@ abstract class AuthenticationRepository {
     String? position,
     String? country,
   );
+  Future<void> updatePassword(String password);
 }
