@@ -46,6 +46,7 @@ dependencies:
   country_picker: ^2.0.26
   firebase_core: ^3.4.1
   firebase_messaging: ^15.1.1
+  firebase_analytics: ^11.3.1
 
 dev_dependencies:
   flutter_test:

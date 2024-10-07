@@ -34,66 +34,68 @@ class LoginScreen extends StatelessWidget {
           },
           listenWhen: (previous, current) => previous.status != current.status,
           builder: (context, state) {
-            return Padding(
-              padding: const EdgeInsets.all(32),
-              child: Column(
-                children: [
-                  const SizedBox(height: 40),
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      'IEEE SST',
-                      style: AppTextStyle.header,
-                    ),
-                  ),
-                  const Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text('Fill your details'),
-                  ),
-                  const Padding(
-                    padding: EdgeInsets.only(bottom: 24.0, top: 40),
-                    child: LoginEmailInput(),
-                  ),
-                  const LoginPasswordInput(),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      state.status.isFailure
-                          ? Text(
-                              state.errorMessage,
-                              style: AppTextStyle.errorText.copyWith(
-                                color: AppColors.warning.withOpacity(0.7),
-                              ),
-                            )
-                          : const SizedBox.shrink(),
-                      TextButton(
-                        onPressed: () {
-                          _showForgotPasswordBottomSheet(context);
-                        },
-                        child: Text(
-                          'Forgot Password?',
-                          style: AppTextStyle.lightText,
-                        ),
+            return AutofillGroup(
+              child: Padding(
+                padding: const EdgeInsets.all(32),
+                child: Column(
+                  children: [
+                    const SizedBox(height: 40),
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        'IEEE SST',
+                        style: AppTextStyle.header,
                       ),
-                    ],
-                  ),
-                  const Padding(
-                    padding: EdgeInsets.symmetric(vertical: 24.0),
-                    child: LoginButton(),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text('- Or Continue With -',
-                          style: AppTextStyle.lightText),
-                    ],
-                  ),
-                  const Padding(
-                    padding: EdgeInsets.symmetric(vertical: 24.0),
-                    child: _LoginProviders(),
-                  ),
-                  const RegisterAccountLink(),
-                ],
+                    ),
+                    const Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text('Fill your details'),
+                    ),
+                    const Padding(
+                      padding: EdgeInsets.only(bottom: 24.0, top: 40),
+                      child: LoginEmailInput(),
+                    ),
+                    const LoginPasswordInput(),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        state.status.isFailure
+                            ? Text(
+                                state.errorMessage,
+                                style: AppTextStyle.errorText.copyWith(
+                                  color: AppColors.warning.withOpacity(0.7),
+                                ),
+                              )
+                            : const SizedBox.shrink(),
+                        TextButton(
+                          onPressed: () {
+                            _showForgotPasswordBottomSheet(context);
+                          },
+                          child: Text(
+                            'Forgot Password?',
+                            style: AppTextStyle.lightText,
+                          ),
+                        ),
+                      ],
+                    ),
+                    const Padding(
+                      padding: EdgeInsets.symmetric(vertical: 24.0),
+                      child: LoginButton(),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text('- Or Continue With -',
+                            style: AppTextStyle.lightText),
+                      ],
+                    ),
+                    const Padding(
+                      padding: EdgeInsets.symmetric(vertical: 24.0),
+                      child: _LoginProviders(),
+                    ),
+                    const RegisterAccountLink(),
+                  ],
+                ),
               ),
             );
           },

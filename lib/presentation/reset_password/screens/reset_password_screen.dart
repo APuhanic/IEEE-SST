@@ -18,6 +18,15 @@ class ResetPasswordScreen extends StatelessWidget {
         padding: const EdgeInsets.all(32),
         child: Column(
           children: [
+            //BAck button
+            Row(
+              children: [
+                IconButton(
+                  icon: const Icon(Icons.arrow_back),
+                  onPressed: () => Navigator.of(context).pop(),
+                ),
+              ],
+            ),
             const SizedBox(height: 40),
             Align(
               alignment: Alignment.centerLeft,

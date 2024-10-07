@@ -19,8 +19,10 @@ class LoginEmailInput extends StatelessWidget {
           child: TextFormField(
             keyboardType: TextInputType.emailAddress,
             textInputAction: TextInputAction.next,
-            onChanged: (value) =>
-                context.read<LoginBloc>().add(LoginEvent.emailChanged(value)),
+            onChanged: (value) {
+              context.read<LoginBloc>().add(LoginEvent.emailChanged(value));
+            },
+            autofillHints: const [AutofillHints.email],
             decoration: InputDecoration(
               hintText: 'Email Address',
               hintStyle: AppTextStyle.textForm,

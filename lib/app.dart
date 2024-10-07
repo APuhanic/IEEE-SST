@@ -72,13 +72,16 @@ class MainApp extends StatelessWidget {
         routerConfig: _appRouter,
         builder: (context, child) {
           final mediaQueryData = MediaQuery.of(context);
-          final scale = mediaQueryData.textScaler
-              .clamp(maxScaleFactor: 1, minScaleFactor: 1);
+          final scale = mediaQueryData.textScaler.clamp(
+            maxScaleFactor: 1,
+            minScaleFactor: 1,
+          );
           return MediaQuery(
-              data: MediaQuery.of(context).copyWith(
-                textScaler: scale,
-              ),
-              child: SafeArea(child: child!));
+            data: MediaQuery.of(context).copyWith(
+              textScaler: scale,
+            ),
+            child: SafeArea(child: child!),
+          );
         },
       ),
     );

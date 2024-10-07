@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:formz/formz.dart';
 import 'package:ieee_sst/data/constants/app_colors.dart';
@@ -24,10 +25,14 @@ class LoginButton extends StatelessWidget {
             ),
             backgroundColor: AppColors.primary,
           ),
-          onPressed: () => context.read<LoginBloc>().add(LoginEvent.submitted(
-                state.email.value,
-                state.password.value,
-              )),
+          onPressed: () {
+            TextInput.finishAutofillContext();
+
+            context.read<LoginBloc>().add(LoginEvent.submitted(
+                  state.email.value,
+                  state.password.value,
+                ));
+          },
           child: state.status.isInProgress
               ? const CircularProgressIndicator(color: AppColors.white)
               : Text('Log in', style: AppTextStyle.button)),

@@ -81,7 +81,7 @@ class HomeScreen extends StatelessWidget {
                   final titles = [
                     'Conference Chairs',
                     'Steering Committee',
-                    'Program Comittee',
+                    'Program Committee',
                     'Keynote Speaker',
                     'Special Sessions',
                     'PhD Forum'

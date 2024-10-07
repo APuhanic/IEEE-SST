@@ -69,8 +69,8 @@ class AppRouter {
           GoRoute(
             path: '/reset-password',
             pageBuilder: (context, state) {
-              return MaterialPage(
-                key: const ValueKey('ResetPasswordCallbackScreen'),
+              return const MaterialPage(
+                key: ValueKey('ResetPasswordCallbackScreen'),
                 child: ResetPasswordScreen(),
               );
             },

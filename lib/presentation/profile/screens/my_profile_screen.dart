@@ -46,7 +46,7 @@ class MyProfileScreen extends StatelessWidget {
                         const SizedBox(height: 20),
                         TextButton(
                             onPressed: () {
-                              context.go(RoutePaths.resetPassword);
+                              context.push(RoutePaths.resetPassword);
                             },
                             child: Text(
                               'Reset password',
